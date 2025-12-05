@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import TreeNode from './TreeNode';
 import './ChapterView.css';
 
@@ -26,19 +26,76 @@ function ChapterView() {
             });
     }, []);
 
-    const handleNodeClick = (nodeId) => {
-        // Toggle: if node is expanded, collapse it; otherwise expand it
-        // This allows multiple nodes to be expanded at different levels
+    // Build a map of nodeId -> { parentId, siblings (including self), depth }
+    const nodeInfoMap = useMemo(() => {
+        if (!chapterData || !chapterData.nodes) return new Map();
+
+        const map = new Map();
+
+        const processNodes = (nodes, parentId, depth) => {
+            const siblingIds = nodes.map(n => n.id);
+            nodes.forEach(node => {
+                map.set(node.id, {
+                    parentId,
+                    siblingIds,
+                    depth,
+                    node
+                });
+                if (node.children && node.children.length > 0) {
+                    processNodes(node.children, node.id, depth + 1);
+                }
+            });
+        };
+
+        processNodes(chapterData.nodes, null, 0);
+        return map;
+    }, [chapterData]);
+
+    // Get all descendant IDs of a node (for collapsing entire subtrees)
+    const getDescendantIds = useCallback((nodeId) => {
+        const nodeInfo = nodeInfoMap.get(nodeId);
+        if (!nodeInfo || !nodeInfo.node) return [];
+
+        const descendants = [];
+        const collectDescendants = (node) => {
+            if (node.children) {
+                node.children.forEach(child => {
+                    descendants.push(child.id);
+                    collectDescendants(child);
+                });
+            }
+        };
+        collectDescendants(nodeInfo.node);
+        return descendants;
+    }, [nodeInfoMap]);
+
+    const handleNodeClick = useCallback((nodeId) => {
         setExpandedNodeIds((prev) => {
             const newSet = new Set(prev);
+            const nodeInfo = nodeInfoMap.get(nodeId);
+
             if (newSet.has(nodeId)) {
+                // Collapsing: remove this node and all its descendants
                 newSet.delete(nodeId);
+                const descendants = getDescendantIds(nodeId);
+                descendants.forEach(id => newSet.delete(id));
             } else {
+                // Expanding: collapse all siblings and their descendants first
+                if (nodeInfo) {
+                    nodeInfo.siblingIds.forEach(siblingId => {
+                        if (siblingId !== nodeId) {
+                            newSet.delete(siblingId);
+                            const siblingDescendants = getDescendantIds(siblingId);
+                            siblingDescendants.forEach(id => newSet.delete(id));
+                        }
+                    });
+                }
+                // Then expand this node
                 newSet.add(nodeId);
             }
             return newSet;
         });
-    };
+    }, [nodeInfoMap, getDescendantIds]);
 
     if (loading) {
         return (
