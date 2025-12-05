@@ -1,0 +1,129 @@
+<chapterNo> 3
+<chapter> Matter around Us
+
+<title1> 1. Matter Around Us
+
+<title2> What is Matter?
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What%20is%20Matter.png
+<bullet1> Matter is everything around us—air, water, and the materials we use. It is anything that occupies space and has mass.
+<bullet1> Matter exists in three states: solid, liquid, and gas.
+<bullet1> Atoms are the smallest particles of matter. They are too small to see, even with regular microscopes. 
+<bullet1> A standard sheet of paper is millions of atoms thick!
+
+<title2> Particle Traits of Matter
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Particle%20Traits%20of%20Matter.jpg
+<bullet1> Particles of matter have spaces between them, and the spacing differs in solids, liquids, and gases.
+<bullet1> When you stir sugar into water, it disappears because sugar particles fill the spaces between water particles. Yes, the water will taste sweet!
+<bullet1> Particles of matter attract each other through a force of attraction that keeps them together. 
+<bullet1> The strength of this force varies depending on the state of matter—stronger in solids and weaker in gases.
+
+<title2> Types of Matter
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Types%20of%20Matter.png
+
+<title2> Pure Substances
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Pure%20Substances1.png
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Pure%20Substances2.png
+<bullet1> A pure substance contains only one kind of particle throughout.
+<bullet1> Pure substances can be either elements or compounds.
+<bullet1> An element is made of the same type of atoms, such as gold or oxygen.
+<bullet1> A compound is a substance formed by the chemical combination of two or more elements.
+
+<title2> Mixtures
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures1.png
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures2.png
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures3.png
+<bullet1> A mixture is made up of two or more components that can be physically separated. 
+<bullet1> A mixture can be a combination of two or more elements. Example: 22 carat gold (Gold + Copper)
+<bullet1> It can also be a combination of two or more compounds. Example: Aerated drinks, which include carbon dioxide, water, sweeteners, and coloring agents. 
+<bullet1> A mixture can also be made of an element and a compound. Example: Tincture of iodine, which is iodine dissolved in alcohol. 
+
+<title1> 2. Separating Mixtures
+<title2> Why Separate Mixtures?
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Why%20Separate%20Mixtures.png
+<bullet1> Separation is the process of isolating and removing the components of a mixture to get pure substances.
+<bullet1> Separation is important to:
+<bullet2> Remove impurities or harmful parts from a mixture. Example: Stones from rice. 
+<bullet2> Isolate a useful component. Example: Petrol from petroleum.
+<bullet2> Obtain a pure substance. Example: Gold from gold mines.
+
+<title2> Separation Techniques
+<title3> Filtering
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques1.jpg
+<bullet1> Filtering is a process used to separate larger particles from a liquid.
+<bullet1> Filtering helps get a clean liquid by separating unwanted particles.
+<bullet1> Example: Use a strainer to remove tea leaves from the tea. 
+
+<title3> Sieving
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques2.jpg
+<bullet1> Sieving is similar to filtering, but it is used to separate solid particles of different sizes. 
+<bullet1> For example, bran is separated from flour, and sand is separated from gravel using a sieve.
+<bullet1> A wire mesh sieve is commonly used to separate gravel from sand at construction sites.
+<bullet1> Sieving helps us sort materials based on size.
+
+<title3> Churning
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques3.jpg
+<bullet1> Churning is used to separate fine insoluble solids from a liquid, like butter from curd. 
+<bullet1> The mixture is vigorously churned, causing the butter to collect on the sides of the vessel.
+<bullet1> After churning, both butter and buttermilk are collected and can be consumed.
+
+<title3> Threshing
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques4.jpg
+<bullet1> Threshing is a method used by farmers to separate grains like rice and wheat from their stalks. 
+<bullet1> Unlike flowers, which can be easily plucked, grains are small and the quantity is large, making it difficult to separate them by hand.
+<bullet1> Farmers beat the plants hard to help the grains fall off from their stalks.
+<bullet1> Threshing helps in collecting grains for food production.
+
+<title3> Winnowing
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques5.jpg
+<bullet1> Winnowing is used to remove the husk from food grains like rice and wheat, as husk is not edible. 
+<bullet1> The husk is very light and gets easily blown away by wind.
+<bullet1> To winnow, the mixture is dropped from a height in the presence of wind.
+<bullet1> The lighter husk is carried by the wind and forms a separate heap, while the heavier grains fall closer and form another heap.
+
+<title3> Handpicking
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques6.jpg
+<bullet1> Handpicking is a simple method used to separate visible impurities from a mixture. 
+<bullet1> For example, stones can be easily separated from rice if the stones are clearly visible and different from the grains.
+
+<title3> Magnetic Separation
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques7.png
+<bullet1> Magnetic separation is used to separate magnetic substances from non-magnetic substances. 
+<bullet1> If a mixture contains iron or other magnetic materials, a magnet can be used to attract and separate them.
+<bullet1> Magnetic substances are those that are attracted to a magnet.
+<bullet1> The process of using a magnet to separate solids is called magnetic separation.
+
+<title3> Sedimentation
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques8.png
+<bullet1> Sedimentation is the process used to separate heavier substances from lighter impurities in a mixture.
+<bullet1> When rice or pulses are mixed with fine straw, husk, or dust, they are washed in water.
+<bullet1> The heavier rice grains or pulses sink to the bottom, while the lighter impurities float on top. 
+<bullet1> The floating impurities can then be removed, leaving the clean grains.
+
+<title3> Decantation
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques9.png
+<bullet1> Decantation separates the liquid from the solid sediment by slowly pouring out the liquid without disturbing the solids. 
+<bullet1> The liquid remaining after decantation is called the decantate.
+<bullet1> Sediment is the solid that settles at the bottom of the container.
+<bullet1> After decantation, filtration can be used to remove fine particles still present in the liquid.
+
+<title3> Filtration
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques10.png
+<bullet1> Filtration is used to remove fine impurities from liquids using a filter paper. 
+<bullet1> A filter paper has very fine pores that are smaller than soil particles.
+<bullet1> The liquid passes through the filter paper, while the impurities are left behind.
+<bullet1> Filtration is a simple and effective way to clean liquids.
+
+<title1> 3. Food and Adulteration
+<title2> What is Adulteration?
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What%20is%20Adulteration1.jpg
+<bullet1> Adulteration is when harmful or unwanted substances are mixed with products, often to increase quantity or profit. 
+<bullet1> Food can be adulterated due to carelessness or lack of proper handling.
+<bullet1> We need to be careful about adulterants in consumable goods, especially food.
+<bullet1> Adulterated food can be harmful and pose a health hazard when consumed.
+
+<title2> Common Adulterants
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Common%20Adulterants1.png
+<image> https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Common%20Adulterants2.jpg
+<bullet1> An adulterated substance does not show the true properties of the original substance.
+<bullet1> For example, used tea leaves are sometimes mixed into tea as an adulterant.
+<bullet1> Turmeric powder can be adulterated with a bright yellow chemical, which is poisonous to us.
