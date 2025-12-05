@@ -1,10 +1,13 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
     const isExpanded = expandedNodeIds.has(node.id);
     const hasContent = node.content && node.content.length > 0;
     const hasChildren = node.children && node.children.length > 0;
     const isExpandable = hasContent || hasChildren;
+
+    // State for image modal
+    const [modalImage, setModalImage] = useState(null);
 
     const handleClick = useCallback(() => {
         if (isExpandable) {
@@ -35,6 +38,14 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
         }
     };
 
+    const handleThumbnailClick = useCallback((url) => {
+        setModalImage(url);
+    }, []);
+
+    const handleModalClose = useCallback(() => {
+        setModalImage(null);
+    }, []);
+
     const renderContent = () => {
         if (!hasContent) return null;
 
@@ -43,13 +54,27 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
                 {node.content.map((item, index) => {
                     if (item.type === 'image') {
                         return (
-                            <div key={index} className="content-image-wrapper">
+                            <div
+                                key={index}
+                                className="content-thumbnail-wrapper"
+                                onClick={() => handleThumbnailClick(item.url)}
+                                role="button"
+                                tabIndex={0}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault();
+                                        handleThumbnailClick(item.url);
+                                    }
+                                }}
+                                aria-label={`View full image: ${node.label}`}
+                            >
                                 <img
                                     src={item.url}
                                     alt={node.label}
                                     loading="lazy"
-                                    className="content-image"
+                                    className="content-thumbnail"
                                 />
+                                <span className="thumbnail-zoom-icon">🔍</span>
                             </div>
                         );
                     }
@@ -72,6 +97,23 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
 
                     return null;
                 })}
+
+                {/* Image Modal */}
+                {modalImage && (
+                    <div
+                        className="image-modal-overlay"
+                        onClick={handleModalClose}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="Full size image"
+                    >
+                        <img
+                            src={modalImage}
+                            alt={node.label}
+                            className="image-modal-content"
+                        />
+                    </div>
+                )}
             </div>
         );
     };

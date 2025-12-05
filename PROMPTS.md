@@ -1,4 +1,22 @@
-## 1.1.0
+# Version 1.2.0
+Do not display the full images in the content. Display only the small image thumbnail.
+When the user clicks on the thumbnail, display the full image in a modal.
+When the user clicks on the modal, close the modal.
+
+## Changes Made:
+TreeNode.jsx:
+Images now display as small thumbnails (120x90px)
+Clicking a thumbnail opens a full-size modal
+Clicking the modal closes it
+Added keyboard accessibility (Enter/Space to open)
+Added a 🔍 zoom icon that appears on hover
+
+ChapterView.css:
+Thumbnail styling with hover effects (scale + glow)
+Full-screen modal overlay with fade-in animation
+Modal image with zoom-in animation and responsive sizing
+
+# Version 1.1.0
 Please fix the following issue. 
 Currently I am able to open multiple nodes and all nodes are in expanded state and content are visible.
 I want the following behaviour:
@@ -9,7 +27,7 @@ I want the following behaviour:
 
 Don't test yourself. I will do manual testing myself.
 
-## 1.0.0
+# Version 1.0.0
 I want you to write a React web app to display hierarchical content to the user.
 - The JSON data is available in ./db/db.json file.
 - Display "chapterNo" and "chapterTitle".
