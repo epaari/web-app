@@ -124,8 +124,7 @@ function ChapterView() {
     return (
         <div className="chapter-view">
             <header className="chapter-header">
-                <span className="chapter-number">Chapter {chapterData.chapterNo}</span>
-                <h1 className="chapter-title">{chapterData.chapterTitle}</h1>
+                <h1 className="chapter-title">{chapterData.chapterNo}. {chapterData.chapterTitle}</h1>
             </header>
 
             <div className="nodes-container">

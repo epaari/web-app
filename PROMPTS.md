@@ -1,3 +1,12 @@
+# Version 1.2.1
+The top of the screen is shown as follows:
+1. "CHAPTER 3" in a rounded box (.chapter-number)
+2. "Matter Around Us" in a large font (font-size: 2.5rem;) (.chapter-title)
+
+Change it as follows:
+"3. Matter Around Us"
+font-size: 5rem;
+
 # Version 1.2.0
 Do not display the full images in the content. Display only the small image thumbnail.
 When the user clicks on the thumbnail, display the full image in a modal.
