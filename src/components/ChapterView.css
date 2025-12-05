@@ -1,9 +1,9 @@
 /* Chapter View Container */
 .chapter-view {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 1rem;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 /* Loading & Error States */
@@ -23,7 +23,7 @@
 
 /* Chapter Header */
 .chapter-header {
-  text-align: center;
+  text-align: left;
   /* margin-bottom: 3rem; */
   padding-bottom: 1rem;
   /* border-bottom: 1px solid var(--border-color); */
@@ -78,25 +78,38 @@
 
 /* Node Type Styling */
 .tree-node.node-title1>.node-header {
-  font-size: 1.25rem;
+  font-size: 3rem;
   font-weight: 600;
 }
 
 .tree-node.node-title2>.node-header {
-  font-size: 1.1rem;
+  font-size: 2.5rem;
   font-weight: 500;
 }
 
 .tree-node.node-title3>.node-header {
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 500;
+}
+
+/* Expand icon sizes to match node font sizes */
+.tree-node.node-title1>.node-header .expand-icon {
+  font-size: 2.5rem;
+}
+
+.tree-node.node-title2>.node-header .expand-icon {
+  font-size: 2rem;
+}
+
+.tree-node.node-title3>.node-header .expand-icon {
+  font-size: 1.5rem;
 }
 
 /* Node Header */
 .node-header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 2rem;
   padding: 1rem 1.25rem;
   color: var(--text-primary);
   user-select: none;
@@ -280,9 +293,10 @@
   padding: 0.75rem 1rem;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 8px;
-  color: var(--text-secondary);
+  /* color: var(--text-secondary); */
   line-height: 1.6;
   border-left: 3px solid var(--accent-primary);
+  font-size: 2rem;
 }
 
 .content-bullet.bullet-1 {
@@ -292,7 +306,6 @@
 .content-bullet.bullet-2 {
   margin-left: 1.5rem;
   border-left-color: #8b5cf6;
-  font-size: 0.95rem;
 }
 
 /* Node Children */

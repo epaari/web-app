@@ -1,3 +1,17 @@
+# Version 1.3.0
+.chapter-view {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: 100vh;
+}
+The chapter view max-width is 900px. Please increase the width to fill the whole screen width.
+Keep the padding as 1rem.
+Change the min-height to 90vh.
+
+There is a triangle before every node. When the node is expanded, the triangle is rotated 90 degrees.
+Increase the size of the triangle to match the font size of the node.
+
 # Version 1.2.1
 The top of the screen is shown as follows:
 1. "CHAPTER 3" in a rounded box (.chapter-number)
