@@ -3,13 +3,14 @@ import TreeNode from './TreeNode';
 import BottomNav from './BottomNav';
 import './ChapterView.css';
 
-function ChapterView() {
+function ChapterView({ chapter, onBack }) {
     const [chapterData, setChapterData] = useState(null);
     const [expandedNodeIds, setExpandedNodeIds] = useState(new Set());
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        // Fetch the full data to get class and subject info
         fetch('/db/db.json')
             .then((response) => {
                 if (!response.ok) {
@@ -18,14 +19,19 @@ function ChapterView() {
                 return response.json();
             })
             .then((data) => {
-                setChapterData(data);
+                // Combine the chapter data with class and subject
+                setChapterData({
+                    ...chapter,
+                    class: data.class,
+                    subject: data.subject
+                });
                 setLoading(false);
             })
             .catch((err) => {
                 setError(err.message);
                 setLoading(false);
             });
-    }, []);
+    }, [chapter]);
 
     // Build a map of nodeId -> { parentId, siblings (including self), depth }
     const nodeInfoMap = useMemo(() => {

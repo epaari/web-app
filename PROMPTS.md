@@ -1,3 +1,10 @@
+# Version 5.0.0
+So far we were displaying only one chapter.
+Now add a new screen "Chapters" before ChapterView.
+List the 2 chapters from db.json.
+The bottom navigation panel should show class and subject (example: "6. Science")
+When the user selects a chapter, show the Nodes and Contents in ChapterView.
+
 # Version 4.0.0
 You are an expert python programmer.
 I have a microsoft word file.

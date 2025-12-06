@@ -1,3 +1,11 @@
+# Version 5.0.0
+User Flow:
+User sees the Chapters screen listing both chapters (1. Measurements and 3. Matter Around Us)
+Bottom navigation shows "6. Science"
+When user clicks a chapter, they navigate to ChapterView
+ChapterView displays the nodes and content for that specific chapter
+Bottom navigation updates to show the full breadcrumb trail
+
 # Version 2.0.0
 ## Make Chapter View Responsive
 Implement responsive typography and sizing for Chapter Title, Node Titles, Node Icons, Content Text, and Images using CSS clamp() function for fluid scaling.

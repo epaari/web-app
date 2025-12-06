@@ -8,9 +8,15 @@ function BottomNav({ classNum, subject, chapterNo, chapterTitle }) {
                 <img src={homeIcon} alt="Home" className="home-icon" />
             </div>
             <div className="nav-breadcrumbs">
-                <button className="nav-btn">Class {classNum}</button>
-                <button className="nav-btn">{subject}</button>
-                <button className="nav-btn">{chapterNo}. {chapterTitle}</button>
+                {chapterNo && chapterTitle ? (
+                    <>
+                        <button className="nav-btn">Class {classNum}</button>
+                        <button className="nav-btn">{subject}</button>
+                        <button className="nav-btn">{chapterNo}. {chapterTitle}</button>
+                    </>
+                ) : (
+                    <button className="nav-btn">{classNum}. {subject}</button>
+                )}
             </div>
         </nav>
     );

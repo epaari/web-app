@@ -1,443 +1,310 @@
 {
-  "class": "10",
-  "subject": "Maths",
-  "chapterNo": "10",
-  "chapterTitle": "Matter Around Us",
-  "nodes": [
+  "class": "6",
+  "subject": "Science",
+  "chapters": [
     {
-      "id": "723-Matter-Around-Us",
-      "nodeType": "title1",
-      "label": "1. Matter Around Us",
-      "children": [
+      "chapterNo": "1",
+      "chapterTitle": "Measurements",
+      "nodes": [
         {
-          "id": "451-What-is-Matter",
-          "nodeType": "title2",
-          "label": "What is Matter?",
-          "content": [
-            {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What%20is%20Matter.png"
-            },
-            {
-              "type": "bullet1",
-              "text": "**Matter** is everything around us—air, water, and the materials we use. It is anything that occupies space and has mass."
-            },
-            {
-              "type": "bullet1",
-              "text": "Matter exists in three states: solid, liquid, and gas."
-            },
-            {
-              "type": "bullet1",
-              "text": "Atoms are the smallest particles of matter. They are too small to see, even with regular microscopes."
-            },
-            {
-              "type": "bullet1",
-              "text": "A standard sheet of paper is millions of atoms thick!"
-            },
-            {
-              "type": "equation",
-              "latex": "AP = \\frac{100}{\\frac{1}{\\left(\\frac{\\delta^{13} C}{1000} + 1\\right) \\times ARC} + 1}"
-            }
-          ]
-        },
-        {
-          "id": "618-Particle-Traits-of-Matter",
-          "nodeType": "title2",
-          "label": "Particle Traits of Matter",
-          "content": [
-            {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Particle%20Traits%20of%20Matter.jpg"
-            },
-            {
-              "type": "bullet1",
-              "text": "Particles of matter have spaces between them, and the spacing differs in solids, liquids, and gases."
-            },
-            {
-              "type": "bullet1",
-              "text": "When you stir sugar into water, it disappears because sugar particles fill the spaces between water particles. Yes, the water will taste sweet!"
-            },
-            {
-              "type": "bullet1",
-              "text": "Particles of matter attract each other through a force of attraction that keeps them together."
-            },
-            {
-              "type": "bullet1",
-              "text": "The strength of this force varies depending on the state of matter—stronger in solids and weaker in gases."
-            }
-          ]
-        },
-        {
-          "id": "892-Types-of-Matter",
-          "nodeType": "title2",
-          "label": "Types of Matter",
-          "content": [
-            {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Types%20of%20Matter.png"
-            }
-          ]
-        },
-        {
-          "id": "367-Pure-Substances",
-          "nodeType": "title2",
-          "label": "Pure Substances",
-          "content": [
-            {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Pure%20Substances1.png"
-            },
-            {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Pure%20Substances2.png"
-            },
-            {
-              "type": "bullet1",
-              "text": "A pure substance contains only one kind of particle throughout."
-            },
-            {
-              "type": "bullet1",
-              "text": "Pure substances can be either elements or compounds."
-            },
-            {
-              "type": "bullet1",
-              "text": "An element is made of the same type of atoms, such as gold or oxygen."
-            },
-            {
-              "type": "bullet1",
-              "text": "A compound is a substance formed by the chemical combination of two or more elements."
-            }
-          ]
-        },
-        {
-          "id": "544-Mixtures",
-          "nodeType": "title2",
-          "label": "Mixtures",
-          "content": [
-            {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures1.png"
-            },
-            {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures2.png"
-            },
-            {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures3.png"
-            },
-            {
-              "type": "bullet1",
-              "text": "A mixture is made up of two or more components that can be physically separated."
-            },
-            {
-              "type": "bullet1",
-              "text": "A mixture can be a combination of two or more elements. Example: 22 carat gold (Gold + Copper)"
-            },
-            {
-              "type": "bullet1",
-              "text": "It can also be a combination of two or more compounds. Example: Aerated drinks, which include carbon dioxide, water, sweeteners, and coloring agents."
-            },
-            {
-              "type": "bullet1",
-              "text": "A mixture can also be made of an element and a compound. Example: Tincture of iodine, which is iodine dissolved in alcohol."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "945-Separating-Mixtures",
-      "nodeType": "title1",
-      "label": "2. Separating Mixtures",
-      "children": [
-        {
-          "id": "725-Why-Separate-Mixtures",
-          "nodeType": "title2",
-          "label": "Why Separate Mixtures?",
-          "content": [
-            {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Why%20Separate%20Mixtures.png"
-            },
-            {
-              "type": "bullet1",
-              "text": "Separation is the process of isolating and removing the components of a mixture to get pure substances."
-            },
-            {
-              "type": "bullet1",
-              "text": "Separation is important to:"
-            },
-            {
-              "type": "bullet2",
-              "text": "Remove impurities or harmful parts from a mixture. Example: Stones from rice."
-            },
-            {
-              "type": "bullet2",
-              "text": "Isolate a useful component. Example: Petrol from petroleum."
-            },
-            {
-              "type": "bullet2",
-              "text": "Obtain a pure substance. Example: Gold from gold mines."
-            }
-          ]
-        },
-        {
-          "id": "183-Separation-Techniques",
-          "nodeType": "title2",
-          "label": "Separation Techniques",
+          "id": "194-1. Introduction",
+          "nodeType": "title1",
+          "label": "1. Introduction",
           "children": [
             {
-              "id": "219-Filtering",
-              "nodeType": "title3",
-              "label": "Filtering",
+              "id": "860-SI Units",
+              "nodeType": "title2",
+              "label": "SI Units",
               "content": [
                 {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques1.jpg"
+                  "type": "bullet1",
+                  "text": "**Fundamental** SI Units: "
                 },
                 {
-                  "type": "bullet1",
-                  "text": "Filtering is a process used to separate larger particles from a liquid."
+                  "type": "bullet2",
+                  "text": "**Length**: Metre (m)"
                 },
                 {
-                  "type": "bullet1",
-                  "text": "Filtering helps get a clean liquid by separating unwanted particles."
+                  "type": "bullet2",
+                  "text": "**Mass**: Kilogram (kg)"
                 },
                 {
-                  "type": "bullet1",
-                  "text": "Example: Use a strainer to remove tea leaves from the tea."
+                  "type": "bullet2",
+                  "text": "**Time**: Second (s)"
                 }
               ]
             },
             {
-              "id": "647-Sieving",
-              "nodeType": "title3",
-              "label": "Sieving",
+              "id": "947-Avoiding Errors",
+              "nodeType": "title2",
+              "label": "Avoiding Errors",
               "content": [
                 {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques2.jpg"
+                  "type": "bullet1",
+                  "text": "**Measurement** **accuracy** is very important in science, as small errors can lead to big changes in results."
                 },
                 {
                   "type": "bullet1",
-                  "text": "Sieving is similar to filtering, but it is used to separate solid particles of different sizes."
+                  "text": "Common **Mistakes** **to** **Avoid**:"
                 },
                 {
-                  "type": "bullet1",
-                  "text": "For example, bran is separated from flour, and sand is separated from gravel using a sieve."
+                  "type": "bullet2",
+                  "text": "**Alignment**: Always place the object correctly at the \"0\" mark on the scale."
                 },
                 {
-                  "type": "bullet1",
-                  "text": "A wire mesh sieve is commonly used to separate gravel from sand at construction sites."
+                  "type": "bullet2",
+                  "text": "**Position**: Keep the object parallel to the scale to prevent errors."
                 },
                 {
-                  "type": "bullet1",
-                  "text": "Sieving helps us sort materials based on size."
+                  "type": "bullet2",
+                  "text": "**Eye** **Positioning**: Look straight down at the measurement point to avoid parallax error"
                 }
               ]
             },
             {
-              "id": "382-Churning",
-              "nodeType": "title3",
-              "label": "Churning",
+              "id": "557-Parallax in Measurement",
+              "nodeType": "title2",
+              "label": "Parallax in Measurement",
               "content": [
                 {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques3.jpg"
+                  "type": "bullet1",
+                  "text": "**Parallax** **error** happens when an object appears to be in a different position when viewed from different angles."
                 },
                 {
                   "type": "bullet1",
-                  "text": "Churning is used to separate fine insoluble solids from a liquid, like butter from curd."
+                  "text": "For accurate measurements, your **eye** should be positioned **directly** **above** the measurement point."
                 },
                 {
                   "type": "bullet1",
-                  "text": "The mixture is vigorously churned, causing the butter to collect on the sides of the vessel."
+                  "text": "Viewing from other angles (like **left** or **right**) can cause **incorrect** **readings** due to parallax."
                 },
                 {
                   "type": "bullet1",
-                  "text": "After churning, both butter and buttermilk are collected and can be consumed."
+                  "text": "To avoid parallax error, always make sure your **eye** **is** **aligned** with the measurement point. "
                 }
               ]
             },
             {
-              "id": "571-Threshing",
-              "nodeType": "title3",
-              "label": "Threshing",
+              "id": "861-Tools for Measurement",
+              "nodeType": "title2",
+              "label": "Tools for Measurement",
               "content": [
                 {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques4.jpg"
+                  "type": "bullet1",
+                  "text": "**Beam** **Balance**: Measures mass by comparing an object's mass to a standard mass."
                 },
                 {
                   "type": "bullet1",
-                  "text": "Threshing is a method used by farmers to separate grains like rice and wheat from their stalks."
+                  "text": "**Electronic** **Balance**: Offers accurate mass measurements, commonly used for chemicals, food, groceries, and jewelry."
                 },
                 {
                   "type": "bullet1",
-                  "text": "Unlike flowers, which can be easily plucked, grains are small and the quantity is large, making it difficult to separate them by hand."
+                  "text": "**Clock**: Tracks time and is used to note the passage of time in daily activities."
                 },
                 {
                   "type": "bullet1",
-                  "text": "Farmers beat the plants hard to help the grains fall off from their stalks."
+                  "text": "**Stopwatch**: Measures time intervals precisely, ideal for races or events."
                 },
                 {
                   "type": "bullet1",
-                  "text": "Threshing helps in collecting grains for food production."
+                  "text": "**Meter** **Scale**: Measures length in metres and centimetres; useful for accurately measuring smaller objects. "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "174-2. Length",
+          "nodeType": "title1",
+          "label": "2. Length",
+          "children": [
+            {
+              "id": "166-Understanding Length",
+              "nodeType": "title2",
+              "label": "Understanding Length",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "**Length** is the **distance** between two points."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Examples:**"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "The edges of a book"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Distance between corners of a football ground"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Distance from home to school. "
                 }
               ]
             },
             {
-              "id": "836-Winnowing",
-              "nodeType": "title3",
-              "label": "Winnowing",
+              "id": "679-Units for Measuring Length",
+              "nodeType": "title2",
+              "label": "Units for Measuring Length",
               "content": [
                 {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques5.jpg"
+                  "type": "bullet1",
+                  "text": "The standard unit of length is the **metre** (**m**)."
                 },
                 {
                   "type": "bullet1",
-                  "text": "Winnowing is used to remove the husk from food grains like rice and wheat, as husk is not edible."
+                  "text": "**Smaller** **lengths** are measured in **millimetres** (**mm**) and **centimetres** (**cm**). "
                 },
                 {
                   "type": "bullet1",
-                  "text": "The husk is very light and gets easily blown away by wind."
+                  "text": "**Larger** **distances**, like those between cities, are measured in **kilometres** (**km**)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "358-3. Mass and Weight",
+          "nodeType": "title1",
+          "label": "3. Mass and Weight",
+          "children": [
+            {
+              "id": "342-Understanding Mass",
+              "nodeType": "title2",
+              "label": "Understanding Mass",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "**Mass** is the amount of **matter** in an object."
                 },
                 {
                   "type": "bullet1",
-                  "text": "To winnow, the mixture is dropped from a height in the presence of wind."
+                  "text": "**Mass** is different from **weight**. Weight is the **gravitational** **pull** on an object, while mass stays the same."
                 },
                 {
                   "type": "bullet1",
-                  "text": "The lighter husk is carried by the wind and forms a separate heap, while the heavier grains fall closer and form another heap."
+                  "text": "For example, an object will **weigh less on the Moon** (about six times less), but its **mass remains unchanged**. "
                 }
               ]
             },
             {
-              "id": "479-Handpicking",
-              "nodeType": "title3",
-              "label": "Handpicking",
+              "id": "336-Units for Measuring Mass",
+              "nodeType": "title2",
+              "label": "Units for Measuring Mass",
               "content": [
                 {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques6.jpg"
+                  "type": "bullet1",
+                  "text": "The SI unit of **mass** is the **kilogram** (**kg)**."
                 },
                 {
                   "type": "bullet1",
-                  "text": "Handpicking is a simple method used to separate visible impurities from a mixture."
+                  "text": "**Smaller** **units** of mass:"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "**Gram** (g): 1000 g = 1 kg."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "**Milligram** (mg): 1000 mg = 1 g. "
                 },
                 {
                   "type": "bullet1",
-                  "text": "For example, stones can be easily separated from rice if the stones are clearly visible and different from the grains."
+                  "text": "**Larger** **units** of mass:"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "**Tonne** (metric tonne): 1000 kg = 1 tonne."
                 }
               ]
             },
             {
-              "id": "692-Magnetic-Separation",
-              "nodeType": "title3",
-              "label": "Magnetic Separation",
+              "id": "297-Using a Beam Balance",
+              "nodeType": "title2",
+              "label": "Using a Beam Balance",
               "content": [
                 {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques7.png"
+                  "type": "bullet1",
+                  "text": "A **beam balance** measures mass by comparing an object’s mass to a **known** **mass** (standard mass)."
                 },
                 {
                   "type": "bullet1",
-                  "text": "Magnetic separation is used to separate magnetic substances from non-magnetic substances."
+                  "text": "With a beam balance, you can:"
                 },
                 {
-                  "type": "bullet1",
-                  "text": "If a mixture contains iron or other magnetic materials, a magnet can be used to attract and separate them."
+                  "type": "bullet2",
+                  "text": "Find out which object is **heavier**. "
                 },
                 {
-                  "type": "bullet1",
-                  "text": "Magnetic substances are those that are attracted to a magnet."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The process of using a magnet to separate solids is called magnetic separation."
+                  "type": "bullet2",
+                  "text": "**Estimate the weight** of lighter objects, like **leaves** or **pieces of** **paper**."
                 }
               ]
             },
             {
-              "id": "258-Sedimentation",
-              "nodeType": "title3",
-              "label": "Sedimentation",
+              "id": "498-Using an Electronic Balance",
+              "nodeType": "title2",
+              "label": "Using an Electronic Balance",
               "content": [
                 {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques8.png"
+                  "type": "bullet1",
+                  "text": "An **electronic** **balance** is used to measure **weight** accurately."
                 },
                 {
                   "type": "bullet1",
-                  "text": "Sedimentation is the process used to separate heavier substances from lighter impurities in a mixture."
+                  "text": "It is commonly used in **laboratories** to weigh **chemicals** precisely for experiments."
                 },
                 {
                   "type": "bullet1",
-                  "text": "When rice or pulses are mixed with fine straw, husk, or dust, they are washed in water."
+                  "text": "**Electronic** **balances** are also used to weigh **food**, **groceries**, and **jewelry**. "
                 },
                 {
                   "type": "bullet1",
-                  "text": "The heavier rice grains or pulses sink to the bottom, while the lighter impurities float on top."
+                  "text": "This device provides **precise** **measurements**, often down to the **milligram** **level**."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "974-4. Time",
+          "nodeType": "title1",
+          "label": "4. Time",
+          "children": [
+            {
+              "id": "675-Understanding Time",
+              "nodeType": "title2",
+              "label": "Understanding Time",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "**Time** helps us track changes, like day turning into night and the change of seasons."
                 },
                 {
                   "type": "bullet1",
-                  "text": "The floating impurities can then be removed, leaving the clean grains."
+                  "text": "**Clocks** are commonly used to measure time, but you can also estimate time by **counting** or feeling your **pulse**. "
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Electronic** **clocks** and stopwatches measure even **smaller** **durations** of time."
                 }
               ]
             },
             {
-              "id": "913-Decantation",
-              "nodeType": "title3",
-              "label": "Decantation",
+              "id": "592-Units for Measuring Time",
+              "nodeType": "title2",
+              "label": "Units for Measuring Time",
               "content": [
                 {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques9.png"
+                  "type": "bullet1",
+                  "text": "The **SI unit** of time is the **second**. "
                 },
                 {
                   "type": "bullet1",
-                  "text": "Decantation separates the liquid from the solid sediment by slowly pouring out the liquid without disturbing the solids."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The liquid remaining after decantation is called the decantate."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Sediment is the solid that settles at the bottom of the container."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "After decantation, filtration can be used to remove fine particles still present in the liquid."
-                }
-              ]
-            },
-            {
-              "id": "104-Filtration",
-              "nodeType": "title3",
-              "label": "Filtration",
-              "content": [
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques10.png"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Filtration is used to remove fine impurities from liquids using a filter paper."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "A filter paper has very fine pores that are smaller than soil particles."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The liquid passes through the filter paper, while the impurities are left behind."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Filtration is a simple and effective way to clean liquids."
+                  "text": "Units of time include **seconds**, **minutes**, and **hours**."
                 }
               ]
             }
@@ -446,61 +313,508 @@
       ]
     },
     {
-      "id": "830-Food-and-Adulteration",
-      "nodeType": "title1",
-      "label": "3. Food and Adulteration",
-      "children": [
+      "chapterNo": "3",
+      "chapterTitle": "Matter Around Us",
+      "nodes": [
         {
-          "id": "467-What-is-Adulteration",
-          "nodeType": "title2",
-          "label": "What is Adulteration?",
-          "content": [
+          "id": "723-Matter-Around-Us",
+          "nodeType": "title1",
+          "label": "1. Matter Around Us",
+          "children": [
             {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What%20is%20Adulteration1.jpg"
+              "id": "451-What-is-Matter",
+              "nodeType": "title2",
+              "label": "What is Matter?",
+              "content": [
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What%20is%20Matter.png"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Matter** is everything around us—air, water, and the materials we use. It is anything that occupies space and has mass."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Matter exists in three states: solid, liquid, and gas."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Atoms are the smallest particles of matter. They are too small to see, even with regular microscopes."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "A standard sheet of paper is millions of atoms thick!"
+                },
+                {
+                  "type": "equation",
+                  "latex": "AP = \\frac{100}{\\frac{1}{\\left(\\frac{\\delta^{13} C}{1000} + 1\\right) \\times ARC} + 1}"
+                }
+              ]
             },
             {
-              "type": "bullet1",
-              "text": "Adulteration is when harmful or unwanted substances are mixed with products, often to increase quantity or profit."
+              "id": "618-Particle-Traits-of-Matter",
+              "nodeType": "title2",
+              "label": "Particle Traits of Matter",
+              "content": [
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Particle%20Traits%20of%20Matter.jpg"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Particles of matter have spaces between them, and the spacing differs in solids, liquids, and gases."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "When you stir sugar into water, it disappears because sugar particles fill the spaces between water particles. Yes, the water will taste sweet!"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Particles of matter attract each other through a force of attraction that keeps them together."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "The strength of this force varies depending on the state of matter—stronger in solids and weaker in gases."
+                }
+              ]
             },
             {
-              "type": "bullet1",
-              "text": "Food can be adulterated due to carelessness or lack of proper handling."
+              "id": "892-Types-of-Matter",
+              "nodeType": "title2",
+              "label": "Types of Matter",
+              "content": [
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Types%20of%20Matter.png"
+                }
+              ]
             },
             {
-              "type": "bullet1",
-              "text": "We need to be careful about adulterants in consumable goods, especially food."
+              "id": "367-Pure-Substances",
+              "nodeType": "title2",
+              "label": "Pure Substances",
+              "content": [
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Pure%20Substances1.png"
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Pure%20Substances2.png"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "A pure substance contains only one kind of particle throughout."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Pure substances can be either elements or compounds."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "An element is made of the same type of atoms, such as gold or oxygen."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "A compound is a substance formed by the chemical combination of two or more elements."
+                }
+              ]
             },
             {
-              "type": "bullet1",
-              "text": "Adulterated food can be harmful and pose a health hazard when consumed."
+              "id": "544-Mixtures",
+              "nodeType": "title2",
+              "label": "Mixtures",
+              "content": [
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures1.png"
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures2.png"
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures3.png"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "A mixture is made up of two or more components that can be physically separated."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "A mixture can be a combination of two or more elements. Example: 22 carat gold (Gold + Copper)"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "It can also be a combination of two or more compounds. Example: Aerated drinks, which include carbon dioxide, water, sweeteners, and coloring agents."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "A mixture can also be made of an element and a compound. Example: Tincture of iodine, which is iodine dissolved in alcohol."
+                }
+              ]
             }
           ]
         },
         {
-          "id": "592-Common-Adulterants",
-          "nodeType": "title2",
-          "label": "Common Adulterants",
-          "content": [
+          "id": "945-Separating-Mixtures",
+          "nodeType": "title1",
+          "label": "2. Separating Mixtures",
+          "children": [
             {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Common%20Adulterants1.png"
+              "id": "725-Why-Separate-Mixtures",
+              "nodeType": "title2",
+              "label": "Why Separate Mixtures?",
+              "content": [
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Why%20Separate%20Mixtures.png"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Separation is the process of isolating and removing the components of a mixture to get pure substances."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Separation is important to:"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Remove impurities or harmful parts from a mixture. Example: Stones from rice."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Isolate a useful component. Example: Petrol from petroleum."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Obtain a pure substance. Example: Gold from gold mines."
+                }
+              ]
             },
             {
-              "type": "image",
-              "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Common%20Adulterants2.jpg"
+              "id": "183-Separation-Techniques",
+              "nodeType": "title2",
+              "label": "Separation Techniques",
+              "children": [
+                {
+                  "id": "219-Filtering",
+                  "nodeType": "title3",
+                  "label": "Filtering",
+                  "content": [
+                    {
+                      "type": "image",
+                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques1.jpg"
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Filtering is a process used to separate larger particles from a liquid."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Filtering helps get a clean liquid by separating unwanted particles."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Example: Use a strainer to remove tea leaves from the tea."
+                    }
+                  ]
+                },
+                {
+                  "id": "647-Sieving",
+                  "nodeType": "title3",
+                  "label": "Sieving",
+                  "content": [
+                    {
+                      "type": "image",
+                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques2.jpg"
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Sieving is similar to filtering, but it is used to separate solid particles of different sizes."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "For example, bran is separated from flour, and sand is separated from gravel using a sieve."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "A wire mesh sieve is commonly used to separate gravel from sand at construction sites."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Sieving helps us sort materials based on size."
+                    }
+                  ]
+                },
+                {
+                  "id": "382-Churning",
+                  "nodeType": "title3",
+                  "label": "Churning",
+                  "content": [
+                    {
+                      "type": "image",
+                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques3.jpg"
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Churning is used to separate fine insoluble solids from a liquid, like butter from curd."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "The mixture is vigorously churned, causing the butter to collect on the sides of the vessel."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "After churning, both butter and buttermilk are collected and can be consumed."
+                    }
+                  ]
+                },
+                {
+                  "id": "571-Threshing",
+                  "nodeType": "title3",
+                  "label": "Threshing",
+                  "content": [
+                    {
+                      "type": "image",
+                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques4.jpg"
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Threshing is a method used by farmers to separate grains like rice and wheat from their stalks."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Unlike flowers, which can be easily plucked, grains are small and the quantity is large, making it difficult to separate them by hand."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Farmers beat the plants hard to help the grains fall off from their stalks."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Threshing helps in collecting grains for food production."
+                    }
+                  ]
+                },
+                {
+                  "id": "836-Winnowing",
+                  "nodeType": "title3",
+                  "label": "Winnowing",
+                  "content": [
+                    {
+                      "type": "image",
+                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques5.jpg"
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Winnowing is used to remove the husk from food grains like rice and wheat, as husk is not edible."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "The husk is very light and gets easily blown away by wind."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "To winnow, the mixture is dropped from a height in the presence of wind."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "The lighter husk is carried by the wind and forms a separate heap, while the heavier grains fall closer and form another heap."
+                    }
+                  ]
+                },
+                {
+                  "id": "479-Handpicking",
+                  "nodeType": "title3",
+                  "label": "Handpicking",
+                  "content": [
+                    {
+                      "type": "image",
+                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques6.jpg"
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Handpicking is a simple method used to separate visible impurities from a mixture."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "For example, stones can be easily separated from rice if the stones are clearly visible and different from the grains."
+                    }
+                  ]
+                },
+                {
+                  "id": "692-Magnetic-Separation",
+                  "nodeType": "title3",
+                  "label": "Magnetic Separation",
+                  "content": [
+                    {
+                      "type": "image",
+                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques7.png"
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Magnetic separation is used to separate magnetic substances from non-magnetic substances."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "If a mixture contains iron or other magnetic materials, a magnet can be used to attract and separate them."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Magnetic substances are those that are attracted to a magnet."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "The process of using a magnet to separate solids is called magnetic separation."
+                    }
+                  ]
+                },
+                {
+                  "id": "258-Sedimentation",
+                  "nodeType": "title3",
+                  "label": "Sedimentation",
+                  "content": [
+                    {
+                      "type": "image",
+                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques8.png"
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Sedimentation is the process used to separate heavier substances from lighter impurities in a mixture."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "When rice or pulses are mixed with fine straw, husk, or dust, they are washed in water."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "The heavier rice grains or pulses sink to the bottom, while the lighter impurities float on top."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "The floating impurities can then be removed, leaving the clean grains."
+                    }
+                  ]
+                },
+                {
+                  "id": "913-Decantation",
+                  "nodeType": "title3",
+                  "label": "Decantation",
+                  "content": [
+                    {
+                      "type": "image",
+                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques9.png"
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Decantation separates the liquid from the solid sediment by slowly pouring out the liquid without disturbing the solids."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "The liquid remaining after decantation is called the decantate."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Sediment is the solid that settles at the bottom of the container."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "After decantation, filtration can be used to remove fine particles still present in the liquid."
+                    }
+                  ]
+                },
+                {
+                  "id": "104-Filtration",
+                  "nodeType": "title3",
+                  "label": "Filtration",
+                  "content": [
+                    {
+                      "type": "image",
+                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques10.png"
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Filtration is used to remove fine impurities from liquids using a filter paper."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "A filter paper has very fine pores that are smaller than soil particles."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "The liquid passes through the filter paper, while the impurities are left behind."
+                    },
+                    {
+                      "type": "bullet1",
+                      "text": "Filtration is a simple and effective way to clean liquids."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "830-Food-and-Adulteration",
+          "nodeType": "title1",
+          "label": "3. Food and Adulteration",
+          "children": [
+            {
+              "id": "467-What-is-Adulteration",
+              "nodeType": "title2",
+              "label": "What is Adulteration?",
+              "content": [
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What%20is%20Adulteration1.jpg"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Adulteration is when harmful or unwanted substances are mixed with products, often to increase quantity or profit."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Food can be adulterated due to carelessness or lack of proper handling."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "We need to be careful about adulterants in consumable goods, especially food."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Adulterated food can be harmful and pose a health hazard when consumed."
+                }
+              ]
             },
             {
-              "type": "bullet1",
-              "text": "An adulterated substance does not show the true properties of the original substance."
-            },
-            {
-              "type": "bullet1",
-              "text": "For example, used tea leaves are sometimes mixed into tea as an adulterant."
-            },
-            {
-              "type": "bullet1",
-              "text": "Turmeric powder can be adulterated with a bright yellow chemical, which is poisonous to us."
+              "id": "592-Common-Adulterants",
+              "nodeType": "title2",
+              "label": "Common Adulterants",
+              "content": [
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Common%20Adulterants1.png"
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Common%20Adulterants2.jpg"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "An adulterated substance does not show the true properties of the original substance."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "For example, used tea leaves are sometimes mixed into tea as an adulterant."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Turmeric powder can be adulterated with a bright yellow chemical, which is poisonous to us."
+                }
+              ]
             }
           ]
         }
