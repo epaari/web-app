@@ -1,3 +1,13 @@
+# Version 3.0.0
+Create a static navigation panel at the bottom.
+Display "./src/assets/home_icon.png" on the left of this panel.
+Display "Class 10" button using the "./db/db.json" "class".
+Display "Science" button using the "./db/db.json" "subject".
+Display "3. Matter Around Us" button using the "./db/db.json" "chapterNo" and "chapterTitle".
+
+I have attached a sample UI mock-up.
+Prepare the implementation plan. I will review it before you proceed.
+
 # Version 2.0.0
 Responsive Typography
 Please make the Chapter Title, Node Titles, Node Icons, Content Text, Image responsive. i.e. reduce the sizes proportionately with respect to the display size.

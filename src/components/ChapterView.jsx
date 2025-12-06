@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import TreeNode from './TreeNode';
+import BottomNav from './BottomNav';
 import './ChapterView.css';
 
 function ChapterView() {
@@ -123,10 +124,6 @@ function ChapterView() {
 
     return (
         <div className="chapter-view">
-            <header className="chapter-header">
-                <h1 className="chapter-title">{chapterData.chapterNo}. {chapterData.chapterTitle}</h1>
-            </header>
-
             <div className="nodes-container">
                 {chapterData.nodes.map((node) => (
                     <TreeNode
@@ -138,6 +135,13 @@ function ChapterView() {
                     />
                 ))}
             </div>
+
+            <BottomNav
+                classNum={chapterData.class}
+                subject={chapterData.subject}
+                chapterNo={chapterData.chapterNo}
+                chapterTitle={chapterData.chapterTitle}
+            />
         </div>
     );
 }
