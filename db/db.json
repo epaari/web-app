@@ -1,6 +1,6 @@
 {
   "chapterNo": "3",
-  "chapterTitle": "Matter Around Us Matter Around Us Matter Around Us",
+  "chapterTitle": "Matter Around Us",
   "nodes": [
     {
       "id": "723-Matter-Around-Us",
@@ -18,7 +18,7 @@
             },
             {
               "type": "bullet1",
-              "text": "**Matter** is [[everything||All physical substances that exist in the universe]] around us—air, water, and the materials we use. It is anything that [[occupies space||Takes up volume in 3D]] and has **mass**."
+              "text": "**Matter** is everything around us—air, water, and the materials we use. It is anything that occupies space and has mass."
             },
             {
               "type": "bullet1",
@@ -31,6 +31,10 @@
             {
               "type": "bullet1",
               "text": "A standard sheet of paper is millions of atoms thick!"
+            },
+            {
+              "type": "equation",
+              "latex": "AP = \\frac{100}{\\frac{1}{\\left(\\frac{\\delta^{13} C}{1000} + 1\\right) \\times ARC} + 1}"
             }
           ]
         },

@@ -23,7 +23,7 @@
 
 /* Chapter Header */
 .chapter-header {
-  text-align: left;
+  text-align: center;
   /* margin-bottom: 3rem; */
   padding-bottom: 1rem;
   /* border-bottom: 1px solid var(--border-color); */
@@ -49,10 +49,10 @@
 
 /* Tree Node */
 .tree-node {
-  background: var(--card-bg);
+  /* background: var(--card-bg); */
   /* border-radius: 12px; */
   overflow: hidden;
-  border: 1px solid var(--border-color);
+  /* border: 1px solid var(--border-color); */
   transition: all 0.2s ease;
 }
 
@@ -62,18 +62,18 @@
 
 /* Depth-based indentation */
 .tree-node.depth-1 {
-  margin-left: 1.5rem;
-  background: rgba(99, 102, 241, 0.05);
+  margin-left: 4.5rem;
+  /* background: rgba(99, 102, 241, 0.05); */
 }
 
 .tree-node.depth-2 {
-  margin-left: 1.5rem;
-  background: rgba(139, 92, 246, 0.05);
+  margin-left: 4rem;
+  /* background: rgba(139, 92, 246, 0.05); */
 }
 
 .tree-node.depth-3 {
-  margin-left: 1.5rem;
-  background: rgba(168, 85, 247, 0.05);
+  margin-left: 4rem;
+  /* background: rgba(168, 85, 247, 0.05); */
 }
 
 /* Node Type Styling */
@@ -94,11 +94,11 @@
 
 /* Expand icon sizes to match node font sizes */
 .tree-node.node-title1>.node-header .expand-icon {
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 .tree-node.node-title2>.node-header .expand-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .tree-node.node-title3>.node-header .expand-icon {
@@ -140,7 +140,7 @@
   color: var(--text-secondary);
   transition: transform 0.2s ease;
   flex-shrink: 0;
-  width: 1rem;
+  width: 4rem;
   text-align: center;
 }
 
@@ -307,6 +307,16 @@
 
 .content-bullet.bullet-1 {
   border-left-color: #6366f1;
+}
+
+/* Equation Display */
+.content-equation {
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  text-align: left;
+  font-size: 2.5rem;
+  clear: both;
 }
 
 .content-bullet.bullet-2 {

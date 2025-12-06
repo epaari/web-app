@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect, useRef } from 'react';
 
 function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
     const isExpanded = expandedNodeIds.has(node.id);
@@ -69,6 +69,13 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
         document.addEventListener('keydown', handleEscape);
         return () => document.removeEventListener('keydown', handleEscape);
     }, [infoModal, handleInfoModalClose]);
+
+    // Trigger MathJax typesetting when content is shown
+    useEffect(() => {
+        if (isExpanded && hasContent && window.MathJax) {
+            window.MathJax.typesetPromise?.();
+        }
+    }, [isExpanded, hasContent]);
 
     const parseMarkdown = (text) => {
         if (!text) return null;
@@ -150,6 +157,14 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
                             <p key={index} className="content-bullet bullet-2">
                                 {parseMarkdown(item.text)}
                             </p>
+                        );
+                    }
+
+                    if (item.type === 'equation') {
+                        return (
+                            <div key={index} className="content-equation">
+                                {`$$${item.latex}$$`}
+                            </div>
                         );
                     }
 

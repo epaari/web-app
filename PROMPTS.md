@@ -1,3 +1,15 @@
+# Version 1.7.0
+I would like to display maths equations to the user.
+Add a sample LaTeX equation to db.json.
+Render this equation to the user.
+
+Done! LaTeX equation rendering is now set up. Here's what was added:
+### Changes made:
+index.html: Added MathJax CDN script with LaTeX configuration
+db.json: Added sample equation E = mc^2 in "What is Matter?" section
+TreeNode.jsx: Added equation type rendering and MathJax typesetting trigger
+ChapterView.css: Added .content-equation styling
+
 # Version 1.6.0
 The image is currently displayed as thumbnail.
 Remove thumbnail and display directly.
