@@ -5,12 +5,43 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
     const hasContent = node.content && node.content.length > 0;
     const hasChildren = node.children && node.children.length > 0;
     const isExpandable = hasContent || hasChildren;
+    const nodeRef = useRef(null);
 
     // State for image modal
     const [modalImage, setModalImage] = useState(null);
 
     // State for info popover
     const [infoModal, setInfoModal] = useState(null); // { word, info, x, y }
+
+    // Scroll to align bottom of node with bottom of screen when expanded
+    useEffect(() => {
+        if (isExpanded && nodeRef.current && (node.nodeType === 'title1' || node.nodeType === 'title2')) {
+            // Wait for content to render and animations to complete
+            setTimeout(() => {
+                if (nodeRef.current) {
+                    const element = nodeRef.current;
+                    const rect = element.getBoundingClientRect();
+                    const viewportHeight = window.innerHeight;
+
+                    // Get BottomNav height
+                    const bottomNav = document.querySelector('.bottom-nav');
+                    const bottomNavHeight = bottomNav ? bottomNav.offsetHeight : 0;
+
+                    // Calculate the target scroll position
+                    // We want the bottom of the element to align with the bottom of the viewport (minus BottomNav)
+                    const elementBottom = rect.bottom;
+                    const targetBottom = viewportHeight - bottomNavHeight;
+                    const scrollNeeded = elementBottom - targetBottom;
+
+                    // Scroll to position
+                    window.scrollBy({
+                        top: scrollNeeded,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 350); // Delay to ensure content is fully rendered
+        }
+    }, [isExpanded, node.nodeType]);
 
     const handleClick = useCallback(() => {
         if (isExpandable) {
@@ -231,7 +262,7 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
     };
 
     return (
-        <div className={`tree-node depth-${depth} ${getNodeTypeClass()}`}>
+        <div ref={nodeRef} className={`tree-node depth-${depth} ${getNodeTypeClass()}`}>
             <div
                 className={`node-header ${isExpandable ? 'expandable' : ''} ${isExpanded ? 'expanded' : ''}`}
                 onClick={handleClick}

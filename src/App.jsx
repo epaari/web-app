@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Chapters from './components/Chapters';
-import ChapterView from './components/ChapterView';
+import Topics from './components/Topics';
 import './App.css';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="app">
       {selectedChapter ? (
-        <ChapterView
+        <Topics
           chapter={selectedChapter}
           onBack={handleBackToChapters}
         />

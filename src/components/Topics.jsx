@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import TreeNode from './TreeNode';
 import BottomNav from './BottomNav';
-import './ChapterView.css';
+import './Topics.css';
 
-function ChapterView({ chapter, onBack }) {
+function Topics({ chapter, onBack }) {
     const [chapterData, setChapterData] = useState(null);
     const [expandedNodeIds, setExpandedNodeIds] = useState(new Set());
     const [loading, setLoading] = useState(true);
@@ -106,7 +106,7 @@ function ChapterView({ chapter, onBack }) {
 
     if (loading) {
         return (
-            <div className="chapter-view">
+            <div className="topics-view">
                 <div className="loading-spinner">Loading...</div>
             </div>
         );
@@ -114,7 +114,7 @@ function ChapterView({ chapter, onBack }) {
 
     if (error) {
         return (
-            <div className="chapter-view">
+            <div className="topics-view">
                 <div className="error-message">Error: {error}</div>
             </div>
         );
@@ -122,14 +122,14 @@ function ChapterView({ chapter, onBack }) {
 
     if (!chapterData) {
         return (
-            <div className="chapter-view">
+            <div className="topics-view">
                 <div className="error-message">No data available</div>
             </div>
         );
     }
 
     return (
-        <div className="chapter-view">
+        <div className="topics-view">
             <div className="nodes-container">
                 {chapterData.nodes.map((node) => (
                     <TreeNode
@@ -147,9 +147,11 @@ function ChapterView({ chapter, onBack }) {
                 subject={chapterData.subject}
                 chapterNo={chapterData.chapterNo}
                 chapterTitle={chapterData.chapterTitle}
+                onNavigateToChapters={onBack}
             />
+
         </div>
     );
 }
 
-export default ChapterView;
+export default Topics;

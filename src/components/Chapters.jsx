@@ -51,26 +51,19 @@ function Chapters({ onChapterSelect }) {
 
     return (
         <div className="chapters-view">
-            <div className="chapters-header">
-                <h1 className="chapters-title">Chapters</h1>
-                <p className="chapters-subtitle">Class {data.class} - {data.subject}</p>
-            </div>
-
             <div className="chapters-list">
                 {data.chapters.map((chapter) => (
                     <div
                         key={chapter.chapterNo}
-                        className="chapter-card"
+                        className="chapter-item"
                         onClick={() => onChapterSelect(chapter)}
                     >
-                        <div className="chapter-number">{chapter.chapterNo}</div>
-                        <div className="chapter-info">
-                            <h2 className="chapter-title">{chapter.chapterTitle}</h2>
-                            <p className="chapter-meta">
-                                {chapter.nodes.length} topic{chapter.nodes.length !== 1 ? 's' : ''}
-                            </p>
+                        <div className="chapter-header-item">
+                            <span className="chapter-expand-icon">›</span>
+                            <span className="chapter-label">
+                                {chapter.chapterNo}. {chapter.chapterTitle}
+                            </span>
                         </div>
-                        <div className="chapter-arrow">›</div>
                     </div>
                 ))}
             </div>

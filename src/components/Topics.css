@@ -1,5 +1,5 @@
-/* Chapter View Container */
-.chapter-view {
+/* Topics View Container */
+.topics-view {
   max-width: 100%;
   margin: 0 auto;
   min-height: 100vh;
@@ -43,7 +43,9 @@
 .nodes-container {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 0.1rem;
+  min-height: 90vh;
 }
 
 /* Tree Node */
@@ -348,7 +350,7 @@
 
 /* Responsive */
 @media (max-width: 640px) {
-  .chapter-view {
+  .topics-view {
     padding: 1rem;
   }
 

@@ -1,7 +1,7 @@
 import './BottomNav.css';
 import homeIcon from '../assets/home_icon.png';
 
-function BottomNav({ classNum, subject, chapterNo, chapterTitle }) {
+function BottomNav({ classNum, subject, chapterNo, chapterTitle, onNavigateToChapters }) {
     return (
         <nav className="bottom-nav">
             <div className="nav-home">
@@ -10,8 +10,12 @@ function BottomNav({ classNum, subject, chapterNo, chapterTitle }) {
             <div className="nav-breadcrumbs">
                 {chapterNo && chapterTitle ? (
                     <>
-                        <button className="nav-btn">Class {classNum}</button>
-                        <button className="nav-btn">{subject}</button>
+                        <button
+                            className="nav-btn nav-btn-clickable"
+                            onClick={onNavigateToChapters}
+                        >
+                            {classNum}. {subject}
+                        </button>
                         <button className="nav-btn">{chapterNo}. {chapterTitle}</button>
                     </>
                 ) : (

@@ -58,3 +58,19 @@
     outline: none;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
 }
+
+/* Clickable Navigation Button */
+.nav-btn-clickable {
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-btn-clickable:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.nav-btn-clickable:active {
+    transform: translateY(0);
+}
