@@ -313,6 +313,11 @@
       ]
     },
     {
+      "chapterNo": "2",
+      "chapterTitle": "Force and Motion",
+      "nodes": []
+    },
+    {
       "chapterNo": "3",
       "chapterTitle": "Matter Around Us",
       "nodes": [
@@ -819,6 +824,91 @@
           ]
         }
       ]
+    },
+    {
+      "chapterNo": "4",
+      "chapterTitle": "The World of Plants",
+      "nodes": []
+    },
+    {
+      "chapterNo": "5",
+      "chapterTitle": "The World of Animals",
+      "nodes": []
+    },
+    {
+      "chapterNo": "6",
+      "chapterTitle": "Health and Hygiene",
+      "nodes": []
+    },
+    {
+      "chapterNo": "7",
+      "chapterTitle": "Computer",
+      "nodes": []
+    },
+    {
+      "chapterNo": "8",
+      "chapterTitle": "Heat",
+      "nodes": []
+    },
+    {
+      "chapterNo": "9",
+      "chapterTitle": "Electricity",
+      "nodes": []
+    },
+    {
+      "chapterNo": "10",
+      "chapterTitle": "Changes Around Us",
+      "nodes": []
+    },
+    {
+      "chapterNo": "11",
+      "chapterTitle": "Air",
+      "nodes": []
+    },
+    {
+      "chapterNo": "12",
+      "chapterTitle": "The Cell",
+      "nodes": []
+    },
+    {
+      "chapterNo": "13",
+      "chapterTitle": "Human Organ Systems",
+      "nodes": []
+    },
+    {
+      "chapterNo": "14",
+      "chapterTitle": "Parts of Computer",
+      "nodes": []
+    },
+    {
+      "chapterNo": "15",
+      "chapterTitle": "Magnetism",
+      "nodes": []
+    },
+    {
+      "chapterNo": "16",
+      "chapterTitle": "Water",
+      "nodes": []
+    },
+    {
+      "chapterNo": "17",
+      "chapterTitle": "Chemistry in Everyday Life",
+      "nodes": []
+    },
+    {
+      "chapterNo": "18",
+      "chapterTitle": "Our Environment",
+      "nodes": []
+    },
+    {
+      "chapterNo": "19",
+      "chapterTitle": "Plants in Daily Life",
+      "nodes": []
+    },
+    {
+      "chapterNo": "20",
+      "chapterTitle": "Hardware and Software",
+      "nodes": []
     }
   ]
 }
