@@ -1,3 +1,8 @@
+# Version 2.0.0
+Responsive Typography
+Please make the Chapter Title, Node Titles, Node Icons, Content Text, Image responsive. i.e. reduce the sizes proportionately with respect to the display size.
+Prepare the implementation plan. I will review it before you proceed.
+
 # Version 1.7.0
 I would like to display maths equations to the user.
 Add a sample LaTeX equation to db.json.

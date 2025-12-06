@@ -30,7 +30,7 @@
 }
 
 .chapter-title {
-  font-size: 4rem;
+  font-size: clamp(1.5rem, 4vw, 4rem);
   font-weight: 700;
   background: linear-gradient(135deg, #f8fafc 0%, #94a3b8 100%);
   -webkit-background-clip: text;
@@ -62,54 +62,54 @@
 
 /* Depth-based indentation */
 .tree-node.depth-1 {
-  margin-left: 4.5rem;
+  margin-left: clamp(1rem, 4.5vw, 4.5rem);
   /* background: rgba(99, 102, 241, 0.05); */
 }
 
 .tree-node.depth-2 {
-  margin-left: 4rem;
+  margin-left: clamp(0.75rem, 4vw, 4rem);
   /* background: rgba(139, 92, 246, 0.05); */
 }
 
 .tree-node.depth-3 {
-  margin-left: 4rem;
+  margin-left: clamp(0.75rem, 4vw, 4rem);
   /* background: rgba(168, 85, 247, 0.05); */
 }
 
 /* Node Type Styling */
 .tree-node.node-title1>.node-header {
-  font-size: 4rem;
+  font-size: clamp(1.5rem, 4vw, 4rem);
   /* font-weight: 600; */
 }
 
 .tree-node.node-title2>.node-header {
-  font-size: 3.5rem;
+  font-size: clamp(1.25rem, 3.5vw, 3.5rem);
   /* font-weight: 500; */
 }
 
 .tree-node.node-title3>.node-header {
-  font-size: 3rem;
+  font-size: clamp(1rem, 3vw, 3rem);
   /* font-weight: 500; */
 }
 
 /* Expand icon sizes to match node font sizes */
 .tree-node.node-title1>.node-header .expand-icon {
-  font-size: 3rem;
+  font-size: clamp(1.25rem, 3vw, 3rem);
 }
 
 .tree-node.node-title2>.node-header .expand-icon {
-  font-size: 2.5rem;
+  font-size: clamp(1rem, 2.5vw, 2.5rem);
 }
 
 .tree-node.node-title3>.node-header .expand-icon {
-  font-size: 2rem;
+  font-size: clamp(0.875rem, 2vw, 2rem);
 }
 
 /* Node Header */
 .node-header {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(0.5rem, 2vw, 2rem);
   padding: 1rem 1.25rem;
   color: var(--text-primary);
   user-select: none;
@@ -140,7 +140,7 @@
   color: var(--text-secondary);
   transition: transform 0.2s ease;
   flex-shrink: 0;
-  width: 4rem;
+  width: clamp(1.5rem, 4vw, 4rem);
   text-align: center;
 }
 
@@ -173,7 +173,7 @@
 /* Direct Image Display */
 .content-image {
   float: right;
-  width: 25%;
+  width: clamp(120px, 25%, 300px);
   margin: 0 0 1rem 1rem;
   border-radius: 8px;
   object-fit: contain;
@@ -302,7 +302,7 @@
   /* color: var(--text-secondary); */
   line-height: 1.6;
   border-left: 3px solid var(--accent-primary);
-  font-size: 3rem;
+  font-size: clamp(1rem, 3vw, 3rem);
 }
 
 .content-bullet.bullet-1 {
@@ -315,7 +315,7 @@
   background: rgba(255, 255, 255, 0.03);
   border-radius: 8px;
   text-align: left;
-  font-size: 2.5rem;
+  font-size: clamp(1rem, 2.5vw, 2.5rem);
   clear: both;
 }
 
@@ -409,7 +409,7 @@
   border-radius: 8px;
   padding: 0.5rem 0.5rem;
   max-width: 320px;
-  font-size: 2rem;
+  font-size: clamp(0.875rem, 2vw, 2rem);
   line-height: 1.5;
   color: var(--text-primary);
   cursor: default;
