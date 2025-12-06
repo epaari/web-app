@@ -127,28 +127,13 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
                 {node.content.map((item, index) => {
                     if (item.type === 'image') {
                         return (
-                            <div
+                            <img
                                 key={index}
-                                className="content-thumbnail-wrapper"
-                                onClick={() => handleThumbnailClick(item.url)}
-                                role="button"
-                                tabIndex={0}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter' || e.key === ' ') {
-                                        e.preventDefault();
-                                        handleThumbnailClick(item.url);
-                                    }
-                                }}
-                                aria-label={`View full image: ${node.label}`}
-                            >
-                                <img
-                                    src={item.url}
-                                    alt={node.label}
-                                    loading="lazy"
-                                    className="content-thumbnail"
-                                />
-                                <span className="thumbnail-zoom-icon">🔍</span>
-                            </div>
+                                src={item.url}
+                                alt={node.label}
+                                loading="lazy"
+                                className="content-image"
+                            />
                         );
                     }
 

@@ -50,7 +50,7 @@
 /* Tree Node */
 .tree-node {
   background: var(--card-bg);
-  border-radius: 12px;
+  /* border-radius: 12px; */
   overflow: hidden;
   border: 1px solid var(--border-color);
   transition: all 0.2s ease;
@@ -78,31 +78,31 @@
 
 /* Node Type Styling */
 .tree-node.node-title1>.node-header {
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 4rem;
+  /* font-weight: 600; */
 }
 
 .tree-node.node-title2>.node-header {
-  font-size: 2.5rem;
-  font-weight: 500;
+  font-size: 3.5rem;
+  /* font-weight: 500; */
 }
 
 .tree-node.node-title3>.node-header {
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 3rem;
+  /* font-weight: 500; */
 }
 
 /* Expand icon sizes to match node font sizes */
 .tree-node.node-title1>.node-header .expand-icon {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 }
 
 .tree-node.node-title2>.node-header .expand-icon {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .tree-node.node-title3>.node-header .expand-icon {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 /* Node Header */
@@ -168,9 +168,15 @@
 /* Node Content */
 .node-content {
   padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+}
+
+/* Direct Image Display */
+.content-image {
+  float: right;
+  width: 25%;
+  margin: 0 0 1rem 1rem;
+  border-radius: 8px;
+  object-fit: contain;
 }
 
 /* Thumbnail Styling */
@@ -296,7 +302,7 @@
   /* color: var(--text-secondary); */
   line-height: 1.6;
   border-left: 3px solid var(--accent-primary);
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .content-bullet.bullet-1 {

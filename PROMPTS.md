@@ -1,3 +1,10 @@
+# Version 1.6.0
+The image is currently displayed as thumbnail.
+Remove thumbnail and display directly.
+Position the image to the right.
+Image width = 25% of the screen width.
+Wrap text around the image.
+
 # Version 1.5.0
 @db.json Add some React markdowns to the following element:
 {
