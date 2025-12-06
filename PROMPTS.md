@@ -1,3 +1,24 @@
+# Version 1.5.0
+@db.json Add some React markdowns to the following element:
+{
+  "type": "bullet1",
+  "text": "Matter is everything around us—air, water, and the materials we use. It is anything that occupies space and has mass."
+}
+
+parseMarkdown() returns "strong" for bold text.
+Please change the color of the text too.
+---
+I want to show additional information to some words in the content.
+When the user clicks on those words, it should show extra information in a non-modal.
+When the user clicks anywhere, the modal should close.
+
+## Feature Behavior
+Clickable words appear in purple with dashed underline
+Click opens a modal with the word as header and info as content
+Click anywhere outside the modal to close it
+Press Escape to close the modal
+Fully keyboard accessible (Tab + Enter)
+---
 # Version 1.3.0
 .chapter-view {
   max-width: 900px;

@@ -290,9 +290,9 @@
 /* Bullet Points */
 .content-bullet {
   margin: 0;
-  padding: 0.75rem 1rem;
+  padding: 0.1rem 0.5rem;
   background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
+  /* border-radius: 8px; */
   /* color: var(--text-secondary); */
   line-height: 1.6;
   border-left: 3px solid var(--accent-primary);
@@ -338,5 +338,79 @@
 
   .content-bullet.bullet-2 {
     margin-left: 1rem;
+  }
+}
+
+/* Markdown Styles */
+.markdown-bold {
+  color: #38bdf8;
+  /* Sky Blue */
+  font-weight: 700;
+}
+
+/* Info Word (Clickable) */
+.info-word {
+  color: #a78bfa;
+  /* Purple accent */
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.info-word:hover {
+  color: #c4b5fd;
+  text-decoration-style: solid;
+}
+
+.info-word:focus {
+  outline: none;
+  background: rgba(167, 139, 250, 0.2);
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.4);
+}
+
+/* Info Popover */
+.info-popover-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.15s ease;
+}
+
+.info-popover {
+  background: rgba(30, 41, 59, 0.98);
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  border-radius: 8px;
+  padding: 0.5rem 0.5rem;
+  max-width: 320px;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  cursor: default;
+  animation: popIn 0.15s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 16px rgba(167, 139, 250, 0.15);
+  margin-bottom: 8px;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

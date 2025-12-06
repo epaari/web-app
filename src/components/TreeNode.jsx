@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 
 function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
     const isExpanded = expandedNodeIds.has(node.id);
@@ -8,6 +8,9 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
 
     // State for image modal
     const [modalImage, setModalImage] = useState(null);
+
+    // State for info popover
+    const [infoModal, setInfoModal] = useState(null); // { word, info, x, y }
 
     const handleClick = useCallback(() => {
         if (isExpandable) {
@@ -46,6 +49,76 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
         setModalImage(null);
     }, []);
 
+    // Info popover handlers
+    const handleInfoWordClick = useCallback((e, word, info) => {
+        const rect = e.target.getBoundingClientRect();
+        setInfoModal({ word, info, x: rect.left + rect.width / 2, y: rect.top });
+    }, []);
+
+    const handleInfoModalClose = useCallback(() => {
+        setInfoModal(null);
+    }, []);
+
+    // Handle Escape key to close info modal
+    useEffect(() => {
+        const handleEscape = (e) => {
+            if (e.key === 'Escape' && infoModal) {
+                handleInfoModalClose();
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+        return () => document.removeEventListener('keydown', handleEscape);
+    }, [infoModal, handleInfoModalClose]);
+
+    const parseMarkdown = (text) => {
+        if (!text) return null;
+
+        // First, split by [[word||info]] pattern to handle info words
+        // Then handle bold text within each segment
+        const infoPattern = /(\[\[.*?\|\|.*?\]\])/g;
+        const segments = text.split(infoPattern);
+
+        return segments.map((segment, segIndex) => {
+            // Check if this segment is an info word [[word||info]]
+            const infoMatch = segment.match(/^\[\[(.*?)\|\|(.*?)\]\]$/);
+            if (infoMatch) {
+                const word = infoMatch[1];
+                const info = infoMatch[2];
+                return (
+                    <span
+                        key={`info-${segIndex}`}
+                        className="info-word"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleInfoWordClick(e, word, info);
+                        }}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                handleInfoWordClick(e, word, info);
+                            }
+                        }}
+                        tabIndex={0}
+                        role="button"
+                        aria-label={`Learn more about ${word}`}
+                    >
+                        {word}
+                    </span>
+                );
+            }
+
+            // Handle bold text within regular segments
+            const boldParts = segment.split(/(\*\*.*?\*\*)/g);
+            return boldParts.map((part, partIndex) => {
+                if (part.startsWith('**') && part.endsWith('**')) {
+                    return <strong key={`${segIndex}-bold-${partIndex}`} className="markdown-bold">{part.slice(2, -2)}</strong>;
+                }
+                return part ? <span key={`${segIndex}-text-${partIndex}`}>{part}</span> : null;
+            });
+        });
+    };
+
     const renderContent = () => {
         if (!hasContent) return null;
 
@@ -82,7 +155,7 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
                     if (item.type === 'bullet1') {
                         return (
                             <p key={index} className="content-bullet bullet-1">
-                                {item.text}
+                                {parseMarkdown(item.text)}
                             </p>
                         );
                     }
@@ -90,7 +163,7 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
                     if (item.type === 'bullet2') {
                         return (
                             <p key={index} className="content-bullet bullet-2">
-                                {item.text}
+                                {parseMarkdown(item.text)}
                             </p>
                         );
                     }
@@ -112,6 +185,27 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
                             alt={node.label}
                             className="image-modal-content"
                         />
+                    </div>
+                )}
+
+                {/* Info Popover */}
+                {infoModal && (
+                    <div
+                        className="info-popover-backdrop"
+                        onClick={handleInfoModalClose}
+                    >
+                        <div
+                            className="info-popover"
+                            style={{
+                                position: 'fixed',
+                                left: infoModal.x,
+                                top: infoModal.y,
+                                transform: 'translate(-50%, -100%)',
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {infoModal.info}
+                        </div>
                     </div>
                 )}
             </div>
