@@ -1,3 +1,39 @@
+# Version 4.0.0
+You are an expert python programmer.
+I have a microsoft word file.
+Write a python program to get the file name in the command line, extract the text and convert to JSON schema as follows:
+
+JSON SCHEMA:
+{
+  "chapterNo": "string",
+  "chapterTitle": "string",
+  "nodes": [ Node ] ,
+}
+
+Node = {
+  "id": "string", 			// 3 digits random number followed by label
+  "nodeType": "title1|title2|title3",	// type of clickable node
+  "label": "string", 			// what to display (title)
+  "children"?: [ Node ], 		// clickable node that expands to show children
+  "content"?: [ ContentItem ]		// leaf content shown when node clicked
+}
+
+ContentItem = {
+  "type": "bullet1|bullet2|number1|number2|image|video",	// depending on type:
+  "text"?: "string",                 				// for bullet1/bullet2/number1/number2
+  "url"?: "string",                  				// for image/video
+}
+
+JSON DATA:
+- "chapterNo" = 1
+- "chapterTitle" = Measurements
+- Paragraphs with "# Sub Topic - 1" style, add as a Node. Where "id" is a 3 digits random number followed by the paragraph text and nodeType = "title1".
+- Paragraphs with "# Sub Topic - 2" style, add as a Node. Where "id" is a 3 digits random number followed by the paragraph text and nodeType = "title2".
+- Paragraphs with "# Bullet-1" style, add as a ContentItem. Where type = bullet1. text = paragraph text. If a word is formatted as bold, add **word** markdown.
+- Paragraphs with "# Bullet-2" style, add as a ContentItem. Where type = bullet2. text = paragraph text. If a word is formatted as bold, add **word** markdown.
+
+Save the file as db-<file-name>.json
+
 # Version 3.0.0
 Create a static navigation panel at the bottom.
 Display "./src/assets/home_icon.png" on the left of this panel.
