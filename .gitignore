@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 documents/~$*.*
 doc-to-json-converter/db-*.json
+src/assets/subject_icons/~$Subject_Icons.pptx

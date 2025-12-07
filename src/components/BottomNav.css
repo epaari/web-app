@@ -13,16 +13,6 @@
     backdrop-filter: blur(8px);
 }
 
-/* Home Icon Container */
-.nav-home {
-    flex-shrink: 0;
-}
-
-.home-icon {
-    width: clamp(32px, 5vw, 56px);
-    height: clamp(32px, 5vw, 56px);
-    object-fit: contain;
-}
 
 /* Breadcrumb Buttons Container */
 .nav-breadcrumbs {

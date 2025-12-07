@@ -1,13 +1,10 @@
 import './BottomNav.css';
-import homeIcon from '../assets/home_icon.png';
 
 function BottomNav({ classNum, subject, chapterNo, chapterTitle, onNavigateToChapters }) {
     return (
         <nav className="bottom-nav">
-            <div className="nav-home">
-                <img src={homeIcon} alt="Home" className="home-icon" />
-            </div>
             <div className="nav-breadcrumbs">
+                <button className="nav-btn">Home</button>
                 {chapterNo && chapterTitle ? (
                     <>
                         <button
