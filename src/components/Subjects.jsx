@@ -67,27 +67,39 @@ function Subjects({ onSubjectSelect }) {
 
     return (
         <div className="subjects-view">
-            <div className="subjects-grid">
-                {data.standards.map((standard) => (
-                    standard.subjects.map((subjectObj) => (
-                        <div
-                            key={`${standard.standard}-${subjectObj.subject}`}
-                            className="subject-card"
-                            onClick={() => onSubjectSelect(standard.standard, subjectObj.subject)}
-                        >
-                            <div className="subject-icon-container">
-                                <img
-                                    src={subjectIcons[subjectObj.subject]}
-                                    alt={subjectObj.subject}
-                                    className="subject-icon"
-                                />
+            <div className="subjects-container">
+                {data.standards
+                    .sort((a, b) => parseInt(a.standard) - parseInt(b.standard))
+                    .map((standard, index) => (
+                        <div key={standard.standard}>
+                            <h2 className="standard-label">
+                                {standard.standard}<sup>th</sup> Standard
+                            </h2>
+                            <div className="subjects-grid">
+                                {standard.subjects.map((subjectObj) => (
+                                    <div
+                                        key={`${standard.standard}-${subjectObj.subject}`}
+                                        className="subject-card"
+                                        onClick={() => onSubjectSelect(standard.standard, subjectObj.subject)}
+                                    >
+                                        <div className="subject-icon-container">
+                                            <img
+                                                src={subjectIcons[subjectObj.subject]}
+                                                alt={subjectObj.subject}
+                                                className="subject-icon"
+                                            />
+                                        </div>
+                                        <div className="subject-name">
+                                            {subjectObj.subject}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                            <div className="subject-name">
-                                {standard.standard}<sup>th</sup> {subjectObj.subject}
-                            </div>
+                            {index < data.standards.length - 1 && (
+                                <div className="standard-separator"></div>
+                            )}
                         </div>
-                    ))
-                ))}
+                    ))}
             </div>
 
             <BottomNav />
