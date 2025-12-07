@@ -8,47 +8,52 @@
 
 .chapters-list {
     flex: 1;
-    column-count: 2;
-    column-gap: 0.1rem;
-    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
     max-width: 100%;
-    margin: 0;
+    margin: 0 auto;
     width: 100%;
 }
 
 .chapter-item {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(51, 65, 85, 0.8);
+    border-radius: 16px;
     overflow: hidden;
-    transition: all 0.2s ease;
-    break-inside: avoid;
-    page-break-inside: avoid;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.chapter-item:hover {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: #3b82f6;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+}
+
+.chapter-item:active {
+    transform: translateY(-2px);
 }
 
 .chapter-header-item {
     display: flex;
     align-items: center;
-    gap: clamp(0.5rem, 2vw, 2rem);
-    padding: 0.3rem 1rem;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
     color: var(--text-primary);
     user-select: none;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-    font-size: clamp(1.5rem, 4vw, 4rem);
-}
-
-.chapter-header-item:hover {
-    background: rgba(255, 255, 255, 0.03);
-}
-
-.chapter-header-item:active {
-    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.15s ease;
+    font-size: 2.25rem;
 }
 
 .chapter-expand-icon {
-    font-size: clamp(1.25rem, 3vw, 3rem);
+    font-size: 1.5rem;
     color: var(--text-secondary);
     transition: transform 0.2s ease;
     flex-shrink: 0;
-    width: clamp(1.5rem, 4vw, 4rem);
+    width: 1.5rem;
     text-align: center;
 }
 
@@ -72,8 +77,32 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
+    .chapters-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
     .chapter-header-item {
-        padding: 0.875rem 1rem;
+        padding: 1rem 0.75rem;
+        font-size: 1.875rem;
+    }
+
+    .chapter-expand-icon {
+        font-size: 1.25rem;
+        width: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .chapters-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1400px) {
+    .chapters-list {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 

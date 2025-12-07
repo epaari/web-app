@@ -73,7 +73,6 @@ function Chapters({ standard, subject, onChapterSelect, onHome }) {
                         onClick={() => onChapterSelect(chapter)}
                     >
                         <div className="chapter-header-item">
-                            <span className="chapter-expand-icon">›</span>
                             <span className="chapter-label">
                                 {chapter.chapterNo}. {chapter.chapterTitle}
                             </span>
