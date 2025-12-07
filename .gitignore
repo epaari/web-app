@@ -22,6 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-documents/~$*.*
-doc-to-json-converter/db-*.json
-src/assets/subject_icons/~$Subject_Icons.pptx
+~$*.pptx
+~$*.docx
+doc-to-json-converter/output/*
+doc-to-json-converter/*.docx
