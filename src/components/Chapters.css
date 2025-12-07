@@ -8,9 +8,8 @@
 
 .chapters-list {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
+    column-count: 2;
+    column-gap: 0.1rem;
     padding: 0;
     max-width: 100%;
     margin: 0;
@@ -20,6 +19,8 @@
 .chapter-item {
     overflow: hidden;
     transition: all 0.2s ease;
+    break-inside: avoid;
+    page-break-inside: avoid;
 }
 
 .chapter-header-item {
