@@ -2,6 +2,22 @@ import { useState, useEffect } from 'react';
 import BottomNav from './BottomNav';
 import './Subjects.css';
 
+// Import subject icons
+import tamilIcon from '../assets/subject_icons/Tamil.svg';
+import englishIcon from '../assets/subject_icons/English.svg';
+import mathsIcon from '../assets/subject_icons/Maths.svg';
+import scienceIcon from '../assets/subject_icons/Science.svg';
+import socialIcon from '../assets/subject_icons/Social Science.svg';
+
+// Map subject names to their icons
+const subjectIcons = {
+    'Tamil': tamilIcon,
+    'English': englishIcon,
+    'Maths': mathsIcon,
+    'Science': scienceIcon,
+    'Social Science': socialIcon
+};
+
 function Subjects({ onSubjectSelect }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -51,19 +67,23 @@ function Subjects({ onSubjectSelect }) {
 
     return (
         <div className="subjects-view">
-            <div className="subjects-list">
+            <div className="subjects-grid">
                 {data.standards.map((standard) => (
                     standard.subjects.map((subjectObj) => (
                         <div
                             key={`${standard.standard}-${subjectObj.subject}`}
-                            className="subject-item"
+                            className="subject-card"
                             onClick={() => onSubjectSelect(standard.standard, subjectObj.subject)}
                         >
-                            <div className="subject-header-item">
-                                <span className="subject-expand-icon">›</span>
-                                <span className="subject-label">
-                                    {standard.standard}. {subjectObj.subject}
-                                </span>
+                            <div className="subject-icon-container">
+                                <img
+                                    src={subjectIcons[subjectObj.subject]}
+                                    alt={subjectObj.subject}
+                                    className="subject-icon"
+                                />
+                            </div>
+                            <div className="subject-name">
+                                {standard.standard}<sup>th</sup> {subjectObj.subject}
                             </div>
                         </div>
                     ))
