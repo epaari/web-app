@@ -2,16 +2,21 @@ import { useState, useEffect } from 'react';
 import BottomNav from './BottomNav';
 import './Chapters.css';
 
-function Chapters({ onChapterSelect, onHome }) {
+function Chapters({ standard, subject, onChapterSelect, onHome }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('/db/6-science-db.json')
+        // Construct the database filename based on standard and subject
+        // Convert subject name to lowercase and replace spaces with hyphens
+        const subjectSlug = subject.toLowerCase().replace(/\s+/g, '-');
+        const dbFileName = `/db/${standard}-${subjectSlug}-db.json`;
+
+        fetch(dbFileName)
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error('Failed to fetch data');
+                    throw new Error('Selected subject unavailable');
                 }
                 return response.json();
             })
@@ -20,10 +25,11 @@ function Chapters({ onChapterSelect, onHome }) {
                 setLoading(false);
             })
             .catch((err) => {
-                setError(err.message);
+                // Show user-friendly message for any error (404, JSON parse error, etc.)
+                setError('Selected subject unavailable');
                 setLoading(false);
             });
-    }, []);
+    }, [standard, subject]);
 
     if (loading) {
         return (
@@ -36,7 +42,15 @@ function Chapters({ onChapterSelect, onHome }) {
     if (error) {
         return (
             <div className="chapters-view">
-                <div className="error-message">Error: {error}</div>
+                <div className="error-modal-overlay" onClick={onHome}>
+                    <div className="error-modal" onClick={(e) => e.stopPropagation()}>
+                        <h2 className="error-modal-title">Error</h2>
+                        <p className="error-modal-message">{error}</p>
+                        <button className="error-modal-button" onClick={onHome}>
+                            OK
+                        </button>
+                    </div>
+                </div>
             </div>
         );
     }

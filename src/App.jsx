@@ -8,8 +8,8 @@ function App() {
   const [selectedSubject, setSelectedSubject] = useState(null);
   const [selectedChapter, setSelectedChapter] = useState(null);
 
-  const handleSubjectSelect = (standard, subjectName) => {
-    setSelectedSubject({ standard, subjectName });
+  const handleSubjectSelect = (standard, subject) => {
+    setSelectedSubject({ standard, subject });
   };
 
   const handleChapterSelect = (chapter) => {
@@ -35,6 +35,8 @@ function App() {
         />
       ) : selectedSubject ? (
         <Chapters
+          standard={selectedSubject.standard}
+          subject={selectedSubject.subject}
           onChapterSelect={handleChapterSelect}
           onHome={handleBackToSubjects}
         />

@@ -1,0 +1,16 @@
+{
+    "class": "6",
+    "subject": "Tamil",
+    "chapters": [
+        {
+            "chapterNo": "1",
+            "chapterTitle": "இலக்கியம்",
+            "nodes": []
+        },
+        {
+            "chapterNo": "2",
+            "chapterTitle": "இலக்கணம்",
+            "nodes": []
+        }
+    ]
+}

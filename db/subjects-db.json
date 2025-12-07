@@ -4,19 +4,19 @@
             "standard": "6",
             "subjects": [
                 {
-                    "subjectName": "Tamil"
+                    "subject": "Tamil"
                 },
                 {
-                    "subjectName": "English"
+                    "subject": "English"
                 },
                 {
-                    "subjectName": "Maths"
+                    "subject": "Maths"
                 },
                 {
-                    "subjectName": "Science"
+                    "subject": "Science"
                 },
                 {
-                    "subjectName": "Social Science"
+                    "subject": "Social Science"
                 }
             ]
         },
@@ -24,19 +24,19 @@
             "standard": "7",
             "subjects": [
                 {
-                    "subjectName": "Tamil"
+                    "subject": "Tamil"
                 },
                 {
-                    "subjectName": "English"
+                    "subject": "English"
                 },
                 {
-                    "subjectName": "Maths"
+                    "subject": "Maths"
                 },
                 {
-                    "subjectName": "Science"
+                    "subject": "Science"
                 },
                 {
-                    "subjectName": "Social Science"
+                    "subject": "Social Science"
                 }
             ]
         },
@@ -44,19 +44,19 @@
             "standard": "8",
             "subjects": [
                 {
-                    "subjectName": "Tamil"
+                    "subject": "Tamil"
                 },
                 {
-                    "subjectName": "English"
+                    "subject": "English"
                 },
                 {
-                    "subjectName": "Maths"
+                    "subject": "Maths"
                 },
                 {
-                    "subjectName": "Science"
+                    "subject": "Science"
                 },
                 {
-                    "subjectName": "Social Science"
+                    "subject": "Social Science"
                 }
             ]
         }

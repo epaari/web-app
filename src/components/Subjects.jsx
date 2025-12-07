@@ -53,16 +53,16 @@ function Subjects({ onSubjectSelect }) {
         <div className="subjects-view">
             <div className="subjects-list">
                 {data.standards.map((standard) => (
-                    standard.subjects.map((subject) => (
+                    standard.subjects.map((subjectObj) => (
                         <div
-                            key={`${standard.standard}-${subject.subjectName}`}
+                            key={`${standard.standard}-${subjectObj.subject}`}
                             className="subject-item"
-                            onClick={() => onSubjectSelect(standard.standard, subject.subjectName)}
+                            onClick={() => onSubjectSelect(standard.standard, subjectObj.subject)}
                         >
                             <div className="subject-header-item">
                                 <span className="subject-expand-icon">›</span>
                                 <span className="subject-label">
-                                    {standard.standard}. {subject.subjectName}
+                                    {standard.standard}. {subjectObj.subject}
                                 </span>
                             </div>
                         </div>
