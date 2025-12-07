@@ -26,3 +26,6 @@ dist-ssr
 ~$*.docx
 doc-to-json-converter/output/*
 doc-to-json-converter/*.docx
+
+# Nested Content Images Repository
+content-images

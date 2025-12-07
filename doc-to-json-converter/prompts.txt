@@ -59,3 +59,7 @@ After updating the "../db/<standard>-<subject>-db.json" file, I want to upload t
 Get the user consent before uploading the image files to GitHub.
 
 Please modify the script.
+
+================================
+After successful commit, delete the image files in "./doc-to-json-converter/output" folder.
+Please modify the script.

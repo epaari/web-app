@@ -8,6 +8,7 @@ import json
 import random
 import os
 import re
+import subprocess
 from pathlib import Path
 from docx import Document
 from docx.text.paragraph import Paragraph
@@ -238,6 +239,92 @@ def process_word_document(file_path):
     return result
 
 
+def upload_images_to_github(output_dir):
+    """
+    Upload images from output directory to GitHub repository.
+    Asks for user consent before uploading.
+    
+    Args:
+        output_dir: Path to the output directory containing images
+    
+    Returns:
+        bool: True if upload was successful or skipped, False if failed
+    """
+    # Check if there are any image files to upload
+    image_files = list(output_dir.glob('*.png')) + list(output_dir.glob('*.jpg')) + list(output_dir.glob('*.gif'))
+    
+    if not image_files:
+        print("No images to upload.")
+        return True
+    
+    # Ask for user consent
+    print(f"\nFound {len(image_files)} image(s) to upload to GitHub.")
+    print("Images will be uploaded to: https://github.com/epaari/images")
+    
+    while True:
+        consent = input("Do you want to upload these images? (yes/no): ").strip().lower()
+        if consent in ['yes', 'y']:
+            break
+        elif consent in ['no', 'n']:
+            print("Image upload skipped.")
+            return True
+        else:
+            print("Please enter 'yes' or 'no'.")
+    
+    # Define the GitHub repository path
+    github_repo_path = Path("../content-images")
+    
+    # Check if the repository exists
+    if not github_repo_path.exists():
+        print(f"Error: GitHub repository not found at {github_repo_path}")
+        print("Please clone the repository first: git clone https://github.com/epaari/images.git ../content-images")
+        return False
+    
+    try:
+        # Copy images to the GitHub repository
+        for image_file in image_files:
+            dest_file = github_repo_path / image_file.name
+            import shutil
+            shutil.copy2(image_file, dest_file)
+            print(f"Copied: {image_file.name}")
+        
+        # Git operations
+        print("\nUploading to GitHub...")
+        
+        # Change to repository directory
+        os.chdir(github_repo_path)
+        
+        # Git add
+        subprocess.run(['git', 'add', '.'], check=True)
+        
+        # Git commit
+        commit_message = f"Add images from document conversion"
+        subprocess.run(['git', 'commit', '-m', commit_message], check=True)
+        
+        # Git push
+        subprocess.run(['git', 'push'], check=True)
+        
+        print("✓ Images successfully uploaded to GitHub!")
+        
+        # Delete image files from output directory after successful upload
+        print("\nCleaning up output directory...")
+        for image_file in image_files:
+            try:
+                image_file.unlink()
+                print(f"Deleted: {image_file.name}")
+            except Exception as e:
+                print(f"Warning: Could not delete {image_file.name}: {e}")
+        
+        return True
+        
+    except subprocess.CalledProcessError as e:
+        print(f"Error during git operation: {e}")
+        return False
+    except Exception as e:
+        print(f"Error uploading images: {e}")
+        return False
+
+
 def main():
     """Main function to handle command-line execution."""
     # Check for correct number of arguments
@@ -300,6 +387,10 @@ def main():
             json.dump(db_data, f, indent=2, ensure_ascii=False)
         
         print(f"Successfully converted '{input_path.stem}'")
+        
+        # Upload images to GitHub
+        output_dir = Path("./output")
+        upload_images_to_github(output_dir)
         
     except Exception as e:
         print(f"Error processing document: {str(e)}")
