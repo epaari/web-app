@@ -43,9 +43,7 @@
 .nodes-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   gap: 0.1rem;
-  min-height: 90vh;
 }
 
 /* Tree Node */

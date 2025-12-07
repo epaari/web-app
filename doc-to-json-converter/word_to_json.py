@@ -42,14 +42,12 @@ def get_paragraph_style(paragraph):
     return None
 
 
-def process_word_document(file_path, chapter_no="1", chapter_title="Measurements"):
+def process_word_document(file_path):
     """
     Process a Word document and convert it to the specified JSON schema.
     
     Args:
         file_path: Path to the Word document
-        chapter_no: Chapter number (default: "1")
-        chapter_title: Chapter title (default: "Measurements")
     
     Returns:
         Dictionary containing the structured data
@@ -58,8 +56,8 @@ def process_word_document(file_path, chapter_no="1", chapter_title="Measurements
     
     # Initialize the result structure
     result = {
-        "chapterNo": chapter_no,
-        "chapterTitle": chapter_title,
+        "chapterNo": "",
+        "chapterTitle": "",
         "nodes": []
     }
     
@@ -147,14 +145,7 @@ def process_word_document(file_path, chapter_no="1", chapter_title="Measurements
 
 def main():
     """Main function to handle command-line execution."""
-    if len(sys.argv) < 2:
-        print("Usage: python word_to_json.py <word_file_path> [chapter_no] [chapter_title]")
-        print("Example: python word_to_json.py document.docx 1 Measurements")
-        sys.exit(1)
-    
     input_file = sys.argv[1]
-    chapter_no = sys.argv[2]
-    chapter_title = sys.argv[3]
     
     # Validate input file exists
     if not Path(input_file).exists():
@@ -169,7 +160,7 @@ def main():
     try:
         # Process the document
         print(f"Processing '{input_file}'...")
-        result = process_word_document(input_file, chapter_no, chapter_title)
+        result = process_word_document(input_file)
         
         # Generate output filename
         input_path = Path(input_file)

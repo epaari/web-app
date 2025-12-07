@@ -23,3 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 documents/~$*.*
+doc-to-json-converter/db-*.json
