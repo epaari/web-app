@@ -1,10 +1,14 @@
 import './BottomNav.css';
 
-function BottomNav({ classNum, subject, chapterNo, chapterTitle, onNavigateToChapters }) {
+function BottomNav({ classNum, subject, chapterNo, chapterTitle, onNavigateToChapters, onHome }) {
     return (
         <nav className="bottom-nav">
             <div className="nav-breadcrumbs">
-                <button className="nav-btn">Home</button>
+                {onHome ? (
+                    <button className="nav-btn nav-btn-clickable" onClick={onHome}>Home</button>
+                ) : (
+                    <button className="nav-btn">Home</button>
+                )}
                 {chapterNo && chapterTitle ? (
                     <>
                         <button
@@ -15,9 +19,9 @@ function BottomNav({ classNum, subject, chapterNo, chapterTitle, onNavigateToCha
                         </button>
                         <button className="nav-btn">{chapterNo}. {chapterTitle}</button>
                     </>
-                ) : (
+                ) : classNum && subject ? (
                     <button className="nav-btn">{classNum}. {subject}</button>
-                )}
+                ) : null}
             </div>
         </nav>
     );

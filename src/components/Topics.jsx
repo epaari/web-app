@@ -3,7 +3,7 @@ import TreeNode from './TreeNode';
 import BottomNav from './BottomNav';
 import './Topics.css';
 
-function Topics({ chapter, onBack }) {
+function Topics({ chapter, onBack, onHome }) {
     const [chapterData, setChapterData] = useState(null);
     const [expandedNodeIds, setExpandedNodeIds] = useState(new Set());
     const [loading, setLoading] = useState(true);
@@ -148,6 +148,7 @@ function Topics({ chapter, onBack }) {
                 chapterNo={chapterData.chapterNo}
                 chapterTitle={chapterData.chapterTitle}
                 onNavigateToChapters={onBack}
+                onHome={onHome}
             />
 
         </div>

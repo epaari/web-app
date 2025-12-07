@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import BottomNav from './BottomNav';
 import './Chapters.css';
 
-function Chapters({ onChapterSelect }) {
+function Chapters({ onChapterSelect, onHome }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -71,6 +71,7 @@ function Chapters({ onChapterSelect }) {
             <BottomNav
                 classNum={data.class}
                 subject={data.subject}
+                onHome={onHome}
             />
         </div>
     );
