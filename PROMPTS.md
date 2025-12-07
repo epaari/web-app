@@ -1,7 +1,7 @@
 # Version 5.0.0
 So far we were displaying only one chapter.
 Now add a new screen "Chapters" before ChapterView.
-List the 2 chapters from db.json.
+List the 2 chapters from 6-science-db.json.
 The bottom navigation panel should show class and subject (example: "6. Science")
 When the user selects a chapter, show the Nodes and Contents in ChapterView.
 
@@ -44,9 +44,9 @@ Save the file as db-<file-name>.json
 # Version 3.0.0
 Create a static navigation panel at the bottom.
 Display "./src/assets/home_icon.png" on the left of this panel.
-Display "Class 10" button using the "./db/db.json" "class".
-Display "Science" button using the "./db/db.json" "subject".
-Display "3. Matter Around Us" button using the "./db/db.json" "chapterNo" and "chapterTitle".
+Display "Class 10" button using the "./db/6-science-db.json" "class".
+Display "Science" button using the "./db/6-science-db.json" "subject".
+Display "3. Matter Around Us" button using the "./db/6-science-db.json" "chapterNo" and "chapterTitle".
 
 I have attached a sample UI mock-up.
 Prepare the implementation plan. I will review it before you proceed.
@@ -58,13 +58,13 @@ Prepare the implementation plan. I will review it before you proceed.
 
 # Version 1.7.0
 I would like to display maths equations to the user.
-Add a sample LaTeX equation to db.json.
+Add a sample LaTeX equation to 6-science-db.json.
 Render this equation to the user.
 
 Done! LaTeX equation rendering is now set up. Here's what was added:
 ### Changes made:
 index.html: Added MathJax CDN script with LaTeX configuration
-db.json: Added sample equation E = mc^2 in "What is Matter?" section
+6-science-db.json: Added sample equation E = mc^2 in "What is Matter?" section
 TreeNode.jsx: Added equation type rendering and MathJax typesetting trigger
 ChapterView.css: Added .content-equation styling
 
@@ -76,7 +76,7 @@ Image width = 25% of the screen width.
 Wrap text around the image.
 
 # Version 1.5.0
-@db.json Add some React markdowns to the following element:
+@6-science-db.json Add some React markdowns to the following element:
 {
   "type": "bullet1",
   "text": "Matter is everything around us—air, water, and the materials we use. It is anything that occupies space and has mass."
@@ -150,7 +150,7 @@ Don't test yourself. I will do manual testing myself.
 
 # Version 1.0.0
 I want you to write a React web app to display hierarchical content to the user.
-- The JSON data is available in ./db/db.json file.
+- The JSON data is available in ./db/6-science-db.json file.
 - Display "chapterNo" and "chapterTitle".
 - Display "nodes" hierarchically.
 - When the user clicks on a node expand and show its "label" and "content".

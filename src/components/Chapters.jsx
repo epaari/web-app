@@ -8,7 +8,7 @@ function Chapters({ onChapterSelect }) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('/db/db.json')
+        fetch('/db/6-science-db.json')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');

@@ -1,0 +1,64 @@
+{
+    "standards": [
+        {
+            "standard": "6",
+            "subjects": [
+                {
+                    "subjectName": "Tamil"
+                },
+                {
+                    "subjectName": "English"
+                },
+                {
+                    "subjectName": "Maths"
+                },
+                {
+                    "subjectName": "Science"
+                },
+                {
+                    "subjectName": "Social Science"
+                }
+            ]
+        },
+        {
+            "standard": "7",
+            "subjects": [
+                {
+                    "subjectName": "Tamil"
+                },
+                {
+                    "subjectName": "English"
+                },
+                {
+                    "subjectName": "Maths"
+                },
+                {
+                    "subjectName": "Science"
+                },
+                {
+                    "subjectName": "Social Science"
+                }
+            ]
+        },
+        {
+            "standard": "8",
+            "subjects": [
+                {
+                    "subjectName": "Tamil"
+                },
+                {
+                    "subjectName": "English"
+                },
+                {
+                    "subjectName": "Maths"
+                },
+                {
+                    "subjectName": "Science"
+                },
+                {
+                    "subjectName": "Social Science"
+                }
+            ]
+        }
+    ]
+}
