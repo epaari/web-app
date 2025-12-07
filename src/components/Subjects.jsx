@@ -71,9 +71,9 @@ function Subjects({ onSubjectSelect }) {
                 {data.standards
                     .sort((a, b) => parseInt(a.standard) - parseInt(b.standard))
                     .map((standard, index) => (
-                        <div key={standard.standard}>
+                        <div key={standard.standard} className="standard-group">
                             <h2 className="standard-label">
-                                {standard.standard}<sup>th</sup> Standard
+                                <span>{standard.standard}<sup>th</sup> Standard</span>
                             </h2>
                             <div className="subjects-grid">
                                 {standard.subjects.map((subjectObj) => (
@@ -95,9 +95,6 @@ function Subjects({ onSubjectSelect }) {
                                     </div>
                                 ))}
                             </div>
-                            {index < data.standards.length - 1 && (
-                                <div className="standard-separator"></div>
-                            )}
                         </div>
                     ))}
             </div>

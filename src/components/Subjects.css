@@ -11,12 +11,29 @@
     width: 100%;
 }
 
+.standard-group {
+    margin-bottom: 2rem;
+}
+
 .standard-label {
     color: var(--text-primary);
     font-size: 1.5rem;
     font-weight: 600;
-    margin: 1rem 0 1rem 1rem;
-    padding-left: 1rem;
+    text-align: center;
+    position: relative;
+    margin: 2rem 0 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.standard-label::before,
+.standard-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.6) 50%, transparent);
+    margin: 0 2rem;
 }
 
 .standard-label sup {
@@ -31,14 +48,6 @@
     padding: 1rem;
     max-width: 1200px;
     margin: 0 auto;
-    width: 100%;
-}
-
-.standard-separator {
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(51, 65, 85, 0.8) 20%, rgba(51, 65, 85, 0.8) 80%, transparent);
-    margin: 2rem auto;
-    max-width: 1200px;
 }
 
 .subject-card {
