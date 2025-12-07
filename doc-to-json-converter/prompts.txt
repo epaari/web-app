@@ -36,3 +36,26 @@ In main(), we have "print(f"Successfully converted '{input_file}'")".
 I don't want to print the input_file's path (example: ./1.1.docx).
 I want to print only the file name without the extension. (example: 1.1).
 Please modify the script.
+
+===============================
+In the output json file, I don't need
+1. Opening brace at the start of the document
+2. Closing brace at the end of the document
+3. First level indent throughout the document.
+Please change the script.
+
+================================
+The current behaviour is to extract the nodes and write the json data to the file "./output/db-<chapter>.json".
+Instead I want you to extract the nodes and write the json data directly to the "../db/<standard>-<subject>-db.json" file.
+Please modify the script as follows:
+1. Get the standard and subject from the command line. (example: python doc_to_json.py 6 science 10.docx)
+2. Locate the chapter in the "../db/<standard>-<subject>-db.json" file. The chapter number is the input file name without the extension. (example: 10.docx -> 10).
+3. The location of the chapter in the "../db/<standard>-<subject>-db.json" file is found by looking at the "chapterNo" key.
+4. Add the json data under the "nodes" key.
+5. If already nodes exist, remove the nodes and add the new nodes.
+
+================================
+After updating the "../db/<standard>-<subject>-db.json" file, I want to upload the image files in "./doc-to-json-converter/output" to GitHub's public repository "https://github.com/epaari/images".
+Get the user consent before uploading the image files to GitHub.
+
+Please modify the script.

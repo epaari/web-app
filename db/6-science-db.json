@@ -4,2275 +4,436 @@
   "chapters": [
     {
       "chapterNo": "1",
-      "chapterTitle": "Measurements",
-      "nodes": [
-        {
-          "id": "194-1. Introduction",
-          "nodeType": "title1",
-          "label": "1. Introduction",
-          "children": [
-            {
-              "id": "860-SI Units",
-              "nodeType": "title2",
-              "label": "SI Units",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Fundamental** SI Units: "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Length**: Metre (m)"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Mass**: Kilogram (kg)"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Time**: Second (s)"
-                }
-              ]
-            },
-            {
-              "id": "947-Avoiding Errors",
-              "nodeType": "title2",
-              "label": "Avoiding Errors",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Measurement** **accuracy** is very important in science, as small errors can lead to big changes in results."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Common **Mistakes** **to** **Avoid**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Alignment**: Always place the object correctly at the \"0\" mark on the scale."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Position**: Keep the object parallel to the scale to prevent errors."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Eye** **Positioning**: Look straight down at the measurement point to avoid parallax error"
-                }
-              ]
-            },
-            {
-              "id": "557-Parallax in Measurement",
-              "nodeType": "title2",
-              "label": "Parallax in Measurement",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Parallax** **error** happens when an object appears to be in a different position when viewed from different angles."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "For accurate measurements, your **eye** should be positioned **directly** **above** the measurement point."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Viewing from other angles (like **left** or **right**) can cause **incorrect** **readings** due to parallax."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "To avoid parallax error, always make sure your **eye** **is** **aligned** with the measurement point. "
-                }
-              ]
-            },
-            {
-              "id": "861-Tools for Measurement",
-              "nodeType": "title2",
-              "label": "Tools for Measurement",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Beam** **Balance**: Measures mass by comparing an object's mass to a standard mass."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Electronic** **Balance**: Offers accurate mass measurements, commonly used for chemicals, food, groceries, and jewelry."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Clock**: Tracks time and is used to note the passage of time in daily activities."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Stopwatch**: Measures time intervals precisely, ideal for races or events."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Meter** **Scale**: Measures length in metres and centimetres; useful for accurately measuring smaller objects. "
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "174-2. Length",
-          "nodeType": "title1",
-          "label": "2. Length",
-          "children": [
-            {
-              "id": "166-Understanding Length",
-              "nodeType": "title2",
-              "label": "Understanding Length",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Length** is the **distance** between two points."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples:**"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "The edges of a book"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Distance between corners of a football ground"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Distance from home to school. "
-                }
-              ]
-            },
-            {
-              "id": "679-Units for Measuring Length",
-              "nodeType": "title2",
-              "label": "Units for Measuring Length",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "The standard unit of length is the **metre** (**m**)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Smaller** **lengths** are measured in **millimetres** (**mm**) and **centimetres** (**cm**). "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Larger** **distances**, like those between cities, are measured in **kilometres** (**km**)."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "358-3. Mass and Weight",
-          "nodeType": "title1",
-          "label": "3. Mass and Weight",
-          "children": [
-            {
-              "id": "342-Understanding Mass",
-              "nodeType": "title2",
-              "label": "Understanding Mass",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Mass** is the amount of **matter** in an object."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Mass** is different from **weight**. Weight is the **gravitational** **pull** on an object, while mass stays the same."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "For example, an object will **weigh less on the Moon** (about six times less), but its **mass remains unchanged**. "
-                }
-              ]
-            },
-            {
-              "id": "336-Units for Measuring Mass",
-              "nodeType": "title2",
-              "label": "Units for Measuring Mass",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "The SI unit of **mass** is the **kilogram** (**kg)**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Smaller** **units** of mass:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Gram** (g): 1000 g = 1 kg."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Milligram** (mg): 1000 mg = 1 g. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Larger** **units** of mass:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Tonne** (metric tonne): 1000 kg = 1 tonne."
-                }
-              ]
-            },
-            {
-              "id": "297-Using a Beam Balance",
-              "nodeType": "title2",
-              "label": "Using a Beam Balance",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "A **beam balance** measures mass by comparing an object’s mass to a **known** **mass** (standard mass)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "With a beam balance, you can:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Find out which object is **heavier**. "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Estimate the weight** of lighter objects, like **leaves** or **pieces of** **paper**."
-                }
-              ]
-            },
-            {
-              "id": "498-Using an Electronic Balance",
-              "nodeType": "title2",
-              "label": "Using an Electronic Balance",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "An **electronic** **balance** is used to measure **weight** accurately."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It is commonly used in **laboratories** to weigh **chemicals** precisely for experiments."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Electronic** **balances** are also used to weigh **food**, **groceries**, and **jewelry**. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "This device provides **precise** **measurements**, often down to the **milligram** **level**."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "974-4. Time",
-          "nodeType": "title1",
-          "label": "4. Time",
-          "children": [
-            {
-              "id": "675-Understanding Time",
-              "nodeType": "title2",
-              "label": "Understanding Time",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Time** helps us track changes, like day turning into night and the change of seasons."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Clocks** are commonly used to measure time, but you can also estimate time by **counting** or feeling your **pulse**. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Electronic** **clocks** and stopwatches measure even **smaller** **durations** of time."
-                }
-              ]
-            },
-            {
-              "id": "592-Units for Measuring Time",
-              "nodeType": "title2",
-              "label": "Units for Measuring Time",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "The **SI unit** of time is the **second**. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Units of time include **seconds**, **minutes**, and **hours**."
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "chapterNo": "2",
-      "chapterTitle": "Force and Motion",
-      "nodes": [
-        {
-          "id": "189-1. Rest and Motion",
-          "nodeType": "title1",
-          "label": "1. Rest and Motion",
-          "children": [
-            {
-              "id": "467-Understanding Rest & Motion",
-              "nodeType": "title2",
-              "label": "Understanding Rest & Motion",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Rest**: An object is at rest if it **does not change its position** with respect to its surroundings over time (e.g., a book on a table)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Motion**: An object is in motion if it **changes its position over time** relative to its surroundings (e.g., a moving bus)."
-                }
-              ]
-            },
-            {
-              "id": "373-Push or Pull?",
-              "nodeType": "title2",
-              "label": "Push or Pull?",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Push or Pull: All forces are classified as either a push or a pull."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Examples of Motion:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Opening a door involves a push or pull to create motion."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Kicking a football is a push, while lifting a school bag involves a pull."
-                }
-              ]
-            },
-            {
-              "id": "996-Relative Motion Scenarios",
-              "nodeType": "title2",
-              "label": "Relative Motion Scenarios",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Rest** and **motion** are **relative**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They depend on the **observer's** **point** of **view**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Example:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Mohan sitting in a moving bus is at rest relative to a fellow passenger but in motion relative to a person outside the bus."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Trees and poles appear to move backward when observed from a moving bus, even though they are stationary."
-                }
-              ]
-            },
-            {
-              "id": "190-Exploring Motion Types",
-              "nodeType": "title2",
-              "label": "Exploring Motion Types",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Linear** **Motion**: "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Movement in a **straight** **line**."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Example**: A sprinter running a 100-meter race."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Circular** **Motion**: "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Movement along the **circumference** of a **circle**."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Example**: The revolution of the moon around the Earth."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Rotatory** (Rotational) **Motion**: "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "An object **spins** around its **own** **axis**."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Example: A spinning top or a rotating fan blade."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Oscillatory** **Motion**: "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Back**-**and**-**forth** movement in a **regular** **pattern**."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Example: The swinging of a pendulum or a child on a swing."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Curvilinear** **Motion**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Movement along a **curved** **path**. "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Example: A car taking a bend or a ball thrown at an angle."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Zigzag** (Irregular) **Motion**: "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Motion in **various** **directions**, often seen as erratic."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Example: A fly buzzing around a room."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Periodic**: **Repeats** at **regular** **intervals** (e.g., Earth's rotation)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Non**-**Periodic**: **Irregular** and does not follow a fixed time pattern (e.g., wind blowing through trees)."
-                }
-              ]
-            },
-            {
-              "id": "825-Contact & Non-Contact Forces",
-              "nodeType": "title2",
-              "label": "Contact & Non-Contact Forces",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Forces that require **physical** **contact** between objects to occur."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:  "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Pushing a book across a table."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Pulling a cart by a bullock."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Kicking a football."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Forces that act at a distance **without** **physical** **contact**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Gravitational Force: Earth’s gravity pulling objects downward (e.g., a coconut falling from a tree). "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Magnetic Force: A magnet attracting iron nails. "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Electrostatic Force: Attraction or repulsion between electrically charged objects."
-                }
-              ]
-            },
-            {
-              "id": "840-Impact of Forces",
-              "nodeType": "title2",
-              "label": "Impact of Forces",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Move an Object**: A force can set an object in motion (e.g., pushing a stationary ball). "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Change Speed**: Force can increase or decrease the speed of a moving object (e.g., hitting a moving ball with a bat)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Change Direction**: Force can alter the direction of an object (e.g., a goalkeeper stopping a ball changes its direction)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Stop Motion**: Applying a force can bring a moving object to rest (e.g., braking to stop a bicycle)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Change Shape**: Force can deform an object (e.g., pressing clay or stretching a rubber band)."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "422-2. Types of Motion",
-          "nodeType": "title1",
-          "label": "2. Types of Motion",
-          "children": [
-            {
-              "id": "485-Periodic vs. Non-Periodic",
-              "nodeType": "title2",
-              "label": "Periodic vs. Non-Periodic",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Motion that repeats at **regular** **intervals** of **time**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Pendulum of a clock swinging back and forth."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Hands of a clock moving in a circular path."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Earth’s revolution around the Sun."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Motion that **does not repeat at regular intervals**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:  "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Wind blowing through trees (changes with weather)."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "A bird flying in different directions. "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "A car moving in traffic, with stops and starts at irregular intervals. "
-                }
-              ]
-            },
-            {
-              "id": "253-Speed: Fast or Slow?",
-              "nodeType": "title2",
-              "label": "Speed: Fast or Slow?",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Speed** is the distance traveled by an object in a given amount of time."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "An object is **fast** if it covers more distance in less time (e.g., a racing car)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "An object is **slow** if it covers less distance in more time (e.g., a walking person)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "An aeroplane is faster than a car. "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Cycling is usually faster than walking. "
-                }
-              ]
-            },
-            {
-              "id": "900-Uniform vs. Non-Uniform",
-              "nodeType": "title2",
-              "label": "Uniform vs. Non-Uniform",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "An object is in **uniform** **motion** if it covers **equal** **distances** in **equal** **intervals** of **time**, regardless of the duration."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The speed remains **constant** throughout the motion."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "A car moving at a constant speed of 60 km/h on a straight highway."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "The hands of a clock moving at a steady rate. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "An object is in **non-uniform** **motion** if it covers **unequal** **distances** in **equal intervals of time**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The speed **changes** during the motion, either **increasing** or **decreasing**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "A bus slowing down or speeding up in traffic. "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "A cyclist going up and down a hill with varying speeds."
-                }
-              ]
-            },
-            {
-              "id": "636-Combining Motions",
-              "nodeType": "title2",
-              "label": "Combining Motions",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Combining motions refers to the occurrence of **multiple** **types** **of** **motion** in a **single** **object** simultaneously."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Bicycle: \nThe wheels rotate (rotatory motion). \nThe bicycle moves forward (linear motion)."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Ceiling Fan: \nThe blades rotate (rotatory motion).\nThe air pushed by the fan moves in a straight line (linear motion)."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "397-3. Robots and AI",
-          "nodeType": "title1",
-          "label": "3. Robots and AI",
-          "children": [
-            {
-              "id": "966-Meet the Robots",
-              "nodeType": "title2",
-              "label": "Meet the Robots",
-              "content": []
-            },
-            {
-              "id": "748-Robot Capabilities",
-              "nodeType": "title2",
-              "label": "Robot Capabilities",
-              "content": []
-            },
-            {
-              "id": "506-Robot Senses",
-              "nodeType": "title2",
-              "label": "Robot Senses",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Robots use **cameras** to see and recognize objects, shapes, and colors."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Face recognition systems in security robots."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Object detection for sorting items on a conveyor belt."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Equipped with **microphones** to detect and respond to sounds."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Voice commands for smart assistants (e.g., asking a robot to play music)."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Sound sensors in robots for detecting alarms or specific noises. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Use **pressure** **sensors** to feel and interact with objects."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Robots handling fragile items without breaking them."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Tactile feedback in robotic prosthetics for a sense of touch. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Use **infrared** or **ultrasonic** **sensors** to measure distance and detect obstacles."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Autonomous cars using sensors to avoid collisions."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Robotic vacuum cleaners navigating around furniture. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Robots can have **thermal** **sensors** to detect heat or cold."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Firefighting robots locating hotspots in burning buildings."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Robots monitoring temperature-sensitive environments (like food storage). "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Use **gyroscopes** and **accelerometers** to maintain balance."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Humanoid robots walking on uneven surfaces."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Drones staying stable during flight. "
-                }
-              ]
-            },
-            {
-              "id": "927-Understanding AI",
-              "nodeType": "title2",
-              "label": "Understanding AI",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Artificial** **Intelligence** (AI) is the ability of machines to **mimic** **human** **intelligence**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "AI enables computers and robots to think, learn, and solve problems."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Key** **Capabilities** **of AI**: "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Learning"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Reasoning"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Perception"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Natural Language Processing (NLP)"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Problem-Solving"
-                }
-              ]
-            },
-            {
-              "id": "390-Can Robots Think?",
-              "nodeType": "title2",
-              "label": "Can Robots Think?",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Currently, **robots** can perform tasks that require **logic** and **data** **analysis**, but they **lack** **human-like consciousness**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "AI can **simulate thinking** but does not have the **emotional intelligence** or **self-awareness** that humans possess. "
-                }
-              ]
-            },
-            {
-              "id": "379-Nanorobots in Action",
-              "nodeType": "title2",
-              "label": "Nanorobots in Action",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Nanorobots** are **tiny**, **microscopic** **robots** designed to perform specific tasks at the molecular or cellular level."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Key Capabilities of Nanorobots**: "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Precision**: Can target specific cells or molecules with high accuracy."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Autonomous** **Navigation**: Navigate through the bloodstream to reach precise locations."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Controlled** **by** **External** **Signals**: Some respond to magnetic fields, light, or chemical signals."
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "chapterNo": "3",
-      "chapterTitle": "Matter Around Us",
-      "nodes": [
-        {
-          "id": "723-Matter-Around-Us",
-          "nodeType": "title1",
-          "label": "1. Matter Around Us",
-          "children": [
-            {
-              "id": "451-What-is-Matter",
-              "nodeType": "title2",
-              "label": "What is Matter?",
-              "content": [
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What%20is%20Matter.png"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Matter** is everything around us—air, water, and the materials we use. It is anything that occupies space and has mass."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Matter exists in three states: solid, liquid, and gas."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Atoms are the smallest particles of matter. They are too small to see, even with regular microscopes."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "A standard sheet of paper is millions of atoms thick!"
-                },
-                {
-                  "type": "equation",
-                  "latex": "AP = \\frac{100}{\\frac{1}{\\left(\\frac{\\delta^{13} C}{1000} + 1\\right) \\times ARC} + 1}"
-                }
-              ]
-            },
-            {
-              "id": "618-Particle-Traits-of-Matter",
-              "nodeType": "title2",
-              "label": "Particle Traits of Matter",
-              "content": [
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Particle%20Traits%20of%20Matter.jpg"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Particles of matter have spaces between them, and the spacing differs in solids, liquids, and gases."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "When you stir sugar into water, it disappears because sugar particles fill the spaces between water particles. Yes, the water will taste sweet!"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Particles of matter attract each other through a force of attraction that keeps them together."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The strength of this force varies depending on the state of matter—stronger in solids and weaker in gases."
-                }
-              ]
-            },
-            {
-              "id": "892-Types-of-Matter",
-              "nodeType": "title2",
-              "label": "Types of Matter",
-              "content": [
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Types%20of%20Matter.png"
-                }
-              ]
-            },
-            {
-              "id": "367-Pure-Substances",
-              "nodeType": "title2",
-              "label": "Pure Substances",
-              "content": [
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Pure%20Substances1.png"
-                },
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Pure%20Substances2.png"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "A pure substance contains only one kind of particle throughout."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Pure substances can be either elements or compounds."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "An element is made of the same type of atoms, such as gold or oxygen."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "A compound is a substance formed by the chemical combination of two or more elements."
-                }
-              ]
-            },
-            {
-              "id": "544-Mixtures",
-              "nodeType": "title2",
-              "label": "Mixtures",
-              "content": [
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures1.png"
-                },
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures2.png"
-                },
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Mixtures3.png"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "A mixture is made up of two or more components that can be physically separated."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "A mixture can be a combination of two or more elements. Example: 22 carat gold (Gold + Copper)"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It can also be a combination of two or more compounds. Example: Aerated drinks, which include carbon dioxide, water, sweeteners, and coloring agents."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "A mixture can also be made of an element and a compound. Example: Tincture of iodine, which is iodine dissolved in alcohol."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "945-Separating-Mixtures",
-          "nodeType": "title1",
-          "label": "2. Separating Mixtures",
-          "children": [
-            {
-              "id": "725-Why-Separate-Mixtures",
-              "nodeType": "title2",
-              "label": "Why Separate Mixtures?",
-              "content": [
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Why%20Separate%20Mixtures.png"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Separation is the process of isolating and removing the components of a mixture to get pure substances."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Separation is important to:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Remove impurities or harmful parts from a mixture. Example: Stones from rice."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Isolate a useful component. Example: Petrol from petroleum."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Obtain a pure substance. Example: Gold from gold mines."
-                }
-              ]
-            },
-            {
-              "id": "183-Separation-Techniques",
-              "nodeType": "title2",
-              "label": "Separation Techniques",
-              "children": [
-                {
-                  "id": "219-Filtering",
-                  "nodeType": "title3",
-                  "label": "Filtering",
-                  "content": [
-                    {
-                      "type": "image",
-                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques1.jpg"
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Filtering is a process used to separate larger particles from a liquid."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Filtering helps get a clean liquid by separating unwanted particles."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Example: Use a strainer to remove tea leaves from the tea."
-                    }
-                  ]
-                },
-                {
-                  "id": "647-Sieving",
-                  "nodeType": "title3",
-                  "label": "Sieving",
-                  "content": [
-                    {
-                      "type": "image",
-                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques2.jpg"
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Sieving is similar to filtering, but it is used to separate solid particles of different sizes."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "For example, bran is separated from flour, and sand is separated from gravel using a sieve."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "A wire mesh sieve is commonly used to separate gravel from sand at construction sites."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Sieving helps us sort materials based on size."
-                    }
-                  ]
-                },
-                {
-                  "id": "382-Churning",
-                  "nodeType": "title3",
-                  "label": "Churning",
-                  "content": [
-                    {
-                      "type": "image",
-                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques3.jpg"
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Churning is used to separate fine insoluble solids from a liquid, like butter from curd."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "The mixture is vigorously churned, causing the butter to collect on the sides of the vessel."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "After churning, both butter and buttermilk are collected and can be consumed."
-                    }
-                  ]
-                },
-                {
-                  "id": "571-Threshing",
-                  "nodeType": "title3",
-                  "label": "Threshing",
-                  "content": [
-                    {
-                      "type": "image",
-                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques4.jpg"
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Threshing is a method used by farmers to separate grains like rice and wheat from their stalks."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Unlike flowers, which can be easily plucked, grains are small and the quantity is large, making it difficult to separate them by hand."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Farmers beat the plants hard to help the grains fall off from their stalks."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Threshing helps in collecting grains for food production."
-                    }
-                  ]
-                },
-                {
-                  "id": "836-Winnowing",
-                  "nodeType": "title3",
-                  "label": "Winnowing",
-                  "content": [
-                    {
-                      "type": "image",
-                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques5.jpg"
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Winnowing is used to remove the husk from food grains like rice and wheat, as husk is not edible."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "The husk is very light and gets easily blown away by wind."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "To winnow, the mixture is dropped from a height in the presence of wind."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "The lighter husk is carried by the wind and forms a separate heap, while the heavier grains fall closer and form another heap."
-                    }
-                  ]
-                },
-                {
-                  "id": "479-Handpicking",
-                  "nodeType": "title3",
-                  "label": "Handpicking",
-                  "content": [
-                    {
-                      "type": "image",
-                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques6.jpg"
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Handpicking is a simple method used to separate visible impurities from a mixture."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "For example, stones can be easily separated from rice if the stones are clearly visible and different from the grains."
-                    }
-                  ]
-                },
-                {
-                  "id": "692-Magnetic-Separation",
-                  "nodeType": "title3",
-                  "label": "Magnetic Separation",
-                  "content": [
-                    {
-                      "type": "image",
-                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques7.png"
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Magnetic separation is used to separate magnetic substances from non-magnetic substances."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "If a mixture contains iron or other magnetic materials, a magnet can be used to attract and separate them."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Magnetic substances are those that are attracted to a magnet."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "The process of using a magnet to separate solids is called magnetic separation."
-                    }
-                  ]
-                },
-                {
-                  "id": "258-Sedimentation",
-                  "nodeType": "title3",
-                  "label": "Sedimentation",
-                  "content": [
-                    {
-                      "type": "image",
-                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques8.png"
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Sedimentation is the process used to separate heavier substances from lighter impurities in a mixture."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "When rice or pulses are mixed with fine straw, husk, or dust, they are washed in water."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "The heavier rice grains or pulses sink to the bottom, while the lighter impurities float on top."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "The floating impurities can then be removed, leaving the clean grains."
-                    }
-                  ]
-                },
-                {
-                  "id": "913-Decantation",
-                  "nodeType": "title3",
-                  "label": "Decantation",
-                  "content": [
-                    {
-                      "type": "image",
-                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques9.png"
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Decantation separates the liquid from the solid sediment by slowly pouring out the liquid without disturbing the solids."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "The liquid remaining after decantation is called the decantate."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Sediment is the solid that settles at the bottom of the container."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "After decantation, filtration can be used to remove fine particles still present in the liquid."
-                    }
-                  ]
-                },
-                {
-                  "id": "104-Filtration",
-                  "nodeType": "title3",
-                  "label": "Filtration",
-                  "content": [
-                    {
-                      "type": "image",
-                      "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Separation%20Techniques10.png"
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Filtration is used to remove fine impurities from liquids using a filter paper."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "A filter paper has very fine pores that are smaller than soil particles."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "The liquid passes through the filter paper, while the impurities are left behind."
-                    },
-                    {
-                      "type": "bullet1",
-                      "text": "Filtration is a simple and effective way to clean liquids."
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "830-Food-and-Adulteration",
-          "nodeType": "title1",
-          "label": "3. Food and Adulteration",
-          "children": [
-            {
-              "id": "467-What-is-Adulteration",
-              "nodeType": "title2",
-              "label": "What is Adulteration?",
-              "content": [
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What%20is%20Adulteration1.jpg"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Adulteration is when harmful or unwanted substances are mixed with products, often to increase quantity or profit."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Food can be adulterated due to carelessness or lack of proper handling."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "We need to be careful about adulterants in consumable goods, especially food."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Adulterated food can be harmful and pose a health hazard when consumed."
-                }
-              ]
-            },
-            {
-              "id": "592-Common-Adulterants",
-              "nodeType": "title2",
-              "label": "Common Adulterants",
-              "content": [
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Common%20Adulterants1.png"
-                },
-                {
-                  "type": "image",
-                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Common%20Adulterants2.jpg"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "An adulterated substance does not show the true properties of the original substance."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "For example, used tea leaves are sometimes mixed into tea as an adulterant."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Turmeric powder can be adulterated with a bright yellow chemical, which is poisonous to us."
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "chapterNo": "4",
-      "chapterTitle": "The World of Plants",
-      "nodes": [
-        {
-          "id": "706-1. Plant Forms",
-          "nodeType": "title1",
-          "label": "1. Plant Forms",
-          "children": [
-            {
-              "id": "849-Root System",
-              "nodeType": "title2",
-              "label": "Root System",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "The root is the **underground** part of a plant."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It grows below the surface of the soil."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Roots do not have **nodes** or **internodes**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The tip of the root is protected by a **root cap**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "There are two types of root systems:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Taproots "
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Fibrous Roots"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The taproot is a **single main root** that grows straight down into the soil."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Smaller roots, known as **lateral roots**, branch out from the taproot."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Taproots are found in **dicotyledonous** plants."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**: Bean, Mango, Neem. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Fibrous roots are a **cluster of thin roots** that grow from the base of the stem."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "These roots are **uniform** in size and shape."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They are commonly found in **monocotyledonous** plants."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**: Grass, Paddy, Maize. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Anchorage**: Roots fix the plant firmly in the soil."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Absorption**: Roots absorb water and minerals from the soil."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Storage**: In some plants, such as carrot and beetroot, roots store food."
-                }
-              ]
-            },
-            {
-              "id": "223-Shoot System",
-              "nodeType": "title2",
-              "label": "Shoot System",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "The shoot system is the part of the plant that grows **above the ground**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The main axis of the shoot system is called the **stem**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It includes **stem**, **leaves**, **flowers**, and **fruits**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The stem grows above the soil and towards **sunlight**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It has **nodes** and **internodes**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Nodes**: Points on the stem where leaves grow."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Internodes**: The space between two nodes."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The **apical** or **terminal** **bud** is at the tip of the stem, and **axillary** **buds** are found at the base of leaves. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Support**: Holds branches, leaves, flowers, and fruits."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Transport**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Carries water and minerals from roots to other parts of the plant."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Transports food prepared by leaves to other parts of the plant."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Storage**: Stores food in some plants, like sugarcane."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "A leaf is a green, flat structure attached to the stem at the node, with a stalk called the **petiole**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The flat part is called the leaf **lamina**, with a **midrib** as the main vein and smaller veins branching out."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The leaf base connects the leaf to the **stem**; some plants also have **stipules** (small outgrowths near the base)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The green color is due to **chlorophyll**, which helps in **photosynthesis**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Tiny pores called **stomata** on the underside allow gas exchange. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Photosynthesis**: Green leaves prepare food for the plant using sunlight, water, and carbon dioxide."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Respiration**: Leaves help in the exchange of gases for breathing."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Transpiration**: Leaves release excess water vapor into the atmosphere."
-                }
-              ]
-            }
-          ],
-          "content": [
-            {
-              "type": "bullet1",
-              "text": "A flowering plant has two main parts:"
-            },
-            {
-              "type": "bullet2",
-              "text": "**Root System**"
-            },
-            {
-              "type": "bullet2",
-              "text": "**Shoot System**"
-            }
-          ]
-        },
-        {
-          "id": "609-2. Plant Habitats",
-          "nodeType": "title1",
-          "label": "2. Plant Habitats",
-          "children": [
-            {
-              "id": "786-Aquatic Habitats",
-              "nodeType": "title2",
-              "label": "Aquatic Habitats",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Aquatic habitats are places that are either always or occasionally **covered by water**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They are divided into two types:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Freshwater habitats** (like rivers, lakes, and ponds)."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Marine habitats** (like seas and oceans)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Rivers, lakes, ponds**, and **pools** are called fresh water habitats."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Common plants found in freshwater habitats include water hyacinth, water lily, and lotus."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "These plants have **small** or **reduced roots**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Their stems and leaves contain **air chambers**, helping them **float on water**. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Over 70% of Earth's surface is covered by oceans."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Oceans support the growth of various plants."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Marine plants contribute to about 40% of the planet's photosynthesis."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Marine algae"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Sea grasses"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Marsh grass"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Phytoplanktons."
-                }
-              ]
-            },
-            {
-              "id": "808-Terrerstrial Habitats",
-              "nodeType": "title2",
-              "label": "Terrerstrial Habitats",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Found on land, including **forests, grasslands, deserts**, and **man-made habitats** like towns and farms."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They can range in size from large continents to small islands."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Make up about **28% of the world's habitats**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Classified into three types: **forest**, **grassland**, and **desert**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "A **forest** is a large area covered with trees."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "There are three types of forests: **Tropical** forests, **Temperate** forests, and **Mountain** forests."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The annual **rainfall** in forests ranges from **25 to 200 cm**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "A **grassland** is an area where grasses dominate the vegetation."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Grasses can vary in height, from short to tall."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Example: **Savanna Grassland**. "
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Deserts** are the driest places on Earth, receiving less than **25 cm** of **rainfall annually**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They cover about **20% of the Earth's surface**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Plants in deserts, like **cactus**, have **thick stems** to store water, **spiny leaves**, and **deep roots** to find water."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Types of deserts include **hot dry deserts, semi-arid deserts, coastal deserts, and cold deserts**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**: Cactus, Agave, Aloe, Bryophyllum. "
-                }
-              ]
-            }
-          ],
-          "content": [
-            {
-              "type": "bullet1",
-              "text": "A habitat is the **natural place** where an organism **lives** and **reproduces**."
-            },
-            {
-              "type": "bullet1",
-              "text": "It provides the conditions necessary for **survival**."
-            },
-            {
-              "type": "bullet1",
-              "text": "Habitats for plants and animals range from the **depths of oceans** to the **tops of mountains**. "
-            }
-          ]
-        },
-        {
-          "id": "306-3. Plant Adaptations",
-          "nodeType": "title1",
-          "label": "3. Plant Adaptations",
-          "children": [
-            {
-              "id": "481-Climbing Tendrils",
-              "nodeType": "title2",
-              "label": "Climbing Tendrils",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Tendrils are **twining structures** that help weak-stemmed plants climb by coiling around a support."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They provide **stability** and enable the plant to **grow upward**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Sweet Peas: Leaflets are modified into tendrils."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "Bitter Gourd: Axillary buds are modified into tendrils. "
-                }
-              ]
-            },
-            {
-              "id": "733-Twining Stems",
-              "nodeType": "title2",
-              "label": "Twining Stems",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Some plants have **weak stems** that cannot stand upright on their own."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "These plants climb on a support to **grow** and **survive**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**: Jasmine. "
-                }
-              ]
-            },
-            {
-              "id": "117-Protective Thorns",
-              "nodeType": "title2",
-              "label": "Protective Thorns",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "In some plants, leaves or stems are modified into **thorns** or **spines** for **protection**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "These sharp structures help defend the plant from **herbivores**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**: Agave, Opuntia, Bougainvillea"
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Leaves are essential for photosynthesis."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They contain chlorophyll, a green pigment that helps prepare food for the plant."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "This process supports the plant's growth."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "The jasmine plant is called a twiner because it has a weak stem that cannot stand upright on its own."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It needs to climb on a support to survive"
-                }
-              ]
-            }
-          ],
-          "content": [
-            {
-              "type": "bullet1",
-              "text": "**Adaptations** are special features that help plants survive in their specific habitats over time."
-            },
-            {
-              "type": "bullet1",
-              "text": "Plants develop these features to grow and thrive in their environment."
-            },
-            {
-              "type": "bullet1",
-              "text": "Examples of adaptations include **tendrils, twiners, **and** thorns**."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "chapterNo": "5",
-      "chapterTitle": "The World of Animals",
-      "nodes": [
-        {
-          "id": "157-1. Biodiversity",
-          "nodeType": "title1",
-          "label": "1. Biodiversity",
-          "children": [
-            {
-              "id": "142-What is Biodiversity?",
-              "nodeType": "title2",
-              "label": "What is Biodiversity?",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Biodiversity** means the variety of plants, animals, and their habitats."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It includes different **ecosystems** like deserts, forests, mountains, rivers, lakes, and farms."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "In each ecosystem, **living things** (plants, animals, humans) interact with each other and with **non-living things** (air, water, soil)."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Living things make up the **biotic community**, while non-living things make up the **abiotic community**. "
-                }
-              ]
-            },
-            {
-              "id": "319-What Are Habitats?",
-              "nodeType": "title2",
-              "label": "What Are Habitats?",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "A habitat is the place where an organism lives."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Some animals live only in specific places:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Fishes and crabs** live in water."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Elephants**, **tigers**, and **camels** live on land."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Some animals adapt to their habitats:"
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Camels** are best suited for deserts."
-                },
-                {
-                  "type": "bullet2",
-                  "text": "**Polar bears** and **penguins** live in cold regions."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Special features in animals help them **survive**, **reproduce**, and **thrive** in their habitats. "
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "127-2. Unicellular Organisms",
-          "nodeType": "title1",
-          "label": "2. Unicellular Organisms",
-          "children": [
-            {
-              "id": "114-Introduction to Unicellular",
-              "nodeType": "title2",
-              "label": "Introduction to Unicellular",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Living things are made of tiny units called cells, which carry out all life functions."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Unicellular organisms are made of **just one cell**, are **microscopic**, and usually live in water."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They use special parts inside their cell, called **organelles**, to perform all activities needed for survival."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**: Amoeba, Paramecium, and Euglena. "
-                }
-              ]
-            },
-            {
-              "id": "892-Amoeba",
-              "nodeType": "title2",
-              "label": "Amoeba",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Amoeba is a **unicellular** **organism**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It digests food inside a **food** **vacuole** and excretes waste through a **contractile vacuole**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Respiration** happens through simple diffusion across its body surface."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It moves using **pseudopodia** (fingerlike projections called \"false feet\"). "
-                }
-              ]
-            },
-            {
-              "id": "203-Paramecium",
-              "nodeType": "title2",
-              "label": "Paramecium",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Paramecium** is a unicellular organism that lives in water."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It moves using tiny hair-like structures called **cilia**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Cilia help in **movement** and **pushing food** into its mouth-like opening."
-                }
-              ]
-            },
-            {
-              "id": "832-Euglena",
-              "nodeType": "title2",
-              "label": "Euglena",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Euglena** is a unicellular organism."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "It moves using a whip-like structure called a **flagellum**."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "507-3. Multicellular Organisms",
-          "nodeType": "title1",
-          "label": "3. Multicellular Organisms",
-          "children": [
-            {
-              "id": "871-What are Multicellular?",
-              "nodeType": "title2",
-              "label": "What are Multicellular?",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Multicellular** organisms are made up of many cells."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Most animals and organisms around us are multicellular."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Different cells or organs in their bodies perform specific functions."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "**Examples**: Jellyfish, Earthworm, Snail, Fish, Frog, Snake, Pigeon, Tiger, Monkey, and Humans. "
-                }
-              ]
-            },
-            {
-              "id": "440-Uni vs Multicellular",
-              "nodeType": "title2",
-              "label": "Uni vs Multicellular",
-              "content": []
-            }
-          ]
-        },
-        {
-          "id": "375-4. Adatptation in Animals",
-          "nodeType": "title1",
-          "label": "4. Adatptation in Animals",
-          "children": [
-            {
-              "id": "643-Adaptations in Fish",
-              "nodeType": "title2",
-              "label": "Adaptations in Fish",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Fish have a **streamlined body** to move easily through water, with **fins** for swimming and a strong **tail fin** for balance and direction."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They breathe using **gills**, which absorb oxygen from water."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Their bodies are covered with **slippery** **scales** for protection."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Fish are well-adapted to live and breathe in water. "
-                }
-              ]
-            },
-            {
-              "id": "617-Adaptations in Frogs",
-              "nodeType": "title2",
-              "label": "Adaptations in Frogs",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Frogs are **amphibians**, living both in water and on land."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They are **poikilothermic**, meaning their body temperature changes with the environment."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Frogs have a body divided into a **head** and **trunk**, with two pairs of **limbs**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "As larvae, frogs breathe through **gills**, but as adults, they use **skin**, **lungs**, and the **buccopharyngeal region** for respiration. "
-                }
-              ]
-            },
-            {
-              "id": "172-Adaptations in Lizards",
-              "nodeType": "title2",
-              "label": "Adaptations in Lizards",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "**Lizards** are scaly-skinned reptiles with legs, **movable eyelids**, and **external ear openings**, mostly found in warm regions."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Most lizards walk on **four legs**, but some run on **two legs**, using their **tail** for balance."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They breathe through **lungs** and eat insects, using a **tongue** with sharp projections to catch and hold prey."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Some lizards can **glide** or parachute, and a few species have **webbed toes** for special movement. "
-                }
-              ]
-            },
-            {
-              "id": "249-Adaptations in Birds",
-              "nodeType": "title2",
-              "label": "Adaptations in Birds",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Birds have a **streamlined body** with **feathers** to reduce air resistance, and they breathe through **lungs**."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They have **wings** (modified forelimbs), **hollow bones**, and **strong chest muscles** to aid in flight."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Birds use their **beak** for eating and **clawed feet** to perch, hop, run, or move on the ground."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Their **tail** helps control movement direction, and they have **binocular vision** to see different objects with each eye. "
-                }
-              ]
-            },
-            {
-              "id": "225-Adaptations in Camels",
-              "nodeType": "title2",
-              "label": "Adaptations in Camels",
-              "content": [
-                {
-                  "type": "bullet1",
-                  "text": "Camels have **long legs** to keep their body away from the hot sand and **large, padded feet** to walk easily on soft sand."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They store **fat in their hump** for energy and conserve water by passing little urine, dry dung, and avoiding sweating."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "Camels can drink and store large amounts of water, enabling them to survive for days without drinking."
-                },
-                {
-                  "type": "bullet1",
-                  "text": "They have **long eyelashes**, **ear hairs**, and **closable nostrils** to protect against desert dust and sandstorms. "
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "chapterNo": "6",
-      "chapterTitle": "Health and Hygiene",
-      "nodes": []
-    },
-    {
-      "chapterNo": "7",
-      "chapterTitle": "Computer",
-      "nodes": []
-    },
-    {
-      "chapterNo": "8",
-      "chapterTitle": "Heat",
-      "nodes": []
-    },
-    {
-      "chapterNo": "9",
-      "chapterTitle": "Electricity",
+      "chapterTitle": "Changes Around Us1",
       "nodes": []
     },
     {
       "chapterNo": "10",
       "chapterTitle": "Changes Around Us",
-      "nodes": []
-    },
-    {
-      "chapterNo": "11",
-      "chapterTitle": "Air",
-      "nodes": []
-    },
-    {
-      "chapterNo": "12",
-      "chapterTitle": "The Cell",
-      "nodes": []
-    },
-    {
-      "chapterNo": "13",
-      "chapterTitle": "Human Organ Systems",
-      "nodes": []
-    },
-    {
-      "chapterNo": "14",
-      "chapterTitle": "Parts of Computer",
-      "nodes": []
-    },
-    {
-      "chapterNo": "15",
-      "chapterTitle": "Magnetism",
-      "nodes": []
-    },
-    {
-      "chapterNo": "16",
-      "chapterTitle": "Water",
-      "nodes": []
-    },
-    {
-      "chapterNo": "17",
-      "chapterTitle": "Chemistry in Everyday Life",
-      "nodes": []
-    },
-    {
-      "chapterNo": "18",
-      "chapterTitle": "Our Environment",
-      "nodes": []
-    },
-    {
-      "chapterNo": "19",
-      "chapterTitle": "Plants in Daily Life",
-      "nodes": []
-    },
-    {
-      "chapterNo": "20",
-      "chapterTitle": "Hardware and Software",
-      "nodes": []
+      "nodes": [
+        {
+          "id": "740-1-Introduction",
+          "nodeType": "title1",
+          "label": "1. Introduction",
+          "children": [
+            {
+              "id": "820-What-Are-Changes",
+              "nodeType": "title2",
+              "label": "What Are Changes?",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "A **change** happens when something becomes **different** **from its** **original** **state**."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Some changes happen **fast**, like cooking vegetables, while others, like milk turning into curd, **take time**."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Changes can **affect shape**, **color**, **temperature**, **position**, or **composition** of things."
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What-Are-Changes-1.png"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Some changes are **easy to see**, like a burning matchstick, while others, like rusting, happen slowly and are **harder to notice**. "
+                }
+              ]
+            },
+            {
+              "id": "978-Types-of-Changes",
+              "nodeType": "title2",
+              "label": "Types of Changes",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "Changes can happen **quickly** or **slowly**—some take seconds, while others take years. "
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Changes can be **temporary** (reversible) or **permanent** (irreversible)."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Some changes create new substances (**chemical** changes), while others do not (**physical** changes)."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Changes can be **natural** (like seasons) or **man-made** (like building a bridge)."
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Types-of-Changes-1.png"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Some changes are helpful and **desirable**, while others are harmful or **undesirable**.  "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "850-2-Slow-and-Fast",
+          "nodeType": "title1",
+          "label": "2. Slow and Fast",
+          "children": [
+            {
+              "id": "958-Slow-Changes",
+              "nodeType": "title2",
+              "label": "Slow Changes",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "Changes that happen **over a long time**, such as hours, days, months, or even years."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Examples**:"
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Slow-Changes-1.png"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Growth of nails and hair."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Change of seasons."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Germination of a seed into a plant. "
+                }
+              ]
+            },
+            {
+              "id": "978-Fast-Changes",
+              "nodeType": "title2",
+              "label": "Fast Changes",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "Changes that happen **quickly**, usually within seconds or minutes."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Examples**:"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Bursting of a balloon."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Breaking of glass."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Bursting of firecrackers."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Burning of paper. "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "874-3-Reversible-and-Irreversible",
+          "nodeType": "title1",
+          "label": "3. Reversible and Irreversible",
+          "children": [
+            {
+              "id": "962-Reversible-Changes",
+              "nodeType": "title2",
+              "label": "Reversible Changes",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "Changes that can be **undone** to return to the original state."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Examples**:"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "A touch-me-not plant closing and reopening its leaves."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Stretching and releasing a rubber band."
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Reversible-Changes-1.png"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Melting and refreezing ice. "
+                }
+              ]
+            },
+            {
+              "id": "538-Irreversible-Changes",
+              "nodeType": "title2",
+              "label": "Irreversible Changes",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "Changes that **cannot be undone** or reversed to return to the original state."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Examples**: "
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Milk turning into curd."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Digestion of food."
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Irreversible-Changes-1.png"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Making idly from batter. "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "888-4-Physical-and-Chemical",
+          "nodeType": "title1",
+          "label": "4. Physical and Chemical",
+          "children": [
+            {
+              "id": "315-Physical-Changes",
+              "nodeType": "title2",
+              "label": "Physical Changes",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "Temporary changes where only the **physical appearance** or state of a substance changes, but its chemical composition remains the same."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Examples**: "
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Melting of ice."
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Physical-Changes-1.png"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Dissolving salt or sugar in water."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Stretching a rubber band."
+                }
+              ]
+            },
+            {
+              "id": "150-Chemical-Changes",
+              "nodeType": "title2",
+              "label": "Chemical Changes",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "Permanent changes where the **chemical composition** of a substance changes, and a new substance is formed."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Examples**:"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Burning of wood. "
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Chemical-Changes-1.png"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Popping of popcorn."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Blackening of silver ornaments."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Rusting of iron."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "567-5-Desirable-and-Undesirable",
+          "nodeType": "title1",
+          "label": "5. Desirable and Undesirable",
+          "children": [
+            {
+              "id": "577-Desirable-Changes",
+              "nodeType": "title2",
+              "label": "Desirable Changes",
+              "content": [
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Desirable-Changes-1.png"
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Changes that are **useful**, **beneficial** to the environment, and desired by us."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Examples**: "
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Ripening of fruit."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Growth of plants."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Cooking of food."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Milk changing to curd."
+                }
+              ]
+            },
+            {
+              "id": "764-Undesirable-Changes",
+              "nodeType": "title2",
+              "label": "Undesirable Changes",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "Changes that are **harmful to the environment** and not desired by us."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Examples: "
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Deforestation."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Decaying of fruit."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Rusting of iron."
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Undesirable-Changes-1.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "363-6-Natural-and-Man-Made",
+          "nodeType": "title1",
+          "label": "6. Natural and Man-Made",
+          "children": [
+            {
+              "id": "844-Natural-Changes",
+              "nodeType": "title2",
+              "label": "Natural Changes",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "Changes that occur in nature **on their own** and are beyond human control."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "Examples: "
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Rotation of the Earth."
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Natural-Changes-1.png"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Changing phases of the Moon."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Rain."
+                }
+              ]
+            },
+            {
+              "id": "344-Man-Made-Changes",
+              "nodeType": "title2",
+              "label": "Man-Made Changes",
+              "content": [
+                {
+                  "type": "bullet1",
+                  "text": "Changes that are **caused by human beings** and do not occur naturally."
+                },
+                {
+                  "type": "bullet1",
+                  "text": "**Examples**: "
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Cooking."
+                },
+                {
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Man-Made-Changes-1.png"
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Deforestation."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Cultivating crops."
+                },
+                {
+                  "type": "bullet2",
+                  "text": "Construction of buildings."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

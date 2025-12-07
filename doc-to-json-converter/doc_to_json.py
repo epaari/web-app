@@ -240,7 +240,15 @@ def process_word_document(file_path):
 
 def main():
     """Main function to handle command-line execution."""
-    input_file = sys.argv[1]
+    # Check for correct number of arguments
+    if len(sys.argv) != 4:
+        print("Usage: python doc_to_json.py <standard> <subject> <input-file>")
+        print("Example: python doc_to_json.py 6 science 10.docx")
+        sys.exit(1)
+    
+    standard = sys.argv[1]
+    subject = sys.argv[2]
+    input_file = sys.argv[3]
     
     # Validate input file exists
     if not Path(input_file).exists():
@@ -252,23 +260,46 @@ def main():
         print("Error: Input file must be a Microsoft Word document (.docx or .doc)")
         sys.exit(1)
     
+    # Extract chapter number from filename (without extension)
+    input_path = Path(input_file)
+    chapter_no = input_path.stem
+    
+    # Construct database filename
+    db_filename = f"../db/{standard}-{subject.lower()}-db.json"
+    db_path = Path(db_filename)
+    
+    # Check if database file exists
+    if not db_path.exists():
+        print(f"Error: Database file '{db_filename}' not found.")
+        sys.exit(1)
+    
     try:
-        # Process the document
-        # print(f"Processing '{input_file}'...")
+        # Process the document to get nodes
         result = process_word_document(input_file)
+        nodes = result['nodes']
         
-        # Generate output filename in the output directory
-        input_path = Path(input_file)
-        output_dir = Path("./output")
-        output_dir.mkdir(parents=True, exist_ok=True)
-        output_filename = output_dir / f"db-{input_path.stem}.json"
+        # Read the existing database
+        with open(db_path, 'r', encoding='utf-8') as f:
+            db_data = json.load(f)
         
-        # Save to JSON file
-        with open(output_filename, 'w', encoding='utf-8') as f:
-            json.dump(result, f, indent=2, ensure_ascii=False)
+        # Find the chapter in the database
+        chapter_found = False
+        for chapter in db_data.get('chapters', []):
+            if chapter.get('chapterNo') == chapter_no:
+                # Update the nodes for this chapter
+                chapter['nodes'] = nodes
+                chapter_found = True
+                break
+        
+        if not chapter_found:
+            print(f"Error: Chapter {chapter_no} not found in database.")
+            sys.exit(1)
+        
+        # Write the updated database back to file
+        with open(db_path, 'w', encoding='utf-8') as f:
+            json.dump(db_data, f, indent=2, ensure_ascii=False)
         
         print(f"Successfully converted '{input_path.stem}'")
-        # print(f"Total nodes created: {len(result['nodes'])}")
         
     except Exception as e:
         print(f"Error processing document: {str(e)}")
