@@ -11,7 +11,7 @@ function Chapters({ standard, subject, onChapterSelect, onHome }) {
         // Construct the database filename based on standard and subject
         // Convert subject name to lowercase and replace spaces with hyphens
         const subjectSlug = subject.toLowerCase().replace(/\s+/g, '-');
-        const dbFileName = `/db/${standard}-${subjectSlug}-db.json`;
+        const dbFileName = `/db/${standard}-${subjectSlug}/concept.json`;
 
         fetch(dbFileName)
             .then((response) => {

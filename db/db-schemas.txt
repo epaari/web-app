@@ -1,0 +1,154 @@
+==========
+CONCEPT DB
+==========
+{
+  "chapterNo": "string",
+  "chapterTitle": "string",
+  "nodes": [ Node ] ,
+}
+
+Node = {
+  "id": "string", 			// 3 digits random number followed by label
+  "nodeType": "title1|title2|title3",	// type of clickable node
+  "label": "string", 			// what to display (title)
+  "children"?: [ Node ], 		// clickable node that expands to show children
+  "content"?: [ ContentItem ]		// leaf content shown when node clicked
+}
+
+ContentItem = {
+  "type": "bullet1|bullet2|number1|number2|image|video",	// depending on type:
+  "text"?: "string",                 				// for bullet1/bullet2/number1/number2
+  "url"?: "string",                  				// for image/video
+}
+
+=====
+QA DB
+=====
+{
+  "type": "object",
+  "properties": {
+    "class": "string",
+    "subject": "string",
+    "chapters": [
+      {
+        "chapterNo": "string",
+        "chapterTitle": "string",
+        "nodes": [
+          {
+            "id": "string",
+            "nodeType": "string",
+            "label": "string",
+            "children": ["Node"],
+            "content": [
+              {
+                "type": "string",
+                "text": "string",
+                "url": "string"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "required": ["class", "subject", "chapters"]
+}
+
+
+
+
+{
+    "class": "6",
+    "subject": "Science",
+    "chapters": [
+        {
+            "chapterNo": "1",
+            "chapterTitle": "Changes Around Us",
+            "questions": [
+                {
+                    "id": "q-101-change-def",
+                    "exerciseType": "book",
+                    "questionType": "very-short",
+                    "reference": "Textbook Page 10",
+                    "mcqAnswer": null,
+                    "content": [
+                        {
+                            "type": "bullet1",
+                            "text": "Define a change."
+                        }
+                    ]
+                },
+                {
+                    "id": "q-102-water-cycle",
+                    "exerciseType": "board",
+                    "questionType": "short",
+                    "reference": "Previous Year Q 2023",
+                    "mcqAnswer": null,
+                    "content": [
+                        {
+                            "type": "bullet1",
+                            "text": "Explain the water cycle with a diagram."
+                        }
+                    ]
+                },
+                {
+                    "id": "q-103-mcq-example",
+                    "exerciseType": "book",
+                    "questionType": "very-short",
+                    "reference": "Textbook Page 12",
+                    "mcqAnswer": 2,
+                    "content": [
+                        {
+                            "type": "bullet1",
+                            "text": "Which of the following is a reversible change?"
+                        },
+                        {
+                            "type": "number1",
+                            "text": "Burning of paper"
+                        },
+                        {
+                            "type": "number1",
+                            "text": "Melting of ice"
+                        },
+                        {
+                            "type": "number1",
+                            "text": "Cooking of food"
+                        },
+                        {
+                            "type": "number1",
+                            "text": "Curdling of milk"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "answers": {
+        "q-101-change-def": [
+            {
+                "type": "bullet1",
+                "text": "A change is a transition from one state to another."
+            }
+        ],
+        "q-102-water-cycle": [
+            {
+                "type": "bullet1",
+                "text": "The water cycle involves evaporation, condensation, and precipitation."
+            },
+            {
+                "type": "image",
+                "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/water-cycle.png"
+            }
+        ],
+        "q-103-mcq-example": [
+            {
+                "type": "bullet1",
+                "text": "Correct Answer: 2. Melting of ice"
+            },
+            {
+                "type": "bullet1",
+                "text": "Explanation: Melting of ice is reversible because water can be frozen back into ice."
+            }
+        ]
+    }
+}

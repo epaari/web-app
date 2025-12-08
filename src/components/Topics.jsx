@@ -11,7 +11,7 @@ function Topics({ chapter, onBack, onHome }) {
 
     useEffect(() => {
         // Fetch the full data to get class and subject info
-        fetch('/db/6-science-db.json')
+        fetch('/db/6-science/concept.json')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch chapter data');

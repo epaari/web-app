@@ -351,13 +351,16 @@ def main():
     input_path = Path(input_file)
     chapter_no = input_path.stem
     
-    # Construct database filename
-    db_filename = f"../db/{standard}-{subject.lower()}-db.json"
-    db_path = Path(db_filename)
+    # Construct database directory and filename
+    db_dir = Path(f"../db/{standard}-{subject.lower()}")
+    db_path = db_dir / "concept.json"
+    
+    # Create database directory if it doesn't exist
+    db_dir.mkdir(parents=True, exist_ok=True)
     
     # Check if database file exists
     if not db_path.exists():
-        print(f"Error: Database file '{db_filename}' not found.")
+        print(f"Error: Database file '{db_path}' not found.")
         sys.exit(1)
     
     try:

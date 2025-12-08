@@ -1,3 +1,18 @@
+## Create new project
+    npm create vite@latest web-app -- --template react
+
+## Dark Theme Material UI
+https://m3.material.io/
+npm install @mui/material @emotion/react @emotion/styled
+
+Things to do:
+1. Equations handling
+2. Equations conversion
+3. Q and A implementation
+4. Material theme conversion
+
+=========================================================
+PROMPTS
 # Version 5.0.0
 So far we were displaying only one chapter.
 Now add a new screen "Chapters" before ChapterView.
@@ -170,3 +185,5 @@ I have checked. When I click on a sub node, it is collapsing the main node. This
 The correct behaviour is as follows:
 When a level2 node is clicked, it should not collapse the level1 node.
 Please fix this issue. Do not test yourself. I will do manual testing myself.
+
+=====================
