@@ -3,15 +3,19 @@ import TreeNode from './TreeNode';
 import BottomNav from './BottomNav';
 import './Topics.css';
 
-function Topics({ chapter, onBack, onHome }) {
+function Topics({ standard, subject, chapter, onBack, onHome }) {
     const [chapterData, setChapterData] = useState(null);
     const [expandedNodeIds, setExpandedNodeIds] = useState(new Set());
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        // Construct database path based on standard and subject
+        const subjectSlug = subject.toLowerCase().replace(/\s+/g, '-');
+        const dbPath = `/db/${standard}-${subjectSlug}/concept.json`;
+
         // Fetch the full data to get class and subject info
-        fetch('/db/6-science/concept.json')
+        fetch(dbPath)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch chapter data');

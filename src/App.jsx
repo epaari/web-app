@@ -29,6 +29,8 @@ function App() {
     <div className="app">
       {selectedChapter ? (
         <Topics
+          standard={selectedSubject.standard}
+          subject={selectedSubject.subject}
           chapter={selectedChapter}
           onBack={handleBackToChapters}
           onHome={handleBackToSubjects}
