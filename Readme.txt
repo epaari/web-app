@@ -1,5 +1,34 @@
 ## Create new project
-    npm create vite@latest web-app -- --template react
+npm create vite@latest web-app -- --template react
+
+=======================
+TECHNICAL STACK SUMMARY
+=======================
+Development
+│
+├── Frontend: React (Vite)
+├── Backend: Node.js (Express)
+├── Database: JSON database
+├── Storage: Cloudflare R2
+│
+└── Content Pipeline (Build-time)
+    ├── Authoring: Python Tools
+    ├── Compilation: Python Publisher Script
+    └── Output: content.db + media/ directory
+
+Deployment
+│
+├── Web App (Cloud, Multi-user)
+│   ├── Frontend: React (Vercel)
+│   ├── Backend: Supabase Edge Functions (Deno/TS)
+│   ├── Database: Supabase Postgres
+│   └── Storage: Cloudflare R2
+│
+└── Desktop App (Local, Single-user)
+    ├── Frontend: React (Electron)
+    ├── Database: SQLite (pre-packaged)
+    └── Storage: Local Filesystem
+
 
 ## Dark Theme Material UI
 https://m3.material.io/

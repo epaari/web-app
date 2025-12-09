@@ -24,7 +24,7 @@ function Subjects({ onSubjectSelect }) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('/db/subjects-db.json')
+        fetch('/db/subjects.json')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
@@ -57,7 +57,7 @@ function Subjects({ onSubjectSelect }) {
         );
     }
 
-    if (!data || !data.standards) {
+    if (!data || !data.publishers || !data.publishers[0] || !data.publishers[0].standards) {
         return (
             <div className="subjects-view">
                 <div className="error-message">No subjects available</div>
@@ -68,29 +68,29 @@ function Subjects({ onSubjectSelect }) {
     return (
         <div className="subjects-view">
             <div className="subjects-container">
-                {data.standards
-                    .sort((a, b) => parseInt(a.standard) - parseInt(b.standard))
+                {data.publishers[0].standards
+                    .sort((a, b) => parseInt(a.standardName) - parseInt(b.standardName))
                     .map((standard, index) => (
-                        <div key={standard.standard} className="standard-group">
+                        <div key={standard.id} className="standard-group">
                             <h2 className="standard-label">
-                                <span>{standard.standard}<sup>th</sup> Standard</span>
+                                <span>{standard.standardName}<sup>th</sup> Standard</span>
                             </h2>
                             <div className="subjects-grid">
                                 {standard.subjects.map((subjectObj) => (
                                     <div
-                                        key={`${standard.standard}-${subjectObj.subject}`}
+                                        key={subjectObj.id}
                                         className="subject-card"
-                                        onClick={() => onSubjectSelect(standard.standard, subjectObj.subject)}
+                                        onClick={() => onSubjectSelect(standard.standardName, subjectObj.subjectName)}
                                     >
                                         <div className="subject-icon-container">
                                             <img
-                                                src={subjectIcons[subjectObj.subject]}
-                                                alt={subjectObj.subject}
+                                                src={subjectIcons[subjectObj.subjectName]}
+                                                alt={subjectObj.subjectName}
                                                 className="subject-icon"
                                             />
                                         </div>
                                         <div className="subject-name">
-                                            {subjectObj.subject}
+                                            {subjectObj.subjectName}
                                         </div>
                                     </div>
                                 ))}

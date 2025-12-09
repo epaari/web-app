@@ -1,0 +1,36 @@
+{
+    "publishers": [
+        {
+            "id": "7f3a9b2d",
+            "publisherName": "TNSB",
+            "standards": [
+                {
+                    "id": "c8e1a5f9",
+                    "standardName": "6",
+                    "subjects": [
+                        {
+                            "id": "a2d4f7b1",
+                            "subjectName": "Tamil"
+                        },
+                        {
+                            "id": "3b9e6c8a",
+                            "subjectName": "English"
+                        },
+                        {
+                            "id": "f5c2a8d3",
+                            "subjectName": "Maths"
+                        },
+                        {
+                            "id": "8e1b6d4c",
+                            "subjectName": "Science"
+                        },
+                        {
+                            "id": "6d9a2f4b",
+                            "subjectName": "Social Science"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

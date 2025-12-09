@@ -3,11 +3,6 @@
     "subject": "Science",
     "chapters": [
         {
-            "chapterNo": "1",
-            "chapterTitle": "Changes Around Us1",
-            "nodes": []
-        },
-        {
             "chapterNo": "10",
             "chapterTitle": "Changes Around Us",
             "nodes": [

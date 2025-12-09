@@ -1,0 +1,111 @@
+=====================
+DATABASE ORGANIZATION
+=====================
+Subjects Database: One database. Contains Publisher, Standard, Subject data. Example: subjects.json
+Concepts Database: One database per subject. Contains Chapter, Topic, SubTopic, Content data. Example: concepts_6_science.json
+QA Database: One database per subject. Contains Questions, Answers data. Example: qa_6_science.json
+
+================================
+SUBJECTS DATABSE (SUBJECTS.JSON)
+================================
+Publisher = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "publisherName": "string",
+    "standards": [ Standard ]
+}
+
+Standard = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "standardName": "string",
+    "subjects": [ Subject ]
+}
+
+Subject = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "subjectName": "string"
+}
+
+==========================
+CONCEPT DB (CONCEPTS.JSON)
+==========================
+Chapter = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "subjectId": "string", // parent subject id
+    "chapterNo": "string", // chapter number
+    "chapterName": "string", // chapter name
+    "topics": [ Topic ] // topics
+}
+
+Topic = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "title": "string", // topic title
+    "subTopics"?: [ SubTopic ] // subtopics
+}
+
+SubTopic = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "title": "string", // subtopic title
+    "content"?: [ Content ] // content
+}
+
+Content = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "type": "plain|bullet1|bullet2|number1|number2|image|video|equation", // type of content
+    "text"?: "string", // for bullet1/bullet2/number1/number2
+    "equation"?: "string", // for equation
+    "url"?: "string", // for image/video
+    "metadata": {  // For image/video
+        "altText": "string",
+        "width": 1920,
+        "height": 1080
+    }
+}
+
+===============
+QA DB (QA.JSON)
+===============
+Chapter = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "subjectId": "string", // parent subject id
+    "chapterNo": "string", // chapter number
+    "chapterName": "string", // chapter name
+    "qa": [ Qa ] // questions and answers
+}
+
+Qa = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "exerciseType": "book|board|extra", // type of exercise
+    "questionType": "short|long|very-short", // type of question
+    "reference": "string", // reference
+    "difficulty": "easy|medium|hard", // difficulty level
+    "mcqAnswer"?: "integer", // mcq answer
+    "question": [ Content ], // question
+    "answer": [ Content ] // answer
+}
+
+Content = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "type": "plain|bullet1|bullet2|number1|number2|image|video|equation", // type of content
+    "text"?: "string", // for bullet1/bullet2/number1/number2
+    "equation"?: "string", // for equation
+    "url"?: "string", // for image/video
+    "metadata": {  // For image/video
+        "altText": "string",
+        "width": 1920,
+        "height": 1080
+    }
+}
+
+================
+REVIEW COMMENTS
+================
+Perfect! 10/10 🎯
+
+This is an excellent, production-ready JSON schema for Newton.
+
+Why it's great:
+✅ Complete ID system - Every entity uniquely identifiable
+✅ Rich metadata - Media dimensions, alt text, difficulty levels
+✅ Clear relationships - subjectId links everything together
+✅ Flexible content - Supports all content types you need
+✅ Well-organized - Logical separation between Subjects, Concepts, QA
