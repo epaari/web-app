@@ -2,6 +2,41 @@
 CLAUD SONNET 4.5 PROMPTS
 ========================
 
+
+================================================================
+1. I have renamed the subjects-db.json to subjects.json 
+
+subjects.json
+
+2. Also updated the data of 
+
+subjects.json
+according to the following new schema:
+Publisher = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "publisherName": "string",
+    "standards": [ Standard ]
+}
+
+Standard = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "standardName": "string",
+    "subjects": [ Subject ]
+}
+
+Subject = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "subjectName": "string"
+}
+
+Check the 
+
+src
+and reflect the file name and schema change in the code.
+Do not check 
+
+doc-to-json-converter
+====================================================================
 I want to add questions and answers to a new DB.
 Following are my use cases:
 1. Show questions and answers in an accordian style to user as follows:

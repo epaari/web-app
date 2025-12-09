@@ -1,434 +1,545 @@
 {
-    "class": "6",
-    "subject": "Science",
-    "chapters": [
+  "chapters": [
+    {
+      "id": "lixdanop",
+      "subjectId": "8e1b6d4c",
+      "chapterNo": "10",
+      "chapterName": "Chapter 10",
+      "topics": [
         {
-            "chapterNo": "10",
-            "chapterTitle": "Changes Around Us",
-            "nodes": [
+          "id": "2fj9r8ns",
+          "title": "1. Introduction",
+          "subTopics": [
+            {
+              "id": "59n79f7f",
+              "title": "What Are Changes?",
+              "content": [
                 {
-                    "id": "181-1-Introduction",
-                    "nodeType": "title1",
-                    "label": "1. Introduction",
-                    "children": [
-                        {
-                            "id": "259-What-Are-Changes",
-                            "nodeType": "title2",
-                            "label": "What Are Changes?",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "A **change** happens when something becomes **different** **from its** **original** **state**."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "Some changes happen **fast**, like cooking vegetables, while others, like milk turning into curd, **take time**."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes can **affect shape**, **color**, **temperature**, **position**, or **composition** of things."
-                                },
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What-Are-Changes-1.png"
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "Some changes are **easy to see**, like a burning matchstick, while others, like rusting, happen slowly and are **harder to notice**. "
-                                }
-                            ]
-                        },
-                        {
-                            "id": "143-Types-of-Changes",
-                            "nodeType": "title2",
-                            "label": "Types of Changes",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes can happen **quickly** or **slowly**—some take seconds, while others take years. "
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes can be **temporary** (reversible) or **permanent** (irreversible)."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "Some changes create new substances (**chemical** changes), while others do not (**physical** changes)."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes can be **natural** (like seasons) or **man-made** (like building a bridge)."
-                                },
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Types-of-Changes-1.png"
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "Some changes are helpful and **desirable**, while others are harmful or **undesirable**.  "
-                                }
-                            ]
-                        }
-                    ]
+                  "id": "va0rdczm",
+                  "type": "bullet1",
+                  "text": "A **change** happens when something becomes **different** **from its** **original** **state**."
                 },
                 {
-                    "id": "754-2-Slow-and-Fast",
-                    "nodeType": "title1",
-                    "label": "2. Slow and Fast",
-                    "children": [
-                        {
-                            "id": "654-Slow-Changes",
-                            "nodeType": "title2",
-                            "label": "Slow Changes",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes that happen **over a long time**, such as hours, days, months, or even years."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "**Examples**:"
-                                },
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Slow-Changes-1.png"
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Growth of nails and hair."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Change of seasons."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Germination of a seed into a plant. "
-                                }
-                            ]
-                        },
-                        {
-                            "id": "310-Fast-Changes",
-                            "nodeType": "title2",
-                            "label": "Fast Changes",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes that happen **quickly**, usually within seconds or minutes."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "**Examples**:"
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Bursting of a balloon."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Breaking of glass."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Bursting of firecrackers."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Burning of paper. "
-                                }
-                            ]
-                        }
-                    ]
+                  "id": "dskkr8f9",
+                  "type": "bullet1",
+                  "text": "Some changes happen **fast**, like cooking vegetables, while others, like milk turning into curd, **take time**."
                 },
                 {
-                    "id": "425-3-Reversible-and-Irreversible",
-                    "nodeType": "title1",
-                    "label": "3. Reversible and Irreversible",
-                    "children": [
-                        {
-                            "id": "693-Reversible-Changes",
-                            "nodeType": "title2",
-                            "label": "Reversible Changes",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes that can be **undone** to return to the original state."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "**Examples**:"
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "A touch-me-not plant closing and reopening its leaves."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Stretching and releasing a rubber band."
-                                },
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Reversible-Changes-1.png"
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Melting and refreezing ice. "
-                                }
-                            ]
-                        },
-                        {
-                            "id": "299-Irreversible-Changes",
-                            "nodeType": "title2",
-                            "label": "Irreversible Changes",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes that **cannot be undone** or reversed to return to the original state."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "**Examples**: "
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Milk turning into curd."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Digestion of food."
-                                },
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Irreversible-Changes-1.png"
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Making idly from batter. "
-                                }
-                            ]
-                        }
-                    ]
+                  "id": "fiy684nn",
+                  "type": "bullet1",
+                  "text": "Changes can **affect shape**, **color**, **temperature**, **position**, or **composition** of things."
                 },
                 {
-                    "id": "296-4-Physical-and-Chemical",
-                    "nodeType": "title1",
-                    "label": "4. Physical and Chemical",
-                    "children": [
-                        {
-                            "id": "388-Physical-Changes",
-                            "nodeType": "title2",
-                            "label": "Physical Changes",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "Temporary changes where only the **physical appearance** or state of a substance changes, but its chemical composition remains the same."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "**Examples**: "
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Melting of ice."
-                                },
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Physical-Changes-1.png"
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Dissolving salt or sugar in water."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Stretching a rubber band."
-                                }
-                            ]
-                        },
-                        {
-                            "id": "679-Chemical-Changes",
-                            "nodeType": "title2",
-                            "label": "Chemical Changes",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "Permanent changes where the **chemical composition** of a substance changes, and a new substance is formed."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "**Examples**:"
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Burning of wood. "
-                                },
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Chemical-Changes-1.png"
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Popping of popcorn."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Blackening of silver ornaments."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Rusting of iron."
-                                }
-                            ]
-                        }
-                    ]
+                  "id": "05p1uanv",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/What-Are-Changes-1.png",
+                  "metadata": {
+                    "altText": "What-Are-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
                 },
                 {
-                    "id": "689-5-Desirable-and-Undesirable",
-                    "nodeType": "title1",
-                    "label": "5. Desirable and Undesirable",
-                    "children": [
-                        {
-                            "id": "465-Desirable-Changes",
-                            "nodeType": "title2",
-                            "label": "Desirable Changes",
-                            "content": [
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Desirable-Changes-1.png"
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes that are **useful**, **beneficial** to the environment, and desired by us."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "**Examples**: "
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Ripening of fruit."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Growth of plants."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Cooking of food."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Milk changing to curd."
-                                }
-                            ]
-                        },
-                        {
-                            "id": "445-Undesirable-Changes",
-                            "nodeType": "title2",
-                            "label": "Undesirable Changes",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes that are **harmful to the environment** and not desired by us."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "Examples: "
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Deforestation."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Decaying of fruit."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Rusting of iron."
-                                },
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Undesirable-Changes-1.png"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "881-6-Natural-and-Man-Made",
-                    "nodeType": "title1",
-                    "label": "6. Natural and Man-Made",
-                    "children": [
-                        {
-                            "id": "635-Natural-Changes",
-                            "nodeType": "title2",
-                            "label": "Natural Changes",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes that occur in nature **on their own** and are beyond human control."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "Examples: "
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Rotation of the Earth."
-                                },
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Natural-Changes-1.png"
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Changing phases of the Moon."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Rain."
-                                }
-                            ]
-                        },
-                        {
-                            "id": "338-Man-Made-Changes",
-                            "nodeType": "title2",
-                            "label": "Man-Made Changes",
-                            "content": [
-                                {
-                                    "type": "bullet1",
-                                    "text": "Changes that are **caused by human beings** and do not occur naturally."
-                                },
-                                {
-                                    "type": "bullet1",
-                                    "text": "**Examples**: "
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Cooking."
-                                },
-                                {
-                                    "type": "image",
-                                    "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Man-Made-Changes-1.png"
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Deforestation."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Cultivating crops."
-                                },
-                                {
-                                    "type": "bullet2",
-                                    "text": "Construction of buildings."
-                                }
-                            ]
-                        }
-                    ]
+                  "id": "6ug94wkl",
+                  "type": "bullet1",
+                  "text": "Some changes are **easy to see**, like a burning matchstick, while others, like rusting, happen slowly and are **harder to notice**. "
                 }
-            ]
+              ]
+            },
+            {
+              "id": "yrsklowf",
+              "title": "Types of Changes",
+              "content": [
+                {
+                  "id": "p5wpjvnz",
+                  "type": "bullet1",
+                  "text": "Changes can happen **quickly** or **slowly**—some take seconds, while others take years. "
+                },
+                {
+                  "id": "vsvbj44f",
+                  "type": "bullet1",
+                  "text": "Changes can be **temporary** (reversible) or **permanent** (irreversible)."
+                },
+                {
+                  "id": "5cjfmq7x",
+                  "type": "bullet1",
+                  "text": "Some changes create new substances (**chemical** changes), while others do not (**physical** changes)."
+                },
+                {
+                  "id": "qu0cbj84",
+                  "type": "bullet1",
+                  "text": "Changes can be **natural** (like seasons) or **man-made** (like building a bridge)."
+                },
+                {
+                  "id": "8akgl7b1",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Types-of-Changes-1.png",
+                  "metadata": {
+                    "altText": "Types-of-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
+                },
+                {
+                  "id": "xpl1qbiu",
+                  "type": "bullet1",
+                  "text": "Some changes are helpful and **desirable**, while others are harmful or **undesirable**.  "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "abvjmxtr",
+          "title": "2. Slow and Fast",
+          "subTopics": [
+            {
+              "id": "vnjo9rd4",
+              "title": "Slow Changes",
+              "content": [
+                {
+                  "id": "32v6so63",
+                  "type": "bullet1",
+                  "text": "Changes that happen **over a long time**, such as hours, days, months, or even years."
+                },
+                {
+                  "id": "08le6ojk",
+                  "type": "bullet1",
+                  "text": "**Examples**:"
+                },
+                {
+                  "id": "a2a4u8v0",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Slow-Changes-1.png",
+                  "metadata": {
+                    "altText": "Slow-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
+                },
+                {
+                  "id": "js1apvj6",
+                  "type": "bullet2",
+                  "text": "Growth of nails and hair."
+                },
+                {
+                  "id": "ue26ukw8",
+                  "type": "bullet2",
+                  "text": "Change of seasons."
+                },
+                {
+                  "id": "hw8v2fke",
+                  "type": "bullet2",
+                  "text": "Germination of a seed into a plant. "
+                }
+              ]
+            },
+            {
+              "id": "u3c7kqzz",
+              "title": "Fast Changes",
+              "content": [
+                {
+                  "id": "5y44080t",
+                  "type": "bullet1",
+                  "text": "Changes that happen **quickly**, usually within seconds or minutes."
+                },
+                {
+                  "id": "luafvdcx",
+                  "type": "bullet1",
+                  "text": "**Examples**:"
+                },
+                {
+                  "id": "zqsw6hfs",
+                  "type": "bullet2",
+                  "text": "Bursting of a balloon."
+                },
+                {
+                  "id": "uzkdfjap",
+                  "type": "bullet2",
+                  "text": "Breaking of glass."
+                },
+                {
+                  "id": "de2amlby",
+                  "type": "bullet2",
+                  "text": "Bursting of firecrackers."
+                },
+                {
+                  "id": "74ltsabr",
+                  "type": "bullet2",
+                  "text": "Burning of paper. "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "plppaplz",
+          "title": "3. Reversible and Irreversible",
+          "subTopics": [
+            {
+              "id": "79hs6txx",
+              "title": "Reversible Changes",
+              "content": [
+                {
+                  "id": "kbrodwoo",
+                  "type": "bullet1",
+                  "text": "Changes that can be **undone** to return to the original state."
+                },
+                {
+                  "id": "wlzz9v21",
+                  "type": "bullet1",
+                  "text": "**Examples**:"
+                },
+                {
+                  "id": "qj2urfv0",
+                  "type": "bullet2",
+                  "text": "A touch-me-not plant closing and reopening its leaves."
+                },
+                {
+                  "id": "csl72qkl",
+                  "type": "bullet2",
+                  "text": "Stretching and releasing a rubber band."
+                },
+                {
+                  "id": "6jo5r2g3",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Reversible-Changes-1.png",
+                  "metadata": {
+                    "altText": "Reversible-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
+                },
+                {
+                  "id": "cc5yt48u",
+                  "type": "bullet2",
+                  "text": "Melting and refreezing ice. "
+                }
+              ]
+            },
+            {
+              "id": "ovb3uih1",
+              "title": "Irreversible Changes",
+              "content": [
+                {
+                  "id": "1gsncms1",
+                  "type": "bullet1",
+                  "text": "Changes that **cannot be undone** or reversed to return to the original state."
+                },
+                {
+                  "id": "0rvnlknd",
+                  "type": "bullet1",
+                  "text": "**Examples**: "
+                },
+                {
+                  "id": "dye4vmaw",
+                  "type": "bullet2",
+                  "text": "Milk turning into curd."
+                },
+                {
+                  "id": "6ppftyf7",
+                  "type": "bullet2",
+                  "text": "Digestion of food."
+                },
+                {
+                  "id": "npe4xdhi",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Irreversible-Changes-1.png",
+                  "metadata": {
+                    "altText": "Irreversible-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
+                },
+                {
+                  "id": "uvwbrdn4",
+                  "type": "bullet2",
+                  "text": "Making idly from batter. "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "8cbcuf30",
+          "title": "4. Physical and Chemical",
+          "subTopics": [
+            {
+              "id": "zj0n0d7s",
+              "title": "Physical Changes",
+              "content": [
+                {
+                  "id": "18ao14zg",
+                  "type": "bullet1",
+                  "text": "Temporary changes where only the **physical appearance** or state of a substance changes, but its chemical composition remains the same."
+                },
+                {
+                  "id": "u6zhatoi",
+                  "type": "bullet1",
+                  "text": "**Examples**: "
+                },
+                {
+                  "id": "kkkyzd24",
+                  "type": "bullet2",
+                  "text": "Melting of ice."
+                },
+                {
+                  "id": "opckjtni",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Physical-Changes-1.png",
+                  "metadata": {
+                    "altText": "Physical-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
+                },
+                {
+                  "id": "n1lctncr",
+                  "type": "bullet2",
+                  "text": "Dissolving salt or sugar in water."
+                },
+                {
+                  "id": "7jsd3ubt",
+                  "type": "bullet2",
+                  "text": "Stretching a rubber band."
+                }
+              ]
+            },
+            {
+              "id": "wi1xdqf1",
+              "title": "Chemical Changes",
+              "content": [
+                {
+                  "id": "164fpay0",
+                  "type": "bullet1",
+                  "text": "Permanent changes where the **chemical composition** of a substance changes, and a new substance is formed."
+                },
+                {
+                  "id": "x30oof0q",
+                  "type": "bullet1",
+                  "text": "**Examples**:"
+                },
+                {
+                  "id": "k71e3ai8",
+                  "type": "bullet2",
+                  "text": "Burning of wood. "
+                },
+                {
+                  "id": "44hxd5c1",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Chemical-Changes-1.png",
+                  "metadata": {
+                    "altText": "Chemical-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
+                },
+                {
+                  "id": "dwfud0jy",
+                  "type": "bullet2",
+                  "text": "Popping of popcorn."
+                },
+                {
+                  "id": "x2f0zvm8",
+                  "type": "bullet2",
+                  "text": "Blackening of silver ornaments."
+                },
+                {
+                  "id": "pfp71qsx",
+                  "type": "bullet2",
+                  "text": "Rusting of iron."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "r62xncfi",
+          "title": "5. Desirable and Undesirable",
+          "subTopics": [
+            {
+              "id": "19br9vc0",
+              "title": "Desirable Changes",
+              "content": [
+                {
+                  "id": "d5xp7q3o",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Desirable-Changes-1.png",
+                  "metadata": {
+                    "altText": "Desirable-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
+                },
+                {
+                  "id": "ixmgn6e8",
+                  "type": "bullet1",
+                  "text": "Changes that are **useful**, **beneficial** to the environment, and desired by us."
+                },
+                {
+                  "id": "7r1c2fk0",
+                  "type": "bullet1",
+                  "text": "**Examples**: "
+                },
+                {
+                  "id": "3wb273ef",
+                  "type": "bullet2",
+                  "text": "Ripening of fruit."
+                },
+                {
+                  "id": "hsddc9ei",
+                  "type": "bullet2",
+                  "text": "Growth of plants."
+                },
+                {
+                  "id": "jaydtcat",
+                  "type": "bullet2",
+                  "text": "Cooking of food."
+                },
+                {
+                  "id": "z6uh7q1n",
+                  "type": "bullet2",
+                  "text": "Milk changing to curd."
+                }
+              ]
+            },
+            {
+              "id": "ejsq2nb2",
+              "title": "Undesirable Changes",
+              "content": [
+                {
+                  "id": "9kjac87n",
+                  "type": "bullet1",
+                  "text": "Changes that are **harmful to the environment** and not desired by us."
+                },
+                {
+                  "id": "8i1gu3wk",
+                  "type": "bullet1",
+                  "text": "Examples: "
+                },
+                {
+                  "id": "mvogj6yf",
+                  "type": "bullet2",
+                  "text": "Deforestation."
+                },
+                {
+                  "id": "u4vd002l",
+                  "type": "bullet2",
+                  "text": "Decaying of fruit."
+                },
+                {
+                  "id": "a1veo28y",
+                  "type": "bullet2",
+                  "text": "Rusting of iron."
+                },
+                {
+                  "id": "pc26jd3t",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Undesirable-Changes-1.png",
+                  "metadata": {
+                    "altText": "Undesirable-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "nk48rkhu",
+          "title": "6. Natural and Man-Made",
+          "subTopics": [
+            {
+              "id": "woqbu59e",
+              "title": "Natural Changes",
+              "content": [
+                {
+                  "id": "q5qlb8bt",
+                  "type": "bullet1",
+                  "text": "Changes that occur in nature **on their own** and are beyond human control."
+                },
+                {
+                  "id": "tu8iiajm",
+                  "type": "bullet1",
+                  "text": "Examples: "
+                },
+                {
+                  "id": "izidf2v5",
+                  "type": "bullet2",
+                  "text": "Rotation of the Earth."
+                },
+                {
+                  "id": "3kq322qo",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Natural-Changes-1.png",
+                  "metadata": {
+                    "altText": "Natural-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
+                },
+                {
+                  "id": "q5dtnlxc",
+                  "type": "bullet2",
+                  "text": "Changing phases of the Moon."
+                },
+                {
+                  "id": "ep2ctipl",
+                  "type": "bullet2",
+                  "text": "Rain."
+                }
+              ]
+            },
+            {
+              "id": "rn0hfcor",
+              "title": "Man-Made Changes",
+              "content": [
+                {
+                  "id": "mrlugt32",
+                  "type": "bullet1",
+                  "text": "Changes that are **caused by human beings** and do not occur naturally."
+                },
+                {
+                  "id": "7ga8mwjd",
+                  "type": "bullet1",
+                  "text": "**Examples**: "
+                },
+                {
+                  "id": "l2xl9al8",
+                  "type": "bullet2",
+                  "text": "Cooking."
+                },
+                {
+                  "id": "rciuev2c",
+                  "type": "image",
+                  "url": "https://raw.githubusercontent.com/epaari/ezeescore_ai/main/Man-Made-Changes-1.png",
+                  "metadata": {
+                    "altText": "Man-Made-Changes",
+                    "width": 1920,
+                    "height": 1080
+                  }
+                },
+                {
+                  "id": "aoxbuhpb",
+                  "type": "bullet2",
+                  "text": "Deforestation."
+                },
+                {
+                  "id": "ln6h1tvp",
+                  "type": "bullet2",
+                  "text": "Cultivating crops."
+                },
+                {
+                  "id": "rge35itx",
+                  "type": "bullet2",
+                  "text": "Construction of buildings."
+                }
+              ]
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }

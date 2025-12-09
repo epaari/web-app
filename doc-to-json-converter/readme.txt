@@ -13,6 +13,7 @@ Command Line Usage:
 python doc_to_json.py <standard> <subject> <input-file>
 
 Example:
+cd doc-to-json-converter
 python doc_to_json.py 6 science 10.docx
 
 ===========

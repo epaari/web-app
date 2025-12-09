@@ -14,11 +14,10 @@ from docx import Document
 from docx.text.paragraph import Paragraph
 
 
-def generate_id(label):
-    """Generate a 3-digit random number followed by the sanitized label."""
-    random_num = random.randint(100, 999)
-    sanitized_label = sanitize_filename(label)
-    return f"{random_num}-{sanitized_label}"
+def generate_id():
+    """Generate an 8-character random alphanumeric string."""
+    chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
+    return ''.join(random.choice(chars) for _ in range(8))
 
 
 def sanitize_filename(label):
@@ -86,12 +85,12 @@ def process_word_document(file_path):
     
     # Initialize the result structure
     result = {
-        "nodes": []
+        "topics": []
     }
     
-    current_title1_node = None
-    current_title2_node = None
-    node_image_counter = 0  # Counter for images within current node
+    current_topic = None
+    current_subtopic = None
+    node_image_counter = 0  # Counter for images within current subtopic
     
     # Process all paragraphs
     for paragraph in doc.paragraphs:
@@ -100,73 +99,68 @@ def process_word_document(file_path):
         
         # Process based on style
         if style == "# Sub Topic - 1":
-            # Create a new title1 node
-            current_title1_node = {
-                "id": generate_id(text),
-                "nodeType": "title1",
-                "label": text,
-                "children": []
+            # Create a new topic
+            current_topic = {
+                "id": generate_id(),
+                "title": text,
+                "subTopics": []
             }
-            result["nodes"].append(current_title1_node)
-            current_title2_node = None  # Reset title2 when new title1 starts
-            node_image_counter = 0  # Reset image counter for new node
+            result["topics"].append(current_topic)
+            current_subtopic = None  # Reset subtopic when new topic starts
+            node_image_counter = 0  # Reset image counter for new topic
             
         elif style == "# Sub Topic - 2":
-            # Create a new title2 node
-            current_title2_node = {
-                "id": generate_id(text),
-                "nodeType": "title2",
-                "label": text,
+            # Create a new subtopic
+            current_subtopic = {
+                "id": generate_id(),
+                "title": text,
                 "content": []
             }
-            node_image_counter = 0  # Reset image counter for new node
+            node_image_counter = 0  # Reset image counter for new subtopic
             
-            # Add to current title1 node's children if exists
-            if current_title1_node is not None:
-                current_title1_node["children"].append(current_title2_node)
+            # Add to current topic's subTopics if exists
+            if current_topic is not None:
+                current_topic["subTopics"].append(current_subtopic)
             else:
-                # If no title1 exists, add directly to nodes
-                result["nodes"].append(current_title2_node)
+                # If no topic exists, create a temporary topic
+                current_topic = {
+                    "id": generate_id(),
+                    "title": "Untitled Topic",
+                    "subTopics": [current_subtopic]
+                }
+                result["topics"].append(current_topic)
                 
         elif style == "# Bullet-1":
             # Extract text with bold formatting
             formatted_text = extract_text_with_formatting(paragraph)
             
             content_item = {
+                "id": generate_id(),
                 "type": "bullet1",
                 "text": formatted_text
             }
             
-            # Add to current title2 node's content if exists
-            if current_title2_node is not None:
-                if "content" not in current_title2_node:
-                    current_title2_node["content"] = []
-                current_title2_node["content"].append(content_item)
-            elif current_title1_node is not None:
-                # If no title2 but title1 exists, add to title1's content
-                if "content" not in current_title1_node:
-                    current_title1_node["content"] = []
-                current_title1_node["content"].append(content_item)
+            # Add to current subtopic's content if exists
+            if current_subtopic is not None:
+                if "content" not in current_subtopic:
+                    current_subtopic["content"] = []
+                current_subtopic["content"].append(content_item)
                 
         elif style == "# Bullet-2":
             # Extract text with bold formatting
             formatted_text = extract_text_with_formatting(paragraph)
             
             content_item = {
+                "id": generate_id(),
                 "type": "bullet2",
                 "text": formatted_text
             }
             
-            # Add to current title2 node's content if exists
-            if current_title2_node is not None:
-                if "content" not in current_title2_node:
-                    current_title2_node["content"] = []
-                current_title2_node["content"].append(content_item)
-            elif current_title1_node is not None:
-                # If no title2 but title1 exists, add to title1's content
-                if "content" not in current_title1_node:
-                    current_title1_node["content"] = []
-                current_title1_node["content"].append(content_item)
+            # Add to current subtopic's content if exists
+            if current_subtopic is not None:
+                if "content" not in current_subtopic:
+                    current_subtopic["content"] = []
+                current_subtopic["content"].append(content_item)
         
         # Check for images in paragraph runs
         for run in paragraph.runs:
@@ -198,10 +192,10 @@ def process_word_document(file_path):
                                 ext = 'gif'
                             
                             # Generate filename based on current context
-                            if current_title2_node:
-                                base_name = sanitize_filename(current_title2_node['label'])
-                            elif current_title1_node:
-                                base_name = sanitize_filename(current_title1_node['label'])
+                            if current_subtopic:
+                                base_name = sanitize_filename(current_subtopic['title'])
+                            elif current_topic:
+                                base_name = sanitize_filename(current_topic['title'])
                             else:
                                 base_name = f"image"
                             
@@ -219,19 +213,21 @@ def process_word_document(file_path):
                             # Create image content item
                             image_url = f"https://raw.githubusercontent.com/epaari/ezeescore_ai/main/{image_filename}"
                             content_item = {
+                                "id": generate_id(),
                                 "type": "image",
-                                "url": image_url
+                                "url": image_url,
+                                "metadata": {
+                                    "altText": base_name,
+                                    "width": 1920,
+                                    "height": 1080
+                                }
                             }
                             
-                            # Add to appropriate node
-                            if current_title2_node is not None:
-                                if "content" not in current_title2_node:
-                                    current_title2_node["content"] = []
-                                current_title2_node["content"].append(content_item)
-                            elif current_title1_node is not None:
-                                if "content" not in current_title1_node:
-                                    current_title1_node["content"] = []
-                                current_title1_node["content"].append(content_item)
+                            # Add to current subtopic
+                            if current_subtopic is not None:
+                                if "content" not in current_subtopic:
+                                    current_subtopic["content"] = []
+                                current_subtopic["content"].append(content_item)
                             
                         except Exception as e:
                             print(f"Warning: Could not extract image from embed_id {embed_id}: {e}")
@@ -325,6 +321,48 @@ def upload_images_to_github(output_dir):
         return False
 
 
+
+
+def get_subject_id(standard, subject):
+    """
+    Fetch the subject ID from subjects.json based on standard and subject name.
+    
+    Args:
+        standard: The standard/grade number (e.g., "6")
+        subject: The subject name (e.g., "science")
+    
+    Returns:
+        The subject ID if found, empty string otherwise
+    """
+    subjects_path = Path("../db/subjects.json")
+    
+    if not subjects_path.exists():
+        print(f"Warning: subjects.json not found at {subjects_path}")
+        return ""
+    
+    try:
+        with open(subjects_path, 'r', encoding='utf-8') as f:
+            subjects_data = json.load(f)
+        
+        # Normalize subject name for comparison (capitalize first letter)
+        subject_normalized = subject.capitalize()
+        
+        # Search through publishers -> standards -> subjects
+        for publisher in subjects_data.get('publishers', []):
+            for std in publisher.get('standards', []):
+                if std.get('standardName') == standard:
+                    for subj in std.get('subjects', []):
+                        if subj.get('subjectName', '').lower() == subject_normalized.lower():
+                            return subj.get('id', '')
+        
+        print(f"Warning: Subject '{subject}' not found for standard '{standard}' in subjects.json")
+        return ""
+        
+    except Exception as e:
+        print(f"Warning: Error reading subjects.json: {e}")
+        return ""
+
+
 def main():
     """Main function to handle command-line execution."""
     # Check for correct number of arguments
@@ -351,6 +389,9 @@ def main():
     input_path = Path(input_file)
     chapter_no = input_path.stem
     
+    # Get subject ID from subjects.json
+    subject_id = get_subject_id(standard, subject)
+    
     # Construct database directory and filename
     db_dir = Path(f"../db/{standard}-{subject.lower()}")
     db_path = db_dir / "concept.json"
@@ -358,32 +399,42 @@ def main():
     # Create database directory if it doesn't exist
     db_dir.mkdir(parents=True, exist_ok=True)
     
-    # Check if database file exists
-    if not db_path.exists():
-        print(f"Error: Database file '{db_path}' not found.")
-        sys.exit(1)
-    
     try:
-        # Process the document to get nodes
+        # Process the document to get topics
         result = process_word_document(input_file)
-        nodes = result['nodes']
+        topics = result['topics']
         
-        # Read the existing database
-        with open(db_path, 'r', encoding='utf-8') as f:
-            db_data = json.load(f)
+        # Read the existing database or create a new one
+        if db_path.exists():
+            with open(db_path, 'r', encoding='utf-8') as f:
+                db_data = json.load(f)
+        else:
+            # Create a new database structure
+            print(f"Database file not found. Creating new file: {db_path}")
+            db_data = {
+                "chapters": []
+            }
         
         # Find the chapter in the database
         chapter_found = False
         for chapter in db_data.get('chapters', []):
             if chapter.get('chapterNo') == chapter_no:
-                # Update the nodes for this chapter
-                chapter['nodes'] = nodes
+                # Update the topics for this chapter
+                chapter['topics'] = topics
                 chapter_found = True
                 break
         
         if not chapter_found:
-            print(f"Error: Chapter {chapter_no} not found in database.")
-            sys.exit(1)
+            # Create a new chapter entry
+            print(f"Chapter {chapter_no} not found. Creating new chapter entry.")
+            new_chapter = {
+                "id": generate_id(),
+                "subjectId": subject_id,
+                "chapterNo": chapter_no,
+                "chapterName": f"Chapter {chapter_no}",  # Default name
+                "topics": topics
+            }
+            db_data['chapters'].append(new_chapter)
         
         # Write the updated database back to file
         with open(db_path, 'w', encoding='utf-8') as f:
