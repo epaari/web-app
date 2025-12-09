@@ -23,12 +23,8 @@ function Topics({ standard, subject, chapter, onBack, onHome }) {
                 return response.json();
             })
             .then((data) => {
-                // Combine the chapter data with class and subject
-                setChapterData({
-                    ...chapter,
-                    class: data.class,
-                    subject: data.subject
-                });
+                // Just use the chapter data directly
+                setChapterData(chapter);
                 setLoading(false);
             })
             .catch((err) => {
@@ -37,72 +33,72 @@ function Topics({ standard, subject, chapter, onBack, onHome }) {
             });
     }, [chapter]);
 
-    // Build a map of nodeId -> { parentId, siblings (including self), depth }
+    // Build a map of itemId -> { parentId, siblings (including self), depth }
     const nodeInfoMap = useMemo(() => {
-        if (!chapterData || !chapterData.nodes) return new Map();
+        if (!chapterData || !chapterData.topics) return new Map();
 
         const map = new Map();
 
-        const processNodes = (nodes, parentId, depth) => {
-            const siblingIds = nodes.map(n => n.id);
-            nodes.forEach(node => {
-                map.set(node.id, {
+        const processTopics = (topics, parentId, depth) => {
+            const siblingIds = topics.map(t => t.id);
+            topics.forEach(topic => {
+                map.set(topic.id, {
                     parentId,
                     siblingIds,
                     depth,
-                    node
+                    item: topic
                 });
-                if (node.children && node.children.length > 0) {
-                    processNodes(node.children, node.id, depth + 1);
+                if (topic.subTopics && topic.subTopics.length > 0) {
+                    processTopics(topic.subTopics, topic.id, depth + 1);
                 }
             });
         };
 
-        processNodes(chapterData.nodes, null, 0);
+        processTopics(chapterData.topics, null, 0);
         return map;
     }, [chapterData]);
 
-    // Get all descendant IDs of a node (for collapsing entire subtrees)
-    const getDescendantIds = useCallback((nodeId) => {
-        const nodeInfo = nodeInfoMap.get(nodeId);
-        if (!nodeInfo || !nodeInfo.node) return [];
+    // Get all descendant IDs of an item (for collapsing entire subtrees)
+    const getDescendantIds = useCallback((itemId) => {
+        const itemInfo = nodeInfoMap.get(itemId);
+        if (!itemInfo || !itemInfo.item) return [];
 
         const descendants = [];
-        const collectDescendants = (node) => {
-            if (node.children) {
-                node.children.forEach(child => {
-                    descendants.push(child.id);
-                    collectDescendants(child);
+        const collectDescendants = (item) => {
+            if (item.subTopics) {
+                item.subTopics.forEach(subTopic => {
+                    descendants.push(subTopic.id);
+                    collectDescendants(subTopic);
                 });
             }
         };
-        collectDescendants(nodeInfo.node);
+        collectDescendants(itemInfo.item);
         return descendants;
     }, [nodeInfoMap]);
 
-    const handleNodeClick = useCallback((nodeId) => {
+    const handleNodeClick = useCallback((itemId) => {
         setExpandedNodeIds((prev) => {
             const newSet = new Set(prev);
-            const nodeInfo = nodeInfoMap.get(nodeId);
+            const itemInfo = nodeInfoMap.get(itemId);
 
-            if (newSet.has(nodeId)) {
-                // Collapsing: remove this node and all its descendants
-                newSet.delete(nodeId);
-                const descendants = getDescendantIds(nodeId);
+            if (newSet.has(itemId)) {
+                // Collapsing: remove this item and all its descendants
+                newSet.delete(itemId);
+                const descendants = getDescendantIds(itemId);
                 descendants.forEach(id => newSet.delete(id));
             } else {
                 // Expanding: collapse all siblings and their descendants first
-                if (nodeInfo) {
-                    nodeInfo.siblingIds.forEach(siblingId => {
-                        if (siblingId !== nodeId) {
+                if (itemInfo) {
+                    itemInfo.siblingIds.forEach(siblingId => {
+                        if (siblingId !== itemId) {
                             newSet.delete(siblingId);
                             const siblingDescendants = getDescendantIds(siblingId);
                             siblingDescendants.forEach(id => newSet.delete(id));
                         }
                     });
                 }
-                // Then expand this node
-                newSet.add(nodeId);
+                // Then expand this item
+                newSet.add(itemId);
             }
             return newSet;
         });
@@ -135,10 +131,10 @@ function Topics({ standard, subject, chapter, onBack, onHome }) {
     return (
         <div className="topics-view">
             <div className="nodes-container">
-                {chapterData.nodes.map((node) => (
+                {chapterData.topics.map((topic) => (
                     <TreeNode
-                        key={node.id}
-                        node={node}
+                        key={topic.id}
+                        item={topic}
                         expandedNodeIds={expandedNodeIds}
                         onNodeClick={handleNodeClick}
                         depth={0}
@@ -147,10 +143,10 @@ function Topics({ standard, subject, chapter, onBack, onHome }) {
             </div>
 
             <BottomNav
-                classNum={chapterData.class}
-                subject={chapterData.subject}
+                classNum={standard}
+                subject={subject}
                 chapterNo={chapterData.chapterNo}
-                chapterTitle={chapterData.chapterTitle}
+                chapterTitle={chapterData.chapterName}
                 onNavigateToChapters={onBack}
                 onHome={onHome}
             />

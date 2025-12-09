@@ -74,7 +74,7 @@ function Chapters({ standard, subject, onChapterSelect, onHome }) {
                     >
                         <div className="chapter-header-item">
                             <span className="chapter-label">
-                                {chapter.chapterNo}. {chapter.chapterTitle}
+                                {chapter.chapterNo}. {chapter.chapterName}
                             </span>
                         </div>
                     </div>
@@ -82,8 +82,6 @@ function Chapters({ standard, subject, onChapterSelect, onHome }) {
             </div>
 
             <BottomNav
-                classNum={data.class}
-                subject={data.subject}
                 onHome={onHome}
             />
         </div>

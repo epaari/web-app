@@ -1,9 +1,9 @@
 import { useCallback, useState, useEffect, useRef } from 'react';
 
-function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
-    const isExpanded = expandedNodeIds.has(node.id);
-    const hasContent = node.content && node.content.length > 0;
-    const hasChildren = node.children && node.children.length > 0;
+function TreeNode({ item, expandedNodeIds, onNodeClick, depth }) {
+    const isExpanded = expandedNodeIds.has(item.id);
+    const hasContent = item.content && item.content.length > 0;
+    const hasChildren = item.subTopics && item.subTopics.length > 0;
     const isExpandable = hasContent || hasChildren;
     const nodeRef = useRef(null);
 
@@ -13,9 +13,9 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
     // State for info popover
     const [infoModal, setInfoModal] = useState(null); // { word, info, x, y }
 
-    // Scroll to align bottom of node with bottom of screen when expanded
+    // Scroll to align bottom of item with bottom of screen when expanded
     useEffect(() => {
-        if (isExpanded && nodeRef.current && (node.nodeType === 'title1' || node.nodeType === 'title2')) {
+        if (isExpanded && nodeRef.current && (depth === 0 || depth === 1)) {
             // Wait for content to render and animations to complete
             setTimeout(() => {
                 if (nodeRef.current) {
@@ -41,13 +41,13 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
                 }
             }, 350); // Delay to ensure content is fully rendered
         }
-    }, [isExpanded, node.nodeType]);
+    }, [isExpanded, depth]);
 
     const handleClick = useCallback(() => {
         if (isExpandable) {
-            onNodeClick(node.id);
+            onNodeClick(item.id);
         }
-    }, [isExpandable, onNodeClick, node.id]);
+    }, [isExpandable, onNodeClick, item.id]);
 
     const handleKeyDown = useCallback(
         (e) => {
@@ -60,16 +60,9 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
     );
 
     const getNodeTypeClass = () => {
-        switch (node.nodeType) {
-            case 'title1':
-                return 'node-title1';
-            case 'title2':
-                return 'node-title2';
-            case 'title3':
-                return 'node-title3';
-            default:
-                return '';
-        }
+        if (depth === 0) return 'node-title1';  // Topic
+        if (depth === 1) return 'node-title2';  // SubTopic
+        return '';
     };
 
     const handleThumbnailClick = useCallback((url) => {
@@ -162,39 +155,39 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
 
         return (
             <div className="node-content">
-                {node.content.map((item, index) => {
-                    if (item.type === 'image') {
+                {item.content.map((contentItem, index) => {
+                    if (contentItem.type === 'image') {
                         return (
                             <img
                                 key={index}
-                                src={item.url}
-                                alt={node.label}
+                                src={contentItem.url}
+                                alt={item.title}
                                 loading="lazy"
                                 className="content-image"
                             />
                         );
                     }
 
-                    if (item.type === 'bullet1') {
+                    if (contentItem.type === 'bullet1') {
                         return (
                             <p key={index} className="content-bullet bullet-1">
-                                {parseMarkdown(item.text)}
+                                {parseMarkdown(contentItem.text)}
                             </p>
                         );
                     }
 
-                    if (item.type === 'bullet2') {
+                    if (contentItem.type === 'bullet2') {
                         return (
                             <p key={index} className="content-bullet bullet-2">
-                                {parseMarkdown(item.text)}
+                                {parseMarkdown(contentItem.text)}
                             </p>
                         );
                     }
 
-                    if (item.type === 'equation') {
+                    if (contentItem.type === 'equation') {
                         return (
                             <div key={index} className="content-equation">
-                                {`$$${item.latex}$$`}
+                                {`$$${contentItem.latex}$$`}
                             </div>
                         );
                     }
@@ -213,7 +206,7 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
                     >
                         <img
                             src={modalImage}
-                            alt={node.label}
+                            alt={item.title}
                             className="image-modal-content"
                         />
                     </div>
@@ -248,10 +241,10 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
 
         return (
             <div className="node-children">
-                {node.children.map((child) => (
+                {item.subTopics.map((subTopic) => (
                     <TreeNode
-                        key={child.id}
-                        node={child}
+                        key={subTopic.id}
+                        item={subTopic}
                         expandedNodeIds={expandedNodeIds}
                         onNodeClick={onNodeClick}
                         depth={depth + 1}
@@ -276,7 +269,7 @@ function TreeNode({ node, expandedNodeIds, onNodeClick, depth }) {
                         {isExpanded ? '▼' : '▶'}
                     </span>
                 )}
-                <span className="node-label">{node.label}</span>
+                <span className="node-label">{item.title}</span>
             </div>
 
             {isExpanded && (
