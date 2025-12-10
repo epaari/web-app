@@ -1,7 +1,32 @@
-## Create new project
-npm create vite@latest web-app -- --template react
-=====================================================================
+=================================================================
+THINGS TO DO
+=================================================================
+1. Equations handling
+2. Equations conversion
+3. Q and A implementation
+4. Material theme conversion
+
+=================================================================
+MIGRATION TOOL
+=================================================================
+1. Convert Chapter level word document to json.
+2. Updates db/<standard>/<subject>.json file.
+3. Uploads the images to content-images repository.
+4. Pushes the files to content-images repository.
+5. The input-file should be in the same folder as the script.
+6. The input file name should be in the format <chapter>.docx
+7. Do not include topic numbers in the input file name.
+
+Command Line Usage:
+python migration.py <standard> <subject> <input-file>
+
+Example:
+cd doc-to-json-converter
+python migration.py 6 science 10.docx
+
+=================================================================
 TECHNICAL STACK SUMMARY
+=================================================================
 
 Development
 │
@@ -28,16 +53,18 @@ Deployment
     ├── Database: SQLite (pre-packaged)
     └── Storage: Local Filesystem
 
-====================================================================
+=================================================================
 RECOMMENDED PROJECT STRUCTURE
+=================================================================
 
 EzeeScore Newton
 |
 ├── Tools/
 |   ├── Migration/
 |   |   ├── migration.py
-|   |   |   ├── 1. SmartArt, Drawing, Tables Scanner
-|   |   |   └── 2. Word Document to JSON Exporter
+|   |   |   ├── 1. Objects Scanner
+|   |   |   ├── 2. Concepts Exporter
+|   |   |   └── 3. QA Exporter
 |   ├── pdf-to-json-converter/
 ├── supabase/
 │   ├── migrations/
@@ -60,12 +87,11 @@ EzeeScore Newton
     ├── export-publisher.py
     └── build-desktop.py
 
-## Dark Theme Material UI
+=================================================================
+MISCELLANEOUS NOTES
+=================================================================
 https://m3.material.io/
 npm install @mui/material @emotion/react @emotion/styled
 
-Things to do:
-1. Equations handling
-2. Equations conversion
-3. Q and A implementation
-4. Material theme conversion
+## Create new project
+npm create vite@latest web-app -- --template react

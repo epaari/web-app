@@ -218,7 +218,7 @@ def process_word_document(file_path, standard, subject):
     
     # Create images directory in db/<standard>-<subject>/images
     subject_slug = subject.lower()
-    images_dir = Path(f"../db/{standard}-{subject_slug}/images")
+    images_dir = Path(f"../../db/{standard}-{subject_slug}/images")
     images_dir.mkdir(parents=True, exist_ok=True)
     
     # Initialize the result structure
@@ -421,7 +421,7 @@ def get_subject_id(standard, subject):
     Returns:
         The subject ID (creates new entry if not found)
     """
-    subjects_path = Path("../db/subjects.json")
+    subjects_path = Path("../../db/subjects.json")
     
     if not subjects_path.exists():
         print(f"Warning: subjects.json not found at {subjects_path}")
@@ -512,23 +512,16 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
     
     try:
         # Scan for SmartArt, Drawing Canvas, Tables, and Cropped Images before processing
-        print(f"\nScanning '{input_path.name}' for SmartArt, Drawing Canvas, Tables, and Cropped Images...")
         objects = scan_for_smartart_and_canvas(input_file)
         
         if objects:
-            # print(f"\n⚠ Found {len(objects)} object(s) that need to be converted to images:")
-            # print("-" * 60)
+            print(f"\n⚠ Found {len(objects)} object(s) in '{input_path.name}' that need to be converted to images:")
             
             # Group by type and page
             for obj in objects:
                 print(f"  • {obj['type']} on page {obj['page']}")
             
-            # print("-" * 60)
             print("\nPlease convert these objects to images in the Word document:")
-            # print("  1. Right-click on each SmartArt/Drawing Canvas/Table/Cropped Image")
-            # print("  2. Select 'Save as Picture...' or copy and paste as image")
-            # print("  3. Delete the original object")
-            # print("  4. Save the document")
             print()
             
             # Prompt user for confirmation
@@ -537,8 +530,6 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
             if response not in ['yes', 'y']:
                 print(f"⚠ Skipping '{input_path.name}' - Please convert objects and try again")
                 return False
-            
-            # print("✓ Proceeding with processing...\n")
         
         # Process the document to get topics
         result = process_word_document(input_file, standard, subject)
@@ -590,38 +581,24 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
         return False
 
 
-def main():
-    """Main function to handle interactive execution."""
-    """ print("=" * 60)
-    print("Word Document to JSON Converter")
+def run_objects_scanner():
+    """Run the Objects Scanner tool to detect SmartArt, Drawing Canvas, Tables, and Cropped Images."""
+    print("\n" + "=" * 60)
+    print("Objects Scanner")
     print("=" * 60)
-    print() """
-    
-    # Prompt for standard
-    standard = input("Enter standard (e.g., 6, 7, 8): ").strip()
-    if not standard:
-        print("Error: Standard cannot be empty.")
-        sys.exit(1)
-    
-    # Prompt for subject
-    subject = input("Enter subject (e.g., science, maths): ").strip()
-    if not subject:
-        print("Error: Subject cannot be empty.")
-        sys.exit(1)
+    print()
     
     # Use the ./input directory automatically
     script_dir = Path(__file__).parent
     dir_path = script_dir / "input"
     
-    # print(f"Using input directory: {dir_path}")
-    # print()
     if not dir_path.exists():
         print(f"Error: Directory '{dir_path}' not found.")
-        sys.exit(1)
+        return
     
     if not dir_path.is_dir():
         print(f"Error: '{dir_path}' is not a directory.")
-        sys.exit(1)
+        return
     
     # Find all .docx files in the directory (exclude temporary files starting with ~$)
     all_docx_files = dir_path.glob("*.docx")
@@ -629,27 +606,98 @@ def main():
     
     if not docx_files:
         print(f"Error: No .docx files found in '{dir_path}'")
-        sys.exit(1)
+        return
     
-    # print()
-    # print(f"Found {len(docx_files)} .docx file(s):")
-    # for file in docx_files:
-    #     print(f"  - {file.name}")
-    # print()
+    print(f"Found {len(docx_files)} .docx file(s) to scan")
+    print("Scanning files...")
+    print()
+    
+    # Create reports directory
+    reports_dir = script_dir / "reports"
+    reports_dir.mkdir(exist_ok=True)
+    
+    # Prepare CSV report file
+    report_path = reports_dir / "Objects-Scanner-Report.csv"
+    
+    # Collect all scan results as CSV rows
+    csv_rows = []
+    csv_rows.append("Document,Page No,Issue")  # Header
+    
+    total_objects = 0
+    
+    # Scan each file
+    for docx_file in docx_files:
+        print(f"  Scanning '{docx_file.name}'...")
+        objects = scan_for_smartart_and_canvas(docx_file)
+        
+        if objects:
+            total_objects += len(objects)
+            for obj in objects:
+                csv_rows.append(f"{docx_file.stem},{obj['page']},{obj['type']}")
+    
+    # Write CSV report to file
+    with open(report_path, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(csv_rows))
+    
+    print()
+    print(f"✓ Scan complete!")
+    print(f"  Total objects found: {total_objects}")
+    print(f"  Report saved to: {report_path}")
+    print("\n" + "=" * 60)
+
+
+def run_concepts_exporter():
+    """Run the Concepts Exporter tool to extract content from docx and push it to JSON."""
+    print("\n" + "=" * 60)
+    print("Concepts Exporter")
+    print("=" * 60)
+    print()
+    
+    # Prompt for standard
+    standard = input("Enter standard (e.g., 6, 7, 8): ").strip()
+    if not standard:
+        print("Error: Standard cannot be empty.")
+        return
+    
+    # Prompt for subject
+    subject = input("Enter subject (e.g., science, maths): ").strip()
+    if not subject:
+        print("Error: Subject cannot be empty.")
+        return
+    
+    # Use the ./input directory automatically
+    script_dir = Path(__file__).parent
+    dir_path = script_dir / "input"
+    
+    if not dir_path.exists():
+        print(f"Error: Directory '{dir_path}' not found.")
+        return
+    
+    if not dir_path.is_dir():
+        print(f"Error: '{dir_path}' is not a directory.")
+        return
+    
+    # Find all .docx files in the directory (exclude temporary files starting with ~$)
+    all_docx_files = dir_path.glob("*.docx")
+    docx_files = sorted([f for f in all_docx_files if not f.name.startswith("~$")])
+    
+    if not docx_files:
+        print(f"Error: No .docx files found in '{dir_path}'")
+        return
     
     # Get subject ID from subjects.json
     subject_id = get_subject_id(standard, subject)
     
     # Construct database directory and filename
-    db_dir = Path(f"../db/{standard}-{subject.lower()}")
+    db_dir = Path(f"../../db/{standard}-{subject.lower()}")
     db_path = db_dir / "concept.json"
     
     # Create database directory if it doesn't exist
     db_dir.mkdir(parents=True, exist_ok=True)
     
     # Process all files
-    # print("Processing files...")
-    # print("-" * 60)
+    print("Processing files...")
+    print("-" * 60)
     
     success_count = 0
     fail_count = 0
@@ -670,6 +718,45 @@ def main():
     print(f"  📁 Output: {db_path}")
     print()
     print("=" * 60)
+
+
+def display_menu():
+    """Display the migration tools menu."""
+    print("\n")
+    print("Please select a migration tool:")
+    print()
+    print("  1. Objects Scanner")
+    print()
+    print("  2. Concepts Exporter")
+    print()
+    print("  0. Exit")
+    print()
+
+
+def main():
+    """Main function to handle interactive execution."""
+    while True:
+        display_menu()
+        
+        choice = input("Enter your choice (0-2): ").strip()
+        
+        if choice == "1":
+            run_objects_scanner()
+        elif choice == "2":
+            run_concepts_exporter()
+        elif choice == "0":
+            print("\nExiting Migration Tools. Goodbye!")
+            break
+        else:
+            print("\n⚠ Invalid choice. Please enter a number between 0 and 2.")
+        
+        # Ask if user wants to continue
+        if choice in ["1", "2"]:
+            print()
+            continue_choice = input("Press Enter to return to menu or type 'exit' to quit: ").strip().lower()
+            if continue_choice == "exit":
+                print("\nExiting Migration Tools. Goodbye!")
+                break
 
 
 if __name__ == "__main__":
