@@ -168,6 +168,14 @@ function TreeNode({ item, expandedNodeIds, onNodeClick, depth }) {
                         );
                     }
 
+                    if (contentItem.type === 'body') {
+                        return (
+                            <p key={index} className="content-body">
+                                {parseMarkdown(contentItem.text)}
+                            </p>
+                        );
+                    }
+
                     if (contentItem.type === 'bullet1') {
                         return (
                             <p key={index} className="content-bullet bullet-1">

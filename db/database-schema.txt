@@ -50,8 +50,8 @@ SubTopic = {
 
 Content = {
     "id": "string", // Random 8 character alpha-numeric string
-    "type": "plain|bullet1|bullet2|number1|number2|image|video|equation", // type of content
-    "text"?: "string", // for bullet1/bullet2/number1/number2
+    "type": "body|bullet1|bullet2|number1|number2|image|video|equation", // type of content
+    "text"?: "string", // for body/bullet1/bullet2/number1/number2
     "equation"?: "string", // for equation
     "url"?: "string", // for image/video
     "metadata": {  // For image/video

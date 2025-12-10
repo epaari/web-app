@@ -137,6 +137,22 @@ def process_word_document(file_path, standard, subject):
                     current_subtopic["content"] = []
                 current_subtopic["content"].append(content_item)
                 
+        elif style == "# Body":
+            # Extract text with bold formatting
+            formatted_text = extract_text_with_formatting(paragraph)
+            
+            content_item = {
+                "id": generate_id(),
+                "type": "body",
+                "text": formatted_text
+            }
+            
+            # Add to current subtopic's content if exists
+            if current_subtopic is not None:
+                if "content" not in current_subtopic:
+                    current_subtopic["content"] = []
+                current_subtopic["content"].append(content_item)
+                
         elif style == "# Bullet-2":
             # Extract text with bold formatting
             formatted_text = extract_text_with_formatting(paragraph)

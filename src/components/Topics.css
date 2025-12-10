@@ -317,6 +317,16 @@
   font-size: clamp(1.5rem, 4vw, 4rem);
 }
 
+/* Body Text (no bullet) */
+.content-body {
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  line-height: 1.6;
+  font-size: clamp(1rem, 3vw, 3rem);
+  margin-left: 2rem;
+}
+
 /* Equation Display */
 .content-equation {
   padding: 0.5rem;
