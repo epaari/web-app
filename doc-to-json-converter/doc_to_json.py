@@ -14,6 +14,13 @@ from pathlib import Path
 from docx import Document
 from docx.text.paragraph import Paragraph
 
+# Optional import for SmartArt/Drawing Canvas detection
+try:
+    import win32com.client
+    WIN32COM_AVAILABLE = True
+except ImportError:
+    WIN32COM_AVAILABLE = False
+
 
 def generate_id():
     """Generate an 8-character random alphanumeric string."""
@@ -57,6 +64,109 @@ def get_paragraph_style(paragraph):
     if paragraph.style and paragraph.style.name:
         return paragraph.style.name
     return None
+
+
+def scan_for_smartart_and_canvas(file_path):
+    """
+    Scan a Word document for SmartArt, Drawing Canvas, and Tables.
+    
+    Args:
+        file_path: Path to the Word document
+    
+    Returns:
+        List of dictionaries with object type and page number
+    """
+    if not WIN32COM_AVAILABLE:
+        print("⚠ Object detection not available (win32com not installed)")
+        return []
+    
+    objects_found = []
+    word = None
+    doc = None
+    
+    try:
+        # Start Word application
+        word = win32com.client.Dispatch("Word.Application")
+        word.Visible = False
+        
+        # Open document
+        abs_path = str(Path(file_path).resolve())
+        doc = word.Documents.Open(abs_path)
+        
+        # Scan Shapes collection
+        shape_count = 0
+        for shape in doc.Shapes:
+            shape_count += 1
+            try:
+                # Get the page number where this shape is located
+                page_num = shape.Anchor.Information(3)  # wdActiveEndPageNumber = 3
+                shape_type = shape.Type
+                
+                # Type 15 is msoSmartArt
+                if shape_type == 15:
+                    objects_found.append({
+                        'type': 'SmartArt',
+                        'page': page_num
+                    })
+                # Type 16 is msoCanvas (Drawing Canvas)
+                elif shape_type == 16:
+                    objects_found.append({
+                        'type': 'Drawing Canvas',
+                        'page': page_num
+                    })
+            except Exception as e:
+                # Some shapes might not have page info
+                pass
+        
+        # Also scan InlineShapes collection (SmartArt can be inline)
+        inline_count = 0
+        for inline_shape in doc.InlineShapes:
+            inline_count += 1
+            try:
+                # Get the page number
+                page_num = inline_shape.Range.Information(3)  # wdActiveEndPageNumber = 3
+                shape_type = inline_shape.Type
+                
+                # Type 15 is wdInlineShapeSmartArt
+                if shape_type == 15:
+                    objects_found.append({
+                        'type': 'SmartArt',
+                        'page': page_num
+                    })
+            except Exception as e:
+                # Some inline shapes might not have page info
+                pass
+        
+        # Scan for tables
+        table_count = 0
+        for table in doc.Tables:
+            table_count += 1
+            try:
+                # Get the page number where this table is located
+                page_num = table.Range.Information(3)  # wdActiveEndPageNumber = 3
+                objects_found.append({
+                    'type': 'Table',
+                    'page': page_num
+                })
+            except Exception as e:
+                # Some tables might not have page info
+                pass
+        
+        # Debug output
+        if shape_count == 0 and inline_count == 0 and table_count == 0:
+            print("  (No shapes, inline shapes, or tables found in document)")
+        
+    except Exception as e:
+        print(f"⚠ Error scanning document: {e}")
+    
+    finally:
+        # Clean up
+        if doc:
+            doc.Close(False)
+        if word:
+            word.Quit()
+    
+    return objects_found
 
 
 def process_word_document(file_path, standard, subject):
@@ -368,6 +478,35 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
         return False
     
     try:
+        # Scan for SmartArt, Drawing Canvas, and Tables before processing
+        print(f"\nScanning '{input_path.name}' for SmartArt, Drawing Canvas, and Tables...")
+        objects = scan_for_smartart_and_canvas(input_file)
+        
+        if objects:
+            # print(f"\n⚠ Found {len(objects)} object(s) that need to be converted to images:")
+            # print("-" * 60)
+            
+            # Group by type and page
+            for obj in objects:
+                print(f"  • {obj['type']} on page {obj['page']}")
+            
+            # print("-" * 60)
+            print("\nPlease convert these objects to images in the Word document:")
+            # print("  1. Right-click on each SmartArt/Drawing Canvas/Table")
+            # print("  2. Select 'Save as Picture...' or copy and paste as image")
+            # print("  3. Delete the original object")
+            # print("  4. Save the document")
+            print()
+            
+            # Prompt user for confirmation
+            response = input("Have you converted all objects to images? (yes/no): ").strip().lower()
+            
+            if response not in ['yes', 'y']:
+                print(f"⚠ Skipping '{input_path.name}' - Please convert objects and try again")
+                return False
+            
+            # print("✓ Proceeding with processing...\n")
+        
         # Process the document to get topics
         result = process_word_document(input_file, standard, subject)
         topics = result['topics']
@@ -389,7 +528,7 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
                 # Update the topics for this chapter
                 chapter['topics'] = topics
                 chapter_found = True
-                print(f"✓ Updated Chapter {chapter_no}: {input_path.name}")
+                # print(f"✓ Updated Chapter {chapter_no}: {input_path.name}")
                 break
         
         if not chapter_found:
@@ -420,10 +559,10 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
 
 def main():
     """Main function to handle interactive execution."""
-    print("=" * 60)
+    """ print("=" * 60)
     print("Word Document to JSON Converter")
     print("=" * 60)
-    print()
+    print() """
     
     # Prompt for standard
     standard = input("Enter standard (e.g., 6, 7, 8): ").strip()
@@ -441,8 +580,8 @@ def main():
     script_dir = Path(__file__).parent
     dir_path = script_dir / "input"
     
-    print(f"Using input directory: {dir_path}")
-    print()
+    # print(f"Using input directory: {dir_path}")
+    # print()
     if not dir_path.exists():
         print(f"Error: Directory '{dir_path}' not found.")
         sys.exit(1)
@@ -459,11 +598,11 @@ def main():
         print(f"Error: No .docx files found in '{dir_path}'")
         sys.exit(1)
     
-    print()
-    print(f"Found {len(docx_files)} .docx file(s):")
-    for file in docx_files:
-        print(f"  - {file.name}")
-    print()
+    # print()
+    # print(f"Found {len(docx_files)} .docx file(s):")
+    # for file in docx_files:
+    #     print(f"  - {file.name}")
+    # print()
     
     # Get subject ID from subjects.json
     subject_id = get_subject_id(standard, subject)
@@ -476,8 +615,8 @@ def main():
     db_dir.mkdir(parents=True, exist_ok=True)
     
     # Process all files
-    print("Processing files...")
-    print("-" * 60)
+    # print("Processing files...")
+    # print("-" * 60)
     
     success_count = 0
     fail_count = 0
