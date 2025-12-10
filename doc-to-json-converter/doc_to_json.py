@@ -9,6 +9,7 @@ import random
 import os
 import re
 import subprocess
+import hashlib
 from pathlib import Path
 from docx import Document
 from docx.text.paragraph import Paragraph
@@ -85,10 +86,28 @@ def process_word_document(file_path, standard, subject):
     current_topic = None
     current_subtopic = None
     
+    # Processing state flags
+    processing_started = False
+    processing_stopped = False
+    
     # Process all paragraphs
     for paragraph in doc.paragraphs:
         style = get_paragraph_style(paragraph)
         text = paragraph.text.strip()
+        
+        # Check for start marker: <teach> with style "# Meta Data"
+        if style == "# Meta Data" and text.lower() == "<teach>":
+            processing_started = True
+            continue  # Skip the marker itself
+        
+        # Check for stop markers: <revision> or <question> with style "# Meta Data"
+        if style == "# Meta Data" and (text.lower() == "<revision>" or text.lower() == "<question>"):
+            processing_stopped = True
+            break  # Stop processing
+        
+        # Skip processing if we haven't started yet or if we've stopped
+        if not processing_started or processing_stopped:
+            continue
         
         # Process based on style
         if style == "# Sub Topic - 1":
@@ -198,16 +217,19 @@ def process_word_document(file_path, standard, subject):
                             elif 'gif' in content_type:
                                 ext = 'gif'
                             
-                            # Generate unique ID for this image content item
-                            image_id = generate_id()
+                            # Generate consistent ID based on image content hash
+                            # This ensures the same image always gets the same ID
+                            image_hash = hashlib.md5(image_bytes).hexdigest()
+                            image_id = image_hash[:8]  # Use first 8 characters
                             
                             # Use the ID as the filename
                             image_filename = f"{image_id}.{ext}"
                             image_path = images_dir / image_filename
                             
-                            # Save image
-                            with open(image_path, 'wb') as img_file:
-                                img_file.write(image_bytes)
+                            # Save image only if it doesn't already exist
+                            if not image_path.exists():
+                                with open(image_path, 'wb') as img_file:
+                                    img_file.write(image_bytes)
                             
                             # Create image content item with relative URL
                             image_url = f"/db/{standard}-{subject_slug}/images/{image_filename}"
@@ -226,8 +248,7 @@ def process_word_document(file_path, standard, subject):
                                 "url": image_url,
                                 "metadata": {
                                     "altText": alt_text,
-                                    "width": 1920,
-                                    "height": 1080
+                                    "size": "medium"  # Default size
                                 }
                             }
                             
@@ -326,41 +347,25 @@ def get_subject_id(standard, subject):
         return ""
 
 
-def main():
-    """Main function to handle command-line execution."""
-    # Check for correct number of arguments
-    if len(sys.argv) != 4:
-        print("Usage: python doc_to_json.py <standard> <subject> <input-file>")
-        print("Example: python doc_to_json.py 6 science 10.docx")
-        sys.exit(1)
+def process_single_file(input_file, standard, subject, subject_id, db_path):
+    """
+    Process a single Word document and update the database.
     
-    standard = sys.argv[1]
-    subject = sys.argv[2]
-    input_file = sys.argv[3]
-    
-    # Validate input file exists
-    if not Path(input_file).exists():
-        print(f"Error: File '{input_file}' not found.")
-        sys.exit(1)
-    
-    # Validate input file is a Word document
-    if not input_file.lower().endswith(('.docx', '.doc')):
-        print("Error: Input file must be a Microsoft Word document (.docx or .doc)")
-        sys.exit(1)
-    
+    Args:
+        input_file: Path to the Word document
+        standard: The standard/grade number
+        subject: The subject name
+        subject_id: The subject ID from subjects.json
+        db_path: Path to the concept.json database file
+    """
     # Extract chapter number from filename (without extension)
     input_path = Path(input_file)
-    chapter_no = input_path.stem
     
-    # Get subject ID from subjects.json
-    subject_id = get_subject_id(standard, subject)
-    
-    # Construct database directory and filename
-    db_dir = Path(f"../db/{standard}-{subject.lower()}")
-    db_path = db_dir / "concept.json"
-    
-    # Create database directory if it doesn't exist
-    db_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        chapter_no = int(input_path.stem)  # Convert to integer
+    except ValueError:
+        print(f"⚠ Skipping '{input_path.name}': Filename must be a number (e.g., 1.docx, 2.docx)")
+        return False
     
     try:
         # Process the document to get topics
@@ -373,7 +378,6 @@ def main():
                 db_data = json.load(f)
         else:
             # Create a new database structure
-            print(f"Database file not found. Creating new file: {db_path}")
             db_data = {
                 "chapters": []
             }
@@ -385,11 +389,11 @@ def main():
                 # Update the topics for this chapter
                 chapter['topics'] = topics
                 chapter_found = True
+                print(f"✓ Updated Chapter {chapter_no}: {input_path.name}")
                 break
         
         if not chapter_found:
             # Create a new chapter entry
-            # print(f"Chapter {chapter_no} not found. Creating new chapter entry.")
             new_chapter = {
                 "id": generate_id(),
                 "subjectId": subject_id,
@@ -398,16 +402,102 @@ def main():
                 "topics": topics
             }
             db_data['chapters'].append(new_chapter)
+            print(f"✓ Added Chapter {chapter_no}: {input_path.name}")
+        
+        # Sort chapters by chapterNo to maintain numerical order
+        db_data['chapters'].sort(key=lambda x: x.get('chapterNo', 0))
         
         # Write the updated database back to file
         with open(db_path, 'w', encoding='utf-8') as f:
             json.dump(db_data, f, indent=2, ensure_ascii=False)
         
-        # print(f"Successfully converted '{input_path.stem}'")
+        return True
         
     except Exception as e:
-        print(f"Error processing document: {str(e)}")
+        print(f"✗ Error processing '{input_path.name}': {str(e)}")
+        return False
+
+
+def main():
+    """Main function to handle interactive execution."""
+    print("=" * 60)
+    print("Word Document to JSON Converter")
+    print("=" * 60)
+    print()
+    
+    # Prompt for standard
+    standard = input("Enter standard (e.g., 6, 7, 8): ").strip()
+    if not standard:
+        print("Error: Standard cannot be empty.")
         sys.exit(1)
+    
+    # Prompt for subject
+    subject = input("Enter subject (e.g., science, maths): ").strip()
+    if not subject:
+        print("Error: Subject cannot be empty.")
+        sys.exit(1)
+    
+    # Use the ./input directory automatically
+    script_dir = Path(__file__).parent
+    dir_path = script_dir / "input"
+    
+    print(f"Using input directory: {dir_path}")
+    print()
+    if not dir_path.exists():
+        print(f"Error: Directory '{dir_path}' not found.")
+        sys.exit(1)
+    
+    if not dir_path.is_dir():
+        print(f"Error: '{dir_path}' is not a directory.")
+        sys.exit(1)
+    
+    # Find all .docx files in the directory (exclude temporary files starting with ~$)
+    all_docx_files = dir_path.glob("*.docx")
+    docx_files = sorted([f for f in all_docx_files if not f.name.startswith("~$")])
+    
+    if not docx_files:
+        print(f"Error: No .docx files found in '{dir_path}'")
+        sys.exit(1)
+    
+    print()
+    print(f"Found {len(docx_files)} .docx file(s):")
+    for file in docx_files:
+        print(f"  - {file.name}")
+    print()
+    
+    # Get subject ID from subjects.json
+    subject_id = get_subject_id(standard, subject)
+    
+    # Construct database directory and filename
+    db_dir = Path(f"../db/{standard}-{subject.lower()}")
+    db_path = db_dir / "concept.json"
+    
+    # Create database directory if it doesn't exist
+    db_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Process all files
+    print("Processing files...")
+    print("-" * 60)
+    
+    success_count = 0
+    fail_count = 0
+    
+    for docx_file in docx_files:
+        if process_single_file(docx_file, standard, subject, subject_id, db_path):
+            success_count += 1
+        else:
+            fail_count += 1
+    
+    # Summary
+    print("-" * 60)
+    print()
+    print("Summary:")
+    print(f"  ✓ Successfully processed: {success_count} file(s)")
+    if fail_count > 0:
+        print(f"  ✗ Failed: {fail_count} file(s)")
+    print(f"  📁 Output: {db_path}")
+    print()
+    print("=" * 60)
 
 
 if __name__ == "__main__":

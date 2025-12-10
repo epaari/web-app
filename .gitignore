@@ -27,5 +27,5 @@ dist-ssr
 db/*/
 ~$*.pptx
 ~$*.docx
-doc-to-json-converter/output/*
+doc-to-json-converter/input/*
 doc-to-json-converter/*.docx

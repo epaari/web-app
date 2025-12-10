@@ -31,7 +31,7 @@ CONCEPT DB (CONCEPT.JSON)
 Chapter = {
     "id": "string", // Random 8 character alpha-numeric string
     "subjectId": "string", // parent subject id
-    "chapterNo": "string", // chapter number
+    "chapterNo": "integer", // chapter number
     "chapterName": "string", // chapter name
     "topics": [ Topic ] // topics
 }
@@ -56,8 +56,7 @@ Content = {
     "url"?: "string", // for image/video
     "metadata": {  // For image/video
         "altText": "string",
-        "width": 1920,
-        "height": 1080
+        "size": "string" // small/medium/large/very large
     }
 }
 
@@ -91,8 +90,7 @@ Content = {
     "url"?: "string", // for image/video
     "metadata": {  // For image/video
         "altText": "string",
-        "width": 1920,
-        "height": 1080
+        "size": "string", // small/medium/large/very large
     }
 }
 
