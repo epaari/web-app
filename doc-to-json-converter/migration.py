@@ -68,7 +68,7 @@ def get_paragraph_style(paragraph):
 
 def scan_for_smartart_and_canvas(file_path):
     """
-    Scan a Word document for SmartArt, Drawing Canvas, and Tables.
+    Scan a Word document for SmartArt, Drawing Canvas, Tables, and Cropped Images.
     
     Args:
         file_path: Path to the Word document
@@ -115,6 +115,22 @@ def scan_for_smartart_and_canvas(file_path):
                         'type': 'Drawing Canvas',
                         'page': page_num
                     })
+                # Type 13 is Picture - check if cropped
+                elif shape_type == 13:
+                    try:
+                        if hasattr(shape.PictureFormat, 'CropLeft'):
+                            left = shape.PictureFormat.CropLeft
+                            top = shape.PictureFormat.CropTop
+                            right = shape.PictureFormat.CropRight
+                            bottom = shape.PictureFormat.CropBottom
+                            
+                            if left != 0 or top != 0 or right != 0 or bottom != 0:
+                                objects_found.append({
+                                    'type': 'Cropped Image',
+                                    'page': page_num
+                                })
+                    except:
+                        pass
             except Exception as e:
                 # Some shapes might not have page info
                 pass
@@ -134,6 +150,22 @@ def scan_for_smartart_and_canvas(file_path):
                         'type': 'SmartArt',
                         'page': page_num
                     })
+                # Type 3 is Picture - check if cropped
+                elif shape_type == 3:
+                    try:
+                        if hasattr(inline_shape.PictureFormat, 'CropLeft'):
+                            left = inline_shape.PictureFormat.CropLeft
+                            top = inline_shape.PictureFormat.CropTop
+                            right = inline_shape.PictureFormat.CropRight
+                            bottom = inline_shape.PictureFormat.CropBottom
+                            
+                            if left != 0 or top != 0 or right != 0 or bottom != 0:
+                                objects_found.append({
+                                    'type': 'Cropped Image',
+                                    'page': page_num
+                                })
+                    except:
+                        pass
             except Exception as e:
                 # Some inline shapes might not have page info
                 pass
@@ -479,8 +511,8 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
         return False
     
     try:
-        # Scan for SmartArt, Drawing Canvas, and Tables before processing
-        print(f"\nScanning '{input_path.name}' for SmartArt, Drawing Canvas, and Tables...")
+        # Scan for SmartArt, Drawing Canvas, Tables, and Cropped Images before processing
+        print(f"\nScanning '{input_path.name}' for SmartArt, Drawing Canvas, Tables, and Cropped Images...")
         objects = scan_for_smartart_and_canvas(input_file)
         
         if objects:
@@ -493,7 +525,7 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
             
             # print("-" * 60)
             print("\nPlease convert these objects to images in the Word document:")
-            # print("  1. Right-click on each SmartArt/Drawing Canvas/Table")
+            # print("  1. Right-click on each SmartArt/Drawing Canvas/Table/Cropped Image")
             # print("  2. Select 'Save as Picture...' or copy and paste as image")
             # print("  3. Delete the original object")
             # print("  4. Save the document")
