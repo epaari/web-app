@@ -58,30 +58,24 @@ def get_paragraph_style(paragraph):
     return None
 
 
-def process_word_document(file_path):
+def process_word_document(file_path, standard, subject):
     """
     Process a Word document and convert it to the specified JSON schema.
     
     Args:
         file_path: Path to the Word document
+        standard: The standard/grade number (e.g., "6")
+        subject: The subject name (e.g., "science")
     
     Returns:
         Dictionary containing the structured data
     """
     doc = Document(file_path)
     
-    # Create output directory and clear it if it exists
-    output_dir = Path("./output")
-    if output_dir.exists():
-        # Remove all files in the output directory
-        for file in output_dir.iterdir():
-            if file.is_file():
-                file.unlink()
-    else:
-        output_dir.mkdir(parents=True, exist_ok=True)
-    
-    images_dir = output_dir
-    
+    # Create images directory in db/<standard>-<subject>/images
+    subject_slug = subject.lower()
+    images_dir = Path(f"../db/{standard}-{subject_slug}/images")
+    images_dir.mkdir(parents=True, exist_ok=True)
     
     # Initialize the result structure
     result = {
@@ -90,7 +84,6 @@ def process_word_document(file_path):
     
     current_topic = None
     current_subtopic = None
-    node_image_counter = 0  # Counter for images within current subtopic
     
     # Process all paragraphs
     for paragraph in doc.paragraphs:
@@ -107,7 +100,6 @@ def process_word_document(file_path):
             }
             result["topics"].append(current_topic)
             current_subtopic = None  # Reset subtopic when new topic starts
-            node_image_counter = 0  # Reset image counter for new topic
             
         elif style == "# Sub Topic - 2":
             # Create a new subtopic
@@ -116,7 +108,6 @@ def process_word_document(file_path):
                 "title": text,
                 "content": []
             }
-            node_image_counter = 0  # Reset image counter for new subtopic
             
             # Add to current topic's subTopics if exists
             if current_topic is not None:
@@ -191,33 +182,34 @@ def process_word_document(file_path):
                             elif 'gif' in content_type:
                                 ext = 'gif'
                             
-                            # Generate filename based on current context
-                            if current_subtopic:
-                                base_name = sanitize_filename(current_subtopic['title'])
-                            elif current_topic:
-                                base_name = sanitize_filename(current_topic['title'])
-                            else:
-                                base_name = f"image"
+                            # Generate unique ID for this image content item
+                            image_id = generate_id()
                             
-                            # Increment counter (starting from 1)
-                            node_image_counter += 1
-                            image_filename = f"{base_name}-{node_image_counter}.{ext}"
+                            # Use the ID as the filename
+                            image_filename = f"{image_id}.{ext}"
                             image_path = images_dir / image_filename
                             
                             # Save image
                             with open(image_path, 'wb') as img_file:
                                 img_file.write(image_bytes)
                             
-                            # print(f"Extracted image: {image_filename}")
+                            # Create image content item with relative URL
+                            image_url = f"/db/{standard}-{subject_slug}/images/{image_filename}"
                             
-                            # Create image content item
-                            image_url = f"https://raw.githubusercontent.com/epaari/ezeescore_ai/main/{image_filename}"
+                            # Get alt text from current context
+                            if current_subtopic:
+                                alt_text = current_subtopic['title']
+                            elif current_topic:
+                                alt_text = current_topic['title']
+                            else:
+                                alt_text = "Image"
+                            
                             content_item = {
-                                "id": generate_id(),
+                                "id": image_id,
                                 "type": "image",
                                 "url": image_url,
                                 "metadata": {
-                                    "altText": base_name,
+                                    "altText": alt_text,
                                     "width": 1920,
                                     "height": 1080
                                 }
@@ -235,104 +227,19 @@ def process_word_document(file_path):
     return result
 
 
-def upload_images_to_github(output_dir):
-    """
-    Upload images from output directory to GitHub repository.
-    Asks for user consent before uploading.
-    
-    Args:
-        output_dir: Path to the output directory containing images
-    
-    Returns:
-        bool: True if upload was successful or skipped, False if failed
-    """
-    # Check if there are any image files to upload
-    image_files = list(output_dir.glob('*.png')) + list(output_dir.glob('*.jpg')) + list(output_dir.glob('*.gif'))
-    
-    if not image_files:
-        print("No images to upload.")
-        return True
-    
-    # Ask for user consent
-    print(f"\nFound {len(image_files)} image(s) to upload to GitHub.")
-    print("Images will be uploaded to: https://github.com/epaari/images")
-    
-    while True:
-        consent = input("Do you want to upload these images? (yes/no): ").strip().lower()
-        if consent in ['yes', 'y']:
-            break
-        elif consent in ['no', 'n']:
-            print("Image upload skipped.")
-            return True
-        else:
-            print("Please enter 'yes' or 'no'.")
-    
-    # Define the GitHub repository path
-    github_repo_path = Path("../content-images")
-    
-    # Check if the repository exists
-    if not github_repo_path.exists():
-        print(f"Error: GitHub repository not found at {github_repo_path}")
-        print("Please clone the repository first: git clone https://github.com/epaari/images.git ../content-images")
-        return False
-    
-    try:
-        # Copy images to the GitHub repository
-        for image_file in image_files:
-            dest_file = github_repo_path / image_file.name
-            import shutil
-            shutil.copy2(image_file, dest_file)
-            print(f"Copied: {image_file.name}")
-        
-        # Git operations
-        print("\nUploading to GitHub...")
-        
-        # Change to repository directory
-        os.chdir(github_repo_path)
-        
-        # Git add
-        subprocess.run(['git', 'add', '.'], check=True)
-        
-        # Git commit
-        commit_message = f"Add images from document conversion"
-        subprocess.run(['git', 'commit', '-m', commit_message], check=True)
-        
-        # Git push
-        subprocess.run(['git', 'push'], check=True)
-        
-        print("✓ Images successfully uploaded to GitHub!")
-        
-        # Delete image files from output directory after successful upload
-        print("\nCleaning up output directory...")
-        for image_file in image_files:
-            try:
-                image_file.unlink()
-                print(f"Deleted: {image_file.name}")
-            except Exception as e:
-                print(f"Warning: Could not delete {image_file.name}: {e}")
-        
-        return True
-        
-    except subprocess.CalledProcessError as e:
-        print(f"Error during git operation: {e}")
-        return False
-    except Exception as e:
-        print(f"Error uploading images: {e}")
-        return False
-
-
 
 
 def get_subject_id(standard, subject):
     """
     Fetch the subject ID from subjects.json based on standard and subject name.
+    If not found, automatically adds the standard and/or subject under TNSB publisher.
     
     Args:
         standard: The standard/grade number (e.g., "6")
         subject: The subject name (e.g., "science")
     
     Returns:
-        The subject ID if found, empty string otherwise
+        The subject ID (creates new entry if not found)
     """
     subjects_path = Path("../db/subjects.json")
     
@@ -347,16 +254,56 @@ def get_subject_id(standard, subject):
         # Normalize subject name for comparison (capitalize first letter)
         subject_normalized = subject.capitalize()
         
-        # Search through publishers -> standards -> subjects
+        # Find TNSB publisher (or create if doesn't exist)
+        tnsb_publisher = None
         for publisher in subjects_data.get('publishers', []):
-            for std in publisher.get('standards', []):
-                if std.get('standardName') == standard:
-                    for subj in std.get('subjects', []):
-                        if subj.get('subjectName', '').lower() == subject_normalized.lower():
-                            return subj.get('id', '')
+            if publisher.get('publisherName') == 'TNSB':
+                tnsb_publisher = publisher
+                break
         
-        print(f"Warning: Subject '{subject}' not found for standard '{standard}' in subjects.json")
-        return ""
+        if not tnsb_publisher:
+            print("Warning: TNSB publisher not found in subjects.json")
+            return ""
+        
+        # Search for the standard
+        standard_obj = None
+        for std in tnsb_publisher.get('standards', []):
+            if std.get('standardName') == standard:
+                standard_obj = std
+                break
+        
+        # If standard not found, create it
+        if not standard_obj:
+            print(f"Standard '{standard}' not found. Creating new standard entry.")
+            standard_obj = {
+                "id": generate_id(),
+                "standardName": standard,
+                "subjects": []
+            }
+            tnsb_publisher['standards'].append(standard_obj)
+            # Sort standards by standardName
+            tnsb_publisher['standards'].sort(key=lambda x: int(x.get('standardName', '0')))
+        
+        # Search for the subject within the standard
+        for subj in standard_obj.get('subjects', []):
+            if subj.get('subjectName', '').lower() == subject_normalized.lower():
+                return subj.get('id', '')
+        
+        # If subject not found, create it
+        print(f"Subject '{subject}' not found for standard '{standard}'. Creating new subject entry.")
+        new_subject_id = generate_id()
+        new_subject = {
+            "id": new_subject_id,
+            "subjectName": subject_normalized
+        }
+        standard_obj['subjects'].append(new_subject)
+        
+        # Write updated data back to subjects.json
+        with open(subjects_path, 'w', encoding='utf-8') as f:
+            json.dump(subjects_data, f, indent=2, ensure_ascii=False)
+        
+        print(f"✓ Added subject '{subject_normalized}' to standard '{standard}' with ID: {new_subject_id}")
+        return new_subject_id
         
     except Exception as e:
         print(f"Warning: Error reading subjects.json: {e}")
@@ -401,7 +348,7 @@ def main():
     
     try:
         # Process the document to get topics
-        result = process_word_document(input_file)
+        result = process_word_document(input_file, standard, subject)
         topics = result['topics']
         
         # Read the existing database or create a new one
@@ -426,7 +373,7 @@ def main():
         
         if not chapter_found:
             # Create a new chapter entry
-            print(f"Chapter {chapter_no} not found. Creating new chapter entry.")
+            # print(f"Chapter {chapter_no} not found. Creating new chapter entry.")
             new_chapter = {
                 "id": generate_id(),
                 "subjectId": subject_id,
@@ -440,11 +387,7 @@ def main():
         with open(db_path, 'w', encoding='utf-8') as f:
             json.dump(db_data, f, indent=2, ensure_ascii=False)
         
-        print(f"Successfully converted '{input_path.stem}'")
-        
-        # Upload images to GitHub
-        output_dir = Path("./output")
-        upload_images_to_github(output_dir)
+        # print(f"Successfully converted '{input_path.stem}'")
         
     except Exception as e:
         print(f"Error processing document: {str(e)}")
