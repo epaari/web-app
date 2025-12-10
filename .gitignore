@@ -24,11 +24,8 @@ dist-ssr
 *.sw?
 
 # Ignore images directories in db subdirectories
-db/*/images/
+db/*/
 ~$*.pptx
 ~$*.docx
 doc-to-json-converter/output/*
 doc-to-json-converter/*.docx
-
-# Nested Content Images Repository
-content-images
