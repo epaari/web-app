@@ -108,8 +108,9 @@ def scan_for_smartart_and_canvas(file_path):
                         'type': 'SmartArt',
                         'page': page_num
                     })
-                # Type 16 is msoCanvas (Drawing Canvas)
-                elif shape_type == 16:
+                # Type 16 is msoCanvas (old constant, rarely used)
+                # Type 20 is msoDiagram/msoGroup (Drawing Canvas in modern Word)
+                elif shape_type == 16 or shape_type == 20:
                     objects_found.append({
                         'type': 'Drawing Canvas',
                         'page': page_num
