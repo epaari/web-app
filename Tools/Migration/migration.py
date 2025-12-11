@@ -133,10 +133,17 @@ def omml_to_latex(omml_element):
             for e_elem in elem.findall(f'{m_ns}e'):
                 row_content = process_element(e_elem)
                 if row_content:
-                    # Add alignment marker before = sign if present
-                    # This handles common alignment at equals sign
-                    if '=' in row_content:
+                    # Add alignment marker based on content
+                    # Case 1: Row starts with = (common in multi-line equations like |A| = ... = ... = ...)
+                    if row_content.strip().startswith('='):
+                        row_content = '&' + row_content.strip()
+                    # Case 2: Row contains = but doesn't start with it
+                    elif '=' in row_content:
                         row_content = row_content.replace('=', '&=', 1)
+                    # Case 3: No = sign - align at the start (for cases like limits with conditions)
+                    else:
+                        row_content = '&' + row_content
+                    
                     rows.append(row_content)
             
             if rows:
@@ -408,6 +415,8 @@ def process_word_document(file_path, standard, subject):
         style = get_paragraph_style(paragraph)
         text = paragraph.text.strip()
         
+
+        
         # Check for start marker: <teach> with style "# Meta Data"
         if style == "# Meta Data" and text.lower() == "<teach>":
             processing_started = True
@@ -588,17 +597,44 @@ def process_word_document(file_path, standard, subject):
             # Search for math elements in the paragraph's XML
             para_xml = paragraph._element
             
+
+            
             # Display equations (oMathPara)
-            for math_para in para_xml.findall(f'.//{m_ns}oMathPara'):
-                omath = math_para.find(f'{m_ns}oMath')
-                if omath is not None:
-                    latex = omml_to_latex(omath)
-                    if latex:
-                        print(f"  [DEBUG] Found display equation: {latex[:50]}...")
+            math_paras = para_xml.findall(f'.//{m_ns}oMathPara')
+            
+            for math_para in math_paras:
+                # An oMathPara can contain multiple oMath elements (separated by line breaks)
+                omaths = math_para.findall(f'{m_ns}oMath')
+                
+                if omaths:
+                    latex_lines = []
+                    for omath in omaths:
+                        latex = omml_to_latex(omath)
+                        if latex:
+                            latex_lines.append(latex)
+                    
+                    if latex_lines:
+                        # If multiple equations, combine them with aligned environment
+                        if len(latex_lines) > 1:
+                            # Add alignment markers for multi-line equations
+                            aligned_lines = []
+                            for line in latex_lines:
+                                # If line starts with =, add & before it
+                                if line.strip().startswith('='):
+                                    aligned_lines.append('&' + line.strip())
+                                else:
+                                    aligned_lines.append(line)
+                            
+                            combined_latex = '\\begin{aligned}\n' + ' \\\\\n'.join(aligned_lines) + '\n\\end{aligned}'
+                            print(f"  [DEBUG] Found multi-line display equation: {combined_latex}")
+                        else:
+                            combined_latex = latex_lines[0]
+                            print(f"  [DEBUG] Found display equation: {combined_latex}")
+                        
                         equation_item = {
                             "id": generate_id(),
                             "type": "equation",
-                            "equation": latex
+                            "equation": combined_latex
                         }
                         
                         # Add to current subtopic
@@ -608,12 +644,20 @@ def process_word_document(file_path, standard, subject):
                             current_subtopic["content"].append(equation_item)
             
             # Inline equations (oMath not inside oMathPara)
-            for omath in para_xml.findall(f'.//{m_ns}oMath'):
-                # Check if this oMath is not inside an oMathPara (to avoid duplicates)
-                if omath.getparent().tag != f'{m_ns}oMathPara':
+            inline_omaths = para_xml.findall(f'.//{m_ns}oMath')
+            inline_count = 0
+            
+            # Get all oMath elements that are inside oMathPara (to exclude them)
+            omaths_in_para = []
+            for math_para in math_paras:
+                omaths_in_para.extend(math_para.findall(f'.//{m_ns}oMath'))
+            
+            for omath in inline_omaths:
+                # Check if this oMath is NOT in the list of oMaths inside oMathPara
+                if omath not in omaths_in_para:
                     latex = omml_to_latex(omath)
                     if latex:
-                        print(f"  [DEBUG] Found inline equation: {latex[:50]}...")
+                        print(f"  [DEBUG] Found inline equation: {latex[:100]}...")
                         equation_item = {
                             "id": generate_id(),
                             "type": "equation",

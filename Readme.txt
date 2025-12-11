@@ -1,10 +1,13 @@
 =================================================================
 THINGS TO DO
 =================================================================
-1. Equations handling
-2. Equations conversion
-3. Q and A implementation
-4. Material theme conversion
+* Equations handling
+    - Check inline equation order.
+    - Display equations in the client
+    - How to show inline equations?
+* Q and A implementation
+
+* Material theme conversion
 
 =================================================================
 MIGRATION TOOL
