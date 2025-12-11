@@ -66,6 +66,176 @@ def get_paragraph_style(paragraph):
     return None
 
 
+def omml_to_latex(omml_element):
+    """
+    Convert OMML (Office Math Markup Language) to LaTeX.
+    
+    Args:
+        omml_element: XML element containing OMML math
+    
+    Returns:
+        LaTeX string representation
+    """
+    # OMML namespace
+    m_ns = '{http://schemas.openxmlformats.org/officeDocument/2006/math}'
+    
+    def process_element(elem):
+        """Recursively process OMML elements."""
+        tag = elem.tag.replace(m_ns, '')
+        
+        # Fraction
+        if tag == 'f':
+            num = elem.find(f'{m_ns}num')
+            den = elem.find(f'{m_ns}den')
+            num_latex = process_element(num) if num is not None else ''
+            den_latex = process_element(den) if den is not None else ''
+            return f'\\frac{{{num_latex}}}{{{den_latex}}}'
+        
+        # Superscript
+        elif tag == 'sSup':
+            base = elem.find(f'{m_ns}e')
+            sup = elem.find(f'{m_ns}sup')
+            base_latex = process_element(base) if base is not None else ''
+            sup_latex = process_element(sup) if sup is not None else ''
+            return f'{base_latex}^{{{sup_latex}}}'
+        
+        # Subscript
+        elif tag == 'sSub':
+            base = elem.find(f'{m_ns}e')
+            sub = elem.find(f'{m_ns}sub')
+            base_latex = process_element(base) if base is not None else ''
+            sub_latex = process_element(sub) if sub is not None else ''
+            return f'{base_latex}_{{{sub_latex}}}'
+        
+        # Subscript-Superscript
+        elif tag == 'sSubSup':
+            base = elem.find(f'{m_ns}e')
+            sub = elem.find(f'{m_ns}sub')
+            sup = elem.find(f'{m_ns}sup')
+            base_latex = process_element(base) if base is not None else ''
+            sub_latex = process_element(sub) if sub is not None else ''
+            sup_latex = process_element(sup) if sup is not None else ''
+            return f'{base_latex}_{{{sub_latex}}}^{{{sup_latex}}}'
+        
+        # Radical (square root)
+        elif tag == 'rad':
+            deg = elem.find(f'{m_ns}deg')
+            base = elem.find(f'{m_ns}e')
+            base_latex = process_element(base) if base is not None else ''
+            if deg is not None and deg.text and deg.text.strip():
+                deg_latex = process_element(deg)
+                return f'\\sqrt[{deg_latex}]{{{base_latex}}}'
+            return f'\\sqrt{{{base_latex}}}'
+        
+        # Equation Array (aligned equations)
+        elif tag == 'eqArr':
+            rows = []
+            for e_elem in elem.findall(f'{m_ns}e'):
+                row_content = process_element(e_elem)
+                if row_content:
+                    # Add alignment marker before = sign if present
+                    # This handles common alignment at equals sign
+                    if '=' in row_content:
+                        row_content = row_content.replace('=', '&=', 1)
+                    rows.append(row_content)
+            
+            if rows:
+                # Join rows with LaTeX line break
+                aligned_content = ' \\\\\n'.join(rows)
+                return f'\\begin{{aligned}}\n{aligned_content}\n\\end{{aligned}}'
+            return ''
+        
+        # Delimiter (parentheses, brackets, etc.)
+        elif tag == 'd':
+            e_elem = elem.find(f'{m_ns}e')
+            content = process_element(e_elem) if e_elem is not None else ''
+            # Try to get delimiter properties
+            dPr = elem.find(f'{m_ns}dPr')
+            if dPr is not None:
+                begChr = dPr.find(f'{m_ns}begChr')
+                endChr = dPr.find(f'{m_ns}endChr')
+                begin = begChr.get(f'{m_ns}val', '(') if begChr is not None else '('
+                end = endChr.get(f'{m_ns}val', ')') if endChr is not None else ')'
+                return f'{begin}{content}{end}'
+            return f'\\left({content}\\right)'
+        
+        # Text run
+        elif tag == 'r':
+            t_elem = elem.find(f'{m_ns}t')
+            if t_elem is not None and t_elem.text:
+                return t_elem.text
+            return ''
+        
+        # Text element
+        elif tag == 't':
+            return elem.text if elem.text else ''
+        
+        # Container elements - process children
+        elif tag in ['oMath', 'oMathPara', 'e', 'num', 'den', 'sup', 'sub', 'deg']:
+            result = ''
+            for child in elem:
+                result += process_element(child)
+            return result
+        
+        # Default: process children
+        else:
+            result = ''
+            for child in elem:
+                result += process_element(child)
+            return result
+    
+    try:
+        latex = process_element(omml_element)
+        return latex.strip()
+    except Exception as e:
+        print(f"Warning: Error converting OMML to LaTeX: {e}")
+        return ""
+
+
+def extract_equations_from_run(run):
+    """
+    Extract equations from a paragraph run.
+    
+    Args:
+        run: A run object from python-docx
+    
+    Returns:
+        List of tuples (equation_latex, is_display) where is_display indicates if it's a display equation
+    """
+    equations = []
+    m_ns = '{http://schemas.openxmlformats.org/officeDocument/2006/math}'
+    
+    try:
+        # Look for math elements in the run's XML
+        # oMathPara = display equation (block)
+        # oMath = inline equation
+        
+        for math_para in run.element.findall(f'.//{m_ns}oMathPara'):
+            # Display equation
+            omath = math_para.find(f'{m_ns}oMath')
+            if omath is not None:
+                latex = omml_to_latex(omath)
+                if latex:
+                    print(f"  [DEBUG] Found display equation: {latex[:50]}...")
+                    equations.append((latex, True))  # True = display equation
+        
+        for omath in run.element.findall(f'.//{m_ns}oMath'):
+            # Check if this oMath is not inside an oMathPara (to avoid duplicates)
+            if omath.getparent().tag != f'{m_ns}oMathPara':
+                latex = omml_to_latex(omath)
+                if latex:
+                    print(f"  [DEBUG] Found inline equation: {latex[:50]}...")
+                    equations.append((latex, False))  # False = inline equation
+    
+    except Exception as e:
+        print(f"Warning: Error extracting equations: {e}")
+        import traceback
+        traceback.print_exc()
+    
+    return equations
+
+
+
 def scan_for_smartart_and_canvas(file_path):
     """
     Scan a Word document for SmartArt, Drawing Canvas, Tables, and Cropped Images.
@@ -287,49 +457,55 @@ def process_word_document(file_path, standard, subject):
             # Extract text with bold formatting
             formatted_text = extract_text_with_formatting(paragraph)
             
-            content_item = {
-                "id": generate_id(),
-                "type": "bullet1",
-                "text": formatted_text
-            }
-            
-            # Add to current subtopic's content if exists
-            if current_subtopic is not None:
-                if "content" not in current_subtopic:
-                    current_subtopic["content"] = []
-                current_subtopic["content"].append(content_item)
+            # Only create content item if there's actual text (not just equations)
+            if formatted_text.strip():
+                content_item = {
+                    "id": generate_id(),
+                    "type": "bullet1",
+                    "text": formatted_text
+                }
+                
+                # Add to current subtopic's content if exists
+                if current_subtopic is not None:
+                    if "content" not in current_subtopic:
+                        current_subtopic["content"] = []
+                    current_subtopic["content"].append(content_item)
                 
         elif style == "# Body":
             # Extract text with bold formatting
             formatted_text = extract_text_with_formatting(paragraph)
             
-            content_item = {
-                "id": generate_id(),
-                "type": "body",
-                "text": formatted_text
-            }
-            
-            # Add to current subtopic's content if exists
-            if current_subtopic is not None:
-                if "content" not in current_subtopic:
-                    current_subtopic["content"] = []
-                current_subtopic["content"].append(content_item)
+            # Only create content item if there's actual text (not just equations)
+            if formatted_text.strip():
+                content_item = {
+                    "id": generate_id(),
+                    "type": "body",
+                    "text": formatted_text
+                }
+                
+                # Add to current subtopic's content if exists
+                if current_subtopic is not None:
+                    if "content" not in current_subtopic:
+                        current_subtopic["content"] = []
+                    current_subtopic["content"].append(content_item)
                 
         elif style == "# Bullet-2":
             # Extract text with bold formatting
             formatted_text = extract_text_with_formatting(paragraph)
             
-            content_item = {
-                "id": generate_id(),
-                "type": "bullet2",
-                "text": formatted_text
-            }
-            
-            # Add to current subtopic's content if exists
-            if current_subtopic is not None:
-                if "content" not in current_subtopic:
-                    current_subtopic["content"] = []
-                current_subtopic["content"].append(content_item)
+            # Only create content item if there's actual text (not just equations)
+            if formatted_text.strip():
+                content_item = {
+                    "id": generate_id(),
+                    "type": "bullet2",
+                    "text": formatted_text
+                }
+                
+                # Add to current subtopic's content if exists
+                if current_subtopic is not None:
+                    if "content" not in current_subtopic:
+                        current_subtopic["content"] = []
+                    current_subtopic["content"].append(content_item)
         
         # Check for images in paragraph runs
         for run in paragraph.runs:
@@ -403,6 +579,57 @@ def process_word_document(file_path, standard, subject):
                             
                         except Exception as e:
                             print(f"Warning: Could not extract image from embed_id {embed_id}: {e}")
+        
+        # Check for equations at paragraph level (not just in runs)
+        # Equations are stored in the paragraph's XML structure
+        m_ns = '{http://schemas.openxmlformats.org/officeDocument/2006/math}'
+        
+        try:
+            # Search for math elements in the paragraph's XML
+            para_xml = paragraph._element
+            
+            # Display equations (oMathPara)
+            for math_para in para_xml.findall(f'.//{m_ns}oMathPara'):
+                omath = math_para.find(f'{m_ns}oMath')
+                if omath is not None:
+                    latex = omml_to_latex(omath)
+                    if latex:
+                        print(f"  [DEBUG] Found display equation: {latex[:50]}...")
+                        equation_item = {
+                            "id": generate_id(),
+                            "type": "equation",
+                            "equation": latex
+                        }
+                        
+                        # Add to current subtopic
+                        if current_subtopic is not None:
+                            if "content" not in current_subtopic:
+                                current_subtopic["content"] = []
+                            current_subtopic["content"].append(equation_item)
+            
+            # Inline equations (oMath not inside oMathPara)
+            for omath in para_xml.findall(f'.//{m_ns}oMath'):
+                # Check if this oMath is not inside an oMathPara (to avoid duplicates)
+                if omath.getparent().tag != f'{m_ns}oMathPara':
+                    latex = omml_to_latex(omath)
+                    if latex:
+                        print(f"  [DEBUG] Found inline equation: {latex[:50]}...")
+                        equation_item = {
+                            "id": generate_id(),
+                            "type": "equation",
+                            "equation": latex
+                        }
+                        
+                        # Add to current subtopic
+                        if current_subtopic is not None:
+                            if "content" not in current_subtopic:
+                                current_subtopic["content"] = []
+                            current_subtopic["content"].append(equation_item)
+        
+        except Exception as e:
+            print(f"Warning: Error extracting equations from paragraph: {e}")
+            import traceback
+            traceback.print_exc()
     
     return result
 
