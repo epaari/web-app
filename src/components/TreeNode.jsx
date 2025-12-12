@@ -195,7 +195,7 @@ function TreeNode({ item, expandedNodeIds, onNodeClick, depth }) {
                     if (contentItem.type === 'equation') {
                         return (
                             <div key={index} className="content-equation">
-                                {`$$${contentItem.latex}$$`}
+                                {`$$${contentItem.equation}$$`}
                             </div>
                         );
                     }

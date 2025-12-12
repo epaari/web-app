@@ -335,6 +335,13 @@
   text-align: left;
   font-size: clamp(1rem, 2.5vw, 2.5rem);
   clear: both;
+  margin-left: 2rem;
+}
+
+/* Force MathJax to left-align */
+.content-equation mjx-container {
+  text-align: left !important;
+  margin: 0 !important;
 }
 
 .content-bullet.bullet-2 {
