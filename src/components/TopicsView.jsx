@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import TreeNode from './TreeNode';
+import ContentView from './ContentView';
 import BottomNav from './BottomNav';
-import './Topics.css';
+import './TopicsView.css';
 
-function Topics({ standard, subject, chapter, onBack, onHome }) {
+function TopicsView({ standard, subject, chapter, onBack, onHome }) {
     const [chapterData, setChapterData] = useState(null);
     const [expandedNodeIds, setExpandedNodeIds] = useState(new Set());
     const [loading, setLoading] = useState(true);
@@ -132,7 +132,7 @@ function Topics({ standard, subject, chapter, onBack, onHome }) {
         <div className="topics-view">
             <div className="nodes-container">
                 {chapterData.topics.map((topic) => (
-                    <TreeNode
+                    <ContentView
                         key={topic.id}
                         item={topic}
                         expandedNodeIds={expandedNodeIds}
@@ -155,4 +155,4 @@ function Topics({ standard, subject, chapter, onBack, onHome }) {
     );
 }
 
-export default Topics;
+export default TopicsView;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Subjects from './components/Subjects';
 import Chapters from './components/Chapters';
-import Topics from './components/Topics';
+import TopicsView from './components/TopicsView';
 import './App.css';
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="app">
       {selectedChapter ? (
-        <Topics
+        <TopicsView
           standard={selectedSubject.standard}
           subject={selectedSubject.subject}
           chapter={selectedChapter}

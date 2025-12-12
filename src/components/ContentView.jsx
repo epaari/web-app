@@ -1,6 +1,6 @@
 import { useCallback, useState, useEffect, useRef } from 'react';
 
-function TreeNode({ item, expandedNodeIds, onNodeClick, depth }) {
+function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
     const isExpanded = expandedNodeIds.has(item.id);
     const hasContent = item.content && item.content.length > 0;
     const hasChildren = item.subTopics && item.subTopics.length > 0;
@@ -250,7 +250,7 @@ function TreeNode({ item, expandedNodeIds, onNodeClick, depth }) {
         return (
             <div className="node-children">
                 {item.subTopics.map((subTopic) => (
-                    <TreeNode
+                    <ContentView
                         key={subTopic.id}
                         item={subTopic}
                         expandedNodeIds={expandedNodeIds}
@@ -290,4 +290,4 @@ function TreeNode({ item, expandedNodeIds, onNodeClick, depth }) {
     );
 }
 
-export default TreeNode;
+export default ContentView;
