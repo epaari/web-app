@@ -1,8 +1,8 @@
-/* Topics View Container */
 .topics-view {
   max-width: 100%;
   margin: 0 auto;
   min-height: 100vh;
+  padding-bottom: 4rem;
 }
 
 /* Loading & Error States */
