@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import BottomNav from './BottomNav';
-import './Chapters.css';
+import './ChapterView.css';
 
-function Chapters({ standard, subject, onChapterSelect, onHome }) {
+function ChapterView({ standard, subject, onChapterSelect, onHome }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -90,4 +90,4 @@ function Chapters({ standard, subject, onChapterSelect, onHome }) {
     );
 }
 
-export default Chapters;
+export default ChapterView;

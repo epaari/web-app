@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import ContentView from './ContentView';
 import BottomNav from './BottomNav';
-import './TopicsView.css';
+import './TopicView.css';
 
-function TopicsView({ standard, subject, chapter, onBack, onHome }) {
+function TopicView({ standard, subject, chapter, onBack, onHome }) {
     const [chapterData, setChapterData] = useState(null);
     const [expandedNodeIds, setExpandedNodeIds] = useState(new Set());
     const [loading, setLoading] = useState(true);
@@ -155,4 +155,4 @@ function TopicsView({ standard, subject, chapter, onBack, onHome }) {
     );
 }
 
-export default TopicsView;
+export default TopicView;

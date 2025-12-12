@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import BottomNav from './BottomNav';
-import './Subjects.css';
+import './SubjectView.css';
 
 // Import subject icons
 import tamilIcon from '../assets/subject_icons/Tamil.svg';
@@ -18,7 +18,7 @@ const subjectIcons = {
     'Social Science': socialIcon
 };
 
-function Subjects({ onSubjectSelect }) {
+function SubjectView({ onSubjectSelect }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -104,4 +104,4 @@ function Subjects({ onSubjectSelect }) {
     );
 }
 
-export default Subjects;
+export default SubjectView;
