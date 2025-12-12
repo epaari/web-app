@@ -38,31 +38,31 @@
 
 /* Node Type Styling */
 .tree-node.node-title1>.node-header {
-    font-size: clamp(1.5rem, 4vw, 4rem);
+    font-size: clamp(1.13rem, 3vw, 3rem);
     /* font-weight: 600; */
 }
 
 .tree-node.node-title2>.node-header {
-    font-size: clamp(1.25rem, 3.5vw, 3.5rem);
+    font-size: clamp(0.94rem, 2.6vw, 2.6rem);
     /* font-weight: 500; */
 }
 
 .tree-node.node-title3>.node-header {
-    font-size: clamp(1rem, 3vw, 3rem);
+    font-size: clamp(0.75rem, 2.25vw, 2.25rem);
     /* font-weight: 500; */
 }
 
 /* Expand icon sizes to match node font sizes */
 .tree-node.node-title1>.node-header .expand-icon {
-    font-size: clamp(1.25rem, 3vw, 3rem);
+    font-size: clamp(0.94rem, 2.25vw, 2.25rem);
 }
 
 .tree-node.node-title2>.node-header .expand-icon {
-    font-size: clamp(1rem, 2.5vw, 2.5rem);
+    font-size: clamp(0.75rem, 1.9vw, 1.9rem);
 }
 
 .tree-node.node-title3>.node-header .expand-icon {
-    font-size: clamp(0.875rem, 2vw, 2rem);
+    font-size: clamp(0.66rem, 1.5vw, 1.5rem);
 }
 
 /* Node Header */
@@ -127,12 +127,12 @@
 
 /* Node Content */
 .node-content {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 /* Direct Image Display */
 .content-image {
-    float: right;
+    float: left;
     width: clamp(120px, 25%, 300px);
     margin: 0 0 1rem 1rem;
     border-radius: 8px;
@@ -256,13 +256,13 @@
 /* Bullet Points */
 .content-bullet {
     margin: 0;
-    padding: 0.5rem 0.5rem;
+    padding: 0rem 0rem;
     background: rgba(255, 255, 255, 0.02);
     /* border-radius: 8px; */
     /* color: var(--text-secondary); */
     line-height: 1.6;
     /* border-left: 3px solid var(--accent-primary); */
-    font-size: clamp(1rem, 3vw, 3rem);
+    font-size: clamp(0.75rem, 2.25vw, 2.25rem);
 }
 
 .content-bullet.bullet-1 {
@@ -275,16 +275,16 @@
     margin-right: 1rem;
     color: #0dda25;
     /* font-size: 1.2em; */
-    font-size: clamp(1.5rem, 4vw, 4rem);
+    font-size: clamp(1.13rem, 3vw, 3rem);
 }
 
 /* Body Text (no bullet) */
 .content-body {
     margin: 0;
-    padding: 0.5rem 0.5rem;
+    /* padding: 0.5rem 0.5rem; */
     background: rgba(255, 255, 255, 0.02);
     line-height: 1.6;
-    font-size: clamp(1rem, 3vw, 3rem);
+    font-size: clamp(0.75rem, 2.25vw, 2.25rem);
     margin-left: 2rem;
 }
 
@@ -294,7 +294,7 @@
     background: rgba(255, 255, 255, 0.03);
     border-radius: 8px;
     text-align: left;
-    font-size: clamp(1rem, 2.5vw, 2.5rem);
+    font-size: clamp(0.75rem, 1.9vw, 1.9rem);
     clear: both;
     margin-left: 2rem;
 }

@@ -462,6 +462,7 @@ def extract_equations_from_run(run):
 def scan_for_smartart_and_canvas(file_path):
     """
     Scan a Word document for SmartArt, Drawing Canvas, Tables, and Cropped Images.
+    Adds a review comment in the document for each detected object.
     
     Args:
         file_path: Path to the Word document
@@ -486,6 +487,8 @@ def scan_for_smartart_and_canvas(file_path):
         abs_path = str(Path(file_path).resolve())
         doc = word.Documents.Open(abs_path)
         
+        changes_made = False
+
         # Scan Shapes collection
         shape_count = 0
         for shape in doc.Shapes:
@@ -494,20 +497,15 @@ def scan_for_smartart_and_canvas(file_path):
                 # Get the page number where this shape is located
                 page_num = shape.Anchor.Information(3)  # wdActiveEndPageNumber = 3
                 shape_type = shape.Type
+                found_type = None
                 
                 # Type 15 is msoSmartArt
                 if shape_type == 15:
-                    objects_found.append({
-                        'type': 'SmartArt',
-                        'page': page_num
-                    })
+                    found_type = 'SmartArt'
                 # Type 16 is msoCanvas (old constant, rarely used)
                 # Type 20 is msoDiagram/msoGroup (Drawing Canvas in modern Word)
                 elif shape_type == 16 or shape_type == 20:
-                    objects_found.append({
-                        'type': 'Drawing Canvas',
-                        'page': page_num
-                    })
+                    found_type = 'Drawing Canvas'
                 # Type 13 is Picture - check if cropped
                 elif shape_type == 13:
                     try:
@@ -518,12 +516,22 @@ def scan_for_smartart_and_canvas(file_path):
                             bottom = shape.PictureFormat.CropBottom
                             
                             if left != 0 or top != 0 or right != 0 or bottom != 0:
-                                objects_found.append({
-                                    'type': 'Cropped Image',
-                                    'page': page_num
-                                })
+                                found_type = 'Cropped Image'
                     except:
                         pass
+                
+                if found_type:
+                    objects_found.append({
+                        'type': found_type,
+                        'page': page_num
+                    })
+                    # Add comment
+                    try:
+                        doc.Comments.Add(Range=shape.Anchor, Text=f"[Migration] {found_type} detected. Please review.")
+                        changes_made = True
+                    except Exception as comment_err:
+                        print(f"  ⚠ Could not add comment for {found_type} on page {page_num}: {comment_err}")
+
             except Exception as e:
                 # Some shapes might not have page info
                 pass
@@ -536,13 +544,11 @@ def scan_for_smartart_and_canvas(file_path):
                 # Get the page number
                 page_num = inline_shape.Range.Information(3)  # wdActiveEndPageNumber = 3
                 shape_type = inline_shape.Type
+                found_type = None
                 
                 # Type 15 is wdInlineShapeSmartArt
                 if shape_type == 15:
-                    objects_found.append({
-                        'type': 'SmartArt',
-                        'page': page_num
-                    })
+                    found_type = 'SmartArt'
                 # Type 3 is Picture - check if cropped
                 elif shape_type == 3:
                     try:
@@ -553,12 +559,22 @@ def scan_for_smartart_and_canvas(file_path):
                             bottom = inline_shape.PictureFormat.CropBottom
                             
                             if left != 0 or top != 0 or right != 0 or bottom != 0:
-                                objects_found.append({
-                                    'type': 'Cropped Image',
-                                    'page': page_num
-                                })
+                                found_type = 'Cropped Image'
                     except:
                         pass
+                
+                if found_type:
+                    objects_found.append({
+                        'type': found_type,
+                        'page': page_num
+                    })
+                    # Add comment
+                    try:
+                        doc.Comments.Add(Range=inline_shape.Range, Text=f"[Migration] {found_type} detected. Please review.")
+                        changes_made = True
+                    except Exception as comment_err:
+                        print(f"  ⚠ Could not add comment for {found_type} on page {page_num}: {comment_err}")
+
             except Exception as e:
                 # Some inline shapes might not have page info
                 pass
@@ -570,10 +586,19 @@ def scan_for_smartart_and_canvas(file_path):
             try:
                 # Get the page number where this table is located
                 page_num = table.Range.Information(3)  # wdActiveEndPageNumber = 3
+                found_type = 'Table'
+                
                 objects_found.append({
-                    'type': 'Table',
+                    'type': found_type,
                     'page': page_num
                 })
+                # Add comment
+                try:
+                    doc.Comments.Add(Range=table.Range, Text=f"[Migration] {found_type} detected. Please review.")
+                    changes_made = True
+                except Exception as comment_err:
+                    print(f"  ⚠ Could not add comment for {found_type} on page {page_num}: {comment_err}")
+                
             except Exception as e:
                 # Some tables might not have page info
                 pass
@@ -581,6 +606,9 @@ def scan_for_smartart_and_canvas(file_path):
         # Debug output
         if shape_count == 0 and inline_count == 0 and table_count == 0:
             print("  (No shapes, inline shapes, or tables found in document)")
+            
+        if changes_made:
+            doc.Save()
         
     except Exception as e:
         print(f"⚠ Error scanning document: {e}")
@@ -1043,21 +1071,10 @@ def run_objects_scanner():
         return
     
     print(f"Found {len(docx_files)} .docx file(s) to scan")
-    print("Scanning files...")
+    print("Scanning files and adding comments...")
     print()
     
-    # Create reports directory
-    reports_dir = script_dir / "reports"
-    reports_dir.mkdir(exist_ok=True)
-    
-    # Prepare CSV report file
-    report_path = reports_dir / "Objects-Scanner-Report.csv"
-    
-    # Collect all scan results as CSV rows
-    csv_rows = []
-    csv_rows.append("Document,Page No,Issue")  # Header
-    
-    total_objects = 0
+    files_with_issues = []
     
     # Scan each file
     for docx_file in docx_files:
@@ -1065,18 +1082,60 @@ def run_objects_scanner():
         objects = scan_for_smartart_and_canvas(docx_file)
         
         if objects:
-            total_objects += len(objects)
-            for obj in objects:
-                csv_rows.append(f"{docx_file.stem},{obj['page']},{obj['type']}")
-    
-    # Write CSV report to file
-    with open(report_path, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(csv_rows))
-    
+            print(f"    ⚠ Found {len(objects)} issue(s). Comments added.")
+            files_with_issues.append(docx_file)
+        else:
+            print("    ✓ No issues found.")
+
     print()
-    print(f"✓ Scan complete!")
-    print(f"  Total objects found: {total_objects}")
-    print(f"  Report saved to: {report_path}")
+    print(f"Scan complete. Found issues in {len(files_with_issues)} file(s).")
+    
+    if files_with_issues and WIN32COM_AVAILABLE:
+        print("\n" + "-" * 60)
+        print("Starting Review Process")
+        print("-" * 60)
+        print("Opening files one by one for manual review.")
+        print("Please address the comments in each document (e.g., convert SmartArt to images).")
+        print("When done with a file, Save and Close it.")
+        print()
+        
+        try:
+            word = win32com.client.Dispatch("Word.Application")
+            word.Visible = True
+            
+            for i, file_path in enumerate(files_with_issues):
+                print(f"[{i+1}/{len(files_with_issues)}] Opening: {file_path.name}")
+                
+                abs_path = str(Path(file_path).resolve())
+                try:
+                    doc = word.Documents.Open(abs_path)
+                    doc.Activate()
+                    
+                    print(f"  >>> Waiting for you to review '{file_path.name}'...")
+                    input("  >>> Press Enter when you have finished reviewing and CLOSED the document... ")
+                    
+                    # Ensure doc is closed if user didn't close it
+                    try:
+                        # Attempt to close. If it's already closed, this will fail (which is fine)
+                        doc.Close(False) 
+                    except Exception:
+                        pass 
+                        
+                except Exception as e:
+                    print(f"  Error handling document: {e}")
+            
+            print("\nAll files reviewed.")
+            try:
+                word.Quit()
+            except:
+                pass
+            
+        except Exception as e:
+            print(f"Error initializing Word for review: {e}")
+    elif files_with_issues and not WIN32COM_AVAILABLE:
+        print("\n⚠ Cannot start auto-review: win32com not available.")
+        print("Please manually review the files listed above.")
+    
     print("\n" + "=" * 60)
 
 
