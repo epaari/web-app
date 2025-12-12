@@ -230,7 +230,25 @@ def omml_to_latex(omml_element):
             base = elem.find(f'{m_ns}e')
             sub = elem.find(f'{m_ns}sub')
             base_latex = process_element(base) if base is not None else ''
-            sub_latex = process_element(sub) if sub is not None else ''
+            
+            # Check if subscript contains an equation array (multi-line subscript)
+            if sub is not None and sub.find(f'{m_ns}eqArr') is not None:
+                # Multi-line subscript - use substack for vertical stacking
+                eqArr = sub.find(f'{m_ns}eqArr')
+                rows = []
+                for e_elem in eqArr.findall(f'{m_ns}e'):
+                    row_content = process_element(e_elem)
+                    if row_content:
+                        rows.append(row_content)
+                
+                if rows:
+                    # Use double backslash in Python string to get single backslash in output
+                    sub_latex = '\\substack{' + ' \\\\ '.join(rows) + '}'
+                else:
+                    sub_latex = process_element(sub) if sub is not None else ''
+            else:
+                sub_latex = process_element(sub) if sub is not None else ''
+            
             return f'{base_latex}_{{{sub_latex}}}'
         
         # Subscript-Superscript
@@ -252,6 +270,22 @@ def omml_to_latex(omml_element):
                 deg_latex = process_element(deg)
                 return f'\\sqrt[{deg_latex}]{{{base_latex}}}'
             return f'\\sqrt{{{base_latex}}}'
+        
+        # Function (like lim, sin, cos, etc.)
+        elif tag == 'func':
+            # Get the function name
+            fName = elem.find(f'{m_ns}fName')
+            func_name = process_element(fName) if fName is not None else ''
+            
+            # Get the base expression (what comes after the function)
+            e_elem = elem.find(f'{m_ns}e')
+            base_latex = process_element(e_elem) if e_elem is not None else ''
+            
+            # Add backslash for LaTeX function names (lim, sin, cos, etc.)
+            if func_name and not func_name.startswith('\\'):
+                func_name = '\\' + func_name
+            
+            return f'{func_name}{base_latex}'
         
         # Equation Array (aligned equations)
         elif tag == 'eqArr':
@@ -283,6 +317,7 @@ def omml_to_latex(omml_element):
             # Get the operator character
             naryPr = elem.find(f'{m_ns}naryPr')
             operator = '\\sum'  # Default to summation
+            chr_val = '∑'  # Default character
             
             if naryPr is not None:
                 chr_elem = naryPr.find(f'{m_ns}chr')
@@ -307,6 +342,17 @@ def omml_to_latex(omml_element):
             # Get superscript (upper limit)
             sup_elem = elem.find(f'{m_ns}sup')
             sup_latex = process_element(sup_elem) if sup_elem is not None else ''
+            
+            # HEURISTIC: Word sometimes stores integrals as summations
+            # Detect if this is actually an integral by checking the limits
+            if chr_val == '∑' and sub_elem is not None and sup_elem is not None:
+                # Integrals typically have simple single-character limits (a, b, 0, 1, etc.)
+                # Summations typically have expressions like i=1, n, etc.
+                is_simple_lower = len(sub_latex) == 1 and sub_latex.isalnum()
+                is_simple_upper = len(sup_latex) == 1 and sup_latex.isalnum()
+                
+                if is_simple_lower and is_simple_upper:
+                    operator = '\\int'
             
             # Get the base expression (what comes after the operator)
             e_elem = elem.find(f'{m_ns}e')
