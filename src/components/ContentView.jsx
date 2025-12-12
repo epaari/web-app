@@ -1,4 +1,5 @@
 import { useCallback, useState, useEffect, useRef } from 'react';
+import './ContentView.css';
 
 function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
     const isExpanded = expandedNodeIds.has(item.id);
