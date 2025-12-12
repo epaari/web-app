@@ -154,11 +154,21 @@ def extract_paragraph_content_in_order(paragraph):
                     # If multiple equations, combine them with aligned environment
                     if len(latex_lines) > 1:
                         aligned_lines = []
-                        for line in latex_lines:
-                            if line.strip().startswith('='):
-                                aligned_lines.append('&' + line.strip())
-                            else:
+                        for i, line in enumerate(latex_lines):
+                            if i == 0:
+                                # First line: add & before the first = sign
+                                if '=' in line:
+                                    line = line.replace('=', '&=', 1)
                                 aligned_lines.append(line)
+                            else:
+                                # Subsequent lines: add & at the start if line starts with =
+                                if line.strip().startswith('='):
+                                    aligned_lines.append('&' + line.strip())
+                                else:
+                                    # If line doesn't start with =, add & before first =
+                                    if '=' in line:
+                                        line = line.replace('=', '&=', 1)
+                                    aligned_lines.append(line)
                         
                         combined_latex = '\\begin{aligned}\n' + ' \\\\\n'.join(aligned_lines) + '\n\\end{aligned}'
                         content_items.append(('equation', combined_latex))
