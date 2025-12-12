@@ -15,7 +15,7 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
     const [infoModal, setInfoModal] = useState(null); // { word, info, x, y }
 
     // Scroll to align bottom of item with bottom of screen when expanded
-    useEffect(() => {
+    /* useEffect(() => {
         if (isExpanded && nodeRef.current && (depth === 0 || depth === 1)) {
             // Wait for content to render and animations to complete
             setTimeout(() => {
@@ -42,7 +42,7 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                 }
             }, 350); // Delay to ensure content is fully rendered
         }
-    }, [isExpanded, depth]);
+    }, [isExpanded, depth]); */
 
     const handleClick = useCallback(() => {
         if (isExpandable) {
