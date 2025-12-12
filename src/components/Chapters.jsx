@@ -82,6 +82,8 @@ function Chapters({ standard, subject, onChapterSelect, onHome }) {
             </div>
 
             <BottomNav
+                classNum={standard}
+                subject={subject}
                 onHome={onHome}
             />
         </div>
