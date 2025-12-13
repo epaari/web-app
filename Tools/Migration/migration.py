@@ -70,7 +70,7 @@ def create_paragraph_wrapper(content_list, content_type_name):
         if content_type == 'text':
             items.append({
                 "id": generate_id(),
-                "type": "body",
+                "type": content_type_name,
                 "text": content_value
             })
         elif content_type == 'equation':

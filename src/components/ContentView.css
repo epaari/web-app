@@ -288,8 +288,9 @@
 
 .content-bullet.bullet-2::before {
     content: '○';
-    margin-right: 0.5rem;
-    color: #8b5cf6;
+    margin-right: 1rem;
+    color: var(--text-primary);
+    font-size: 0.8em;
 }
 
 /* Node Children */

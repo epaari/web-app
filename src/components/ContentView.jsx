@@ -234,20 +234,43 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                     }
 
                     if (contentItem.type === 'paragraph') {
+                        // Determine the CSS class based on the first text item's type
+                        const firstTextItem = contentItem.items?.find(item => item.type !== 'equation');
+                        let paragraphClass = 'content-paragraph';
+
+                        if (firstTextItem) {
+                            if (firstTextItem.type === 'bullet1') {
+                                paragraphClass = 'content-bullet bullet-1';
+                            } else if (firstTextItem.type === 'bullet2') {
+                                paragraphClass = 'content-bullet bullet-2';
+                            } else if (firstTextItem.type === 'highlight-red') {
+                                paragraphClass = 'content-highlight highlight-red';
+                            } else if (firstTextItem.type === 'highlight-blue') {
+                                paragraphClass = 'content-highlight highlight-blue';
+                            } else if (firstTextItem.type === 'highlight-brown') {
+                                paragraphClass = 'content-highlight highlight-brown';
+                            } else if (firstTextItem.type === 'highlight-green') {
+                                paragraphClass = 'content-highlight highlight-green';
+                            } else if (firstTextItem.type === 'sub-topic-3') {
+                                paragraphClass = 'content-subtopic-3';
+                            }
+                        }
+
                         return (
-                            <p key={index} className="content-paragraph">
+                            <p key={index} className={paragraphClass}>
                                 {contentItem.items?.map((item, itemIndex) => {
-                                    if (item.type === 'body') {
-                                        return (
-                                            <span key={itemIndex}>
-                                                {parseMarkdown(item.text)}
-                                            </span>
-                                        );
-                                    }
                                     if (item.type === 'equation') {
                                         return (
                                             <span key={itemIndex} className="inline-equation">
                                                 {`$${item.equation}$`}
+                                            </span>
+                                        );
+                                    }
+                                    // Handle all text-based types
+                                    if (item.text) {
+                                        return (
+                                            <span key={itemIndex}>
+                                                {parseMarkdown(item.text)}
                                             </span>
                                         );
                                     }
