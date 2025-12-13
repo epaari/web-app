@@ -805,6 +805,19 @@ def process_word_document(file_path, standard, subject):
                 if content_item:
                     current_subtopic["content"].append(content_item)
         
+        elif style == "# Sub Topic - 3":
+            # Extract content (text and equations) in document order
+            content_list = extract_paragraph_content_in_order(paragraph)
+            
+            if current_subtopic is not None and content_list:
+                if "content" not in current_subtopic:
+                    current_subtopic["content"] = []
+                
+                # Use paragraph wrapper for mixed content
+                content_item = create_paragraph_wrapper(content_list, "sub-topic-3")
+                if content_item:
+                    current_subtopic["content"].append(content_item)
+        
         elif style == "# Highlight Red":
             # Extract content (text and equations) in document order
             content_list = extract_paragraph_content_in_order(paragraph)

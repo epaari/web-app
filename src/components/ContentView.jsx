@@ -257,6 +257,14 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                         );
                     }
 
+                    if (contentItem.type === 'sub-topic-3') {
+                        return (
+                            <h3 key={index} className="content-subtopic-3">
+                                {parseMarkdown(contentItem.text)}
+                            </h3>
+                        );
+                    }
+
                     return null;
                 })}
 

@@ -216,6 +216,8 @@
 .content-bullet.bullet-1 {
     margin-left: 2rem;
     border-left-color: #6366f1;
+    padding-left: 2rem;
+    text-indent: -2rem;
 }
 
 .content-bullet.bullet-1::before {
@@ -250,6 +252,16 @@
     margin: 0 0.2rem;
 }
 
+/* Sub Topic 3 Heading */
+.content-subtopic-3 {
+    margin: 1rem 0 0.5rem 2rem;
+    font-size: clamp(0.875rem, 2.5vw, 2.5rem);
+    font-weight: 700;
+    color: #22d3ee;
+    /* Cyan color that works well with dark background */
+    line-height: 1.4;
+}
+
 /* Equation Display */
 .content-equation {
     padding: 0.5rem;
@@ -270,6 +282,8 @@
 .content-bullet.bullet-2 {
     margin-left: 4rem;
     border-left-color: #8b5cf6;
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
 }
 
 .content-bullet.bullet-2::before {
