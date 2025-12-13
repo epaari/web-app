@@ -22,17 +22,17 @@
 
 /* Depth-based indentation */
 .tree-node.depth-1 {
-    margin-left: clamp(1rem, 4.5vw, 4.5rem);
+    margin-left: clamp(1rem, 3vw, 3rem);
     /* background: rgba(99, 102, 241, 0.05); */
 }
 
 .tree-node.depth-2 {
-    margin-left: clamp(0.75rem, 4vw, 4rem);
+    margin-left: clamp(1rem, 3vw, 3rem);
     /* background: rgba(139, 92, 246, 0.05); */
 }
 
 .tree-node.depth-3 {
-    margin-left: clamp(0.75rem, 4vw, 4rem);
+    margin-left: clamp(1rem, 3vw, 3rem);
     /* background: rgba(168, 85, 247, 0.05); */
 }
 
@@ -69,8 +69,8 @@
 .node-header {
     display: flex;
     align-items: center;
-    gap: clamp(0.5rem, 2vw, 2rem);
-    padding: 0.3rem 1rem;
+    gap: clamp(0.25rem, 1vw, 1rem);
+    padding: 0.3rem 0.5rem;
     color: var(--text-primary);
     user-select: none;
 }
@@ -92,6 +92,11 @@
 
 .node-header.expanded {
     border-bottom: 1px solid var(--border-color);
+}
+
+/* Reduce gap for subtopics */
+.tree-node.node-title2>.node-header {
+    gap: clamp(0.15rem, 0.5vw, 0.5rem);
 }
 
 /* Expand Icon */
@@ -229,6 +234,20 @@
     line-height: 1.6;
     font-size: clamp(0.75rem, 2.25vw, 2.25rem);
     margin-left: 2rem;
+}
+
+/* Paragraph with mixed content (text + equations) */
+.content-paragraph {
+    margin: 0;
+    background: rgba(255, 255, 255, 0.02);
+    line-height: 1.6;
+    font-size: clamp(0.75rem, 2.25vw, 2.25rem);
+    margin-left: 2rem;
+}
+
+.content-paragraph .inline-equation {
+    display: inline;
+    margin: 0 0.2rem;
 }
 
 /* Equation Display */

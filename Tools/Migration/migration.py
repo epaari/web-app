@@ -22,10 +22,70 @@ except ImportError:
     WIN32COM_AVAILABLE = False
 
 
+
 def generate_id():
     """Generate an 8-character random alphanumeric string."""
     chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
     return ''.join(random.choice(chars) for _ in range(8))
+
+
+def create_paragraph_wrapper(content_list, content_type_name):
+    """
+    Create a paragraph wrapper if content contains mixed text and equations.
+    
+    Args:
+        content_list: List of tuples (content_type, content_value) from extract_paragraph_content_in_order
+        content_type_name: The base content type (e.g., 'body', 'bullet1', 'highlight-red')
+    
+    Returns:
+        Single content item (paragraph wrapper if mixed, or single item if not)
+    """
+    if not content_list:
+        return None
+    
+    # Check if we have mixed content (both text and equations)
+    has_text = any(ct == 'text' for ct, _ in content_list)
+    has_equation = any(ct == 'equation' for ct, _ in content_list)
+    
+    # If only one type, return as single item
+    if not (has_text and has_equation):
+        # Single text item
+        if len(content_list) == 1 and content_list[0][0] == 'text':
+            return {
+                "id": generate_id(),
+                "type": content_type_name,
+                "text": content_list[0][1]
+            }
+        # Single equation item
+        elif len(content_list) == 1 and content_list[0][0] == 'equation':
+            return {
+                "id": generate_id(),
+                "type": "equation",
+                "equation": content_list[0][1]
+            }
+    
+    # Mixed content - create paragraph wrapper
+    items = []
+    for content_type, content_value in content_list:
+        if content_type == 'text':
+            items.append({
+                "id": generate_id(),
+                "type": "body",
+                "text": content_value
+            })
+        elif content_type == 'equation':
+            items.append({
+                "id": generate_id(),
+                "type": "equation",
+                "equation": content_value
+            })
+    
+    return {
+        "id": generate_id(),
+        "type": "paragraph",
+        "items": items
+    }
+
 
 
 def sanitize_filename(label):
@@ -710,176 +770,92 @@ def process_word_document(file_path, standard, subject):
             # Extract content (text and equations) in document order
             content_list = extract_paragraph_content_in_order(paragraph)
             
-            # Add each content item in order
-            if current_subtopic is not None:
+            if current_subtopic is not None and content_list:
                 if "content" not in current_subtopic:
                     current_subtopic["content"] = []
                 
-                for content_type, content_value in content_list:
-                    if content_type == 'text':
-                        content_item = {
-                            "id": generate_id(),
-                            "type": "bullet1",
-                            "text": content_value
-                        }
-                        current_subtopic["content"].append(content_item)
-                    elif content_type == 'equation':
-                        equation_item = {
-                            "id": generate_id(),
-                            "type": "equation",
-                            "equation": content_value
-                        }
-                        current_subtopic["content"].append(equation_item)
+                # Use paragraph wrapper for mixed content
+                content_item = create_paragraph_wrapper(content_list, "bullet1")
+                if content_item:
+                    current_subtopic["content"].append(content_item)
                 
         elif style == "# Body":
             # Extract content (text and equations) in document order
             content_list = extract_paragraph_content_in_order(paragraph)
             
-            # Add each content item in order
-            if current_subtopic is not None:
+            if current_subtopic is not None and content_list:
                 if "content" not in current_subtopic:
                     current_subtopic["content"] = []
                 
-                for content_type, content_value in content_list:
-                    if content_type == 'text':
-                        content_item = {
-                            "id": generate_id(),
-                            "type": "body",
-                            "text": content_value
-                        }
-                        current_subtopic["content"].append(content_item)
-                    elif content_type == 'equation':
-                        equation_item = {
-                            "id": generate_id(),
-                            "type": "equation",
-                            "equation": content_value
-                        }
-                        current_subtopic["content"].append(equation_item)
+                # Use paragraph wrapper for mixed content
+                content_item = create_paragraph_wrapper(content_list, "body")
+                if content_item:
+                    current_subtopic["content"].append(content_item)
                 
         elif style == "# Bullet-2":
             # Extract content (text and equations) in document order
             content_list = extract_paragraph_content_in_order(paragraph)
             
-            # Add each content item in order
-            if current_subtopic is not None:
+            if current_subtopic is not None and content_list:
                 if "content" not in current_subtopic:
                     current_subtopic["content"] = []
                 
-                for content_type, content_value in content_list:
-                    if content_type == 'text':
-                        content_item = {
-                            "id": generate_id(),
-                            "type": "bullet2",
-                            "text": content_value
-                        }
-                        current_subtopic["content"].append(content_item)
-                    elif content_type == 'equation':
-                        equation_item = {
-                            "id": generate_id(),
-                            "type": "equation",
-                            "equation": content_value
-                        }
-                        current_subtopic["content"].append(equation_item)
+                # Use paragraph wrapper for mixed content
+                content_item = create_paragraph_wrapper(content_list, "bullet2")
+                if content_item:
+                    current_subtopic["content"].append(content_item)
         
         elif style == "# Highlight Red":
             # Extract content (text and equations) in document order
             content_list = extract_paragraph_content_in_order(paragraph)
             
-            # Add each content item in order
-            if current_subtopic is not None:
+            if current_subtopic is not None and content_list:
                 if "content" not in current_subtopic:
                     current_subtopic["content"] = []
                 
-                for content_type, content_value in content_list:
-                    if content_type == 'text':
-                        content_item = {
-                            "id": generate_id(),
-                            "type": "highlight-red",
-                            "text": content_value
-                        }
-                        current_subtopic["content"].append(content_item)
-                    elif content_type == 'equation':
-                        equation_item = {
-                            "id": generate_id(),
-                            "type": "equation",
-                            "equation": content_value
-                        }
-                        current_subtopic["content"].append(equation_item)
+                # Use paragraph wrapper for mixed content
+                content_item = create_paragraph_wrapper(content_list, "highlight-red")
+                if content_item:
+                    current_subtopic["content"].append(content_item)
         
         elif style == "# Highlight Brown":
             # Extract content (text and equations) in document order
             content_list = extract_paragraph_content_in_order(paragraph)
             
-            # Add each content item in order
-            if current_subtopic is not None:
+            if current_subtopic is not None and content_list:
                 if "content" not in current_subtopic:
                     current_subtopic["content"] = []
                 
-                for content_type, content_value in content_list:
-                    if content_type == 'text':
-                        content_item = {
-                            "id": generate_id(),
-                            "type": "highlight-brown",
-                            "text": content_value
-                        }
-                        current_subtopic["content"].append(content_item)
-                    elif content_type == 'equation':
-                        equation_item = {
-                            "id": generate_id(),
-                            "type": "equation",
-                            "equation": content_value
-                        }
-                        current_subtopic["content"].append(equation_item)
+                # Use paragraph wrapper for mixed content
+                content_item = create_paragraph_wrapper(content_list, "highlight-brown")
+                if content_item:
+                    current_subtopic["content"].append(content_item)
         
         elif style == "# Highlight Blue":
             # Extract content (text and equations) in document order
             content_list = extract_paragraph_content_in_order(paragraph)
             
-            # Add each content item in order
-            if current_subtopic is not None:
+            if current_subtopic is not None and content_list:
                 if "content" not in current_subtopic:
                     current_subtopic["content"] = []
                 
-                for content_type, content_value in content_list:
-                    if content_type == 'text':
-                        content_item = {
-                            "id": generate_id(),
-                            "type": "highlight-blue",
-                            "text": content_value
-                        }
-                        current_subtopic["content"].append(content_item)
-                    elif content_type == 'equation':
-                        equation_item = {
-                            "id": generate_id(),
-                            "type": "equation",
-                            "equation": content_value
-                        }
-                        current_subtopic["content"].append(equation_item)
+                # Use paragraph wrapper for mixed content
+                content_item = create_paragraph_wrapper(content_list, "highlight-blue")
+                if content_item:
+                    current_subtopic["content"].append(content_item)
         
         elif style == "# Highlight Green":
             # Extract content (text and equations) in document order
             content_list = extract_paragraph_content_in_order(paragraph)
             
-            # Add each content item in order
-            if current_subtopic is not None:
+            if current_subtopic is not None and content_list:
                 if "content" not in current_subtopic:
                     current_subtopic["content"] = []
                 
-                for content_type, content_value in content_list:
-                    if content_type == 'text':
-                        content_item = {
-                            "id": generate_id(),
-                            "type": "highlight-green",
-                            "text": content_value
-                        }
-                        current_subtopic["content"].append(content_item)
-                    elif content_type == 'equation':
-                        equation_item = {
-                            "id": generate_id(),
-                            "type": "equation",
-                            "equation": content_value
-                        }
-                        current_subtopic["content"].append(equation_item)
+                # Use paragraph wrapper for mixed content
+                content_item = create_paragraph_wrapper(content_list, "highlight-green")
+                if content_item:
+                    current_subtopic["content"].append(content_item)
         
         # For all other paragraph styles, check if they contain equations
         # This handles styles like "# Body Equation", "# Headline", "# Highlight", etc.

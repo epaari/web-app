@@ -1,6 +1,7 @@
 =================================================================
 THINGS TO DO
 =================================================================
+* Handle all word existing EzeeScore styles
 * Equations handling
     - Check inline equation order.
     - Display equations in the client
@@ -55,6 +56,8 @@ Deployment
     ├── Frontend: React (Electron)
     ├── Database: SQLite (pre-packaged)
     └── Storage: Local Filesystem
+
+# Evaluate Google Stitch, Google AI Studio and Google Cloud Run.
 
 =================================================================
 RECOMMENDED PROJECT STRUCTURE

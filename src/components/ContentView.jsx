@@ -233,6 +233,30 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                         );
                     }
 
+                    if (contentItem.type === 'paragraph') {
+                        return (
+                            <p key={index} className="content-paragraph">
+                                {contentItem.items?.map((item, itemIndex) => {
+                                    if (item.type === 'body') {
+                                        return (
+                                            <span key={itemIndex}>
+                                                {parseMarkdown(item.text)}
+                                            </span>
+                                        );
+                                    }
+                                    if (item.type === 'equation') {
+                                        return (
+                                            <span key={itemIndex} className="inline-equation">
+                                                {`$${item.equation}$`}
+                                            </span>
+                                        );
+                                    }
+                                    return null;
+                                })}
+                            </p>
+                        );
+                    }
+
                     return null;
                 })}
 

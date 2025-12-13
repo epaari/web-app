@@ -50,14 +50,15 @@ SubTopic = {
 
 Content = {
     "id": "string", // Random 8 character alpha-numeric string
-    "type": "body|bullet1|bullet2|number1|number2|image|video|equation|highlight-red|highlight-brown|highlight-blue", // type of content
-    "text"?: "string", // for body/bullet1/bullet2/number1/number2
+    "type": "body|bullet1|bullet2|number1|number2|image|video|equation|highlight-*|paragraph", // type of content
+    "text"?: "string", // for body/bullet1/bullet2/number1/number2/highlight-*
     "equation"?: "string", // for equation
     "url"?: "string", // for image/video
-    "metadata": {  // For image/video
+    "metadata"?: {  // For image/video
         "altText": "string",
         "size": "string" // small/medium/large/very large
-    }
+    },
+    "items"?: [ Content ] // for paragraph type - contains inline content (body/equation mix)
 }
 
 ===============
