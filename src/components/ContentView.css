@@ -297,6 +297,33 @@
     box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.4);
 }
 
+/* Highlight Content */
+.content-highlight {
+    margin: 0;
+    background: rgba(255, 255, 255, 0.02);
+    line-height: 1.6;
+    font-size: clamp(0.75rem, 2.25vw, 2.25rem);
+    margin-left: 2rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.content-highlight.highlight-red {
+    color: #FFD700;
+}
+
+.content-highlight.highlight-blue {
+    color: #98FF98;
+}
+
+.content-highlight.highlight-brown {
+    color: #FF7F50;
+}
+
+.content-highlight.highlight-green {
+    color: #2EE6D6;
+}
+
 /* Info Popover */
 .info-popover-backdrop {
     position: fixed;

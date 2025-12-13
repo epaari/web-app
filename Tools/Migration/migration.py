@@ -781,6 +781,106 @@ def process_word_document(file_path, standard, subject):
                         }
                         current_subtopic["content"].append(equation_item)
         
+        elif style == "# Highlight Red":
+            # Extract content (text and equations) in document order
+            content_list = extract_paragraph_content_in_order(paragraph)
+            
+            # Add each content item in order
+            if current_subtopic is not None:
+                if "content" not in current_subtopic:
+                    current_subtopic["content"] = []
+                
+                for content_type, content_value in content_list:
+                    if content_type == 'text':
+                        content_item = {
+                            "id": generate_id(),
+                            "type": "highlight-red",
+                            "text": content_value
+                        }
+                        current_subtopic["content"].append(content_item)
+                    elif content_type == 'equation':
+                        equation_item = {
+                            "id": generate_id(),
+                            "type": "equation",
+                            "equation": content_value
+                        }
+                        current_subtopic["content"].append(equation_item)
+        
+        elif style == "# Highlight Brown":
+            # Extract content (text and equations) in document order
+            content_list = extract_paragraph_content_in_order(paragraph)
+            
+            # Add each content item in order
+            if current_subtopic is not None:
+                if "content" not in current_subtopic:
+                    current_subtopic["content"] = []
+                
+                for content_type, content_value in content_list:
+                    if content_type == 'text':
+                        content_item = {
+                            "id": generate_id(),
+                            "type": "highlight-brown",
+                            "text": content_value
+                        }
+                        current_subtopic["content"].append(content_item)
+                    elif content_type == 'equation':
+                        equation_item = {
+                            "id": generate_id(),
+                            "type": "equation",
+                            "equation": content_value
+                        }
+                        current_subtopic["content"].append(equation_item)
+        
+        elif style == "# Highlight Blue":
+            # Extract content (text and equations) in document order
+            content_list = extract_paragraph_content_in_order(paragraph)
+            
+            # Add each content item in order
+            if current_subtopic is not None:
+                if "content" not in current_subtopic:
+                    current_subtopic["content"] = []
+                
+                for content_type, content_value in content_list:
+                    if content_type == 'text':
+                        content_item = {
+                            "id": generate_id(),
+                            "type": "highlight-blue",
+                            "text": content_value
+                        }
+                        current_subtopic["content"].append(content_item)
+                    elif content_type == 'equation':
+                        equation_item = {
+                            "id": generate_id(),
+                            "type": "equation",
+                            "equation": content_value
+                        }
+                        current_subtopic["content"].append(equation_item)
+        
+        elif style == "# Highlight Green":
+            # Extract content (text and equations) in document order
+            content_list = extract_paragraph_content_in_order(paragraph)
+            
+            # Add each content item in order
+            if current_subtopic is not None:
+                if "content" not in current_subtopic:
+                    current_subtopic["content"] = []
+                
+                for content_type, content_value in content_list:
+                    if content_type == 'text':
+                        content_item = {
+                            "id": generate_id(),
+                            "type": "highlight-green",
+                            "text": content_value
+                        }
+                        current_subtopic["content"].append(content_item)
+                    elif content_type == 'equation':
+                        equation_item = {
+                            "id": generate_id(),
+                            "type": "equation",
+                            "equation": content_value
+                        }
+                        current_subtopic["content"].append(equation_item)
+        
         # For all other paragraph styles, check if they contain equations
         # This handles styles like "# Body Equation", "# Headline", "# Highlight", etc.
         else:

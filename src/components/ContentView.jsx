@@ -201,6 +201,38 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                         );
                     }
 
+                    if (contentItem.type === 'highlight-red') {
+                        return (
+                            <p key={index} className="content-highlight highlight-red">
+                                {parseMarkdown(contentItem.text)}
+                            </p>
+                        );
+                    }
+
+                    if (contentItem.type === 'highlight-blue') {
+                        return (
+                            <p key={index} className="content-highlight highlight-blue">
+                                {parseMarkdown(contentItem.text)}
+                            </p>
+                        );
+                    }
+
+                    if (contentItem.type === 'highlight-brown') {
+                        return (
+                            <p key={index} className="content-highlight highlight-brown">
+                                {parseMarkdown(contentItem.text)}
+                            </p>
+                        );
+                    }
+
+                    if (contentItem.type === 'highlight-green') {
+                        return (
+                            <p key={index} className="content-highlight highlight-green">
+                                {parseMarkdown(contentItem.text)}
+                            </p>
+                        );
+                    }
+
                     return null;
                 })}
 
