@@ -279,6 +279,21 @@
     margin: 0 !important;
 }
 
+/* Apply STIX-like font and non-italic style to MathJax */
+mjx-container {
+    font-family: 'STIX Two Text', 'Times New Roman', serif !important;
+}
+
+mjx-container svg text {
+    font-style: normal !important;
+    font-family: 'STIX Two Text', 'Times New Roman', serif !important;
+}
+
+mjx-container mjx-mi {
+    font-style: normal !important;
+}
+
+
 .content-bullet.bullet-2 {
     margin-left: 4rem;
     border-left-color: #8b5cf6;
