@@ -193,6 +193,22 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                         );
                     }
 
+                    if (contentItem.type === 'number1') {
+                        return (
+                            <p key={index} className="content-number number-1" data-number={contentItem.number || '1'}>
+                                {parseMarkdown(contentItem.text)}
+                            </p>
+                        );
+                    }
+
+                    if (contentItem.type === 'number2') {
+                        return (
+                            <p key={index} className="content-number number-2" data-number={contentItem.number || 'A'}>
+                                {parseMarkdown(contentItem.text)}
+                            </p>
+                        );
+                    }
+
                     if (contentItem.type === 'equation') {
                         return (
                             <div key={index} className="content-equation">
@@ -237,12 +253,19 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                         // Determine the CSS class based on the first text item's type
                         const firstTextItem = contentItem.items?.find(item => item.type !== 'equation');
                         let paragraphClass = 'content-paragraph';
+                        let dataNumber = null;
 
                         if (firstTextItem) {
                             if (firstTextItem.type === 'bullet1') {
                                 paragraphClass = 'content-bullet bullet-1';
                             } else if (firstTextItem.type === 'bullet2') {
                                 paragraphClass = 'content-bullet bullet-2';
+                            } else if (firstTextItem.type === 'number1') {
+                                paragraphClass = 'content-number number-1';
+                                dataNumber = firstTextItem.number || '1';
+                            } else if (firstTextItem.type === 'number2') {
+                                paragraphClass = 'content-number number-2';
+                                dataNumber = firstTextItem.number || 'A';
                             } else if (firstTextItem.type === 'highlight-red') {
                                 paragraphClass = 'content-highlight highlight-red';
                             } else if (firstTextItem.type === 'highlight-blue') {
@@ -257,7 +280,7 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                         }
 
                         return (
-                            <p key={index} className={paragraphClass}>
+                            <p key={index} className={paragraphClass} data-number={dataNumber}>
                                 {contentItem.items?.map((item, itemIndex) => {
                                     if (item.type === 'equation') {
                                         return (

@@ -293,6 +293,39 @@
     font-size: 0.8em;
 }
 
+/* Numbered Lists */
+.content-number {
+    margin: 0;
+    padding: 0rem 0rem;
+    background: rgba(255, 255, 255, 0.02);
+    line-height: 1.6;
+    font-size: clamp(0.75rem, 2.25vw, 2.25rem);
+}
+
+.content-number.number-1 {
+    margin-left: 2rem;
+    padding-left: 3rem;
+    text-indent: -3rem;
+}
+
+.content-number.number-1::before {
+    content: attr(data-number) '.';
+    margin-right: 1rem;
+    color: #0dda25;
+}
+
+.content-number.number-2 {
+    margin-left: 4rem;
+    padding-left: 2.5rem;
+    text-indent: -2.5rem;
+}
+
+.content-number.number-2::before {
+    content: attr(data-number) '.';
+    margin-right: 1rem;
+    color: var(--text-primary);
+}
+
 /* Node Children */
 .node-children {
     padding: 0.75rem;

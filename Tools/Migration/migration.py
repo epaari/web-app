@@ -29,13 +29,14 @@ def generate_id():
     return ''.join(random.choice(chars) for _ in range(8))
 
 
-def create_paragraph_wrapper(content_list, content_type_name):
+def create_paragraph_wrapper(content_list, content_type_name, numbering=None):
     """
     Create a paragraph wrapper if content contains mixed text and equations.
     
     Args:
         content_list: List of tuples (content_type, content_value) from extract_paragraph_content_in_order
-        content_type_name: The base content type (e.g., 'body', 'bullet1', 'highlight-red')
+        content_type_name: The base content type (e.g., 'body', 'bullet1', 'highlight-red', 'number1', 'number2')
+        numbering: Optional numbering label for number1/number2 types (e.g., "1", "A")
     
     Returns:
         Single content item (paragraph wrapper if mixed, or single item if not)
@@ -51,11 +52,14 @@ def create_paragraph_wrapper(content_list, content_type_name):
     if not (has_text and has_equation):
         # Single text item
         if len(content_list) == 1 and content_list[0][0] == 'text':
-            return {
+            item = {
                 "id": generate_id(),
                 "type": content_type_name,
                 "text": content_list[0][1]
             }
+            if numbering and content_type_name in ['number1', 'number2']:
+                item["number"] = numbering
+            return item
         # Single equation item
         elif len(content_list) == 1 and content_list[0][0] == 'equation':
             return {
@@ -68,11 +72,14 @@ def create_paragraph_wrapper(content_list, content_type_name):
     items = []
     for content_type, content_value in content_list:
         if content_type == 'text':
-            items.append({
+            item = {
                 "id": generate_id(),
                 "type": content_type_name,
                 "text": content_value
-            })
+            }
+            if numbering and content_type_name in ['number1', 'number2']:
+                item["number"] = numbering
+            items.append(item)
         elif content_type == 'equation':
             items.append({
                 "id": generate_id(),
@@ -86,6 +93,29 @@ def create_paragraph_wrapper(content_list, content_type_name):
         "items": items
     }
 
+
+
+def extract_numbering_text(paragraph):
+    """
+    Extract the numbering text from a numbered paragraph.
+    Returns the numbering label (e.g., "1", "2", "A", "B") or None.
+    """
+    try:
+        # Get the paragraph text
+        full_text = paragraph.text.strip()
+        if not full_text:
+            return None
+        
+        # Try to extract numbering pattern at the start
+        # Patterns: "1.", "2.", "A.", "B.", "a.", "b.", etc.
+        import re
+        match = re.match(r'^([0-9]+|[A-Za-z])\.?\s+', full_text)
+        if match:
+            return match.group(1)
+        
+        return None
+    except Exception:
+        return None
 
 
 def sanitize_filename(label):
@@ -815,6 +845,34 @@ def process_word_document(file_path, standard, subject):
                 
                 # Use paragraph wrapper for mixed content
                 content_item = create_paragraph_wrapper(content_list, "sub-topic-3")
+                if content_item:
+                    current_subtopic["content"].append(content_item)
+        
+        elif style == "# Numbering-1":
+            # Extract content (text and equations) in document order
+            content_list = extract_paragraph_content_in_order(paragraph)
+            numbering = extract_numbering_text(paragraph)
+            
+            if current_subtopic is not None and content_list:
+                if "content" not in current_subtopic:
+                    current_subtopic["content"] = []
+                
+                # Use paragraph wrapper for mixed content
+                content_item = create_paragraph_wrapper(content_list, "number1", numbering)
+                if content_item:
+                    current_subtopic["content"].append(content_item)
+        
+        elif style == "# Numbering-2":
+            # Extract content (text and equations) in document order
+            content_list = extract_paragraph_content_in_order(paragraph)
+            numbering = extract_numbering_text(paragraph)
+            
+            if current_subtopic is not None and content_list:
+                if "content" not in current_subtopic:
+                    current_subtopic["content"] = []
+                
+                # Use paragraph wrapper for mixed content
+                content_item = create_paragraph_wrapper(content_list, "number2", numbering)
                 if content_item:
                     current_subtopic["content"].append(content_item)
         
