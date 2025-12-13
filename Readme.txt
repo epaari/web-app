@@ -1,13 +1,9 @@
 =================================================================
 THINGS TO DO
 =================================================================
-* Handle all word existing EzeeScore styles
-* Equations handling
-    - Check inline equation order.
-    - Display equations in the client
-    - How to show inline equations?
 * Q and A implementation
-
+* Multi topic handling.
+    - Combine topic documents together for a chapter.
 * Material theme conversion
 
 =================================================================

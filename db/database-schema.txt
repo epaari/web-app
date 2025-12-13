@@ -78,7 +78,7 @@ Chapter = {
 Qa = {
     "id": "string", // Random 8 character alpha-numeric string
     "exerciseType": "book|board|extra", // type of exercise
-    "questionType": "short|long|very-short", // type of question
+    "questionType": "very-short|short|long|very-long", // type of question
     "reference": "string", // reference
     "difficulty": "easy|medium|hard", // difficulty level
     "mcqAnswer"?: "integer", // mcq answer
@@ -88,14 +88,16 @@ Qa = {
 
 Content = {
     "id": "string", // Random 8 character alpha-numeric string
-    "type": "plain|bullet1|bullet2|number1|number2|image|video|equation", // type of content
-    "text"?: "string", // for bullet1/bullet2/number1/number2
+    "type": "body|bullet1|bullet2|number1|number2|image|video|equation|highlight-*|paragraph|sub-topic-3", // type of content
+    "text"?: "string", // for body/bullet1/bullet2/number1/number2/highlight-*/sub-topic-3
+    "number"?: "string", // for number1/number2 - the numbering label (e.g., "1", "2", "A", "B")
     "equation"?: "string", // for equation
     "url"?: "string", // for image/video
-    "metadata": {  // For image/video
+    "metadata"?: {  // For image/video
         "altText": "string",
-        "size": "string", // small/medium/large/very large
-    }
+        "size": "string" // small/medium/large/very large
+    },
+    "items"?: [ Content ] // for paragraph type - contains inline content (body/equation mix)
 }
 
 ================

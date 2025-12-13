@@ -1038,6 +1038,313 @@ def process_word_document(file_path, standard, subject):
 
 
 
+def process_word_document_qa(file_path, standard, subject):
+    """
+    Process a Word document and extract Q&A to build qa.json.
+    
+    Args:
+        file_path: Path to the Word document
+        standard: The standard/grade number (e.g., "6")
+        subject: The subject name (e.g., "science")
+    
+    Returns:
+        List of Qa objects
+    """
+    doc = Document(file_path)
+    
+    # Create images directory in db/<standard>-<subject>/images
+    subject_slug = subject.lower()
+    images_dir = Path(f"../../db/{standard}-{subject_slug}/images")
+    images_dir.mkdir(parents=True, exist_ok=True)
+    
+    qa_list = []
+    
+    # Processing state
+    processing_started = False
+    processing_stopped = False
+    in_question = False
+    in_answer = False
+    
+    # Current Q&A item being built
+    current_qa = None
+    current_question_content = []
+    current_answer_content = []
+    
+    # Tags for current question
+    current_exercise_type = "extra"  # default
+    current_question_type = None
+    current_reference = None
+    current_mcq_answer = None
+    
+    def finalize_qa():
+        """Finalize the current Q&A item and add it to the list."""
+        nonlocal current_qa, current_question_content, current_answer_content
+        nonlocal current_exercise_type, current_question_type, current_reference, current_mcq_answer
+        
+        if current_qa and current_question_content:
+            current_qa["question"] = current_question_content
+            current_qa["answer"] = current_answer_content if current_answer_content else []
+            qa_list.append(current_qa)
+        
+        # Reset for next question
+        current_qa = None
+        current_question_content = []
+        current_answer_content = []
+        current_exercise_type = "extra"
+        current_question_type = None
+        current_reference = None
+        current_mcq_answer = None
+    
+    def extract_custom_xml_tags(paragraph):
+        """Extract custom XML tags from paragraph."""
+        tags = {}
+        try:
+            # Look for custom XML properties in the paragraph
+            para_xml = paragraph._element
+            w_ns = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
+            
+            # Check for custom XML tags in the paragraph properties
+            for child in para_xml:
+                tag_name = child.tag.replace(w_ns, '')
+                if hasattr(child, 'get'):
+                    # Extract attributes
+                    for attr_key, attr_val in child.attrib.items():
+                        clean_key = attr_key.replace(w_ns, '')
+                        tags[clean_key] = attr_val
+        except Exception as e:
+            pass
+        
+        return tags
+    
+    # Process all paragraphs
+    for paragraph in doc.paragraphs:
+        style = get_paragraph_style(paragraph)
+        text = paragraph.text.strip()
+        
+        # Check for start marker: <question> with style "# Meta Data"
+        if style == "# Meta Data" and text.lower() == "<question>":
+            processing_started = True
+            
+            # Finalize previous Q&A if exists
+            if in_question or in_answer:
+                finalize_qa()
+            
+            # Start new question
+            in_question = True
+            in_answer = False
+            
+            # Initialize new Q&A item
+            current_qa = {
+                "id": generate_id(),
+                "exerciseType": "extra",  # default
+                "questionType": "short",  # default
+                "reference": "",
+                "difficulty": "medium"  # default
+            }
+            
+            continue
+        
+        # Check for answer marker: <answer> with style "# Meta Data"
+        if style == "# Meta Data" and text.lower() == "<answer>":
+            in_question = False
+            in_answer = True
+            continue
+        
+        # Skip processing if we haven't started yet
+        if not processing_started:
+            continue
+        
+        # Process tags that come after <question> but before actual question content
+        if in_question and style == "# Meta Data":
+            # Check for exercise type tags
+            if text.lower() == "<book_exercise>":
+                current_exercise_type = "book"
+            elif text.lower() == "<additional_exercise>" or text.lower() == "<faq>":
+                current_exercise_type = "board"
+            
+            # Check for question type tags
+            type_match = re.match(r'<type=(\d+)>', text.lower())
+            if type_match:
+                type_num = type_match.group(1)
+                if type_num == "1":
+                    current_question_type = "very-short"
+                elif type_num == "2":
+                    current_question_type = "short"
+                elif type_num == "3":
+                    current_question_type = "long"
+                elif type_num == "4":
+                    current_question_type = "very-long"
+            
+            # Check for exercise reference
+            exercise_match = re.match(r'<exercise="([^"]+)">', text.lower())
+            if exercise_match:
+                current_reference = exercise_match.group(1)
+            
+            # Check for MCQ answer
+            activity_match = re.match(r'<activity_quiz="[^"]+",\s*answer="?(\d+)"?>', text.lower())
+            if activity_match:
+                current_mcq_answer = int(activity_match.group(1))
+            
+            # Update current_qa with extracted values
+            if current_qa:
+                current_qa["exerciseType"] = current_exercise_type
+                if current_question_type:
+                    current_qa["questionType"] = current_question_type
+                if current_reference:
+                    current_qa["reference"] = current_reference
+                if current_mcq_answer is not None:
+                    current_qa["mcqAnswer"] = current_mcq_answer
+            
+            continue
+        
+        # Extract content for questions and answers
+        if in_question or in_answer:
+            content_item = None
+            
+            # Process based on style
+            if style == "# Body":
+                content_list = extract_paragraph_content_in_order(paragraph)
+                if content_list:
+                    content_item = create_paragraph_wrapper(content_list, "body")
+            
+            elif style == "# Bullet-1":
+                content_list = extract_paragraph_content_in_order(paragraph)
+                if content_list:
+                    content_item = create_paragraph_wrapper(content_list, "bullet1")
+            
+            elif style == "# Bullet-2":
+                content_list = extract_paragraph_content_in_order(paragraph)
+                if content_list:
+                    content_item = create_paragraph_wrapper(content_list, "bullet2")
+            
+            elif style == "# Numbering-1":
+                content_list = extract_paragraph_content_in_order(paragraph)
+                numbering = extract_numbering_text(paragraph)
+                if content_list:
+                    content_item = create_paragraph_wrapper(content_list, "number1", numbering)
+            
+            elif style == "# Numbering-2":
+                content_list = extract_paragraph_content_in_order(paragraph)
+                numbering = extract_numbering_text(paragraph)
+                if content_list:
+                    content_item = create_paragraph_wrapper(content_list, "number2", numbering)
+            
+            elif style == "# Highlight Red":
+                content_list = extract_paragraph_content_in_order(paragraph)
+                if content_list:
+                    content_item = create_paragraph_wrapper(content_list, "highlight-red")
+            
+            elif style == "# Highlight Brown":
+                content_list = extract_paragraph_content_in_order(paragraph)
+                if content_list:
+                    content_item = create_paragraph_wrapper(content_list, "highlight-brown")
+            
+            elif style == "# Highlight Blue":
+                content_list = extract_paragraph_content_in_order(paragraph)
+                if content_list:
+                    content_item = create_paragraph_wrapper(content_list, "highlight-blue")
+            
+            elif style == "# Highlight Green":
+                content_list = extract_paragraph_content_in_order(paragraph)
+                if content_list:
+                    content_item = create_paragraph_wrapper(content_list, "highlight-green")
+            
+            elif style == "# Sub Topic - 3":
+                content_list = extract_paragraph_content_in_order(paragraph)
+                if content_list:
+                    content_item = create_paragraph_wrapper(content_list, "sub-topic-3")
+            
+            else:
+                # For other styles, check for equations
+                content_list = extract_paragraph_content_in_order(paragraph)
+                if content_list:
+                    for content_type, content_value in content_list:
+                        if content_type == 'equation':
+                            equation_item = {
+                                "id": generate_id(),
+                                "type": "equation",
+                                "equation": content_value
+                            }
+                            if in_question:
+                                current_question_content.append(equation_item)
+                            else:
+                                current_answer_content.append(equation_item)
+            
+            # Add content item to appropriate list
+            if content_item:
+                if in_question:
+                    current_question_content.append(content_item)
+                else:
+                    current_answer_content.append(content_item)
+            
+            # Check for images in paragraph runs
+            for run in paragraph.runs:
+                drawing_elements = run.element.findall('.//{http://schemas.openxmlformats.org/wordprocessingml/2006/main}drawing')
+                
+                for drawing in drawing_elements:
+                    blips = drawing.findall('.//{http://schemas.openxmlformats.org/drawingml/2006/main}blip')
+                    
+                    for blip in blips:
+                        embed_id = blip.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}embed')
+                        
+                        if embed_id:
+                            try:
+                                # Get the image part from the relationship
+                                image_part = doc.part.related_parts[embed_id]
+                                image_bytes = image_part.blob
+                                
+                                # Determine image extension
+                                content_type = image_part.content_type
+                                ext = 'png'
+                                if 'jpeg' in content_type or 'jpg' in content_type:
+                                    ext = 'jpg'
+                                elif 'png' in content_type:
+                                    ext = 'png'
+                                elif 'gif' in content_type:
+                                    ext = 'gif'
+                                
+                                # Generate consistent ID based on image content hash
+                                image_hash = hashlib.md5(image_bytes).hexdigest()
+                                image_id = image_hash[:8]
+                                
+                                # Use the ID as the filename
+                                image_filename = f"{image_id}.{ext}"
+                                image_path = images_dir / image_filename
+                                
+                                # Save image only if it doesn't already exist
+                                if not image_path.exists():
+                                    with open(image_path, 'wb') as img_file:
+                                        img_file.write(image_bytes)
+                                
+                                # Create image content item with relative URL
+                                image_url = f"/db/{standard}-{subject_slug}/images/{image_filename}"
+                                
+                                image_content_item = {
+                                    "id": image_id,
+                                    "type": "image",
+                                    "url": image_url,
+                                    "metadata": {
+                                        "altText": "Question Image" if in_question else "Answer Image",
+                                        "size": "medium"
+                                    }
+                                }
+                                
+                                # Add to appropriate list
+                                if in_question:
+                                    current_question_content.append(image_content_item)
+                                else:
+                                    current_answer_content.append(image_content_item)
+                                
+                            except Exception as e:
+                                print(f"Warning: Could not extract image from embed_id {embed_id}: {e}")
+    
+    # Finalize last Q&A if exists
+    if in_question or in_answer:
+        finalize_qa()
+    
+    return qa_list
+
+
 def get_subject_id(standard, subject):
     """
     Fetch the subject ID from subjects.json based on standard and subject name.
@@ -1187,6 +1494,79 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
         
     except Exception as e:
         print(f"✗ Error processing '{input_path.name}': {str(e)}")
+        return False
+
+
+
+
+def process_single_file_qa(input_file, standard, subject, subject_id, db_path):
+    """
+    Process a single Word document and update the Q&A database.
+    
+    Args:
+        input_file: Path to the Word document
+        standard: The standard/grade number
+        subject: The subject name
+        subject_id: The subject ID from subjects.json
+        db_path: Path to the qa.json database file
+    """
+    # Extract chapter number from filename (without extension)
+    input_path = Path(input_file)
+    
+    try:
+        chapter_no = int(input_path.stem)  # Convert to integer
+    except ValueError:
+        print(f"⚠ Skipping '{input_path.name}': Filename must be a number (e.g., 1.docx, 2.docx)")
+        return False
+    
+    try:
+        # Process the document to get Q&A
+        qa_list = process_word_document_qa(input_file, standard, subject)
+        
+        # Read the existing database or create a new one
+        if db_path.exists():
+            with open(db_path, 'r', encoding='utf-8') as f:
+                db_data = json.load(f)
+        else:
+            # Create a new database structure
+            db_data = {
+                "chapters": []
+            }
+        
+        # Find the chapter in the database
+        chapter_found = False
+        for chapter in db_data.get('chapters', []):
+            if chapter.get('chapterNo') == str(chapter_no):  # chapterNo is string in qa.json
+                # Update the Q&A for this chapter
+                chapter['qa'] = qa_list
+                chapter_found = True
+                break
+        
+        if not chapter_found:
+            # Create a new chapter entry
+            new_chapter = {
+                "id": generate_id(),
+                "subjectId": subject_id,
+                "chapterNo": str(chapter_no),  # chapterNo is string in qa.json
+                "chapterName": f"Chapter {chapter_no}",  # Default name
+                "qa": qa_list
+            }
+            db_data['chapters'].append(new_chapter)
+            print(f"✓ Added Chapter {chapter_no} Q&A: {input_path.name}")
+        
+        # Sort chapters by chapterNo (convert to int for sorting)
+        db_data['chapters'].sort(key=lambda x: int(x.get('chapterNo', '0')))
+        
+        # Write the updated database back to file
+        with open(db_path, 'w', encoding='utf-8') as f:
+            json.dump(db_data, f, indent=2, ensure_ascii=False)
+        
+        return True
+        
+    except Exception as e:
+        print(f"✗ Error processing Q&A from '{input_path.name}': {str(e)}")
+        import traceback
+        traceback.print_exc()
         return False
 
 
@@ -1356,12 +1736,75 @@ def run_concepts_exporter():
     # print("=" * 60)
 
 
+
+
+def run_qa_exporter():
+    """Run the Q&A Exporter tool to extract questions and answers from docx and push it to qa.json."""
+    
+    # Prompt for standard
+    standard = input("Enter standard (e.g., 6, 7, 8): ").strip()
+    if not standard:
+        print("Error: Standard cannot be empty.")
+        return
+    
+    # Prompt for subject
+    subject = input("Enter subject (e.g., science, maths): ").strip()
+    if not subject:
+        print("Error: Subject cannot be empty.")
+        return
+    
+    # Use the ./input directory automatically
+    script_dir = Path(__file__).parent
+    dir_path = script_dir / "input"
+    
+    if not dir_path.exists():
+        print(f"Error: Directory '{dir_path}' not found.")
+        return
+    
+    if not dir_path.is_dir():
+        print(f"Error: '{dir_path}' is not a directory.")
+        return
+    
+    # Find all .docx files in the directory (exclude temporary files starting with ~$)
+    all_docx_files = dir_path.glob("*.docx")
+    docx_files = sorted([f for f in all_docx_files if not f.name.startswith("~$")])
+    
+    if not docx_files:
+        print(f"Error: No .docx files found in '{dir_path}'")
+        return
+    
+    # Get subject ID from subjects.json
+    subject_id = get_subject_id(standard, subject)
+    
+    # Construct database directory and filename
+    db_dir = Path(f"../../db/{standard}-{subject.lower()}")
+    db_path = db_dir / "qa.json"
+    
+    # Create database directory if it doesn't exist
+    db_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Process all files
+    success_count = 0
+    fail_count = 0
+    
+    for docx_file in docx_files:
+        if process_single_file_qa(docx_file, standard, subject, subject_id, db_path):
+            success_count += 1
+        else:
+            fail_count += 1
+    
+    # Summary
+    print(f"Successfully processed Q&A: {success_count} file(s)")
+
+
 def display_menu():
     """Display the migration tools menu."""
     # print("\n")
     print("Please select a migration tool:")
     print("  1. Objects Scanner")
     print("  2. Concepts Exporter")
+    print("  3. Q&A Exporter")
+
 
 
 def main():
@@ -1375,19 +1818,22 @@ def main():
             run_objects_scanner()
         elif choice == "2":
             run_concepts_exporter()
+        elif choice == "3":
+            run_qa_exporter()
         elif choice == "0":
             print("\nExiting Migration Tools. Goodbye!")
             break
         else:
-            print("\n⚠ Invalid choice. Please enter a number between 0 and 2.")
+            print("\n⚠ Invalid choice. Please enter a number between 0 and 3.")
         
         # Ask if user wants to continue
-        if choice in ["1", "2"]:
+        if choice in ["1", "2", "3"]:
             print()
             continue_choice = input("Press Enter to return to menu").strip().lower()
             if continue_choice == "exit":
                 # print("\nExiting Migration Tools. Goodbye!")
                 break
+
 
 
 if __name__ == "__main__":
