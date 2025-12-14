@@ -7,9 +7,11 @@ import './App.css';
 function App() {
   const [selectedSubject, setSelectedSubject] = useState(null);
   const [selectedChapter, setSelectedChapter] = useState(null);
+  const [viewMode, setViewMode] = useState('teaching'); // 'teaching', 'book-qa', 'board-qa'
 
   const handleSubjectSelect = (standard, subject) => {
     setSelectedSubject({ standard, subject });
+    setViewMode('teaching'); // Reset to teaching when selecting a new subject
   };
 
   const handleChapterSelect = (chapter) => {
@@ -23,6 +25,7 @@ function App() {
   const handleBackToSubjects = () => {
     setSelectedSubject(null);
     setSelectedChapter(null);
+    setViewMode('teaching'); // Reset to teaching when going back to subjects
   };
 
   return (
@@ -32,6 +35,8 @@ function App() {
           standard={selectedSubject.standard}
           subject={selectedSubject.subject}
           chapter={selectedChapter}
+          viewMode={viewMode}
+          onViewModeChange={setViewMode}
           onBack={handleBackToChapters}
           onHome={handleBackToSubjects}
         />
@@ -39,6 +44,8 @@ function App() {
         <ChapterView
           standard={selectedSubject.standard}
           subject={selectedSubject.subject}
+          viewMode={viewMode}
+          onViewModeChange={setViewMode}
           onChapterSelect={handleChapterSelect}
           onHome={handleBackToSubjects}
         />

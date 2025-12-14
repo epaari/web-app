@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import BottomNav from './BottomNav';
 import './ChapterView.css';
 
-function ChapterView({ standard, subject, onChapterSelect, onHome }) {
+function ChapterView({ standard, subject, viewMode, onViewModeChange, onChapterSelect, onHome }) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -84,6 +84,8 @@ function ChapterView({ standard, subject, onChapterSelect, onHome }) {
             <BottomNav
                 classNum={standard}
                 subject={subject}
+                viewMode={viewMode}
+                onViewModeChange={onViewModeChange}
                 onHome={onHome}
             />
         </div>

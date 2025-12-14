@@ -2,7 +2,11 @@
   max-width: 100%;
   margin: 0 auto;
   min-height: 100vh;
-  padding-bottom: 4rem;
+  padding-bottom: 8rem;
+}
+
+.nodes-container {
+  padding-bottom: 2rem;
 }
 
 /* Loading & Error States */
@@ -24,5 +28,6 @@
 @media (max-width: 640px) {
   .topics-view {
     padding: 1rem;
+    padding-bottom: 8rem;
   }
 }

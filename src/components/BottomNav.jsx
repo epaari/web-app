@@ -1,6 +1,6 @@
 import './BottomNav.css';
 
-function BottomNav({ classNum, subject, chapterNo, chapterTitle, onNavigateToChapters, onHome }) {
+function BottomNav({ classNum, subject, chapterNo, chapterTitle, viewMode, onViewModeChange, onNavigateToChapters, onHome }) {
     return (
         <nav className="bottom-nav">
             <div className="nav-breadcrumbs">
@@ -23,6 +23,41 @@ function BottomNav({ classNum, subject, chapterNo, chapterTitle, onNavigateToCha
                     <button className="nav-btn">{classNum}. {subject}</button>
                 ) : null}
             </div>
+
+            {viewMode && onViewModeChange && (
+                <div className="view-mode-toggles">
+                    <button
+                        className={`toggle-btn ${viewMode === 'teaching' ? 'active' : ''}`}
+                        onClick={() => onViewModeChange('teaching')}
+                    >
+                        Teaching
+                    </button>
+                    <button
+                        className={`toggle-btn ${viewMode === 'book-qa' ? 'active' : ''}`}
+                        onClick={() => onViewModeChange('book-qa')}
+                    >
+                        Book QA
+                    </button>
+                    <button
+                        className={`toggle-btn ${viewMode === 'board-qa' ? 'active' : ''}`}
+                        onClick={() => onViewModeChange('board-qa')}
+                    >
+                        Board QA
+                    </button>
+                    <button
+                        className={`toggle-btn ${viewMode === 'pop-quiz' ? 'active' : ''}`}
+                        onClick={() => onViewModeChange('pop-quiz')}
+                    >
+                        Pop Quiz
+                    </button>
+                    <button
+                        className={`toggle-btn ${viewMode === 'deep-quiz' ? 'active' : ''}`}
+                        onClick={() => onViewModeChange('deep-quiz')}
+                    >
+                        Deep Quiz
+                    </button>
+                </div>
+            )}
         </nav>
     );
 }
