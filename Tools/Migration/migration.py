@@ -1441,9 +1441,19 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
     input_path = Path(input_file)
     
     try:
-        chapter_no = int(input_path.stem)  # Convert to integer
+        # Get the filename without extension (stem)
+        filename_stem = input_path.stem
+        
+        # If filename contains a dot (e.g., "1.1"), take the part before the first dot
+        if '.' in filename_stem:
+            chapter_str = filename_stem.split('.')[0]
+        else:
+            chapter_str = filename_stem
+        
+        # Try to convert to integer
+        chapter_no = int(chapter_str)
     except ValueError:
-        print(f"⚠ Skipping '{input_path.name}': Filename must be a number (e.g., 1.docx, 2.docx)")
+        print(f"⚠ Skipping '{input_path.name}': Filename must be a number or in format 'x.y' where x is a number (e.g., 1.docx, 1.1.docx)")
         return False
     
     try:
@@ -1465,8 +1475,8 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
         chapter_found = False
         for chapter in db_data.get('chapters', []):
             if chapter.get('chapterNo') == chapter_no:
-                # Update the topics for this chapter
-                chapter['topics'] = topics
+                # Append topics to this chapter
+                chapter['topics'].extend(topics)
                 chapter_found = True
                 # print(f"✓ Updated Chapter {chapter_no}: {input_path.name}")
                 break
@@ -1514,9 +1524,19 @@ def process_single_file_qa(input_file, standard, subject, subject_id, db_path):
     input_path = Path(input_file)
     
     try:
-        chapter_no = int(input_path.stem)  # Convert to integer
+        # Get the filename without extension (stem)
+        filename_stem = input_path.stem
+        
+        # If filename contains a dot (e.g., "1.1"), take the part before the first dot
+        if '.' in filename_stem:
+            chapter_str = filename_stem.split('.')[0]
+        else:
+            chapter_str = filename_stem
+        
+        # Try to convert to integer
+        chapter_no = int(chapter_str)
     except ValueError:
-        print(f"⚠ Skipping '{input_path.name}': Filename must be a number (e.g., 1.docx, 2.docx)")
+        print(f"⚠ Skipping '{input_path.name}': Filename must be a number or in format 'x.y' where x is a number (e.g., 1.docx, 1.1.docx)")
         return False
     
     try:
@@ -1537,8 +1557,8 @@ def process_single_file_qa(input_file, standard, subject, subject_id, db_path):
         chapter_found = False
         for chapter in db_data.get('chapters', []):
             if chapter.get('chapterNo') == str(chapter_no):  # chapterNo is string in qa.json
-                # Update the Q&A for this chapter
-                chapter['qa'] = qa_list
+                # Append Q&A to this chapter
+                chapter['qa'].extend(qa_list)
                 chapter_found = True
                 break
         
@@ -1572,10 +1592,10 @@ def process_single_file_qa(input_file, standard, subject, subject_id, db_path):
 
 def run_document_cleanup():
     """Run the Document Clean-up tool to format Word documents."""
-    print("\n" + "=" * 60)
-    print("Document Clean-up")
-    print("=" * 60)
-    print()
+    # print("\n" + "=" * 60)
+    # print("Document Clean-up")
+    # print("=" * 60)
+    # print()
     
     # Use the ./input directory automatically
     script_dir = Path(__file__).parent
@@ -1597,8 +1617,8 @@ def run_document_cleanup():
         print(f"Error: No .docx files found in '{dir_path}'")
         return
     
-    print(f"Found {len(docx_files)} .docx file(s) to clean up")
-    print()
+    # print(f"Found {len(docx_files)} .docx file(s) to clean up")
+    # print()
     
     # Check if win32com is available for advanced formatting
     if not WIN32COM_AVAILABLE:
@@ -1618,86 +1638,44 @@ def run_document_cleanup():
             else:
                 cleanup_document_with_docx(docx_file)
             
-            print(f"  ✓ Successfully cleaned up '{docx_file.name}'")
+            # print(f"  ✓ Successfully cleaned up '{docx_file.name}'")
             success_count += 1
         except Exception as e:
             print(f"  ✗ Error processing '{docx_file.name}': {str(e)}")
             fail_count += 1
     
-    print()
-    print(f"Cleanup complete. Success: {success_count}, Failed: {fail_count}")
-    print("=" * 60)
+    # print()
+    # print(f"Cleanup complete. Success: {success_count}, Failed: {fail_count}")
+    # print("=" * 60)
     
     # Now run the Objects Scanner on the cleaned files
     print()
-    print("=" * 60)
-    print("Running Objects Scanner on cleaned files...")
-    print("=" * 60)
-    print()
+    # print("=" * 60)
+    # print("Running Objects Scanner on cleaned files...")
+    # print("=" * 60)
+    # print()
     
     files_with_issues = []
     
     # Scan each file for objects that need manual conversion
     for docx_file in docx_files:
-        print(f"  Scanning '{docx_file.name}'...")
+        # print(f"  Scanning '{docx_file.name}'...")
         objects = scan_for_smartart_and_canvas(docx_file)
         
         if objects:
-            print(f"    ⚠ Found {len(objects)} issue(s). Comments added.")
+            # print(f"    ⚠ Found {len(objects)} issue(s). Comments added.")
             files_with_issues.append(docx_file)
-        else:
-            print("    ✓ No issues found.")
     
-    print()
-    print(f"Scan complete. Found issues in {len(files_with_issues)} file(s).")
+    # print()
+    # print(f"Scan complete. Found issues in {len(files_with_issues)} file(s).")
     
-    if files_with_issues and WIN32COM_AVAILABLE:
-        print("\n" + "-" * 60)
-        print("Starting Review Process")
-        print("-" * 60)
-        print("Opening files one by one for manual review.")
-        print("Please address the comments in each document (e.g., convert SmartArt to images).")
-        print("When done with a file, Save and Close it.")
-        print()
-        
-        try:
-            import win32com.client
-            word = win32com.client.Dispatch("Word.Application")
-            word.Visible = True
-            
-            for i, file_path in enumerate(files_with_issues):
-                print(f"[{i+1}/{len(files_with_issues)}] Opening: {file_path.name}")
-                
-                abs_path = str(Path(file_path).resolve())
-                try:
-                    doc = word.Documents.Open(abs_path)
-                    doc.Activate()
-                    
-                    print(f"  >>> Waiting for you to review '{file_path.name}'...")
-                    input("  >>> Press Enter when you have finished reviewing and CLOSED the document... ")
-                    
-                    # Ensure doc is closed if user didn't close it
-                    try:
-                        doc.Close(False)
-                    except Exception:
-                        pass
-                        
-                except Exception as e:
-                    print(f"  Error handling document: {e}")
-            
-            print("\nAll files reviewed.")
-            try:
-                word.Quit()
-            except:
-                pass
-            
-        except Exception as e:
-            print(f"Error initializing Word for review: {e}")
-    elif files_with_issues and not WIN32COM_AVAILABLE:
-        print("\n⚠ Cannot start auto-review: win32com not available.")
-        print("Please manually review the files listed above.")
+    # if files_with_issues:
+        # print("\n⚠ Files with issues (comments added to documents):")
+        # for file_path in files_with_issues:
+        #     print(f"  - {file_path.name}")
+        # print("\nPlease manually review these files and address the comments.")
     
-    print("\n" + "=" * 60)
+    # print("\n" + "=" * 60)
 
 
 def cleanup_document_with_word(file_path):
@@ -1713,6 +1691,7 @@ def cleanup_document_with_word(file_path):
     6. Convert all floating shapes to inline with text
     7. Resize images to fit within margins
     8. Apply "# Body" style to all blank lines
+    9. Delete content between <revision> and <question> tags (paragraphs, images, shapes, tables)
     """
     import win32com.client
     from win32com.client import constants
@@ -1864,6 +1843,105 @@ def cleanup_document_with_word(file_path):
                     para.Style = "# Body"
             except:
                 pass  # Skip if there's an error (e.g., style doesn't exist)
+
+        # 9. Delete content between <revision> and <question> tags
+        # Find the <revision> and <question> markers
+        revision_para_index = None
+        question_para_index = None
+        
+        for i in range(1, doc.Paragraphs.Count + 1):
+            try:
+                para = doc.Paragraphs(i)
+                para_text = para.Range.Text.strip().lower()
+                
+                if '<revision>' in para_text:
+                    revision_para_index = i
+                elif '<question>' in para_text:
+                    question_para_index = i
+                    break  # Found both markers
+            except:
+                pass
+        
+        # If both markers are found, delete everything between them (including <revision>)
+        if revision_para_index is not None and question_para_index is not None:
+            if revision_para_index < question_para_index:
+                # First, get the range positions before deleting paragraphs
+                try:
+                    revision_para = doc.Paragraphs(revision_para_index)
+                    question_para = doc.Paragraphs(question_para_index)
+                    
+                    start_pos = revision_para.Range.Start
+                    end_pos = question_para.Range.Start
+                    
+                    # Delete shapes (images, drawing canvases, SmartArt) in that range first
+                    shapes_to_delete = []
+                    for i in range(1, doc.Shapes.Count + 1):
+                        try:
+                            shape = doc.Shapes(i)
+                            # Check if shape's anchor is within the range
+                            anchor_pos = shape.Anchor.Start
+                            if start_pos <= anchor_pos < end_pos:
+                                shapes_to_delete.append(shape)
+                        except:
+                            pass
+                    
+                    # Delete collected shapes
+                    for shape in shapes_to_delete:
+                        try:
+                            shape.Delete()
+                        except:
+                            pass
+                    
+                    # Also delete inline shapes in the range
+                    inline_shapes_to_delete = []
+                    for i in range(1, doc.InlineShapes.Count + 1):
+                        try:
+                            inline_shape = doc.InlineShapes(i)
+                            shape_pos = inline_shape.Range.Start
+                            if start_pos <= shape_pos < end_pos:
+                                inline_shapes_to_delete.append(inline_shape)
+                        except:
+                            pass
+                    
+                    # Delete collected inline shapes
+                    for inline_shape in inline_shapes_to_delete:
+                        try:
+                            inline_shape.Delete()
+                        except:
+                            pass
+                    
+                    # Also delete tables in the range
+                    tables_to_delete = []
+                    for i in range(1, doc.Tables.Count + 1):
+                        try:
+                            table = doc.Tables(i)
+                            # Check if table's range is within the target range
+                            table_start = table.Range.Start
+                            table_end = table.Range.End
+                            # If table starts within the range, delete it
+                            if start_pos <= table_start < end_pos:
+                                tables_to_delete.append(table)
+                        except:
+                            pass
+                    
+                    # Delete collected tables
+                    for table in tables_to_delete:
+                        try:
+                            table.Range.Delete()
+                        except:
+                            pass
+                    
+                except:
+                    pass
+                
+                # Now delete paragraphs from revision to question (excluding <question>)
+                # We need to delete from the end to avoid index shifting
+                for i in range(question_para_index - 1, revision_para_index - 1, -1):
+                    try:
+                        para = doc.Paragraphs(i)
+                        para.Range.Delete()
+                    except:
+                        pass
 
         
         # Save and close
@@ -2175,6 +2253,115 @@ def run_qa_exporter():
     print(f"Successfully processed Q&A: {success_count} file(s)")
 
 
+def run_delete_chapter():
+    """Delete a chapter from both concept.json and qa.json."""
+    
+    # Prompt for standard
+    standard = input("Enter standard (e.g., 6, 7, 8): ").strip()
+    if not standard:
+        print("Error: Standard cannot be empty.")
+        return
+    
+    # Prompt for subject
+    subject = input("Enter subject (e.g., science, maths): ").strip()
+    if not subject:
+        print("Error: Subject cannot be empty.")
+        return
+    
+    # Prompt for chapter number(s)
+    chapter_input = input("Enter chapter number(s) to delete (comma-separated for multiple): ").strip()
+    if not chapter_input:
+        print("Error: Chapter number cannot be empty.")
+        return
+    
+    # Parse comma-separated chapter numbers
+    chapter_numbers = []
+    for chapter_str in chapter_input.split(','):
+        chapter_str = chapter_str.strip()
+        try:
+            chapter_no = int(chapter_str)
+            chapter_numbers.append(chapter_no)
+        except ValueError:
+            print(f"Error: '{chapter_str}' is not a valid chapter number. Skipping.")
+    
+    if not chapter_numbers:
+        print("Error: No valid chapter numbers provided.")
+        return
+    
+    # Construct database directory
+    db_dir = Path(f"../../db/{standard}-{subject.lower()}")
+    concept_path = db_dir / "concept.json"
+    qa_path = db_dir / "qa.json"
+    
+    total_deleted_concept = 0
+    total_deleted_qa = 0
+    
+    # Process each chapter number
+    for chapter_no in chapter_numbers:
+        print(f"\nProcessing Chapter {chapter_no}...")
+        deleted_from_concept = False
+        deleted_from_qa = False
+        
+        # Delete from concept.json
+        if concept_path.exists():
+            try:
+                with open(concept_path, 'r', encoding='utf-8') as f:
+                    concept_data = json.load(f)
+                
+                # Find and remove the chapter
+                original_count = len(concept_data.get('chapters', []))
+                concept_data['chapters'] = [
+                    ch for ch in concept_data.get('chapters', []) 
+                    if ch.get('chapterNo') != chapter_no
+                ]
+                new_count = len(concept_data['chapters'])
+                
+                if original_count > new_count:
+                    # Chapter was found and removed
+                    with open(concept_path, 'w', encoding='utf-8') as f:
+                        json.dump(concept_data, f, indent=2, ensure_ascii=False)
+                    deleted_from_concept = True
+                    total_deleted_concept += 1
+                    print(f"  ✓ Deleted Chapter {chapter_no} from concept.json")
+                else:
+                    print(f"  ⚠ Chapter {chapter_no} not found in concept.json")
+            except Exception as e:
+                print(f"  ✗ Error processing concept.json: {str(e)}")
+        
+        # Delete from qa.json
+        if qa_path.exists():
+            try:
+                with open(qa_path, 'r', encoding='utf-8') as f:
+                    qa_data = json.load(f)
+                
+                # Find and remove the chapter (chapterNo is string in qa.json)
+                original_count = len(qa_data.get('chapters', []))
+                qa_data['chapters'] = [
+                    ch for ch in qa_data.get('chapters', []) 
+                    if ch.get('chapterNo') != str(chapter_no)
+                ]
+                new_count = len(qa_data['chapters'])
+                
+                if original_count > new_count:
+                    # Chapter was found and removed
+                    with open(qa_path, 'w', encoding='utf-8') as f:
+                        json.dump(qa_data, f, indent=2, ensure_ascii=False)
+                    deleted_from_qa = True
+                    total_deleted_qa += 1
+                    print(f"  ✓ Deleted Chapter {chapter_no} from qa.json")
+                else:
+                    print(f"  ⚠ Chapter {chapter_no} not found in qa.json")
+            except Exception as e:
+                print(f"  ✗ Error processing qa.json: {str(e)}")
+    
+    # Summary
+    print(f"\n{'='*60}")
+    print(f"Deletion Summary:")
+    print(f"  Chapters deleted from concept.json: {total_deleted_concept}")
+    print(f"  Chapters deleted from qa.json: {total_deleted_qa}")
+    print(f"{'='*60}")
+
+
 def display_menu():
     """Display the migration tools menu."""
     # print("\n")
@@ -2182,6 +2369,9 @@ def display_menu():
     print("  1. Document Clean-up (includes Objects Scanner)")
     print("  2. Concepts Exporter")
     print("  3. Q&A Exporter")
+    print("  4. Delete Chapter")
+    print("  5. Clear Screen")
+    print("  Q. Quit")
 
 
 
@@ -2198,20 +2388,16 @@ def main():
             run_concepts_exporter()
         elif choice == "3":
             run_qa_exporter()
-        elif choice == "0":
-            print("\nExiting Migration Tools. Goodbye!")
+        elif choice == "4":
+            run_delete_chapter()
+        elif choice == "5":
+            os.system('cls' if os.name == 'nt' else 'clear')
+        elif choice.lower() == "q" or choice == "0":
+            # print("\nExiting Migration Tools. Goodbye!")
             break
         else:
-            print("\n⚠ Invalid choice. Please enter a number between 0 and 3.")
+            print("\n⚠ Invalid choice. Please enter 1, 2, 3, 4, 5, or Q to quit.")
         
-        # Ask if user wants to continue
-        if choice in ["1", "2", "3"]:
-            print()
-            continue_choice = input("Press Enter to return to menu").strip().lower()
-            if continue_choice == "exit":
-                # print("\nExiting Migration Tools. Goodbye!")
-                break
-
 
 
 if __name__ == "__main__":
