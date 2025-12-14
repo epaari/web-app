@@ -45,6 +45,12 @@ function BottomNav({ classNum, subject, chapterNo, chapterTitle, viewMode, onVie
                         Board QA
                     </button>
                     <button
+                        className={`toggle-btn ${viewMode === 'bonus-qa' ? 'active' : ''}`}
+                        onClick={() => onViewModeChange('bonus-qa')}
+                    >
+                        Bonus QA
+                    </button>
+                    <button
                         className={`toggle-btn ${viewMode === 'pop-quiz' ? 'active' : ''}`}
                         onClick={() => onViewModeChange('pop-quiz')}
                     >

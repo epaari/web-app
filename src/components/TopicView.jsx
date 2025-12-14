@@ -16,7 +16,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
         const subjectSlug = subject.toLowerCase().replace(/\s+/g, '-');
 
         // Load different data based on viewMode
-        if (viewMode === 'book-qa' || viewMode === 'board-qa' || viewMode === 'pop-quiz' || viewMode === 'deep-quiz') {
+        if (viewMode === 'book-qa' || viewMode === 'board-qa' || viewMode === 'bonus-qa' || viewMode === 'pop-quiz' || viewMode === 'deep-quiz') {
             // Load Q&A data
             const qaPath = `/db/${standard}-${subjectSlug}/qa.json`;
 
@@ -160,13 +160,15 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
                 }]
             };
         }
-        // Filter Q&A by exerciseType based on viewMode
+        // Filter Q&A by source/isBoardExam based on viewMode
         let filteredQA = qaChapter.qa;
 
         if (viewMode === 'book-qa') {
-            filteredQA = qaChapter.qa.filter(qa => qa.exerciseType === 'book');
+            filteredQA = qaChapter.qa.filter(qa => qa.source === 'book');
         } else if (viewMode === 'board-qa') {
-            filteredQA = qaChapter.qa.filter(qa => qa.exerciseType === 'board');
+            filteredQA = qaChapter.qa.filter(qa => qa.isBoardExam === true);
+        } else if (viewMode === 'bonus-qa') {
+            filteredQA = qaChapter.qa.filter(qa => qa.source === 'extra' && qa.isBoardExam === false);
         }
 
         // Group Q&A by questionType

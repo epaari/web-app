@@ -77,7 +77,8 @@ Chapter = {
 
 Qa = {
     "id": "string", // Random 8 character alpha-numeric string
-    "exerciseType": "book|board|extra", // type of exercise
+    "source": "book|extra", // where question comes from: book exercise or additional/extra
+    "isBoardExam": "boolean", // true if marked with <faq> tag (important for board exams)
     "questionType": "very-short|short|long|very-long", // type of question
     "reference": "string", // reference
     "difficulty": "easy|medium|hard", // difficulty level

@@ -1071,7 +1071,8 @@ def process_word_document_qa(file_path, standard, subject):
     current_answer_content = []
     
     # Tags for current question
-    current_exercise_type = "extra"  # default
+    current_source = "extra"         # default: "book" or "extra"
+    current_is_board_exam = False    # default: False, set to True if <faq>
     current_question_type = None
     current_reference = None
     current_mcq_answer = None
@@ -1079,7 +1080,7 @@ def process_word_document_qa(file_path, standard, subject):
     def finalize_qa():
         """Finalize the current Q&A item and add it to the list."""
         nonlocal current_qa, current_question_content, current_answer_content
-        nonlocal current_exercise_type, current_question_type, current_reference, current_mcq_answer
+        nonlocal current_source, current_is_board_exam, current_question_type, current_reference, current_mcq_answer
         
         if current_qa and current_question_content:
             current_qa["question"] = current_question_content
@@ -1090,7 +1091,8 @@ def process_word_document_qa(file_path, standard, subject):
         current_qa = None
         current_question_content = []
         current_answer_content = []
-        current_exercise_type = "extra"
+        current_source = "extra"
+        current_is_board_exam = False
         current_question_type = None
         current_reference = None
         current_mcq_answer = None
@@ -1136,10 +1138,11 @@ def process_word_document_qa(file_path, standard, subject):
             # Initialize new Q&A item
             current_qa = {
                 "id": generate_id(),
-                "exerciseType": "extra",  # default
+                "source": "extra",        # default: "book" or "extra"
+                "isBoardExam": False,     # default: False, set to True if <faq>
                 "questionType": "short",  # default
                 "reference": "",
-                "difficulty": "medium"  # default
+                "difficulty": "medium"    # default
             }
             
             continue
@@ -1157,10 +1160,14 @@ def process_word_document_qa(file_path, standard, subject):
         # Process tags that come after <question> but before actual question content
         if in_question and style == "# Meta Data":
             # Check for exercise type tags
+            # <book_exercise> → source: "book"
+            # <faq> → isBoardExam: True
+            # <additional_exercise> → source stays "extra" (default)
             if text.lower() == "<book_exercise>":
-                current_exercise_type = "book"
-            elif text.lower() == "<additional_exercise>" or text.lower() == "<faq>":
-                current_exercise_type = "board"
+                current_source = "book"
+            elif text.lower() == "<faq>":
+                current_is_board_exam = True
+            # Note: <additional_exercise> alone keeps the default "extra" source
             
             # Check for question type tags
             type_match = re.match(r'<type=(\d+)>', text.lower())
@@ -1187,7 +1194,8 @@ def process_word_document_qa(file_path, standard, subject):
             
             # Update current_qa with extracted values
             if current_qa:
-                current_qa["exerciseType"] = current_exercise_type
+                current_qa["source"] = current_source
+                current_qa["isBoardExam"] = current_is_board_exam
                 if current_question_type:
                     current_qa["questionType"] = current_question_type
                 if current_reference:
