@@ -1570,6 +1570,384 @@ def process_single_file_qa(input_file, standard, subject, subject_id, db_path):
         return False
 
 
+def run_document_cleanup():
+    """Run the Document Clean-up tool to format Word documents."""
+    print("\n" + "=" * 60)
+    print("Document Clean-up")
+    print("=" * 60)
+    print()
+    
+    # Use the ./input directory automatically
+    script_dir = Path(__file__).parent
+    dir_path = script_dir / "input"
+    
+    if not dir_path.exists():
+        print(f"Error: Directory '{dir_path}' not found.")
+        return
+    
+    if not dir_path.is_dir():
+        print(f"Error: '{dir_path}' is not a directory.")
+        return
+    
+    # Find all .docx files in the directory (exclude temporary files starting with ~$)
+    all_docx_files = dir_path.glob("*.docx")
+    docx_files = sorted([f for f in all_docx_files if not f.name.startswith("~$")])
+    
+    if not docx_files:
+        print(f"Error: No .docx files found in '{dir_path}'")
+        return
+    
+    print(f"Found {len(docx_files)} .docx file(s) to clean up")
+    print()
+    
+    # Check if win32com is available for advanced formatting
+    if not WIN32COM_AVAILABLE:
+        print("⚠ Warning: win32com not available. Some features may be limited.")
+        print("Installing pywin32 is recommended for full functionality.")
+        print()
+    
+    success_count = 0
+    fail_count = 0
+    
+    for docx_file in docx_files:
+        print(f"Processing '{docx_file.name}'...")
+        try:
+            # Use win32com for better control if available
+            if WIN32COM_AVAILABLE:
+                cleanup_document_with_word(docx_file)
+            else:
+                cleanup_document_with_docx(docx_file)
+            
+            print(f"  ✓ Successfully cleaned up '{docx_file.name}'")
+            success_count += 1
+        except Exception as e:
+            print(f"  ✗ Error processing '{docx_file.name}': {str(e)}")
+            fail_count += 1
+    
+    print()
+    print(f"Cleanup complete. Success: {success_count}, Failed: {fail_count}")
+    print("=" * 60)
+    
+    # Now run the Objects Scanner on the cleaned files
+    print()
+    print("=" * 60)
+    print("Running Objects Scanner on cleaned files...")
+    print("=" * 60)
+    print()
+    
+    files_with_issues = []
+    
+    # Scan each file for objects that need manual conversion
+    for docx_file in docx_files:
+        print(f"  Scanning '{docx_file.name}'...")
+        objects = scan_for_smartart_and_canvas(docx_file)
+        
+        if objects:
+            print(f"    ⚠ Found {len(objects)} issue(s). Comments added.")
+            files_with_issues.append(docx_file)
+        else:
+            print("    ✓ No issues found.")
+    
+    print()
+    print(f"Scan complete. Found issues in {len(files_with_issues)} file(s).")
+    
+    if files_with_issues and WIN32COM_AVAILABLE:
+        print("\n" + "-" * 60)
+        print("Starting Review Process")
+        print("-" * 60)
+        print("Opening files one by one for manual review.")
+        print("Please address the comments in each document (e.g., convert SmartArt to images).")
+        print("When done with a file, Save and Close it.")
+        print()
+        
+        try:
+            import win32com.client
+            word = win32com.client.Dispatch("Word.Application")
+            word.Visible = True
+            
+            for i, file_path in enumerate(files_with_issues):
+                print(f"[{i+1}/{len(files_with_issues)}] Opening: {file_path.name}")
+                
+                abs_path = str(Path(file_path).resolve())
+                try:
+                    doc = word.Documents.Open(abs_path)
+                    doc.Activate()
+                    
+                    print(f"  >>> Waiting for you to review '{file_path.name}'...")
+                    input("  >>> Press Enter when you have finished reviewing and CLOSED the document... ")
+                    
+                    # Ensure doc is closed if user didn't close it
+                    try:
+                        doc.Close(False)
+                    except Exception:
+                        pass
+                        
+                except Exception as e:
+                    print(f"  Error handling document: {e}")
+            
+            print("\nAll files reviewed.")
+            try:
+                word.Quit()
+            except:
+                pass
+            
+        except Exception as e:
+            print(f"Error initializing Word for review: {e}")
+    elif files_with_issues and not WIN32COM_AVAILABLE:
+        print("\n⚠ Cannot start auto-review: win32com not available.")
+        print("Please manually review the files listed above.")
+    
+    print("\n" + "=" * 60)
+
+
+def cleanup_document_with_word(file_path):
+    """
+    Clean up a Word document using win32com for advanced formatting.
+    
+    Tasks:
+    1. Page size = A4
+    2. Orientation = Portrait
+    3. Margins = Narrow
+    4. Reduce font size by 50%
+    5. Remove manual page breaks and add two blank lines
+    6. Convert all floating shapes to inline with text
+    7. Resize images to fit within margins
+    8. Apply "# Body" style to all blank lines
+    """
+    import win32com.client
+    from win32com.client import constants
+    
+    word = win32com.client.Dispatch("Word.Application")
+    word.Visible = False
+    
+    abs_path = str(Path(file_path).resolve())
+    doc = word.Documents.Open(abs_path)
+    
+    try:
+        # 1 & 2. Set orientation to Portrait and page size to A4
+        for section in doc.Sections:
+            # Check current dimensions to determine if we need to swap
+            current_width = section.PageSetup.PageWidth
+            current_height = section.PageSetup.PageHeight
+            
+            # If currently landscape (width > height), we need to swap
+            if current_width > current_height:
+                # Temporarily swap to portrait by swapping dimensions
+                section.PageSetup.PageWidth = current_height
+                section.PageSetup.PageHeight = current_width
+            
+            # Now set orientation to portrait
+            section.PageSetup.Orientation = 0  # wdOrientPortrait = 0
+            
+            # Then set page dimensions for A4
+            # For portrait: width (210mm) < height (297mm)
+            section.PageSetup.PageWidth = 595.3  # A4 width in points (210mm)
+            section.PageSetup.PageHeight = 841.9  # A4 height in points (297mm)
+            
+            # 3. Set margins to Narrow (0.5 inch = 36 points)
+            section.PageSetup.TopMargin = 36
+            section.PageSetup.BottomMargin = 36
+            section.PageSetup.LeftMargin = 36
+            section.PageSetup.RightMargin = 36
+        
+        # 4. Reduce font size by 50% for all text
+        # Use a more reliable approach: iterate through the entire document range
+        # and reduce font sizes for common sizes
+        common_sizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
+        
+        for size in common_sizes:
+            # Search for text with this font size
+            find_obj = doc.Content.Find
+            find_obj.ClearFormatting()
+            find_obj.Font.Size = size
+            find_obj.Replacement.ClearFormatting()
+            find_obj.Replacement.Font.Size = size * 0.5
+            find_obj.Text = ""  # Empty text means match any text
+            find_obj.Forward = True
+            find_obj.Wrap = 1  # wdFindContinue
+            find_obj.Format = True
+            find_obj.MatchCase = False
+            find_obj.MatchWholeWord = False
+            find_obj.MatchWildcards = False
+            
+            # Execute replace all for this font size
+            find_obj.Execute(Replace=2)  # wdReplaceAll = 2
+        
+        # 5. Remove manual page breaks and add two blank lines
+        # Direct approach: Find page breaks in the document and remove them
+        # Manual page breaks are stored as special characters in ranges
+        
+        # Method 1: Iterate through all ranges and find page breaks
+        # We need to go backwards to avoid index issues when deleting
+        paragraphs_with_breaks = []
+        
+        # Get initial paragraph count for safety
+        initial_para_count = doc.Paragraphs.Count
+        
+        # Find all paragraphs that end with a page break
+        for i in range(initial_para_count, 0, -1):
+            try:
+                para = doc.Paragraphs(i)
+                para_text = para.Range.Text
+                
+                # Check if paragraph contains a manual page break character (ASCII 12)
+                if '\f' in para_text or chr(12) in para_text:
+                    paragraphs_with_breaks.append(i)
+            except:
+                pass
+        
+        # Process the paragraphs with page breaks (if any found)
+        if paragraphs_with_breaks:
+            for para_index in paragraphs_with_breaks:
+                try:
+                    para = doc.Paragraphs(para_index)
+                    para_range = para.Range
+                    
+                    # Get the text and remove page break character
+                    text = para_range.Text
+                    text = text.replace('\f', '').replace(chr(12), '')
+                    
+                    # Clear the paragraph and insert cleaned text
+                    para_range.Text = text
+                    
+                    # Insert two blank paragraphs after this paragraph
+                    para_range.InsertParagraphAfter()
+                    para_range.InsertParagraphAfter()
+                except:
+                    pass
+
+        
+
+        # 6. Convert all floating shapes to inline with text
+        # This must be done before resizing to ensure all shapes are inline
+        # Floating shapes include images, SmartArt, drawing canvases, etc.
+        
+        # We need to iterate backwards because converting to inline changes the collection
+        shapes_to_convert = []
+        for i in range(1, doc.Shapes.Count + 1):
+            try:
+                shape = doc.Shapes(i)
+                shapes_to_convert.append(shape)
+            except:
+                pass
+        
+        # Convert each floating shape to inline
+        for shape in shapes_to_convert:
+            try:
+                # ConvertToInlineShape converts a floating shape to inline
+                shape.ConvertToInlineShape()
+            except:
+                pass  # Skip if conversion fails (some shapes can't be converted)
+        
+        # 7. Resize images to fit within margins
+        # Calculate available width (A4 width - left margin - right margin)
+        available_width = 595.3 - 36 - 36  # 523.3 points
+        
+        for shape in doc.InlineShapes:
+            if shape.Width > available_width:
+                # Maintain aspect ratio
+                aspect_ratio = shape.Height / shape.Width
+                shape.Width = available_width
+                shape.Height = available_width * aspect_ratio
+        
+        # 8. Apply "# Body" style to all blank lines
+        for i in range(1, doc.Paragraphs.Count + 1):
+            try:
+                para = doc.Paragraphs(i)
+                # Check if paragraph is blank (empty or only whitespace)
+                para_text = para.Range.Text.strip()
+                
+                # Word paragraphs always have at least a paragraph mark, so check if it's effectively empty
+                # Remove the paragraph mark (last character) and check if empty
+                if len(para_text) == 0 or para_text == '\r' or para_text == '\n':
+                    # Apply "# Body" style
+                    para.Style = "# Body"
+            except:
+                pass  # Skip if there's an error (e.g., style doesn't exist)
+
+        
+        # Save and close
+        doc.Save()
+        doc.Close()
+        
+    except Exception as e:
+        doc.Close(False)  # Close without saving on error
+        raise e
+    finally:
+        word.Quit()
+
+
+def cleanup_document_with_docx(file_path):
+    """
+    Clean up a Word document using python-docx (limited functionality).
+    
+    Note: python-docx has limitations for some tasks like page breaks.
+    For full functionality, use win32com (cleanup_document_with_word).
+    """
+    from docx.shared import Pt, Inches
+    from docx.enum.section import WD_ORIENT
+    
+    doc = Document(file_path)
+    
+    # 1 & 2. Set page size to A4 and orientation to Portrait
+    for section in doc.sections:
+        section.page_height = Inches(11.69)  # A4 height (297mm)
+        section.page_width = Inches(8.27)    # A4 width (210mm)
+        section.orientation = WD_ORIENT.PORTRAIT
+        
+        # 3. Set margins to Narrow (0.5 inch)
+        section.top_margin = Inches(0.5)
+        section.bottom_margin = Inches(0.5)
+        section.left_margin = Inches(0.5)
+        section.right_margin = Inches(0.5)
+    
+    # 4. Reduce font size by 50%
+    for paragraph in doc.paragraphs:
+        for run in paragraph.runs:
+            if run.font.size:
+                run.font.size = Pt(run.font.size.pt * 0.5)
+    
+    # Also reduce font size in tables
+    for table in doc.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                for paragraph in cell.paragraphs:
+                    for run in paragraph.runs:
+                        if run.font.size:
+                            run.font.size = Pt(run.font.size.pt * 0.5)
+    
+    # 5. Remove manual page breaks and add two blank lines
+    # Note: python-docx has limited support for page breaks
+    # This is a workaround that may not catch all cases
+    paragraphs_to_modify = []
+    for i, paragraph in enumerate(doc.paragraphs):
+        # Check if paragraph contains a page break
+        for run in paragraph.runs:
+            if '\f' in run.text or '\x0c' in run.text:  # Form feed character
+                paragraphs_to_modify.append(i)
+                break
+    
+    # Replace page breaks with blank lines
+    for idx in reversed(paragraphs_to_modify):
+        paragraph = doc.paragraphs[idx]
+        for run in paragraph.runs:
+            run.text = run.text.replace('\f', '\n\n').replace('\x0c', '\n\n')
+    
+    # 6. Resize images to fit within margins
+    # Calculate available width (A4 width - margins)
+    available_width = Inches(8.27 - 0.5 - 0.5)  # 7.27 inches
+    
+    for shape in doc.inline_shapes:
+        if shape.width > available_width:
+            # Maintain aspect ratio
+            aspect_ratio = shape.height / shape.width
+            shape.width = available_width
+            shape.height = int(available_width * aspect_ratio)
+    
+    # Save the document
+    doc.save(file_path)
+
+
 def run_objects_scanner():
     """Run the Objects Scanner tool to detect SmartArt, Drawing Canvas, Tables, and Cropped Images."""
     print("\n" + "=" * 60)
@@ -1801,7 +2179,7 @@ def display_menu():
     """Display the migration tools menu."""
     # print("\n")
     print("Please select a migration tool:")
-    print("  1. Objects Scanner")
+    print("  1. Document Clean-up (includes Objects Scanner)")
     print("  2. Concepts Exporter")
     print("  3. Q&A Exporter")
 
@@ -1815,7 +2193,7 @@ def main():
         choice = input("Enter your choice: ").strip()
         
         if choice == "1":
-            run_objects_scanner()
+            run_document_cleanup()
         elif choice == "2":
             run_concepts_exporter()
         elif choice == "3":
