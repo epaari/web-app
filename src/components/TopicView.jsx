@@ -100,7 +100,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
                 ...qaChapter,
                 topics: [{
                     id: 'topic-pop-quiz',
-                    title: 'Pop Quiz',
+                    title: `Pop Quiz (${selectedQuestions.length})`,
                     subTopics: subTopics
                 }]
             };
@@ -136,7 +136,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
                 ...qaChapter,
                 topics: [{
                     id: 'topic-deep-quiz',
-                    title: 'Deep Quiz',
+                    title: `Deep Quiz (${selectedQuestions.length})`,
                     subTopics: subTopics
                 }]
             };
@@ -219,7 +219,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
 
                 topics.push({
                     id: `topic-${questionType}`,
-                    title: typeLabels[questionType],
+                    title: `${typeLabels[questionType]} (${grouped[questionType].length})`,
                     subTopics: subTopics
                 });
             }
