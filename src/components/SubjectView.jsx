@@ -27,7 +27,7 @@ function SubjectView({ onSubjectSelect }) {
         const checkSubjectAvailability = async (standard, subject) => {
             try {
                 const subjectSlug = subject.toLowerCase().replace(/\s+/g, '-');
-                const dbPath = `/db/${standard}-${subjectSlug}/concept.json`;
+                const dbPath = `/api/concept/${standard}/${subjectSlug}`;
                 const res = await fetch(dbPath);
                 if (!res.ok) return false;
                 const data = await res.json();
@@ -37,7 +37,7 @@ function SubjectView({ onSubjectSelect }) {
             }
         };
 
-        fetch('/db/subjects.json')
+        fetch('/api/subjects')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');

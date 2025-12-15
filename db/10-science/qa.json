@@ -1,0 +1,3780 @@
+{
+  "chapters": [
+    {
+      "id": "cs9ymk0v",
+      "subjectId": "k7rs0wrw",
+      "chapterNo": "1",
+      "chapterName": "Chapter 1",
+      "qa": [
+        {
+          "id": "e2tzft5z",
+          "source": "book",
+          "isBoardExam": true,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "762k7dma",
+              "type": "body",
+              "text": "Inertia of a body depends on"
+            },
+            {
+              "id": "zf0n0qz0",
+              "type": "number2",
+              "text": "Weight of the object"
+            },
+            {
+              "id": "azth1zfe",
+              "type": "number2",
+              "text": "Acceleration due to gravity of the planet"
+            },
+            {
+              "id": "dyhv6ew5",
+              "type": "number2",
+              "text": "Mass of the object"
+            },
+            {
+              "id": "oz3dnekz",
+              "type": "number2",
+              "text": "Both A and B"
+            }
+          ],
+          "answer": [
+            {
+              "id": "1sxzht8g",
+              "type": "body",
+              "text": "Inertia of a body depends on"
+            },
+            {
+              "id": "pk0j624w",
+              "type": "number2",
+              "text": "Weight of the object"
+            },
+            {
+              "id": "kgslme3s",
+              "type": "number2",
+              "text": "Acceleration due to gravity of the planet"
+            },
+            {
+              "id": "yigcxt7q",
+              "type": "number2",
+              "text": "Mass of the object"
+            },
+            {
+              "id": "o9heb7fz",
+              "type": "number2",
+              "text": "Both A and B"
+            },
+            {
+              "id": "ygp0rqo8",
+              "type": "highlight-red",
+              "text": "Answer: C. mass of the object"
+            }
+          ]
+        },
+        {
+          "id": "eqjgw654",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "6b3ytm2f",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "myv3bkuc",
+                  "type": "body",
+                  "text": "Plotting a graph for momentum on the"
+                },
+                {
+                  "id": "ivvyrs7q",
+                  "type": "equation",
+                  "equation": "X"
+                },
+                {
+                  "id": "ebl3r1ic",
+                  "type": "body",
+                  "text": "-axis and time on"
+                },
+                {
+                  "id": "kpmc6kfd",
+                  "type": "equation",
+                  "equation": "Y"
+                },
+                {
+                  "id": "zws48i3m",
+                  "type": "body",
+                  "text": "-axis slope of momentum-time graph gives"
+                }
+              ]
+            },
+            {
+              "id": "z698pz79",
+              "type": "number2",
+              "text": "Impulsive force"
+            },
+            {
+              "id": "t6s950kd",
+              "type": "number2",
+              "text": "Acceleration"
+            },
+            {
+              "id": "h7tmji3y",
+              "type": "number2",
+              "text": "Force"
+            },
+            {
+              "id": "1l4trh69",
+              "type": "number2",
+              "text": "Rate of force"
+            }
+          ],
+          "answer": [
+            {
+              "id": "jcyqle3e",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "xezn6vnm",
+                  "type": "body",
+                  "text": "Plotting a graph for momentum on the"
+                },
+                {
+                  "id": "duj5hmby",
+                  "type": "equation",
+                  "equation": "X"
+                },
+                {
+                  "id": "dsvq4b5e",
+                  "type": "body",
+                  "text": "-axis and time on"
+                },
+                {
+                  "id": "l81cu20b",
+                  "type": "equation",
+                  "equation": "Y"
+                },
+                {
+                  "id": "x53j251i",
+                  "type": "body",
+                  "text": "-axis slope of momentum-time graph gives"
+                }
+              ]
+            },
+            {
+              "id": "i5ms4bdo",
+              "type": "number2",
+              "text": "Impulsive force"
+            },
+            {
+              "id": "fmjrd3ow",
+              "type": "number2",
+              "text": "Acceleration"
+            },
+            {
+              "id": "90fm7t2a",
+              "type": "number2",
+              "text": "Force"
+            },
+            {
+              "id": "xzxvldz2",
+              "type": "number2",
+              "text": "Rate of force"
+            },
+            {
+              "id": "30ddjkty",
+              "type": "highlight-red",
+              "text": "Answer: C. Force"
+            }
+          ]
+        },
+        {
+          "id": "qokdwc3u",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "7g2ei0wo",
+              "type": "body",
+              "text": "Fill in the blanks"
+            },
+            {
+              "id": "e6q2pi7y",
+              "type": "body",
+              "text": "To produce a displacement ___________ is required"
+            }
+          ],
+          "answer": [
+            {
+              "id": "lh78666v",
+              "type": "body",
+              "text": "Fill in the blanks"
+            },
+            {
+              "id": "zi70jkvc",
+              "type": "body",
+              "text": "To produce a displacement ___________ is required"
+            },
+            {
+              "id": "5owc3gq5",
+              "type": "highlight-red",
+              "text": "Answer: Force"
+            }
+          ]
+        },
+        {
+          "id": "ttwcedsm",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "i2nfdbyg",
+              "type": "body",
+              "text": "Fill in the blanks"
+            },
+            {
+              "id": "selwpcsn",
+              "type": "body",
+              "text": "Passengers lean forward when sudden brake is applied in a moving vehicle. This can be explained by ___________"
+            }
+          ],
+          "answer": [
+            {
+              "id": "uxkzergp",
+              "type": "body",
+              "text": "Fill in the blanks"
+            },
+            {
+              "id": "utxbc5bp",
+              "type": "body",
+              "text": "Passengers lean forward when sudden brake is applied in a moving vehicle. This can be explained by ___________"
+            },
+            {
+              "id": "zmhr9yj1",
+              "type": "highlight-red",
+              "text": "Answer: Inertia of motion"
+            }
+          ]
+        },
+        {
+          "id": "brzwwhks",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "w0uxa8ms",
+              "type": "body",
+              "text": "True or false"
+            },
+            {
+              "id": "yv8f44qd",
+              "type": "body",
+              "text": "The linear momentum of a system of particles is always conserved"
+            }
+          ],
+          "answer": [
+            {
+              "id": "mg87nonn",
+              "type": "body",
+              "text": "True or false"
+            },
+            {
+              "id": "7cynhjk7",
+              "type": "body",
+              "text": "The linear momentum of a system of particles is always conserved"
+            },
+            {
+              "id": "amwu1brf",
+              "type": "highlight-red",
+              "text": "Answer: False"
+            }
+          ]
+        },
+        {
+          "id": "oai3llff",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "34es2jdq",
+              "type": "body",
+              "text": "Assertion: The sum of the clockwise moments is equal to the sum of the anticlockwise moments"
+            },
+            {
+              "id": "wf6xganh",
+              "type": "body",
+              "text": "Reason: The principle of conservation of momentum is valid if the external force on the system is zero"
+            },
+            {
+              "id": "e3seik6i",
+              "type": "body",
+              "text": "Mark the correct choice as"
+            },
+            {
+              "id": "j1oo0ffs",
+              "type": "number2",
+              "text": "If both the assertion and the reason are true and the reason is the correct explanation of assertion"
+            },
+            {
+              "id": "dg2z40n5",
+              "type": "number2",
+              "text": "If both the assertion and the reason are true, but the reason is not the correct explanation of the assertion"
+            },
+            {
+              "id": "km1dhlx0",
+              "type": "number2",
+              "text": "Assertion is true, but the reason is false"
+            },
+            {
+              "id": "z43874ch",
+              "type": "number2",
+              "text": "Assertion is false, but the reason is true"
+            }
+          ],
+          "answer": [
+            {
+              "id": "655oorw4",
+              "type": "body",
+              "text": "Assertion: The sum of the clockwise moments is equal to the sum of the anticlockwise moments"
+            },
+            {
+              "id": "0hyrfi8i",
+              "type": "body",
+              "text": "Reason: The principle of conservation of momentum is valid if the external force on the system is zero"
+            },
+            {
+              "id": "kqjo8x0x",
+              "type": "body",
+              "text": "Mark the correct choice as"
+            },
+            {
+              "id": "xxfgiw1b",
+              "type": "number2",
+              "text": "If both the assertion and the reason are true and the reason is the correct explanation of assertion"
+            },
+            {
+              "id": "du9yimci",
+              "type": "number2",
+              "text": "If both the assertion and the reason are true, but the reason is not the correct explanation of the assertion"
+            },
+            {
+              "id": "jndntsqv",
+              "type": "number2",
+              "text": "Assertion is true, but the reason is false"
+            },
+            {
+              "id": "w3ef9ner",
+              "type": "number2",
+              "text": "Assertion is false, but the reason is true"
+            },
+            {
+              "id": "py5o79e4",
+              "type": "highlight-red",
+              "text": "Answer: B. If both the assertion and the reason are true, but the reason is not the correct explanation of the assertion"
+            }
+          ]
+        },
+        {
+          "id": "q9vcfckg",
+          "source": "book",
+          "isBoardExam": true,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "4yqg8b3i",
+              "type": "body",
+              "text": "Define inertia. Give its classification."
+            }
+          ],
+          "answer": [
+            {
+              "id": "ltjczmxf",
+              "type": "highlight-red",
+              "text": "Inertia"
+            },
+            {
+              "id": "0addm8e5",
+              "type": "bullet1",
+              "text": "The property of a body to resist any change in its state of rest or the state of uniform motion, unless it is influenced upon by an external unbalanced force, is known as ‘inertia’."
+            },
+            {
+              "id": "ejxcizf8",
+              "type": "highlight-red",
+              "text": "Types"
+            },
+            {
+              "id": "4d6f4jum",
+              "type": "number1",
+              "text": "Inertia of rest- The resistance of a body to change its state of rest"
+            },
+            {
+              "id": "nxy4l7fa",
+              "type": "number1",
+              "text": "Inertia of motion- The resistance of a body to change its state of motion"
+            },
+            {
+              "id": "p2owa3z1",
+              "type": "number1",
+              "text": "Inertia of direction-The resistance of a body to change its direction of motion"
+            }
+          ]
+        },
+        {
+          "id": "qmbgsva4",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "7jpfnxm5",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "4jplzgbw",
+                  "type": "body",
+                  "text": "Two bodies have a mass ratio of"
+                },
+                {
+                  "id": "anejyfyt",
+                  "type": "equation",
+                  "equation": "3:4"
+                },
+                {
+                  "id": "u6skwut5",
+                  "type": "body",
+                  "text": ". The force applied on the bigger mass produces an acceleration of"
+                },
+                {
+                  "id": "7wlogs1s",
+                  "type": "equation",
+                  "equation": "12 ms^{-2}"
+                },
+                {
+                  "id": "9kk0i7i7",
+                  "type": "body",
+                  "text": ".What could be the acceleration of the other body, if the same force acts on it?"
+                }
+              ]
+            }
+          ],
+          "answer": [
+            {
+              "id": "dj2b0nmj",
+              "type": "highlight-red",
+              "text": "**Given:**"
+            },
+            {
+              "id": "hgc4wjw8",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "h7wvgqx0",
+                  "type": "body",
+                  "text": "Mass ratio of two bodies is"
+                },
+                {
+                  "id": "cgc85nth",
+                  "type": "equation",
+                  "equation": "3:4"
+                }
+              ]
+            },
+            {
+              "id": "fyd4rk7o",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "jdyqqiou",
+                  "type": "body",
+                  "text": "Mass of smaller body"
+                },
+                {
+                  "id": "lgtzudoz",
+                  "type": "equation",
+                  "equation": "=m_{1}=3 kg"
+                }
+              ]
+            },
+            {
+              "id": "qrak93c5",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "59dhka5v",
+                  "type": "body",
+                  "text": "Mass of bigger body"
+                },
+                {
+                  "id": "qh2gjp5y",
+                  "type": "equation",
+                  "equation": "=m_{2}=4 kg"
+                }
+              ]
+            },
+            {
+              "id": "6g1fh797",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "eeg4malo",
+                  "type": "body",
+                  "text": "Acceleration due to force applied by bigger body"
+                },
+                {
+                  "id": "2mavwjnm",
+                  "type": "equation",
+                  "equation": "=a_{2}=12 ms^{-2}"
+                }
+              ]
+            },
+            {
+              "id": "rb0ak8zw",
+              "type": "highlight-red",
+              "text": "**To find:**"
+            },
+            {
+              "id": "y77gz8j5",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "1uhbx180",
+                  "type": "body",
+                  "text": "Acceleration due to the same force on the smaller body"
+                },
+                {
+                  "id": "gu7d286v",
+                  "type": "equation",
+                  "equation": "=a_{1}=?"
+                }
+              ]
+            },
+            {
+              "id": "84qpxsqx",
+              "type": "highlight-red",
+              "text": "Solution:"
+            },
+            {
+              "id": "mwr3h8b9",
+              "type": "body",
+              "text": "According to Newton’s second law of motion,"
+            },
+            {
+              "id": "1syq2378",
+              "type": "equation",
+              "equation": "F=m×a"
+            },
+            {
+              "id": "25wnmz66",
+              "type": "equation",
+              "equation": "F_{1}=m_{1}a_{1};  F_{2}=m_{2}a_{2}"
+            },
+            {
+              "id": "vkcj6lp7",
+              "type": "equation",
+              "equation": "F_{1}=3a_{1}  ; F_{2}=4×12=48 N"
+            },
+            {
+              "id": "zkxjal9z",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "hofg1v7k",
+                  "type": "body",
+                  "text": "As the force is the equal"
+                },
+                {
+                  "id": "dkrashro",
+                  "type": "equation",
+                  "equation": "F_{1}=F_{2}"
+                }
+              ]
+            },
+            {
+              "id": "6trf13wa",
+              "type": "equation",
+              "equation": "3a_{1}=48"
+            },
+            {
+              "id": "qcz4fdr6",
+              "type": "equation",
+              "equation": "\\begin{aligned}\na_{1}&=\\frac{48}{3} \\\\\n&=16 ms^{-2}\n\\end{aligned}"
+            },
+            {
+              "id": "nw18850g",
+              "type": "body",
+              "text": "So acceleration due to the same force on the smaller body is"
+            },
+            {
+              "id": "m6s8q3b7",
+              "type": "equation",
+              "equation": "a_{1}=16 ms^{-2}"
+            }
+          ]
+        },
+        {
+          "id": "kdt074hp",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "tzrp4cjl",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "5fhbgfb9",
+                  "type": "body",
+                  "text": "A ball of mass"
+                },
+                {
+                  "id": "smt61zi8",
+                  "type": "equation",
+                  "equation": "1 kg"
+                },
+                {
+                  "id": "4mw8qebw",
+                  "type": "body",
+                  "text": "moving with a speed of"
+                },
+                {
+                  "id": "dbjrjo5a",
+                  "type": "equation",
+                  "equation": "10 ms^{-1}"
+                },
+                {
+                  "id": "jcy8e21w",
+                  "type": "body",
+                  "text": "rebounds after a perfect elastic collision with the floor. Calculate the change in linear momentum of the ball"
+                }
+              ]
+            }
+          ],
+          "answer": [
+            {
+              "id": "se0vahwq",
+              "type": "highlight-red",
+              "text": "**Given:**"
+            },
+            {
+              "id": "oil6as96",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "cswxfoee",
+                  "type": "body",
+                  "text": "Mass"
+                },
+                {
+                  "id": "s9r3skfx",
+                  "type": "equation",
+                  "equation": "m=1kg"
+                }
+              ]
+            },
+            {
+              "id": "tzymvubz",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "kisyqtui",
+                  "type": "body",
+                  "text": "Initial velocity"
+                },
+                {
+                  "id": "tzor6zxk",
+                  "type": "equation",
+                  "equation": "u=10 ms^{-1}"
+                }
+              ]
+            },
+            {
+              "id": "7dtf0bje",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "gx88bp6w",
+                  "type": "body",
+                  "text": "Final velocity"
+                },
+                {
+                  "id": "01dldx60",
+                  "type": "equation",
+                  "equation": "v=-10 ms^{-1}"
+                }
+              ]
+            },
+            {
+              "id": "hrgsf6ux",
+              "type": "highlight-red",
+              "text": "To find:"
+            },
+            {
+              "id": "qdzb90eu",
+              "type": "body",
+              "text": "Change in linear momentum"
+            },
+            {
+              "id": "syn57rnb",
+              "type": "highlight-red",
+              "text": "Solution:"
+            },
+            {
+              "id": "nfli45qx",
+              "type": "equation",
+              "equation": "\\begin{aligned}\nMomentum before collision &=mu \\\\\n&=1×10 \\\\\n&=10 kg ms^{-1}\n\\end{aligned}"
+            },
+            {
+              "id": "ur55c91h",
+              "type": "equation",
+              "equation": "\\begin{aligned}\nMomentum after collision&=mv \\\\\n&=1×(-10) \\\\\n&=-10 kg ms^{-1}\n\\end{aligned}"
+            },
+            {
+              "id": "pzfgd2ux",
+              "type": "equation",
+              "equation": "\\begin{aligned}\nChange in linear momentum&=mv-mu \\\\\n&=-10-10 \\\\\n&=-20 kg ms^{-1}\n\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "9ibx1fuj",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "z59e641l",
+              "type": "body",
+              "text": "What are the types of inertia? Give an example for each type."
+            }
+          ],
+          "answer": [
+            {
+              "id": "t62ej3a5",
+              "type": "highlight-red",
+              "text": "Types of Inertia"
+            },
+            {
+              "id": "qv6fgs1k",
+              "type": "highlight-blue",
+              "text": "Inertia of Rest"
+            },
+            {
+              "id": "6snm11i6",
+              "type": "bullet1",
+              "text": "The resistance of a body to change its state of rest is called inertia of rest"
+            },
+            {
+              "id": "op1y4wye",
+              "type": "bullet2",
+              "text": "Example - When you vigorously shake the branches of a tree, some of the leaves and fruits are detached and they fall down"
+            },
+            {
+              "id": "26x0okcf",
+              "type": "highlight-blue",
+              "text": "**Inertia of M****otion**"
+            },
+            {
+              "id": "tf6oxai7",
+              "type": "bullet1",
+              "text": "The resistance of a body to change its state of motion is called inertia of motion"
+            },
+            {
+              "id": "sz3bj1nb",
+              "type": "bullet2",
+              "text": "Example - An athlete runs some distance before jumping. This will help him jump longer and higher (Inertia of motion)."
+            },
+            {
+              "id": "gngay2d7",
+              "type": "highlight-blue",
+              "text": "Inertia of Direction"
+            },
+            {
+              "id": "xi2n0ntl",
+              "type": "bullet1",
+              "text": "The resistance of a body to change its direction of motion is called inertia of direction"
+            },
+            {
+              "id": "iqxghd67",
+              "type": "bullet2",
+              "text": "Example - When you make a sharp turn while driving a car, you tend to lean sideways (Inertia of direction)."
+            }
+          ]
+        },
+        {
+          "id": "pe68gt35",
+          "source": "book",
+          "isBoardExam": true,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "9jm89sm4",
+              "type": "body",
+              "text": "State and prove the law of conservation of linear momentum."
+            }
+          ],
+          "answer": [
+            {
+              "id": "cujrnoll",
+              "type": "highlight-red",
+              "text": "Law of Conservation of Linear Momentum"
+            },
+            {
+              "id": "ob6fpzsd",
+              "type": "bullet1",
+              "text": "In the absence of an external force, the algebraic sum of the momentum after collision is numerically equal to the algebraic sum of the momentum before collision."
+            },
+            {
+              "id": "m2tmow0s",
+              "type": "highlight-red",
+              "text": "Proof"
+            },
+            {
+              "id": "tq8alay3",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "sv5g3jda",
+                  "type": "body",
+                  "text": "Consider two bodies"
+                },
+                {
+                  "id": "hjeg0p1m",
+                  "type": "equation",
+                  "equation": "A"
+                },
+                {
+                  "id": "qzyjp3yv",
+                  "type": "body",
+                  "text": "and"
+                },
+                {
+                  "id": "0j0nb50e",
+                  "type": "equation",
+                  "equation": "B"
+                }
+              ]
+            },
+            {
+              "id": "54f55588",
+              "type": "image",
+              "url": "/db/10-science/images/54f55588.png",
+              "metadata": {
+                "altText": "Answer Image",
+                "size": "medium"
+              }
+            },
+            {
+              "id": "67u5918o",
+              "type": "body",
+              "text": "By Newton’s III law of motion,"
+            },
+            {
+              "id": "r42e3m23",
+              "type": "equation",
+              "equation": "\\begin{aligned}\nF_{A}&= -F_{B} \\\\\n\\frac{m_{1}(v_{1}-u_{1})}{t} &= -\\frac{m_{2}(v_{2}–u_{2})}{t} \\\\\nm_{1}v_{1}+m_{2}v_{2}&=m_{1}u_{1}+m_{2}u_{2}\n\\end{aligned}"
+            },
+            {
+              "id": "rvqqy7xn",
+              "type": "body",
+              "text": "Hence the law of conservation linear momentum is proved."
+            }
+          ]
+        },
+        {
+          "id": "esret3r8",
+          "source": "extra",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "zxnovvz4",
+              "type": "body",
+              "text": "An athlete runs some distance before jumping is an example for __________"
+            },
+            {
+              "id": "szyolffr",
+              "type": "number2",
+              "text": "Inertia of rest"
+            },
+            {
+              "id": "c5qv69f5",
+              "type": "number2",
+              "text": "Inertia of motion"
+            },
+            {
+              "id": "osy3nx7p",
+              "type": "number2",
+              "text": "Inertia of direction"
+            }
+          ],
+          "answer": [
+            {
+              "id": "g4fblh1i",
+              "type": "body",
+              "text": "An athlete runs some distance before jumping is an example for __________"
+            },
+            {
+              "id": "kycbidtn",
+              "type": "number2",
+              "text": "Inertia of rest"
+            },
+            {
+              "id": "82stttlm",
+              "type": "number2",
+              "text": "Inertia of motion"
+            },
+            {
+              "id": "j5p5wa70",
+              "type": "number2",
+              "text": "Inertia of direction"
+            },
+            {
+              "id": "7hqumvo1",
+              "type": "highlight-red",
+              "text": "Answer: B. Inertia of motion"
+            }
+          ]
+        },
+        {
+          "id": "c7wzfirr",
+          "source": "extra",
+          "isBoardExam": true,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "fgd69e4n",
+              "type": "body",
+              "text": "The momentum of a massive object at rest is___________"
+            },
+            {
+              "id": "hu9eoegp",
+              "type": "number2",
+              "text": "very large"
+            },
+            {
+              "id": "6ksot6cs",
+              "type": "number2",
+              "text": "very small"
+            },
+            {
+              "id": "qmkdtlwd",
+              "type": "number2",
+              "text": "Zero"
+            },
+            {
+              "id": "71massm7",
+              "type": "number2",
+              "text": "infinity"
+            }
+          ],
+          "answer": [
+            {
+              "id": "ectgymkf",
+              "type": "body",
+              "text": "The momentum of a massive object at rest is___________"
+            },
+            {
+              "id": "yp86kto0",
+              "type": "number2",
+              "text": "very large"
+            },
+            {
+              "id": "3v3xtwuu",
+              "type": "number2",
+              "text": "very small"
+            },
+            {
+              "id": "liop3bo1",
+              "type": "number2",
+              "text": "Zero"
+            },
+            {
+              "id": "6fwgpvx8",
+              "type": "number2",
+              "text": "infinity"
+            },
+            {
+              "id": "d97886l7",
+              "type": "highlight-red",
+              "text": "Answer: C. Zero"
+            }
+          ]
+        },
+        {
+          "id": "f9xxz3lh",
+          "source": "extra",
+          "isBoardExam": true,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "9ybpa75w",
+              "type": "body",
+              "text": "A and B are two objects with masses 100kg and 75kg respectively, then______"
+            },
+            {
+              "id": "sytxxey3",
+              "type": "number2",
+              "text": "both will have same inertia"
+            },
+            {
+              "id": "k5ticgff",
+              "type": "number2",
+              "text": "B will have more inertia",
+              "number": "B"
+            },
+            {
+              "id": "7tf25azj",
+              "type": "number2",
+              "text": "A will have more inertia",
+              "number": "A"
+            },
+            {
+              "id": "21546u9q",
+              "type": "number2",
+              "text": "both will have less inertia"
+            }
+          ],
+          "answer": [
+            {
+              "id": "des320fu",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "oajrr07c",
+                  "type": "equation",
+                  "equation": "A"
+                },
+                {
+                  "id": "m9boydqu",
+                  "type": "body",
+                  "text": "and"
+                },
+                {
+                  "id": "4tusq9kd",
+                  "type": "equation",
+                  "equation": "B"
+                },
+                {
+                  "id": "zoqiyxw6",
+                  "type": "body",
+                  "text": "are two objects with masses 100kg and 75kg respectively, then______"
+                }
+              ]
+            },
+            {
+              "id": "rn72xjsv",
+              "type": "number2",
+              "text": "both will have same inertia"
+            },
+            {
+              "id": "nrj5vhe5",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "4r0eiigp",
+                  "type": "equation",
+                  "equation": "B"
+                },
+                {
+                  "id": "cijlb2wl",
+                  "type": "number2",
+                  "text": "will have more inertia"
+                }
+              ]
+            },
+            {
+              "id": "fkem7540",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "ljl4db1g",
+                  "type": "equation",
+                  "equation": "A"
+                },
+                {
+                  "id": "vf2wkj00",
+                  "type": "number2",
+                  "text": "will have more inertia"
+                }
+              ]
+            },
+            {
+              "id": "wcgn57gf",
+              "type": "number2",
+              "text": "both will have less inertia"
+            },
+            {
+              "id": "hmt5cd9b",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "9o3nt72n",
+                  "type": "highlight-red",
+                  "text": "Answer: C."
+                },
+                {
+                  "id": "s5p4h69p",
+                  "type": "equation",
+                  "equation": "A"
+                },
+                {
+                  "id": "w51303is",
+                  "type": "highlight-red",
+                  "text": "will have more inertia"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ohx7juhx",
+          "source": "extra",
+          "isBoardExam": true,
+          "questionType": "very-long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "d1hk4m39",
+              "type": "number2",
+              "text": "Newton’s first law of motion gives a qualitative definition of force-Justify."
+            },
+            {
+              "id": "0a4c85sm",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "vv5xvvpi",
+                  "type": "number2",
+                  "text": "The figure represents two bodies of masses"
+                },
+                {
+                  "id": "3sxvjiv8",
+                  "type": "equation",
+                  "equation": "10kg"
+                },
+                {
+                  "id": "786kodz5",
+                  "type": "number2",
+                  "text": "and"
+                },
+                {
+                  "id": "v0pgdfnk",
+                  "type": "equation",
+                  "equation": "15kg"
+                },
+                {
+                  "id": "6bnufoge",
+                  "type": "number2",
+                  "text": "moving with an initial velocity of"
+                },
+                {
+                  "id": "ufoa69cg",
+                  "type": "equation",
+                  "equation": "10 ms^{-1}"
+                },
+                {
+                  "id": "mdqlci78",
+                  "type": "number2",
+                  "text": "and"
+                },
+                {
+                  "id": "q28xlvdi",
+                  "type": "equation",
+                  "equation": "5 ms^{-1}"
+                },
+                {
+                  "id": "pl3shixe",
+                  "type": "number2",
+                  "text": "respectively They collide with each other After collision, they move with velocities"
+                },
+                {
+                  "id": "wi9ki7z8",
+                  "type": "equation",
+                  "equation": "4 ms^{-1}"
+                },
+                {
+                  "id": "pn518qjt",
+                  "type": "number2",
+                  "text": "and"
+                },
+                {
+                  "id": "l4ordmim",
+                  "type": "equation",
+                  "equation": "9 ms^{-1}"
+                },
+                {
+                  "id": "ud8oha8g",
+                  "type": "number2",
+                  "text": "respectively The time of collision is"
+                },
+                {
+                  "id": "145e6riv",
+                  "type": "equation",
+                  "equation": "2s"
+                },
+                {
+                  "id": "4339ecql",
+                  "type": "number2",
+                  "text": "Now calculate"
+                },
+                {
+                  "id": "uslvcyg2",
+                  "type": "equation",
+                  "equation": "F_{1}"
+                },
+                {
+                  "id": "y8tv72xi",
+                  "type": "number2",
+                  "text": "and"
+                },
+                {
+                  "id": "3ix03r6m",
+                  "type": "equation",
+                  "equation": "F_{2}"
+                },
+                {
+                  "id": "yotul6pu",
+                  "type": "number2",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "id": "8e34af54",
+              "type": "image",
+              "url": "/db/10-science/images/8e34af54.png",
+              "metadata": {
+                "altText": "Question Image",
+                "size": "medium"
+              }
+            }
+          ],
+          "answer": [
+            {
+              "id": "iqtr6090",
+              "type": "number2",
+              "text": "Newton’s first law of motion states that an object remains in the state of rest or of uniform motion in a straight line unless compelled to change that state by an applied unbalanced force."
+            },
+            {
+              "id": "r1272bvm",
+              "type": "highlight-red",
+              "text": "**Reason:**"
+            },
+            {
+              "id": "3a5z0f7o",
+              "type": "bullet1",
+              "text": "We tend to remain at rest with respect to the seat, until the driver applies brake to stop the motor car."
+            },
+            {
+              "id": "ckjzaj54",
+              "type": "bullet1",
+              "text": "With the application of brake, the car slows down but our body tends to continue in the same state of motion because of inertia."
+            },
+            {
+              "id": "erxjtbh9",
+              "type": "bullet1",
+              "text": "A sudden application of brake may cause injury to us by collision with the panels in front."
+            },
+            {
+              "id": "134b07e9",
+              "type": "image",
+              "url": "/db/10-science/images/134b07e9.png",
+              "metadata": {
+                "altText": "Answer Image",
+                "size": "medium"
+              }
+            },
+            {
+              "id": "vc3feteo",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "xakzclye",
+                  "type": "body",
+                  "text": "Mass of a body"
+                },
+                {
+                  "id": "y7nui57q",
+                  "type": "equation",
+                  "equation": "A, (m_{1})=10 kg"
+                }
+              ]
+            },
+            {
+              "id": "8hpbnlr9",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "w56o5t5e",
+                  "type": "body",
+                  "text": "Mass of a body"
+                },
+                {
+                  "id": "yjl8a0mv",
+                  "type": "equation",
+                  "equation": "B, (m_{2})=15 kg"
+                }
+              ]
+            },
+            {
+              "id": "f25mhjn3",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "95wkqepi",
+                  "type": "body",
+                  "text": "Initial velocity of"
+                },
+                {
+                  "id": "upn9n0d3",
+                  "type": "equation",
+                  "equation": "A, (u_{1})=10 m/s"
+                }
+              ]
+            },
+            {
+              "id": "f6900qao",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "i7kuuqkl",
+                  "type": "body",
+                  "text": "Initial velocity of"
+                },
+                {
+                  "id": "cb95d2r4",
+                  "type": "equation",
+                  "equation": "B, (u_{2})=5 m/s"
+                }
+              ]
+            },
+            {
+              "id": "5lerna0r",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "rq13tfx1",
+                  "type": "body",
+                  "text": "Final velocity of"
+                },
+                {
+                  "id": "9fsj265p",
+                  "type": "equation",
+                  "equation": "A, (v_{1})=4 m/s"
+                }
+              ]
+            },
+            {
+              "id": "gildprwl",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "nsu5j9ir",
+                  "type": "body",
+                  "text": "Final velocity of"
+                },
+                {
+                  "id": "9ewmnc51",
+                  "type": "equation",
+                  "equation": "B, (v_{2})=9 m/s"
+                }
+              ]
+            },
+            {
+              "id": "q90u5dv2",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "pcpek86k",
+                  "type": "body",
+                  "text": "The time of collision"
+                },
+                {
+                  "id": "f5rnty6z",
+                  "type": "equation",
+                  "equation": ", (t)=2"
+                },
+                {
+                  "id": "mkh181ep",
+                  "type": "body",
+                  "text": "seconds"
+                }
+              ]
+            },
+            {
+              "id": "o3270ke3",
+              "type": "body",
+              "text": "According to Newton’s second law of motion,"
+            },
+            {
+              "id": "mnplcr92",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "ax6iqp32",
+                  "type": "body",
+                  "text": "Force acting on"
+                },
+                {
+                  "id": "x3u2ci9q",
+                  "type": "equation",
+                  "equation": "B"
+                },
+                {
+                  "id": "xf5bnkii",
+                  "type": "body",
+                  "text": "(action),"
+                },
+                {
+                  "id": "7c7muujh",
+                  "type": "equation",
+                  "equation": "F_{1}="
+                },
+                {
+                  "id": "8u4n7wfk",
+                  "type": "body",
+                  "text": "mass of"
+                },
+                {
+                  "id": "x4ylkt2y",
+                  "type": "equation",
+                  "equation": "B×"
+                },
+                {
+                  "id": "jx1whowx",
+                  "type": "body",
+                  "text": "acceleration on"
+                },
+                {
+                  "id": "yn1vro48",
+                  "type": "equation",
+                  "equation": "B"
+                }
+              ]
+            },
+            {
+              "id": "zsje9p2e",
+              "type": "equation",
+              "equation": "\\begin{aligned}\nF_{1}&=\\frac{m_{2}(v_{2}-u_{2})}{t} \\\\\n&=\\frac{15(9-5)}{2} \\\\\n&=\\frac{15×4}{2} \\\\\n&=30N\n\\end{aligned}"
+            },
+            {
+              "id": "zh717p9b",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "lq05tkvl",
+                  "type": "body",
+                  "text": "Force acting on"
+                },
+                {
+                  "id": "3xbqcese",
+                  "type": "equation",
+                  "equation": "A"
+                },
+                {
+                  "id": "ft2ez6qa",
+                  "type": "body",
+                  "text": "(reaction),"
+                },
+                {
+                  "id": "65uovacj",
+                  "type": "equation",
+                  "equation": "F_{2}="
+                },
+                {
+                  "id": "nx8s0d22",
+                  "type": "body",
+                  "text": "mass of"
+                },
+                {
+                  "id": "p7pb1cdf",
+                  "type": "equation",
+                  "equation": "A×"
+                },
+                {
+                  "id": "pv9fx7kk",
+                  "type": "body",
+                  "text": "acceleration on"
+                },
+                {
+                  "id": "rgnaxgra",
+                  "type": "equation",
+                  "equation": "A"
+                }
+              ]
+            },
+            {
+              "id": "ebjax727",
+              "type": "equation",
+              "equation": "\\begin{aligned}\nF_{1}&=\\frac{m_{1}(v_{1}-u_{1})}{t} \\\\\n&=\\frac{10(4-10)}{2} \\\\\n&=\\frac{10×(-6)}{2} \\\\\n&=-30N\n\\end{aligned}"
+            },
+            {
+              "id": "zoofibtq",
+              "type": "body",
+              "text": "According to Newton’s third law of motion"
+            },
+            {
+              "id": "xh51klvv",
+              "type": "equation",
+              "equation": "F_{1}= –F_{2}"
+            },
+            {
+              "id": "eu0c792g",
+              "type": "equation",
+              "equation": "∴F_{1}=30N"
+            },
+            {
+              "id": "8t3ntxiy",
+              "type": "equation",
+              "equation": "F_{2}=-30N"
+            }
+          ]
+        },
+        {
+          "id": "ps6wavc9",
+          "source": "extra",
+          "isBoardExam": true,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "7oe90iiv",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "er4ty9xk",
+                  "type": "body",
+                  "text": "Calculate the velocity of a moving body of mass"
+                },
+                {
+                  "id": "vqoo3v6s",
+                  "type": "equation",
+                  "equation": "5 kg"
+                },
+                {
+                  "id": "v2ncrso2",
+                  "type": "body",
+                  "text": "whose linear momentum is"
+                },
+                {
+                  "id": "9nnicqt3",
+                  "type": "equation",
+                  "equation": "2.5 kgms^{–1}"
+                }
+              ]
+            }
+          ],
+          "answer": [
+            {
+              "id": "5bfs8l2s",
+              "type": "equation",
+              "equation": "linear momentum=mass×velocity"
+            },
+            {
+              "id": "b0ounxjn",
+              "type": "equation",
+              "equation": "\\begin{aligned}\nvelocity&=\\frac{linear momentum }{mass} \\\\\n&=\\frac{ 2.5}{5} \\\\\n&= 0.5 m s^{–1}\n\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "3ze5qd9b",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "swr10lit",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "ex79kj74",
+                  "type": "body",
+                  "text": "Calculate the velocity of a moving body of mass"
+                },
+                {
+                  "id": "z1wkqm83",
+                  "type": "equation",
+                  "equation": "5 kg"
+                },
+                {
+                  "id": "ritqpso0",
+                  "type": "body",
+                  "text": "whose linear momentum is"
+                },
+                {
+                  "id": "1no58c99",
+                  "type": "equation",
+                  "equation": "2.5 kgms^{–1}"
+                }
+              ]
+            }
+          ],
+          "answer": [
+            {
+              "id": "883xjf28",
+              "type": "equation",
+              "equation": "linear momentum=mass×velocity"
+            },
+            {
+              "id": "9a436pun",
+              "type": "equation",
+              "equation": "\\begin{aligned}\nvelocity&=\\frac{linear momentum }{mass} \\\\\nv&=\\frac{ 2.5}{5}= 0.5 m s^{–1}\n\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "w26bh1ll",
+          "source": "extra",
+          "isBoardExam": true,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "jkyogmvy",
+              "type": "body",
+              "text": "Inertia of a body depends on:"
+            },
+            {
+              "id": "6c4fbh9n",
+              "type": "body",
+              "text": "(a) Weight of the object"
+            },
+            {
+              "id": "qajisvp4",
+              "type": "body",
+              "text": "(b) Acceleration due to gravity of planet"
+            },
+            {
+              "id": "7pwpftoy",
+              "type": "body",
+              "text": "(c) Mass of the object"
+            },
+            {
+              "id": "jl0frsax",
+              "type": "body",
+              "text": "(d) Both (a) and (b)"
+            }
+          ],
+          "answer": [
+            {
+              "id": "zxixek9u",
+              "type": "body",
+              "text": "Inertia of a body depends on:"
+            },
+            {
+              "id": "hl3d04i8",
+              "type": "body",
+              "text": "(a) Weight of the object"
+            },
+            {
+              "id": "i1vr4j1i",
+              "type": "body",
+              "text": "(b) Acceleration due to gravity of planet"
+            },
+            {
+              "id": "v8m4k6sj",
+              "type": "body",
+              "text": "(c) Mass of the object"
+            },
+            {
+              "id": "4sexzwtw",
+              "type": "body",
+              "text": "(d) Both (a) and (b)"
+            },
+            {
+              "id": "z08i9oou",
+              "type": "highlight-brown",
+              "text": "Answer: (c) Mass of the object"
+            }
+          ]
+        },
+        {
+          "id": "iyhkqr52",
+          "source": "extra",
+          "isBoardExam": true,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "lkalketk",
+              "type": "body",
+              "text": "Explain the various types of inertia with examples."
+            }
+          ],
+          "answer": [
+            {
+              "id": "cwhu3js1",
+              "type": "sub-topic-3",
+              "text": "Inertia is of three types:"
+            },
+            {
+              "id": "lw2mnq91",
+              "type": "number1",
+              "text": "Inertia of rest: The resistance of a body to change its state of rest is called inertia of rest. Eg: When you vigorously shake the branches of a tree some of the leaves and fruit are detached and they fall down."
+            },
+            {
+              "id": "p3newieh",
+              "type": "number1",
+              "text": "Inertia of motion**:** The resistance of a body to change its state of motion is called inertia of motion. Eg: An athlete runs some distance before jumping. Because, this will help him jump longer and higher."
+            },
+            {
+              "id": "ew582tzf",
+              "type": "number1",
+              "text": "Inertia of direction**:** The resistance of a body to change its direction of motion is called inertia of direction. Eg: When you make a sharp turn while driving a car, you tend to lean sideways."
+            }
+          ]
+        },
+        {
+          "id": "1u429463",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "5dv8p57a",
+              "type": "body",
+              "text": "Impulse is equals to"
+            },
+            {
+              "id": "3hpw7h4e",
+              "type": "number2",
+              "text": "rate of change of momentum"
+            },
+            {
+              "id": "xqz524rj",
+              "type": "number2",
+              "text": "rate of force and time"
+            },
+            {
+              "id": "hgdm86p9",
+              "type": "number2",
+              "text": "change of momentum"
+            },
+            {
+              "id": "9438m5lu",
+              "type": "number2",
+              "text": "rate of change of mass"
+            }
+          ],
+          "answer": [
+            {
+              "id": "d93cy7kg",
+              "type": "body",
+              "text": "Impulse is equals to"
+            },
+            {
+              "id": "5h6qxwwt",
+              "type": "number2",
+              "text": "rate of change of momentum"
+            },
+            {
+              "id": "delip1yd",
+              "type": "number2",
+              "text": "rate of force and time"
+            },
+            {
+              "id": "h2fbo1rx",
+              "type": "number2",
+              "text": "change of momentum"
+            },
+            {
+              "id": "3uup0ahr",
+              "type": "number2",
+              "text": "rate of change of mass"
+            },
+            {
+              "id": "h6mfrt6z",
+              "type": "highlight-red",
+              "text": "Answer: C. change of momentum"
+            }
+          ]
+        },
+        {
+          "id": "v9vs52ic",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "9fe0ziym",
+              "type": "body",
+              "text": "Newton’s III law is applicable"
+            },
+            {
+              "id": "r0ung9eh",
+              "type": "number2",
+              "text": "for a body is at rest"
+            },
+            {
+              "id": "vsy7xlt7",
+              "type": "number2",
+              "text": "for a body in motion"
+            },
+            {
+              "id": "76zq79rv",
+              "type": "number2",
+              "text": "both a & b"
+            },
+            {
+              "id": "ffoc3o72",
+              "type": "number2",
+              "text": "only for bodies with equal masses"
+            }
+          ],
+          "answer": [
+            {
+              "id": "dwwv38m3",
+              "type": "body",
+              "text": "Newton’s III law is applicable"
+            },
+            {
+              "id": "o8xvpxgc",
+              "type": "number2",
+              "text": "for a body is at rest"
+            },
+            {
+              "id": "lsvenvrr",
+              "type": "number2",
+              "text": "for a body in motion"
+            },
+            {
+              "id": "w0rbrej5",
+              "type": "number2",
+              "text": "both a & b"
+            },
+            {
+              "id": "36ipyyob",
+              "type": "number2",
+              "text": "only for bodies with equal masses"
+            },
+            {
+              "id": "ajfcmbp4",
+              "type": "highlight-red",
+              "text": "Answer: C. both a & b"
+            }
+          ]
+        },
+        {
+          "id": "7eaxesib",
+          "source": "book",
+          "isBoardExam": true,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "bz6vsggp",
+              "type": "body",
+              "text": "In which of the following sport the turning of effect of force used"
+            },
+            {
+              "id": "9f5te4ij",
+              "type": "number2",
+              "text": "swimming"
+            },
+            {
+              "id": "gvrjmgjz",
+              "type": "number2",
+              "text": "tennis"
+            },
+            {
+              "id": "tmakoufu",
+              "type": "number2",
+              "text": "cycling"
+            },
+            {
+              "id": "r01344od",
+              "type": "number2",
+              "text": "hockey"
+            }
+          ],
+          "answer": [
+            {
+              "id": "c9zv570z",
+              "type": "body",
+              "text": "In which of the following sport the turning of effect of force used"
+            },
+            {
+              "id": "z9rvn9sr",
+              "type": "number2",
+              "text": "swimming"
+            },
+            {
+              "id": "oset9qf2",
+              "type": "number2",
+              "text": "tennis"
+            },
+            {
+              "id": "adutj0ov",
+              "type": "number2",
+              "text": "cycling"
+            },
+            {
+              "id": "2m7zzrvl",
+              "type": "number2",
+              "text": "hockey"
+            },
+            {
+              "id": "1ucwsjuc",
+              "type": "highlight-red",
+              "text": "Answer: C. cycling"
+            }
+          ]
+        },
+        {
+          "id": "yf86k8jv",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "7eryyw1r",
+              "type": "body",
+              "text": "One kilogram force equals to"
+            },
+            {
+              "id": "a5o12itf",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "904ty1j2",
+                  "type": "equation",
+                  "equation": "9.8"
+                },
+                {
+                  "id": "za91fqly",
+                  "type": "number2",
+                  "text": "dyne"
+                }
+              ]
+            },
+            {
+              "id": "35ya7u6p",
+              "type": "equation",
+              "equation": "9.8×10^{4} N"
+            },
+            {
+              "id": "t04htmbb",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "1yffp92f",
+                  "type": "equation",
+                  "equation": "98×10^{4}"
+                },
+                {
+                  "id": "q5anyvjn",
+                  "type": "number2",
+                  "text": "dyne"
+                }
+              ]
+            },
+            {
+              "id": "s18d2xgf",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "0wbkgqbj",
+                  "type": "equation",
+                  "equation": "980"
+                },
+                {
+                  "id": "pxka62mv",
+                  "type": "number2",
+                  "text": "dyne"
+                }
+              ]
+            }
+          ],
+          "answer": [
+            {
+              "id": "1p70z4gp",
+              "type": "body",
+              "text": "One kilogram force equals to"
+            },
+            {
+              "id": "oa28wtmz",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "nqxtmxam",
+                  "type": "equation",
+                  "equation": "9.8"
+                },
+                {
+                  "id": "mpmcdybd",
+                  "type": "number2",
+                  "text": "dyne"
+                }
+              ]
+            },
+            {
+              "id": "q1mz2jfz",
+              "type": "equation",
+              "equation": "9.8×10^{4} N"
+            },
+            {
+              "id": "lsqks5by",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "d44fbw8b",
+                  "type": "equation",
+                  "equation": "98×10^{4}"
+                },
+                {
+                  "id": "z9oby56y",
+                  "type": "number2",
+                  "text": "dyne"
+                }
+              ]
+            },
+            {
+              "id": "fb7mvfpu",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "v2wa8qxn",
+                  "type": "equation",
+                  "equation": "980"
+                },
+                {
+                  "id": "ww4r57cf",
+                  "type": "number2",
+                  "text": "dyne"
+                }
+              ]
+            },
+            {
+              "id": "4ycbkg64",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "lrhkibwu",
+                  "type": "highlight-red",
+                  "text": "Answer: C."
+                },
+                {
+                  "id": "8lulc8gb",
+                  "type": "equation",
+                  "equation": "98×10^{4}"
+                },
+                {
+                  "id": "pexjebpz",
+                  "type": "highlight-red",
+                  "text": "dyne"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "u9vx2j6h",
+          "source": "book",
+          "isBoardExam": true,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "us176ct4",
+              "type": "body",
+              "text": "To project the rockets which of the following principle(s) is / (are) required?"
+            },
+            {
+              "id": "a02swjwz",
+              "type": "number2",
+              "text": "Newton’s third law of motion"
+            },
+            {
+              "id": "8ugu7ypo",
+              "type": "number2",
+              "text": "Newton’s law of gravitation"
+            },
+            {
+              "id": "6121svy0",
+              "type": "number2",
+              "text": "Law of conservation of linear momentum"
+            },
+            {
+              "id": "hbdigo78",
+              "type": "number2",
+              "text": "Both a and c"
+            }
+          ],
+          "answer": [
+            {
+              "id": "iouuknec",
+              "type": "body",
+              "text": "To project the rockets which of the following principle(s) is / (are) required?"
+            },
+            {
+              "id": "qhufdy3s",
+              "type": "number2",
+              "text": "Newton’s third law of motion"
+            },
+            {
+              "id": "0occoumf",
+              "type": "number2",
+              "text": "Newton’s law of gravitation"
+            },
+            {
+              "id": "ur8b0r6x",
+              "type": "number2",
+              "text": "Law of conservation of linear momentum"
+            },
+            {
+              "id": "kfoy3dd6",
+              "type": "number2",
+              "text": "Both a and c"
+            },
+            {
+              "id": "vbz9y3rw",
+              "type": "highlight-red",
+              "text": "Answer: D. Both a and c"
+            }
+          ]
+        },
+        {
+          "id": "3g8xdttn",
+          "source": "book",
+          "isBoardExam": true,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "txnxuj1s",
+              "type": "body",
+              "text": "Fill in the blanks"
+            },
+            {
+              "id": "u31td8cp",
+              "type": "body",
+              "text": "By convention, the clockwise moments are taken as ___________ and the anticlockwise moments are taken as__________"
+            }
+          ],
+          "answer": [
+            {
+              "id": "wu0dh35t",
+              "type": "body",
+              "text": "Fill in the blanks"
+            },
+            {
+              "id": "q52pgfha",
+              "type": "body",
+              "text": "By convention, the clockwise moments are taken as ___________ and the anticlockwise moments are taken as__________"
+            },
+            {
+              "id": "66jwn4hd",
+              "type": "highlight-red",
+              "text": "Answer: Negative and Positive"
+            }
+          ]
+        },
+        {
+          "id": "ptt1wp0m",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "6mdj1scm",
+              "type": "body",
+              "text": "Fill in the blanks"
+            },
+            {
+              "id": "oorvl1ma",
+              "type": "body",
+              "text": "___________ is used to change the speed of car"
+            }
+          ],
+          "answer": [
+            {
+              "id": "el8jsb7u",
+              "type": "body",
+              "text": "Fill in the blanks"
+            },
+            {
+              "id": "qzxynmii",
+              "type": "body",
+              "text": "___________ is used to change the speed of car"
+            },
+            {
+              "id": "wbwtym98",
+              "type": "highlight-red",
+              "text": "Answer: Torque"
+            }
+          ]
+        },
+        {
+          "id": "9p2box23",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "very-short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "b1pteo20",
+              "type": "body",
+              "text": "True or false"
+            },
+            {
+              "id": "8a7r9s3d",
+              "type": "body",
+              "text": "Turning a nut with a spanner having a short handle is so easy than one with a long handle."
+            }
+          ],
+          "answer": [
+            {
+              "id": "wbbah3jn",
+              "type": "body",
+              "text": "True or false"
+            },
+            {
+              "id": "xc3cjm7c",
+              "type": "body",
+              "text": "Turning a nut with a spanner having a short handle is so easy than one with a long handle."
+            },
+            {
+              "id": "at2xptrv",
+              "type": "highlight-red",
+              "text": "Answer: False"
+            }
+          ]
+        },
+        {
+          "id": "61w63sye",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "jhpg6kcx",
+              "type": "body",
+              "text": "Classify the types of force based on their application"
+            }
+          ],
+          "answer": [
+            {
+              "id": "z54onpus",
+              "type": "bullet1",
+              "text": "Based on the direction in which the forces act, they can be classified into two types,"
+            },
+            {
+              "id": "vs2uqp31",
+              "type": "highlight-red",
+              "text": "1. Like Parallel Forces"
+            },
+            {
+              "id": "xlvumw9s",
+              "type": "bullet1",
+              "text": "Two or more forces of equal or unequal magnitude acting along the same direction, parallel to each other are called like parallel forces"
+            },
+            {
+              "id": "tf1ts0fb",
+              "type": "highlight-red",
+              "text": "2. Unlike Parallel Forces"
+            },
+            {
+              "id": "wpzr6hef",
+              "type": "bullet1",
+              "text": "If two or more equal or unequal forces acting along opposite directions parallel to each other, then they are called unlike parallel forces"
+            }
+          ]
+        },
+        {
+          "id": "mtceq8tk",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "fchod01f",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "o0zggeij",
+                  "type": "body",
+                  "text": "If a"
+                },
+                {
+                  "id": "q6nrjjtv",
+                  "type": "equation",
+                  "equation": "5 N"
+                },
+                {
+                  "id": "elmt9502",
+                  "type": "body",
+                  "text": "and a"
+                },
+                {
+                  "id": "c00qxc73",
+                  "type": "equation",
+                  "equation": "15 N"
+                },
+                {
+                  "id": "twr27l1v",
+                  "type": "body",
+                  "text": "forces are acting opposite to one another. Find the resultant force and the direction of action of the resultant force"
+                }
+              ]
+            }
+          ],
+          "answer": [
+            {
+              "id": "b6sg5s8g",
+              "type": "equation",
+              "equation": "F_{1}=5 N"
+            },
+            {
+              "id": "o7udpjnu",
+              "type": "equation",
+              "equation": "F_{2}=15 N"
+            },
+            {
+              "id": "s8p260ts",
+              "type": "equation",
+              "equation": "\\begin{aligned}\nR&=F_{1}+(-F_{2}) \\\\\n&=F_{1}-F_{2} \\\\\n&=5-15 \\\\\n&=-10 N\n\\end{aligned}"
+            },
+            {
+              "id": "9ln8zp39",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "yuewc0q3",
+                  "type": "body",
+                  "text": "Resultant force"
+                },
+                {
+                  "id": "z4vbkskm",
+                  "type": "equation",
+                  "equation": "=-10 N"
+                }
+              ]
+            },
+            {
+              "id": "xqp17r49",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "0c40oy10",
+                  "type": "body",
+                  "text": "Resultant force of"
+                },
+                {
+                  "id": "w1eldplf",
+                  "type": "equation",
+                  "equation": "-10 N"
+                },
+                {
+                  "id": "v86l4wtk",
+                  "type": "body",
+                  "text": "is acting in the direction of"
+                },
+                {
+                  "id": "6vwjtmmj",
+                  "type": "equation",
+                  "equation": "15 N"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "q5yk3uvk",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "ksnrjn00",
+              "type": "body",
+              "text": "Define moment of a couple"
+            }
+          ],
+          "answer": [
+            {
+              "id": "rxbm434v",
+              "type": "bullet1",
+              "text": "Two equal and unlike parallel forces applied simultaneously at two distinct points constitute a couple."
+            },
+            {
+              "id": "bj1on38x",
+              "type": "bullet1",
+              "text": "The line of action of the two forces does not coincide."
+            },
+            {
+              "id": "s2qpotkw",
+              "type": "bullet1",
+              "text": "Rotating effect of a couple is known as moment of a couple."
+            },
+            {
+              "id": "edf78c32",
+              "type": "image",
+              "url": "/db/10-science/images/edf78c32.png",
+              "metadata": {
+                "altText": "Answer Image",
+                "size": "medium"
+              }
+            }
+          ]
+        },
+        {
+          "id": "51nn3ymd",
+          "source": "book",
+          "isBoardExam": true,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "cgdmjxur",
+              "type": "body",
+              "text": "State the principle of moments."
+            }
+          ],
+          "answer": [
+            {
+              "id": "wyogi0c6",
+              "type": "highlight-red",
+              "text": "Principle of Moments:"
+            },
+            {
+              "id": "m7ek28lb",
+              "type": "bullet1",
+              "text": "Principle of moments states that when a number of like or unlike parallel forces act on a rigid body and the body is in equilibrium, then the algebraic sum of the moments in the clockwise direction is equal to the algebraic sum of the moments in the anticlockwise direction."
+            },
+            {
+              "id": "updqhkhp",
+              "type": "bullet1",
+              "text": "At equilibrium, the algebraic sum of the moments of all the individual forces about any point is equal to zero."
+            },
+            {
+              "id": "9nffkr43",
+              "type": "bullet1",
+              "text": "The principle of moments can be given as"
+            },
+            {
+              "id": "3vl87wwj",
+              "type": "equation",
+              "equation": "\\begin{aligned}\n(\\begin{aligned}\n&Moment in  \\\\\n&clockwise direction\n\\end{aligned})&=(\\begin{aligned}\n&Moment in  \\\\\n&anticlockwise direction\n\\end{aligned}) \\\\\nF_{1}×d_{1}&=F_{2}×d_{2}\n\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "hl45vh6e",
+          "source": "book",
+          "isBoardExam": true,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "dti7su6l",
+              "type": "body",
+              "text": "State Newton’s second law"
+            }
+          ],
+          "answer": [
+            {
+              "id": "hb4ycgcr",
+              "type": "highlight-red",
+              "text": "Newton’s Second Law"
+            },
+            {
+              "id": "ktnyoggx",
+              "type": "bullet1",
+              "text": "The force acting on a body is directly proportional to the rate of change of linear momentum of the body and the change in momentum takes place in the direction of the force."
+            },
+            {
+              "id": "phd4v9k1",
+              "type": "bullet1",
+              "text": "This law helps us to measure the amount of force."
+            },
+            {
+              "id": "n7xr046t",
+              "type": "bullet1",
+              "text": "So, it is also called as ‘law of force’"
+            },
+            {
+              "id": "lvus2szy",
+              "type": "equation",
+              "equation": "F=m×a"
+            }
+          ]
+        },
+        {
+          "id": "qbhzj8m6",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "g9n4bnwg",
+              "type": "body",
+              "text": "Why a spanner with a long handle is preferred to tighten screws in heavy vehicles?"
+            }
+          ],
+          "answer": [
+            {
+              "id": "5ns18mjt",
+              "type": "bullet1",
+              "text": "The turning effect of tightening screws is dependent on the perpendicular distance of the applied force from the axis of rotation is power arm."
+            },
+            {
+              "id": "v7m2bmyk",
+              "type": "bullet1",
+              "text": "Larger the perpendicular distance, lesser is the force required to turn the body."
+            },
+            {
+              "id": "i2rpqa9h",
+              "type": "bullet1",
+              "text": "Hence, a spanner with a long handle is preferred to tighten screws in heavy vehicles."
+            }
+          ]
+        },
+        {
+          "id": "nhjqxqle",
+          "source": "book",
+          "isBoardExam": true,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "lu8ksq1w",
+              "type": "body",
+              "text": "While catching a cricket ball the fielder lowers his hands backwards. Why?"
+            }
+          ],
+          "answer": [
+            {
+              "id": "lfttzk0e",
+              "type": "bullet1",
+              "text": "When the fielder lowers his hands backwards, the value of the time of collision increases, and thus the retardation decreases."
+            },
+            {
+              "id": "n8nv73p6",
+              "type": "bullet1",
+              "text": "This reduces the retarding force and the fielder's palm is not as badly injured."
+            }
+          ]
+        },
+        {
+          "id": "raht1vyr",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "0cetqem8",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "tge14tpr",
+                  "type": "body",
+                  "text": "A mechanic unscrew a nut by applying a force of"
+                },
+                {
+                  "id": "l16zy8g0",
+                  "type": "equation",
+                  "equation": "140 N"
+                },
+                {
+                  "id": "ybdqmmdu",
+                  "type": "body",
+                  "text": "with a spanner of length"
+                },
+                {
+                  "id": "rvesz6pa",
+                  "type": "equation",
+                  "equation": "40 cm"
+                }
+              ]
+            },
+            {
+              "id": "9hotgda9",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "8xr3ldmv",
+                  "type": "body",
+                  "text": "What should be the length of the spanner if a force of"
+                },
+                {
+                  "id": "k0ns8l4k",
+                  "type": "equation",
+                  "equation": "40 N"
+                },
+                {
+                  "id": "2gwm2le1",
+                  "type": "body",
+                  "text": "is applied to unscrew the same nut?"
+                }
+              ]
+            }
+          ],
+          "answer": [
+            {
+              "id": "z02ohwb8",
+              "type": "highlight-red",
+              "text": "Given:"
+            },
+            {
+              "id": "0r3b59ba",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "0tbfgqm7",
+                  "type": "body",
+                  "text": "Force"
+                },
+                {
+                  "id": "erfo9q6x",
+                  "type": "equation",
+                  "equation": "F_{1}=140 N"
+                }
+              ]
+            },
+            {
+              "id": "bojjj8ll",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "dgtbkq45",
+                  "type": "body",
+                  "text": "Length"
+                },
+                {
+                  "id": "q4djmrtn",
+                  "type": "equation",
+                  "equation": "L_{1}=40 cm=40×10^{-2} m"
+                }
+              ]
+            },
+            {
+              "id": "k9oh3qn6",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "jc209njw",
+                  "type": "body",
+                  "text": "Force"
+                },
+                {
+                  "id": "mwgn79mu",
+                  "type": "equation",
+                  "equation": "F_{2}=40 N"
+                }
+              ]
+            },
+            {
+              "id": "8o4ev0f1",
+              "type": "highlight-red",
+              "text": "**To find:**"
+            },
+            {
+              "id": "05zpclvr",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "zjx42xez",
+                  "type": "body",
+                  "text": "Length"
+                },
+                {
+                  "id": "75gzhr1c",
+                  "type": "equation",
+                  "equation": "L_{2}=?"
+                }
+              ]
+            },
+            {
+              "id": "aod1qw2u",
+              "type": "highlight-red",
+              "text": "Solution:"
+            },
+            {
+              "id": "8kvop5tb",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "yu0mvmd5",
+                  "type": "body",
+                  "text": "We know that"
+                },
+                {
+                  "id": "a1dkjhfi",
+                  "type": "equation",
+                  "equation": "F_{1}×L_{1}=F_{2}×L_{2}"
+                }
+              ]
+            },
+            {
+              "id": "3n9i6k2t",
+              "type": "equation",
+              "equation": "\\begin{aligned}\n∴L_{2}&=\\frac{F_{1}×L_{1}}{F_{2}} \\\\\n&=\\frac{140×40×10^{-2}}{40} \\\\\n&=1.4 m\n\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "vwbsnyrj",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "3uvqyw6m",
+              "type": "body",
+              "text": "State Newton’s laws of motion?"
+            }
+          ],
+          "answer": [
+            {
+              "id": "fmedj1q1",
+              "type": "highlight-red",
+              "text": "Newton’s Ist  Law of Motion"
+            },
+            {
+              "id": "oxd6f4b5",
+              "type": "bullet1",
+              "text": "Every body continues to be in its state of rest or the state of uniform motion along a straight line unless it is acted upon by some external force."
+            },
+            {
+              "id": "q4adnl1s",
+              "type": "highlight-red",
+              "text": "Newton’s IInd Law of Motion"
+            },
+            {
+              "id": "18dfhfkg",
+              "type": "bullet1",
+              "text": "The force acting on a body is directly proportional to the rate of change of linear momentum of the body and the change in momentum takes place in the direction of the force."
+            },
+            {
+              "id": "gt6iwn0y",
+              "type": "highlight-red",
+              "text": "Newton’s IIIrd Law of Motion"
+            },
+            {
+              "id": "2vq3vsco",
+              "type": "bullet1",
+              "text": "For every action, there is an equal and opposite reaction."
+            }
+          ]
+        },
+        {
+          "id": "m5ah1rbu",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "8qocf83h",
+              "type": "body",
+              "text": "Deduce the equation of a force using Newton’s second law of motion."
+            }
+          ],
+          "answer": [
+            {
+              "id": "7uccuktk",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "8i5oiz0k",
+                  "type": "bullet1",
+                  "text": "Let,"
+                },
+                {
+                  "id": "lyrac46m",
+                  "type": "equation",
+                  "equation": "‘m’"
+                },
+                {
+                  "id": "15iv90ek",
+                  "type": "bullet1",
+                  "text": "be the mass of a body, moving along a straight line with an initial speed"
+                },
+                {
+                  "id": "yda85a40",
+                  "type": "equation",
+                  "equation": "‘u’"
+                }
+              ]
+            },
+            {
+              "id": "r22xs2qy",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "cctug7n8",
+                  "type": "bullet1",
+                  "text": "After a time interval of"
+                },
+                {
+                  "id": "ixuh1r0a",
+                  "type": "equation",
+                  "equation": "‘t’,"
+                },
+                {
+                  "id": "vgdq83o7",
+                  "type": "bullet1",
+                  "text": "the velocity of the body changes to"
+                },
+                {
+                  "id": "sz989kyf",
+                  "type": "equation",
+                  "equation": "‘v’"
+                },
+                {
+                  "id": "ia57zvff",
+                  "type": "bullet1",
+                  "text": "due to the impact of an unbalanced external force"
+                },
+                {
+                  "id": "5z77e0no",
+                  "type": "equation",
+                  "equation": "F"
+                }
+              ]
+            },
+            {
+              "id": "xglp49hp",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "7fnpfayv",
+                  "type": "bullet1",
+                  "text": "Change in momentum,"
+                },
+                {
+                  "id": "o1kcvwyv",
+                  "type": "equation",
+                  "equation": "∆_{P}=P_{f}-P_{i}=mv-mu"
+                }
+              ]
+            },
+            {
+              "id": "1de2bmx0",
+              "type": "bullet1",
+              "text": "By Newton’s second law of motion,"
+            },
+            {
+              "id": "94bueqvx",
+              "type": "equation",
+              "equation": "F∝\\frac{mv-mu}{t}"
+            },
+            {
+              "id": "nrr4zv6p",
+              "type": "equation",
+              "equation": "F=\\frac{km(v-u)}{t}"
+            },
+            {
+              "id": "ip6x80uk",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "zhtnetzm",
+                  "type": "bullet1",
+                  "text": "Here,"
+                },
+                {
+                  "id": "wjgj748m",
+                  "type": "equation",
+                  "equation": "k"
+                },
+                {
+                  "id": "vjc7cg6e",
+                  "type": "bullet1",
+                  "text": "is the proportionality constant"
+                },
+                {
+                  "id": "pbdkhfgp",
+                  "type": "equation",
+                  "equation": "k=1."
+                },
+                {
+                  "id": "zdjgk5j0",
+                  "type": "bullet1",
+                  "text": "Hence,"
+                }
+              ]
+            },
+            {
+              "id": "q3f7h17l",
+              "type": "equation",
+              "equation": "F=\\frac{m(v-u)}{t}"
+            },
+            {
+              "id": "ckb8drgr",
+              "type": "equation",
+              "equation": "F=m×a---[∴a=\\frac{v-u}{t}]"
+            },
+            {
+              "id": "5lu5vlll",
+              "type": "equation",
+              "equation": "Force=Mass×Acceleration"
+            },
+            {
+              "id": "i3c6jw7o",
+              "type": "bullet1",
+              "text": "No external force is required to maintain the motion of a body moving with uniform velocity."
+            },
+            {
+              "id": "q2bawkcf",
+              "type": "bullet1",
+              "text": "When the net force acting on a body is not equal to zero, then the velocity of the body will change."
+            }
+          ]
+        },
+        {
+          "id": "r093icip",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "e7lmcz6v",
+              "type": "body",
+              "text": "Describe rocket propulsion"
+            }
+          ],
+          "answer": [
+            {
+              "id": "zoectqiv",
+              "type": "highlight-red",
+              "text": "Principle"
+            },
+            {
+              "id": "zs8c3jw4",
+              "type": "bullet1",
+              "text": "Propulsion of rockets is based on the law of conservation of linear momentum as well as Newton’s IIIrd law of motion."
+            },
+            {
+              "id": "cmdon3yq",
+              "type": "highlight-red",
+              "text": "Rocket Propulsion"
+            },
+            {
+              "id": "f526eeaf",
+              "type": "image",
+              "url": "/db/10-science/images/f526eeaf.jpg",
+              "metadata": {
+                "altText": "Answer Image",
+                "size": "medium"
+              }
+            },
+            {
+              "id": "h5ssjzy8",
+              "type": "bullet1",
+              "text": "Rockets are filled with a fuel in the propellant tank."
+            },
+            {
+              "id": "yvg7a4bl",
+              "type": "bullet1",
+              "text": "When the rocket is fired, the fuel is burnt and a hot gas is ejected with a high speed from the nozzle of the rocket, producing a huge momentum."
+            },
+            {
+              "id": "664opval",
+              "type": "bullet1",
+              "text": "An equal and opposite reaction force is produced in the combustion chamber, which makes the rocket project forward."
+            },
+            {
+              "id": "gla92h39",
+              "type": "bullet1",
+              "text": "While in motion, the mass of the rocket gradually decreases, until the fuel is completely burnt out."
+            },
+            {
+              "id": "frd9mmtt",
+              "type": "bullet1",
+              "text": "Since, there is no net external force acting on it, the linear momentum of the system is conserved."
+            },
+            {
+              "id": "nuc2p5b3",
+              "type": "bullet1",
+              "text": "The mass of the rocket decreases with altitude, which results in the gradual increase in velocity of the rocket."
+            },
+            {
+              "id": "yu566lmy",
+              "type": "highlight-red",
+              "text": "Escape Velocity"
+            },
+            {
+              "id": "bkjx5603",
+              "type": "bullet1",
+              "text": "At one stage, it reaches a velocity, which is sufficient to just escape from the gravitational pull of the Earth"
+            },
+            {
+              "id": "gy3z5biy",
+              "type": "bullet1",
+              "text": "This velocity is called escape velocity"
+            }
+          ]
+        },
+        {
+          "id": "vkx3z3dc",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "l53sd3z3",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "y6qppqq2",
+                  "type": "body",
+                  "text": "Two blocks of masses"
+                },
+                {
+                  "id": "3swu0nu0",
+                  "type": "equation",
+                  "equation": "8 kg"
+                },
+                {
+                  "id": "jltxreom",
+                  "type": "body",
+                  "text": "and"
+                },
+                {
+                  "id": "12wj3vkp",
+                  "type": "equation",
+                  "equation": "2 kg"
+                },
+                {
+                  "id": "5yir46m0",
+                  "type": "body",
+                  "text": "respectively, lie on a smooth horizontal surface in contact with one other. They are pushed by a horizontally applied force of"
+                },
+                {
+                  "id": "f98j97ce",
+                  "type": "equation",
+                  "equation": "15 N"
+                },
+                {
+                  "id": "zgsnb6gg",
+                  "type": "body",
+                  "text": ". Calculate the force exerted on the"
+                },
+                {
+                  "id": "rn6wig4v",
+                  "type": "equation",
+                  "equation": "2 kg"
+                },
+                {
+                  "id": "rr5o9x8e",
+                  "type": "body",
+                  "text": "mass"
+                }
+              ]
+            }
+          ],
+          "answer": [
+            {
+              "id": "elb28aq1",
+              "type": "highlight-red",
+              "text": "**Given**:"
+            },
+            {
+              "id": "rofhuqmt",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "za2vz5sp",
+                  "type": "body",
+                  "text": "Mass of block"
+                },
+                {
+                  "id": "17naiiae",
+                  "type": "equation",
+                  "equation": "1"
+                },
+                {
+                  "id": "uqncuu3r",
+                  "type": "body",
+                  "text": ","
+                },
+                {
+                  "id": "787g1vsf",
+                  "type": "equation",
+                  "equation": "m_{1}=8 kg"
+                }
+              ]
+            },
+            {
+              "id": "3z81oj2w",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "5unvuze7",
+                  "type": "body",
+                  "text": "Mass of block"
+                },
+                {
+                  "id": "11l6qzgd",
+                  "type": "equation",
+                  "equation": "2"
+                },
+                {
+                  "id": "hd6fesim",
+                  "type": "body",
+                  "text": ","
+                },
+                {
+                  "id": "lex3n4d3",
+                  "type": "equation",
+                  "equation": "m_{2}=2 kg"
+                }
+              ]
+            },
+            {
+              "id": "kfgm5n11",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "12pqc7z4",
+                  "type": "body",
+                  "text": "Total mass,"
+                },
+                {
+                  "id": "m5ud54tx",
+                  "type": "equation",
+                  "equation": "m=m_{1}+m_{2}"
+                }
+              ]
+            },
+            {
+              "id": "zq2ozbmc",
+              "type": "equation",
+              "equation": "m=8+2"
+            },
+            {
+              "id": "h0wyu3ho",
+              "type": "equation",
+              "equation": "m=10 kg"
+            },
+            {
+              "id": "5ywuwkmp",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "83hdfsuv",
+                  "type": "body",
+                  "text": "Force"
+                },
+                {
+                  "id": "a85qxsvj",
+                  "type": "equation",
+                  "equation": "F_{1}=15 N"
+                }
+              ]
+            },
+            {
+              "id": "otz8e3sl",
+              "type": "highlight-red",
+              "text": "**To find:**"
+            },
+            {
+              "id": "hp93jny8",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "9d8967bx",
+                  "type": "body",
+                  "text": "Force exerted on"
+                },
+                {
+                  "id": "bp1b011h",
+                  "type": "equation",
+                  "equation": "2 kg, F_{2}=?"
+                }
+              ]
+            },
+            {
+              "id": "n2vqm28v",
+              "type": "highlight-red",
+              "text": "Solution:"
+            },
+            {
+              "id": "myg6ad0o",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "k4dvhfou",
+                  "type": "body",
+                  "text": "Force"
+                },
+                {
+                  "id": "0m0vdail",
+                  "type": "equation",
+                  "equation": "F_{1}=mass×accleration"
+                }
+              ]
+            },
+            {
+              "id": "lxuzcaay",
+              "type": "equation",
+              "equation": "F_{1}=ma"
+            },
+            {
+              "id": "41ga3zm0",
+              "type": "equation",
+              "equation": "F_{1}=10×a"
+            },
+            {
+              "id": "l7umn5dh",
+              "type": "equation",
+              "equation": "\\begin{aligned}\na&=\\frac{F_{1}}{10} \\\\\n&=\\frac{15}{10} \\\\\n&=1.5 ms^{-2}\n\\end{aligned}"
+            },
+            {
+              "id": "1n641lrx",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "nb60m8hc",
+                  "type": "body",
+                  "text": "Force exerted on"
+                },
+                {
+                  "id": "z6acw144",
+                  "type": "equation",
+                  "equation": "m_{2}(2 kg)"
+                },
+                {
+                  "id": "2ky1tx1z",
+                  "type": "body",
+                  "text": "is"
+                }
+              ]
+            },
+            {
+              "id": "pbu78dis",
+              "type": "equation",
+              "equation": "\\begin{aligned}\nF_{2}&=m_{2}a \\\\\n&=2×1.5 \\\\\n&=3 N\n\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "5pifgapg",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "vyw99wbd",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "d4lnrn6s",
+                  "type": "body",
+                  "text": "A heavy truck and bike are moving with the same kinetic energy. If the mass of the truck is four times that of the bike, then calculate the ratio of their momenta. (Ratio of momenta"
+                },
+                {
+                  "id": "5giuu011",
+                  "type": "equation",
+                  "equation": "=2:1"
+                },
+                {
+                  "id": "aj0pvz2p",
+                  "type": "body",
+                  "text": ")"
+                }
+              ]
+            }
+          ],
+          "answer": [
+            {
+              "id": "70wbgzn8",
+              "type": "highlight-red",
+              "text": "**Given:**"
+            },
+            {
+              "id": "i2u6erqr",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "ug86kehu",
+                  "type": "body",
+                  "text": "Kinetic energy of the truck"
+                },
+                {
+                  "id": "70p81xy5",
+                  "type": "equation",
+                  "equation": "=\\frac{1}{2}m_{t}v_{t}^{2}"
+                }
+              ]
+            },
+            {
+              "id": "bjppetu2",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "3v9hs12g",
+                  "type": "body",
+                  "text": "Kinetic energy of the bike"
+                },
+                {
+                  "id": "dzn1y3zy",
+                  "type": "equation",
+                  "equation": "=\\frac{1}{2}m_{b}v_{t}^{2}b---(1)"
+                }
+              ]
+            },
+            {
+              "id": "srdy961x",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "fmb4ssbd",
+                  "type": "body",
+                  "text": "Also"
+                },
+                {
+                  "id": "zb22xb4t",
+                  "type": "equation",
+                  "equation": "m_{t}=4m_{b}---(2)"
+                }
+              ]
+            },
+            {
+              "id": "zxwnpopb",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "cx3m48id",
+                  "type": "body",
+                  "text": "Substituting"
+                },
+                {
+                  "id": "ijzubc6z",
+                  "type": "equation",
+                  "equation": "(2)"
+                },
+                {
+                  "id": "o13z30eu",
+                  "type": "body",
+                  "text": "in"
+                },
+                {
+                  "id": "z0a6oasg",
+                  "type": "equation",
+                  "equation": "(1)"
+                }
+              ]
+            },
+            {
+              "id": "z0efc4gn",
+              "type": "equation",
+              "equation": "\\begin{aligned}\n\\frac{1}{2}(4)m_{b}v_{t}^{2}&=\\frac{1}{2}m_{b}v_{b}^{2} \\\\\n4_{t}^{2}&=v_{b}^{2}\n\\end{aligned}"
+            },
+            {
+              "id": "74kitxr5",
+              "type": "equation",
+              "equation": "v_{t}^{2}=\\frac{1}{4}v_{b}^{2}"
+            },
+            {
+              "id": "x2qy316c",
+              "type": "equation",
+              "equation": "v_{t}=\\frac{1}{2}v_{b}"
+            },
+            {
+              "id": "6p0d7pqi",
+              "type": "highlight-red",
+              "text": "**To find:**"
+            },
+            {
+              "id": "poxuof2w",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "bgv6ybgd",
+                  "type": "body",
+                  "text": "Ratio of the momenta i.e."
+                },
+                {
+                  "id": "5y83aajr",
+                  "type": "equation",
+                  "equation": "m_{t}v_{t}:m_{b}v_{b}"
+                }
+              ]
+            },
+            {
+              "id": "yeo5ct9h",
+              "type": "equation",
+              "equation": "\\begin{aligned}\n\\frac{P_{truck}}{P_{bike}}&=\\frac{m_{t}v_{t}}{m_{b}v_{b}} \\\\\n&=4×\\frac{1}{2}=\\frac{2}{1}\n\\end{aligned}"
+            },
+            {
+              "id": "7s5dt849",
+              "type": "equation",
+              "equation": "\\begin{aligned}\n\\frac{P_{bike}}{P_{truck}}&=\\frac{1}{2} \\\\\n&=2:1\n\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "lnsvela7",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "long",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "qlg4w6k4",
+              "type": "body",
+              "text": "“Wearing helmet and fastening the seat belt is highly recommended for safe journey”. Justify your answer using Newton’s laws of motion"
+            }
+          ],
+          "answer": [
+            {
+              "id": "4du943xi",
+              "type": "bullet1",
+              "text": "When the brakes are applied to a car or two-wheeler during its motion, the vehicles slow down, but inertia allows our bodies to move in the same motion."
+            },
+            {
+              "id": "3wiu4kti",
+              "type": "bullet1",
+              "text": "When you fall from a bike to the ground with a force equal to your mass and the bike's acceleration, an equal and opposite responding force is exerted on your body on the ground."
+            },
+            {
+              "id": "k73v5ue2",
+              "type": "bullet1",
+              "text": "As a result, passengers may be severely injured."
+            },
+            {
+              "id": "nhdrqnht",
+              "type": "bullet1",
+              "text": "Hence, wearing helmet and fastening the seat belt is highly recommended for safe journey."
+            }
+          ]
+        },
+        {
+          "id": "5gtyvyr6",
+          "source": "extra",
+          "isBoardExam": true,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "5vuznsgq",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "pm4aju5d",
+                  "type": "body",
+                  "text": "A door is pushed at a point whose distance from the hinges is"
+                },
+                {
+                  "id": "ocenfdq5",
+                  "type": "equation",
+                  "equation": "90cm"
+                },
+                {
+                  "id": "bjlunvwy",
+                  "type": "body",
+                  "text": "with a force of"
+                },
+                {
+                  "id": "m2360f6f",
+                  "type": "equation",
+                  "equation": "40N"
+                },
+                {
+                  "id": "q4u8hz6u",
+                  "type": "body",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "id": "iapkxcbt",
+              "type": "body",
+              "text": "Calculate the moment of the force about the hinges."
+            }
+          ],
+          "answer": [
+            {
+              "id": "4a6bsxvp",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "h5y270j4",
+                  "type": "body",
+                  "text": "Given:"
+                },
+                {
+                  "id": "crxp8do4",
+                  "type": "equation",
+                  "equation": "F=40 N"
+                },
+                {
+                  "id": "f4efct1k",
+                  "type": "body",
+                  "text": "and"
+                },
+                {
+                  "id": "2gc0psbe",
+                  "type": "equation",
+                  "equation": "d=90 cm=0.9 m"
+                }
+              ]
+            },
+            {
+              "id": "taivqajc",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "bck79kq2",
+                  "type": "body",
+                  "text": "The moment of a force,"
+                },
+                {
+                  "id": "omu7s1vn",
+                  "type": "equation",
+                  "equation": "M=F×d"
+                }
+              ]
+            },
+            {
+              "id": "x3r84f4l",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "v9cum917",
+                  "type": "body",
+                  "text": "Hence, moment of the force,"
+                },
+                {
+                  "id": "qwcgdhvq",
+                  "type": "equation",
+                  "equation": "M=40×0.9=36 Nm"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "07gu1eza",
+          "source": "extra",
+          "isBoardExam": true,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "cx6jplgk",
+              "type": "body",
+              "text": "State newton’s third law of motion with example"
+            }
+          ],
+          "answer": [
+            {
+              "id": "z393b0ha",
+              "type": "highlight-red",
+              "text": "Newton’s third law of motion"
+            },
+            {
+              "id": "baxazhwo",
+              "type": "bullet1",
+              "text": "For every action, there is an equal and opposite reaction"
+            },
+            {
+              "id": "m1tnm0jx",
+              "type": "bullet1",
+              "text": "They always act on two different bodies and its magnitude is represented by"
+            },
+            {
+              "id": "anstwqp8",
+              "type": "equation",
+              "equation": "F_{B}=-F_{A}"
+            },
+            {
+              "id": "0kc6bcjq",
+              "type": "highlight-red",
+              "text": "Examples"
+            },
+            {
+              "id": "hwe4dbmu",
+              "type": "bullet1",
+              "text": "Flying bird"
+            },
+            {
+              "id": "lzew87fw",
+              "type": "bullet1",
+              "text": "Bullet fired from a gun"
+            }
+          ]
+        },
+        {
+          "id": "w5lmzkub",
+          "source": "book",
+          "isBoardExam": false,
+          "questionType": "short",
+          "reference": "",
+          "difficulty": "medium",
+          "question": [
+            {
+              "id": "a4xl9apx",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "qqns9ho4",
+                  "type": "body",
+                  "text": "A door is pushed, at a point whose distance from the hinges is"
+                },
+                {
+                  "id": "uqte6kro",
+                  "type": "equation",
+                  "equation": "90 cm,"
+                },
+                {
+                  "id": "peiaexvi",
+                  "type": "body",
+                  "text": "with a force of"
+                },
+                {
+                  "id": "y9lt0ade",
+                  "type": "equation",
+                  "equation": "40 N"
+                },
+                {
+                  "id": "eeaq5ttn",
+                  "type": "body",
+                  "text": ". Calculate the moment of the force about the hinges."
+                }
+              ]
+            }
+          ],
+          "answer": [
+            {
+              "id": "051qdd0k",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "3omxj6i1",
+                  "type": "body",
+                  "text": "The moment of a force,"
+                },
+                {
+                  "id": "i1e2o7sh",
+                  "type": "equation",
+                  "equation": "M=F×d"
+                }
+              ]
+            },
+            {
+              "id": "wmzowbwy",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "emx77c4b",
+                  "type": "body",
+                  "text": "Given:"
+                },
+                {
+                  "id": "feusqymf",
+                  "type": "equation",
+                  "equation": "F=40 N"
+                },
+                {
+                  "id": "p4w4xjd1",
+                  "type": "body",
+                  "text": "and"
+                },
+                {
+                  "id": "ylwoamu8",
+                  "type": "equation",
+                  "equation": "d=90 cm=0.9 m"
+                }
+              ]
+            },
+            {
+              "id": "nxopf791",
+              "type": "paragraph",
+              "items": [
+                {
+                  "id": "7axy56u5",
+                  "type": "body",
+                  "text": "Hence, moment of the force,"
+                },
+                {
+                  "id": "30trg0rx",
+                  "type": "equation",
+                  "equation": "M=40×0.9=36 Nm"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

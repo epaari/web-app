@@ -23,8 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-# Ignore images directories in db subdirectories
-db/*/
+# Ignore images directories in db subdirectories (but keep concept.json and qa.json)
+db/*/images/
 ~$*.pptx
 ~$*.docx
 Tools/Migration/input/*

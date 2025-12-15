@@ -11,7 +11,7 @@ function ChapterView({ standard, subject, viewMode, onViewModeChange, onChapterS
         // Construct the database filename based on standard and subject
         // Convert subject name to lowercase and replace spaces with hyphens
         const subjectSlug = subject.toLowerCase().replace(/\s+/g, '-');
-        const dbFileName = `/db/${standard}-${subjectSlug}/concept.json`;
+        const dbFileName = `/api/concept/${standard}/${subjectSlug}`;
 
         fetch(dbFileName)
             .then((response) => {

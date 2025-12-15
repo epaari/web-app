@@ -18,7 +18,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
         // Load different data based on viewMode
         if (viewMode === 'book-qa' || viewMode === 'board-qa' || viewMode === 'bonus-qa' || viewMode === 'pop-quiz' || viewMode === 'deep-quiz') {
             // Load Q&A data
-            const qaPath = `/db/${standard}-${subjectSlug}/qa.json`;
+            const qaPath = `/api/qa/${standard}/${subjectSlug}`;
 
             fetch(qaPath)
                 .then((response) => {
@@ -46,7 +46,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
                 });
         } else {
             // Load teaching content (concept.json)
-            const dbPath = `/db/${standard}-${subjectSlug}/concept.json`;
+            const dbPath = `/api/concept/${standard}/${subjectSlug}`;
 
             fetch(dbPath)
                 .then((response) => {

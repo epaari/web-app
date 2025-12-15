@@ -1,0 +1,1571 @@
+{
+  "chapters": [
+    {
+      "id": "fq5k45b4",
+      "subjectId": "k7rs0wrw",
+      "chapterNo": 1,
+      "chapterName": "Chapter 1",
+      "topics": [
+        {
+          "id": "srn18spk",
+          "title": "Force and Motion",
+          "subTopics": [
+            {
+              "id": "nrf34qa1",
+              "title": "Force",
+              "content": [
+                {
+                  "id": "qzijn34q",
+                  "type": "bullet1",
+                  "text": "To move a body or to bring it to rest or to change the velocity of a body, it needs a ‘push’ or ‘pull’."
+                },
+                {
+                  "id": "y35yv49z",
+                  "type": "bullet1",
+                  "text": "This ‘push’ or ‘pull’ is called as ‘force’."
+                },
+                {
+                  "id": "b7fa7c52",
+                  "type": "image",
+                  "url": "/db/10-science/images/b7fa7c52.png",
+                  "metadata": {
+                    "altText": "Force",
+                    "size": "medium"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "5in1h4ij",
+              "title": "Motion",
+              "content": [
+                {
+                  "id": "cbxai1xo",
+                  "type": "bullet1",
+                  "text": "Motion refers to the change in position of a body over time."
+                },
+                {
+                  "id": "2z6klpfv",
+                  "type": "bullet1",
+                  "text": "The two types of motion are,"
+                },
+                {
+                  "id": "o8q6c758",
+                  "type": "bullet2",
+                  "text": "Natural Motion: Refers to the motion of body without any external force."
+                },
+                {
+                  "id": "nsvevwar",
+                  "type": "bullet2",
+                  "text": "Violent Motion: Refers to the motion of body with an external force."
+                },
+                {
+                  "id": "e4b0a24c",
+                  "type": "image",
+                  "url": "/db/10-science/images/e4b0a24c.jpg",
+                  "metadata": {
+                    "altText": "Motion",
+                    "size": "medium"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "u7iqueoh",
+              "title": "Galileo's Concepts",
+              "content": [
+                {
+                  "id": "ooqzggk8",
+                  "type": "number1",
+                  "text": "When dropped from certain height in vacuum, objects of different size, shape and mass fall at a same rate and reach the ground at the same time."
+                },
+                {
+                  "id": "daa85980",
+                  "type": "image",
+                  "url": "/db/10-science/images/daa85980.jpg",
+                  "metadata": {
+                    "altText": "Galileo's Concepts",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "bfoplncy",
+                  "type": "number1",
+                  "text": "A moving object will continue to be in the same state of motion, unless an external force is applied.",
+                  "number": "A"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "8i9ov4lp",
+          "title": "Inertia",
+          "subTopics": [
+            {
+              "id": "l1f8rtmu",
+              "title": "What is Inertia?",
+              "content": [
+                {
+                  "id": "ae08197c",
+                  "type": "image",
+                  "url": "/db/10-science/images/ae08197c.jpg",
+                  "metadata": {
+                    "altText": "What is Inertia?",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "f55ntjqt",
+                  "type": "bullet1",
+                  "text": "The property of a body to resist any change in its state of rest or the state of uniform motion, unless it is influenced upon by an external unbalanced force, is known as ‘inertia’."
+                }
+              ]
+            },
+            {
+              "id": "jte5yxxn",
+              "title": "Types",
+              "content": []
+            },
+            {
+              "id": "fumjz07k",
+              "title": "Examples",
+              "content": [
+                {
+                  "id": "6d4bf9bc",
+                  "type": "image",
+                  "url": "/db/10-science/images/6d4bf9bc.png",
+                  "metadata": {
+                    "altText": "Examples",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "aa51843f",
+                  "type": "image",
+                  "url": "/db/10-science/images/aa51843f.png",
+                  "metadata": {
+                    "altText": "Examples",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "6b66c857",
+                  "type": "image",
+                  "url": "/db/10-science/images/6b66c857.png",
+                  "metadata": {
+                    "altText": "Examples",
+                    "size": "medium"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "07gzsd07",
+          "title": "Linear Momentum",
+          "subTopics": [
+            {
+              "id": "wtml0snx",
+              "title": "What is Linear Momentum?",
+              "content": [
+                {
+                  "id": "tmichkpf",
+                  "type": "bullet1",
+                  "text": "The linear momentum measures the impact of a force on a body."
+                },
+                {
+                  "id": "3umg18ks",
+                  "type": "bullet1",
+                  "text": "The product of mass and velocity of a moving body gives the magnitude of linear momentum."
+                },
+                {
+                  "id": "fyutjjtj",
+                  "type": "bullet1",
+                  "text": "It acts in the direction of the velocity of the object."
+                },
+                {
+                  "id": "e3801e17",
+                  "type": "image",
+                  "url": "/db/10-science/images/e3801e17.png",
+                  "metadata": {
+                    "altText": "What is Linear Momentum?",
+                    "size": "medium"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "60fj2gsk",
+              "title": "Formula",
+              "content": [
+                {
+                  "id": "nky2frfa",
+                  "type": "equation",
+                  "equation": "\\begin{aligned}\nLinear Momentum &= Mass×Velocity \\\\\np &= m v\n\\end{aligned}"
+                },
+                {
+                  "id": "9utlqlwh",
+                  "type": "body",
+                  "text": "Momentum helps to measure the magnitude of a force."
+                },
+                {
+                  "id": "pba17qa2",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "j0cco6l4",
+                      "type": "body",
+                      "text": "Its unit is"
+                    },
+                    {
+                      "id": "1w9djs9x",
+                      "type": "equation",
+                      "equation": "kg m s^{–1}"
+                    },
+                    {
+                      "id": "1uhv9o3e",
+                      "type": "body",
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "it67elh1",
+              "title": "Principle of Conservation of Linear Momentum",
+              "content": [
+                {
+                  "id": "esp2r6gn",
+                  "type": "bullet1",
+                  "text": "In the absence of an external force, the algebraic sum of the momentum after collision is numerically equal to the algebraic sum of the momentum before collision."
+                },
+                {
+                  "id": "3ra2oogf",
+                  "type": "highlight-red",
+                  "text": "Experimental Proof"
+                },
+                {
+                  "id": "1ghgpfjo",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "fwylymeh",
+                      "type": "body",
+                      "text": "Consider two bodies"
+                    },
+                    {
+                      "id": "adpz7lrj",
+                      "type": "equation",
+                      "equation": "A"
+                    },
+                    {
+                      "id": "3ezm8dli",
+                      "type": "body",
+                      "text": "and"
+                    },
+                    {
+                      "id": "e863b5v4",
+                      "type": "equation",
+                      "equation": "B"
+                    },
+                    {
+                      "id": "syjwyyzm",
+                      "type": "body",
+                      "text": ","
+                    }
+                  ]
+                },
+                {
+                  "id": "54f55588",
+                  "type": "image",
+                  "url": "/db/10-science/images/54f55588.png",
+                  "metadata": {
+                    "altText": "Principle of Conservation of Linear Momentum",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "ou7c68bc",
+                  "type": "body",
+                  "text": "By Newton’s III law of motion,"
+                },
+                {
+                  "id": "9avcfc0q",
+                  "type": "equation",
+                  "equation": "\\begin{aligned}\nF_{B}&= -F_{A} \\\\\n\\frac{m_{2}(v_{1}-u_{1})}{t} &= -\\frac{m_{2}(v_{2} – u_{2})}{t} \\\\\nm_{1}v_{1}+m_{2}v_{2}&=m_{1}u_{1}+m_{2}u_{2}\n\\end{aligned}"
+                },
+                {
+                  "id": "6v8fj22y",
+                  "type": "body",
+                  "text": "Hence, the law of conservation linear momentum is proved."
+                }
+              ]
+            },
+            {
+              "id": "ni09959w",
+              "title": "Problems and Solutions",
+              "content": [
+                {
+                  "id": "83hzd3am",
+                  "type": "highlight-red",
+                  "text": "Example"
+                },
+                {
+                  "id": "ycyjw4qs",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "j77axh4h",
+                      "type": "body",
+                      "text": "Calculate the velocity of a moving body of mass"
+                    },
+                    {
+                      "id": "k5189jzh",
+                      "type": "equation",
+                      "equation": "5 kg"
+                    },
+                    {
+                      "id": "p4vgyjsx",
+                      "type": "body",
+                      "text": "whose linear momentum is"
+                    },
+                    {
+                      "id": "zsrjcqaj",
+                      "type": "equation",
+                      "equation": "2.5 kgms^{–1}"
+                    }
+                  ]
+                },
+                {
+                  "id": "gp9lb59k",
+                  "type": "highlight-red",
+                  "text": "Solution"
+                },
+                {
+                  "id": "li2ljc2d",
+                  "type": "equation",
+                  "equation": "linear momentum=mass×velocity"
+                },
+                {
+                  "id": "drvj3p42",
+                  "type": "equation",
+                  "equation": "\\begin{aligned}\nvelocity&=\\frac{linear momentum }{mass} \\\\\nv&=\\frac{ 2.5}{5}= 0.5 m s^{–1}\n\\end{aligned}"
+                },
+                {
+                  "id": "4lhf9cno",
+                  "type": "body",
+                  "text": "**1.1 - Inertia and Linear Momentum**"
+                },
+                {
+                  "id": "3931bb42",
+                  "type": "image",
+                  "url": "/db/10-science/images/3931bb42.png",
+                  "metadata": {
+                    "altText": "Problems and Solutions",
+                    "size": "medium"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ojwfb2gw",
+          "title": "First Law of Motion",
+          "subTopics": [
+            {
+              "id": "xl96v3p5",
+              "title": "Law",
+              "content": [
+                {
+                  "id": "fm201811",
+                  "type": "bullet1",
+                  "text": "This law states that every body continues to be in its state of rest or the state of uniform motion along a straight line unless it is acted upon by some external force"
+                },
+                {
+                  "id": "b4992559",
+                  "type": "image",
+                  "url": "/db/10-science/images/b4992559.jpg",
+                  "metadata": {
+                    "altText": "Law",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "2abbf980",
+                  "type": "image",
+                  "url": "/db/10-science/images/2abbf980.jpg",
+                  "metadata": {
+                    "altText": "Law",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "1a2f14ce",
+                  "type": "image",
+                  "url": "/db/10-science/images/1a2f14ce.jpg",
+                  "metadata": {
+                    "altText": "Law",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "2c15bd72",
+                  "type": "image",
+                  "url": "/db/10-science/images/2c15bd72.png",
+                  "metadata": {
+                    "altText": "Law",
+                    "size": "medium"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "us7see8a",
+              "title": "Force",
+              "content": [
+                {
+                  "id": "0n7cjaxp",
+                  "type": "bullet1",
+                  "text": "Force is an external effort in the form of push or pull, which"
+                },
+                {
+                  "id": "adfwxb04",
+                  "type": "bullet2",
+                  "text": "Produces or tries to produce the motion of a static body"
+                },
+                {
+                  "id": "67fjtxme",
+                  "type": "bullet2",
+                  "text": "Stops or tries to stop a moving body"
+                },
+                {
+                  "id": "uqadhw9y",
+                  "type": "bullet2",
+                  "text": "Changes or tries to change the direction of motion of a moving body"
+                },
+                {
+                  "id": "b7fa7c52",
+                  "type": "image",
+                  "url": "/db/10-science/images/b7fa7c52.png",
+                  "metadata": {
+                    "altText": "Force",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "57kbmx35",
+                  "type": "bullet1",
+                  "text": "Force is a vector quantity as it has both magnitude and direction"
+                },
+                {
+                  "id": "6a6o0hzt",
+                  "type": "sub-topic-3",
+                  "text": "Types of Forces"
+                },
+                {
+                  "id": "uob9lkyv",
+                  "type": "equation",
+                  "equation": "60N"
+                },
+                {
+                  "id": "jtyh6575",
+                  "type": "equation",
+                  "equation": "30N"
+                },
+                {
+                  "id": "d4tp92qu",
+                  "type": "equation",
+                  "equation": "90N"
+                },
+                {
+                  "id": "6kbbjgji",
+                  "type": "equation",
+                  "equation": "10N"
+                },
+                {
+                  "id": "ewdkulyq",
+                  "type": "equation",
+                  "equation": "30N"
+                },
+                {
+                  "id": "qkgabx9s",
+                  "type": "equation",
+                  "equation": "20N"
+                },
+                {
+                  "id": "ipoceqb9",
+                  "type": "sub-topic-3",
+                  "text": "Resultant Force"
+                },
+                {
+                  "id": "2j1rzt6b",
+                  "type": "bullet1",
+                  "text": "When several forces act simultaneously on the same body, then the combined effect of the multiple forces can be represented by “resultant force”."
+                },
+                {
+                  "id": "7cb4695c",
+                  "type": "image",
+                  "url": "/db/10-science/images/7cb4695c.png",
+                  "metadata": {
+                    "altText": "Force",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "72ps1qlz",
+                  "type": "bullet1",
+                  "text": "It is equal to the vector sum of all the forces."
+                },
+                {
+                  "id": "sj6f74do",
+                  "type": "equation",
+                  "equation": "(F_{net})"
+                },
+                {
+                  "id": "h2eftyjy",
+                  "type": "equation",
+                  "equation": "F_{net}"
+                },
+                {
+                  "id": "f6c2ddfs",
+                  "type": "highlight-red",
+                  "text": "Balanced and Unbalanced forces"
+                }
+              ]
+            },
+            {
+              "id": "awsnvpey",
+              "title": "Rotating Effect of Force",
+              "content": [
+                {
+                  "id": "tuwji5hn",
+                  "type": "bullet1",
+                  "text": "The axis of the fixed edge about which an object is rotated is called as the ‘axis of rotation’"
+                },
+                {
+                  "id": "18809d81",
+                  "type": "image",
+                  "url": "/db/10-science/images/18809d81.png",
+                  "metadata": {
+                    "altText": "Rotating Effect of Force",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "3e2yv9kd",
+                  "type": "sub-topic-3",
+                  "text": "Torque"
+                },
+                {
+                  "id": "lcb0kgfs",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "5wxval43",
+                      "type": "bullet1",
+                      "text": "TorqueThe rotating or turning effect of a force about a fixed point or fixed axis is called moment of the force about that point or torque"
+                    },
+                    {
+                      "id": "tj65zwws",
+                      "type": "equation",
+                      "equation": "(τ)"
+                    },
+                    {
+                      "id": "6a4mdw1c",
+                      "type": "bullet1",
+                      "text": "."
+                    }
+                  ]
+                },
+                {
+                  "id": "52e66d7a",
+                  "type": "image",
+                  "url": "/db/10-science/images/52e66d7a.png",
+                  "metadata": {
+                    "altText": "Rotating Effect of Force",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "y58o9sgu",
+                  "type": "equation",
+                  "equation": "τ=F×d"
+                },
+                {
+                  "id": "je5ysglo",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "9r2x1bvn",
+                      "type": "bullet1",
+                      "text": "Its"
+                    },
+                    {
+                      "id": "jmopnnoq",
+                      "type": "equation",
+                      "equation": "SI"
+                    },
+                    {
+                      "id": "3fxenff1",
+                      "type": "bullet1",
+                      "text": "unit is"
+                    },
+                    {
+                      "id": "yj8mlu2j",
+                      "type": "equation",
+                      "equation": "Nm"
+                    }
+                  ]
+                },
+                {
+                  "id": "hyp4i1dr",
+                  "type": "sub-topic-3",
+                  "text": "Couple"
+                },
+                {
+                  "id": "hfsr59x3",
+                  "type": "bullet1",
+                  "text": "Two equal and unlike parallel forces applied simultaneously at two distinct points constitute a couple."
+                },
+                {
+                  "id": "edf78c32",
+                  "type": "image",
+                  "url": "/db/10-science/images/edf78c32.png",
+                  "metadata": {
+                    "altText": "Rotating Effect of Force",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "cedlyxco",
+                  "type": "bullet1",
+                  "text": "The line of action of the two forces does not coincide."
+                },
+                {
+                  "id": "a3sf7lao",
+                  "type": "bullet1",
+                  "text": "Rotating effect of a couple is known as moment of a couple."
+                },
+                {
+                  "id": "8arj3670",
+                  "type": "highlight-red",
+                  "text": "Examples"
+                },
+                {
+                  "id": "m4vdt9fv",
+                  "type": "bullet2",
+                  "text": "Turning a tap"
+                },
+                {
+                  "id": "6waa1gsi",
+                  "type": "bullet2",
+                  "text": "Winding or unwinding a screw"
+                },
+                {
+                  "id": "idwysi5f",
+                  "type": "bullet2",
+                  "text": "Spinning of a top"
+                },
+                {
+                  "id": "tlu2fq31",
+                  "type": "highlight-brown",
+                  "text": "Moment of a Couple"
+                },
+                {
+                  "id": "8z7h6mc8",
+                  "type": "bullet1",
+                  "text": "Moment of a couple is given by"
+                },
+                {
+                  "id": "6y7h6m8y",
+                  "type": "equation",
+                  "equation": "M=F×S"
+                },
+                {
+                  "id": "y9y21j0w",
+                  "type": "bullet1",
+                  "text": "Units of moment of a couple"
+                },
+                {
+                  "id": "7hfvoe06",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "ishxb103",
+                      "type": "equation",
+                      "equation": "SI"
+                    },
+                    {
+                      "id": "1b81uv38",
+                      "type": "bullet2",
+                      "text": "system"
+                    },
+                    {
+                      "id": "nxqmdcqu",
+                      "type": "equation",
+                      "equation": "→Nm"
+                    }
+                  ]
+                },
+                {
+                  "id": "vn0k3nas",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "ncaojwvt",
+                      "type": "equation",
+                      "equation": "CGS"
+                    },
+                    {
+                      "id": "mej369st",
+                      "type": "bullet2",
+                      "text": "system"
+                    },
+                    {
+                      "id": "jrpisher",
+                      "type": "equation",
+                      "equation": "→dyne cm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "1bro1qef",
+              "title": "Application of Torque",
+              "content": [
+                {
+                  "id": "hgz27crl",
+                  "type": "sub-topic-3",
+                  "text": "Gears"
+                },
+                {
+                  "id": "n9w6hqub",
+                  "type": "bullet1",
+                  "text": "A gear is a circular wheel with teeth around its rim."
+                },
+                {
+                  "id": "eb7dcf0c",
+                  "type": "image",
+                  "url": "/db/10-science/images/eb7dcf0c.png",
+                  "metadata": {
+                    "altText": "Application of Torque",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "t018c62s",
+                  "type": "bullet1",
+                  "text": "It helps to change the speed of rotation of a wheel by changing the torque and helps to transmit power."
+                },
+                {
+                  "id": "5me9pwn6",
+                  "type": "sub-topic-3",
+                  "text": "Seasaw"
+                },
+                {
+                  "id": "51pp75t2",
+                  "type": "bullet1",
+                  "text": "FulcrumWhen the heavier person comes closer to the pivot point (fulcrum) the distance of the line of action of the force decreases."
+                },
+                {
+                  "id": "51b4f936",
+                  "type": "image",
+                  "url": "/db/10-science/images/51b4f936.jpg",
+                  "metadata": {
+                    "altText": "Application of Torque",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "omtotz2y",
+                  "type": "bullet1",
+                  "text": "It causes less amount of torque to act on it."
+                },
+                {
+                  "id": "q86ba6la",
+                  "type": "bullet1",
+                  "text": "This enables the lighter person to lift the heavier person."
+                },
+                {
+                  "id": "1wxtwxya",
+                  "type": "sub-topic-3",
+                  "text": "Steering Wheel"
+                },
+                {
+                  "id": "ym57k61m",
+                  "type": "bullet1",
+                  "text": "A small steering wheel enables you to manoeuvre a car easily by transferring a torque to the wheels with less effort."
+                },
+                {
+                  "id": "14e5b02c",
+                  "type": "image",
+                  "url": "/db/10-science/images/14e5b02c.png",
+                  "metadata": {
+                    "altText": "Application of Torque",
+                    "size": "medium"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "8mgjas35",
+              "title": "Principle of Moments",
+              "content": [
+                {
+                  "id": "s4yhahqm",
+                  "type": "bullet1",
+                  "text": "When a number of like or unlike parallel forces act on a rigid body and the body is in equilibrium, then the algebraic sum of the moments in the clockwise direction is equal to the algebraic sum of the moments in the anticlockwise direction."
+                },
+                {
+                  "id": "872fbb2b",
+                  "type": "image",
+                  "url": "/db/10-science/images/872fbb2b.png",
+                  "metadata": {
+                    "altText": "Principle of Moments",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "estk2xom",
+                  "type": "bullet1",
+                  "text": "At equilibrium, the algebraic sum of the moments of all the individual forces about any point is equal to zero."
+                },
+                {
+                  "id": "1uh49ctp",
+                  "type": "highlight-red",
+                  "text": "Illustration"
+                },
+                {
+                  "id": "wdnsqnrq",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "6jsvm1m2",
+                      "type": "equation",
+                      "equation": "m_{1}"
+                    },
+                    {
+                      "id": "ii343whu",
+                      "type": "bullet1",
+                      "text": "The force"
+                    },
+                    {
+                      "id": "cn170w2s",
+                      "type": "equation",
+                      "equation": "F_{1}"
+                    },
+                    {
+                      "id": "hrlm2wls",
+                      "type": "bullet1",
+                      "text": "produces an anticlockwise rotation at a distance"
+                    },
+                    {
+                      "id": "boa4o8p6",
+                      "type": "equation",
+                      "equation": "d_{1}"
+                    },
+                    {
+                      "id": "juwy57ie",
+                      "type": "bullet1",
+                      "text": "from the point of pivot"
+                    },
+                    {
+                      "id": "w0h30ynk",
+                      "type": "equation",
+                      "equation": "P"
+                    },
+                    {
+                      "id": "fib1lvl0",
+                      "type": "bullet1",
+                      "text": "(called fulcrum) and the force"
+                    },
+                    {
+                      "id": "02lybblc",
+                      "type": "equation",
+                      "equation": "F_{2}"
+                    },
+                    {
+                      "id": "573d39r8",
+                      "type": "bullet1",
+                      "text": "produces a clockwise rotation at a distance"
+                    },
+                    {
+                      "id": "opt95o1x",
+                      "type": "equation",
+                      "equation": "d_{2}"
+                    },
+                    {
+                      "id": "zqk8hrfz",
+                      "type": "bullet1",
+                      "text": "from the point of pivot"
+                    },
+                    {
+                      "id": "9hcucewu",
+                      "type": "equation",
+                      "equation": "P"
+                    }
+                  ]
+                },
+                {
+                  "id": "ceeab318",
+                  "type": "image",
+                  "url": "/db/10-science/images/ceeab318.png",
+                  "metadata": {
+                    "altText": "Principle of Moments",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "ktvqnzvx",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "lu781h9s",
+                      "type": "bullet1",
+                      "text": "The principle of moments can be given as"
+                    },
+                    {
+                      "id": "xh6y6u3u",
+                      "type": "equation",
+                      "equation": "\\begin{aligned}\n(\\begin{aligned}\n&Moment in  \\\\\n&clockwise direction\n\\end{aligned})&=(\\begin{aligned}\n&Moment in  \\\\\n&anticlockwise direction\n\\end{aligned}) \\\\\nF_{1}×d_{1}&=F_{2}×d_{2}\n\\end{aligned}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kiphb0xy",
+          "title": "Second Law of Motion",
+          "subTopics": [
+            {
+              "id": "o3mqeknq",
+              "title": "Law",
+              "content": [
+                {
+                  "id": "50ec37ea",
+                  "type": "image",
+                  "url": "/db/10-science/images/50ec37ea.jpg",
+                  "metadata": {
+                    "altText": "Law",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "fq9sx0ft",
+                  "type": "bullet1",
+                  "text": "The force acting on a body is directly proportional to the rate of change of linear momentum of the body and the change in momentum takes place in the direction of the force."
+                },
+                {
+                  "id": "ml6agjbb",
+                  "type": "bullet1",
+                  "text": "This law helps us to measure the amount of force."
+                },
+                {
+                  "id": "qu2w7ahu",
+                  "type": "bullet1",
+                  "text": "So, it is also called as ‘law of force’."
+                },
+                {
+                  "id": "at7v852e",
+                  "type": "equation",
+                  "equation": "F=m×a"
+                }
+              ]
+            },
+            {
+              "id": "s6a0fyu9",
+              "title": "Derivation",
+              "content": [
+                {
+                  "id": "857v2dlx",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "i3a7bjfh",
+                      "type": "bullet1",
+                      "text": "Let,"
+                    },
+                    {
+                      "id": "0n3z07xw",
+                      "type": "equation",
+                      "equation": "‘m’"
+                    },
+                    {
+                      "id": "1ktwekad",
+                      "type": "bullet1",
+                      "text": "be the mass of a moving body, moving along a straight line with an initial speed"
+                    },
+                    {
+                      "id": "h5uz2dbq",
+                      "type": "equation",
+                      "equation": "‘u’"
+                    }
+                  ]
+                },
+                {
+                  "id": "wdr8tts9",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "91kriuhj",
+                      "type": "bullet1",
+                      "text": "After a time interval of"
+                    },
+                    {
+                      "id": "cfma82l2",
+                      "type": "equation",
+                      "equation": "‘t’,"
+                    },
+                    {
+                      "id": "dnsc91t7",
+                      "type": "bullet1",
+                      "text": "the velocity of the body changes to"
+                    },
+                    {
+                      "id": "vm9u1oyq",
+                      "type": "equation",
+                      "equation": "‘v’"
+                    },
+                    {
+                      "id": "i52nxch8",
+                      "type": "bullet1",
+                      "text": "due to the impact of an unbalanced external force"
+                    },
+                    {
+                      "id": "hh7cjyk3",
+                      "type": "equation",
+                      "equation": "F"
+                    }
+                  ]
+                },
+                {
+                  "id": "zkqdzqql",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "h980zrhp",
+                      "type": "bullet1",
+                      "text": "Change in momentum,"
+                    },
+                    {
+                      "id": "uwy5zg1t",
+                      "type": "equation",
+                      "equation": "∆_{P}=P_{f}-P_{i}=mv-mu"
+                    }
+                  ]
+                },
+                {
+                  "id": "nut1j6uk",
+                  "type": "bullet1",
+                  "text": "By Newton’s second law of motion,"
+                },
+                {
+                  "id": "z0pz9mwl",
+                  "type": "equation",
+                  "equation": "F∝\\frac{mv-mu}{t}"
+                },
+                {
+                  "id": "uvqakrxc",
+                  "type": "equation",
+                  "equation": "F=\\frac{km(v-u)}{t}"
+                },
+                {
+                  "id": "txlyw18j",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "zgeji5c0",
+                      "type": "bullet1",
+                      "text": "Here,"
+                    },
+                    {
+                      "id": "zck80l0l",
+                      "type": "equation",
+                      "equation": "k"
+                    },
+                    {
+                      "id": "lqydfxi3",
+                      "type": "bullet1",
+                      "text": "is the proportionality constant"
+                    },
+                    {
+                      "id": "th4wfe43",
+                      "type": "equation",
+                      "equation": "k=1."
+                    },
+                    {
+                      "id": "87a5by8y",
+                      "type": "bullet1",
+                      "text": "Hence,"
+                    }
+                  ]
+                },
+                {
+                  "id": "w1aaeovo",
+                  "type": "equation",
+                  "equation": "F=\\frac{m(v-u)}{t}"
+                },
+                {
+                  "id": "mll8csur",
+                  "type": "equation",
+                  "equation": "F=m×a             [a=\\frac{v-u}{t}]"
+                },
+                {
+                  "id": "5gf9sj6e",
+                  "type": "equation",
+                  "equation": "Force=Mass×Acceleration"
+                },
+                {
+                  "id": "z8rw4z8j",
+                  "type": "bullet1",
+                  "text": "No external force is required to maintain the motion of a body moving with uniform velocity."
+                },
+                {
+                  "id": "k5gooen5",
+                  "type": "bullet1",
+                  "text": "When the net force acting on a body is not equal to zero, then the velocity of the body will change."
+                },
+                {
+                  "id": "6qil0ng3",
+                  "type": "sub-topic-3",
+                  "text": "Centripetal Acceleration"
+                },
+                {
+                  "id": "g7cws4ix",
+                  "type": "bullet1",
+                  "text": "Force is required to produce the acceleration of a body."
+                },
+                {
+                  "id": "j49vmsmy",
+                  "type": "bullet1",
+                  "text": "In a uniform circular motion, when the speed remains constant, the direction of the velocity changes at every point on the circular path."
+                },
+                {
+                  "id": "4f2c381e",
+                  "type": "image",
+                  "url": "/db/10-science/images/4f2c381e.png",
+                  "metadata": {
+                    "altText": "Derivation",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "6rlrn8j8",
+                  "type": "bullet1",
+                  "text": "So, the acceleration is produced along the radius called as centripetal acceleration."
+                },
+                {
+                  "id": "xfk78unt",
+                  "type": "bullet1",
+                  "text": "The force which produces this centripetal acceleration is called as centripetal force."
+                }
+              ]
+            },
+            {
+              "id": "1h5cfvhn",
+              "title": "Units of Force",
+              "content": [
+                {
+                  "id": "lg3cyxxr",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "8l7px74d",
+                      "type": "equation",
+                      "equation": "SI"
+                    },
+                    {
+                      "id": "kqdquhgp",
+                      "type": "bullet1",
+                      "text": "unit of force is newton"
+                    },
+                    {
+                      "id": "u52clu8w",
+                      "type": "equation",
+                      "equation": "(N)"
+                    },
+                    {
+                      "id": "iehzd5kc",
+                      "type": "bullet1",
+                      "text": "and in"
+                    },
+                    {
+                      "id": "0991rvd8",
+                      "type": "equation",
+                      "equation": "C.G.S"
+                    },
+                    {
+                      "id": "zkl4l8v6",
+                      "type": "bullet1",
+                      "text": "system its unit is"
+                    },
+                    {
+                      "id": "4g1tktlb",
+                      "type": "equation",
+                      "equation": "dyne"
+                    }
+                  ]
+                },
+                {
+                  "id": "lml9x7w7",
+                  "type": "highlight-red",
+                  "text": "Unit force"
+                },
+                {
+                  "id": "2m4qm8fj",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "lby8m3vi",
+                      "type": "bullet1",
+                      "text": "The amount of force required to produce an acceleration of"
+                    },
+                    {
+                      "id": "g8yus1d1",
+                      "type": "equation",
+                      "equation": "1 m s^{-2}"
+                    },
+                    {
+                      "id": "vgn7hmmo",
+                      "type": "bullet1",
+                      "text": "in a body of mass"
+                    },
+                    {
+                      "id": "fq4nz9qs",
+                      "type": "equation",
+                      "equation": "1 kg"
+                    },
+                    {
+                      "id": "9vm1nm9w",
+                      "type": "bullet1",
+                      "text": "is called ‘unit force’."
+                    }
+                  ]
+                },
+                {
+                  "id": "t4rhhxfk",
+                  "type": "highlight-brown",
+                  "text": "Gravitational Unit of Force"
+                },
+                {
+                  "id": "4e9032wd",
+                  "type": "equation",
+                  "equation": "1 kg f=1 kg×9.8 m s^{-2}=9.8 N"
+                },
+                {
+                  "id": "65zk3dt8",
+                  "type": "equation",
+                  "equation": "1 g f=1 g×980 cm s^{-2}=980 dyne"
+                }
+              ]
+            },
+            {
+              "id": "exuziaxw",
+              "title": "Impulse",
+              "content": [
+                {
+                  "id": "yyl1kf8c",
+                  "type": "bullet1",
+                  "text": "A large force acting for a very short interval of time is called as ‘Impulsive force’."
+                },
+                {
+                  "id": "fd80c5fa",
+                  "type": "image",
+                  "url": "/db/10-science/images/fd80c5fa.jpg",
+                  "metadata": {
+                    "altText": "Impulse",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "qb71tnkj",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "eb66cu5n",
+                      "type": "bullet1",
+                      "text": "Impulse is represented by"
+                    },
+                    {
+                      "id": "bjqophax",
+                      "type": "equation",
+                      "equation": "J=F×t"
+                    }
+                  ]
+                },
+                {
+                  "id": "snw5ws77",
+                  "type": "paragraph",
+                  "items": [
+                    {
+                      "id": "qxu8zlel",
+                      "type": "bullet1",
+                      "text": "Its unit is"
+                    },
+                    {
+                      "id": "3bjzg95l",
+                      "type": "equation",
+                      "equation": "kg m s^{–1}"
+                    },
+                    {
+                      "id": "zjozrfsq",
+                      "type": "bullet1",
+                      "text": "or"
+                    },
+                    {
+                      "id": "4w55zkle",
+                      "type": "equation",
+                      "equation": "N s"
+                    }
+                  ]
+                },
+                {
+                  "id": "9ibkbhjh",
+                  "type": "bullet1",
+                  "text": "By Newton’s second law,"
+                },
+                {
+                  "id": "826cpy4i",
+                  "type": "equation",
+                  "equation": "F=\\frac{Δp}{t} (or) Δp=F×t"
+                },
+                {
+                  "id": "zfnecy3m",
+                  "type": "equation",
+                  "equation": "J=∆p"
+                },
+                {
+                  "id": "638h0nbn",
+                  "type": "bullet1",
+                  "text": "Change in momentum can be achieved in two ways. They are"
+                },
+                {
+                  "id": "5krw3d4n",
+                  "type": "bullet2",
+                  "text": "A large force acting for a short period of time and"
+                },
+                {
+                  "id": "42mz5jyd",
+                  "type": "bullet2",
+                  "text": "A smaller force acting for a longer period of time"
+                },
+                {
+                  "id": "pbvy1fvi",
+                  "type": "sub-topic-3",
+                  "text": "Examples"
+                },
+                {
+                  "id": "y0wnniys",
+                  "type": "bullet1",
+                  "text": "Automobiles are fitted with springs and shock absorbers to reduce jerks while moving on uneven roads."
+                },
+                {
+                  "id": "sm5ioj5v",
+                  "type": "bullet1",
+                  "text": "In cricket, a fielder pulls back his hands while catching the ball."
+                },
+                {
+                  "id": "tubx4i9o",
+                  "type": "bullet1",
+                  "text": "Shock absorbers"
+                },
+                {
+                  "id": "23c35e2a",
+                  "type": "image",
+                  "url": "/db/10-science/images/23c35e2a.jpg",
+                  "metadata": {
+                    "altText": "Impulse",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "78dbb974",
+                  "type": "image",
+                  "url": "/db/10-science/images/78dbb974.jpg",
+                  "metadata": {
+                    "altText": "Impulse",
+                    "size": "medium"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "nvso6v0q",
+          "title": "Third Law of Motion",
+          "subTopics": [
+            {
+              "id": "n4e5xv0u",
+              "title": "Law",
+              "content": [
+                {
+                  "id": "ejnkw7ay",
+                  "type": "bullet1",
+                  "text": "For every action, there is an equal and opposite reaction"
+                },
+                {
+                  "id": "n8xw92xs",
+                  "type": "bullet1",
+                  "text": "They always act on two different bodies and its magnitude is represented by"
+                },
+                {
+                  "id": "u6vkahrz",
+                  "type": "equation",
+                  "equation": "F_{B}=-F_{A}"
+                }
+              ]
+            },
+            {
+              "id": "3buwy40m",
+              "title": "Examples",
+              "content": [
+                {
+                  "id": "9b8c67d2",
+                  "type": "image",
+                  "url": "/db/10-science/images/9b8c67d2.png",
+                  "metadata": {
+                    "altText": "Examples",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "2dc8cd15",
+                  "type": "image",
+                  "url": "/db/10-science/images/2dc8cd15.png",
+                  "metadata": {
+                    "altText": "Examples",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "2ebf8453",
+                  "type": "image",
+                  "url": "/db/10-science/images/2ebf8453.png",
+                  "metadata": {
+                    "altText": "Examples",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "peyk18wj",
+                  "type": "bullet1",
+                  "text": "Flying bird"
+                },
+                {
+                  "id": "k6gnbx69",
+                  "type": "bullet1",
+                  "text": "A Swimming person"
+                },
+                {
+                  "id": "6zmu7tpj",
+                  "type": "bullet1",
+                  "text": "Bullet fired from a gun"
+                }
+              ]
+            },
+            {
+              "id": "hukg10jk",
+              "title": "Rocket Propulsion",
+              "content": [
+                {
+                  "id": "cku862mk",
+                  "type": "bullet1",
+                  "text": "Propulsion of rockets is based on the law of conservation of linear momentum as well as Newton’s III law of motion."
+                },
+                {
+                  "id": "f526eeaf",
+                  "type": "image",
+                  "url": "/db/10-science/images/f526eeaf.jpg",
+                  "metadata": {
+                    "altText": "Rocket Propulsion",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "8yn5rai3",
+                  "type": "bullet1",
+                  "text": "Rockets are filled with a fuel in the propellant tank."
+                },
+                {
+                  "id": "oocxxfjs",
+                  "type": "bullet1",
+                  "text": "When the rocket is fired, the fuel is burnt and a hot gas is ejected with a high speed from the nozzle of the rocket, producing a huge momentum."
+                },
+                {
+                  "id": "pm163jza",
+                  "type": "bullet1",
+                  "text": "An equal and opposite reaction force is produced in the combustion chamber, which makes the rocket project forward."
+                },
+                {
+                  "id": "b2337342",
+                  "type": "image",
+                  "url": "/db/10-science/images/b2337342.jpg",
+                  "metadata": {
+                    "altText": "Rocket Propulsion",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "f00c72c6",
+                  "type": "image",
+                  "url": "/db/10-science/images/f00c72c6.jpg",
+                  "metadata": {
+                    "altText": "Rocket Propulsion",
+                    "size": "medium"
+                  }
+                },
+                {
+                  "id": "rb1xbj6z",
+                  "type": "bullet1",
+                  "text": "While in motion, the mass of the rocket gradually decreases, until the fuel is completely burnt out."
+                },
+                {
+                  "id": "01timol3",
+                  "type": "bullet1",
+                  "text": "Since, there is no net external force acting on it, the linear momentum of the system is conserved."
+                },
+                {
+                  "id": "h8vgqwo2",
+                  "type": "highlight-red",
+                  "text": "Escape Velocity"
+                },
+                {
+                  "id": "8l37qhhv",
+                  "type": "bullet1",
+                  "text": "At one stage, the rocket reaches a velocity, which is sufficient to just escape from the gravitational pull of the Earth."
+                },
+                {
+                  "id": "hicss79s",
+                  "type": "bullet1",
+                  "text": "This velocity is called escape velocity."
+                },
+                {
+                  "id": "5e770413",
+                  "type": "image",
+                  "url": "/db/10-science/images/5e770413.png",
+                  "metadata": {
+                    "altText": "Rocket Propulsion",
+                    "size": "medium"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "rzh14vo6",
+          "title": "Problems and Solutions",
+          "subTopics": []
+        }
+      ]
+    }
+  ]
+}
