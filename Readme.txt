@@ -1,42 +1,34 @@
-| Platform            | Command                                                           |
-| ------------------- | ----------------------------------------------------------------- |
-| Web Development     | `npm run dev`                                                   |
-| Desktop Development | `npm run dev` + `npm run electron:dev`                        |
-| Cloud Run           | `gcloud run deploy web-app --source .`                          |
-| Desktop Installer   | `npm run electron:build:win` → `release/EzeeGenie Setup.exe` |
+====================
+Development Commands
+====================
+* Web
+  - t1(web-app): npm run dev
+  - t2(web-app/server): npm start
+  - open in browser: http://localhost:5173/
 
-# Electron Deployment
+* Windows Desktop
+  - t1(web-app): npm run dev
+  - t2(web-app): npm run electron:dev
+  - Automatically opens the app.
 
-## To test the desktop app
+===================
+Deployment Commands
+===================
+* Windows Desktop
+  - The icon files (ico and png) should be in ./public folder.
+  - t1 (web-app): Remove-Item -Recurse -Force "release"
+  - t1 (web-app): npm run electron:build:win
+  - The setup file will be created in the "release" folder.
 
-* Terminal 1: Start Vite dev server
-  * npm run dev
-* Terminal 2: Start Electron (after Vite is ready)
-  * npm run electron:dev
-
-## To build the installer:
-
-* Run this in a windows powershell opened as an administrator.
-* npm run electron:build:win # Windows .exe
-* The installer will be created in the `release/` folder.
-
-## To Rebuild the Windows Setup File
-
-* Remove-Item -Recurse -Force "release"
-* npm run electron:build:win
-
-# Google Cloud Run Deployment
-
-C:\EzeeGenie\web-app> gcloud run deploy web-app --source . --platform managed --region asia-south1 --allow-unauthenticated
-App URl: https://web-app-19493053926.asia-south1.run.app/
-Build History: https://console.cloud.google.com/cloud-build/builds?project=planar-leaf-481303-m4
+* Google Cloud Run
+  - The icon files (ico and png) should be in ./public folder.
+  - t1 (web-app): gcloud run deploy web-app --source . --platform managed --region asia-south1 --allow-unauthenticated
+  - App URl: https://web-app-19493053926.asia-south1.run.app/
+  - Build History: https://console.cloud.google.com/cloud-build/builds?project=planar-leaf-481303-m4
 
 Task List
 =========
 
-1. Q and A implementation
-2. Multi topic handling.
-3. Combine topic documents together for a chapter.
 4. Material theme conversion
 
 Migration Tool

@@ -28,8 +28,113 @@ const readJsonFile = (filePath) => {
 
 // IPC Handlers
 ipcMain.handle('get-subjects', async () => {
-    const filePath = path.join(getDbPath(), 'subjects.json');
-    return readJsonFile(filePath);
+    try {
+        const dbPath = getDbPath();
+
+        // 1. Read subject order
+        const orderPath = path.join(dbPath, 'subject-order.json');
+        const orderData = readJsonFile(orderPath);
+        const subjectOrderMap = {};
+
+        if (orderData && orderData.subjectOrder) {
+            orderData.subjectOrder.forEach(item => {
+                subjectOrderMap[item.id.toLowerCase()] = item.order;
+                subjectOrderMap[item.displayName.toLowerCase().replace(/\s+/g, '-')] = item.order;
+                subjectOrderMap[item.displayName.toLowerCase()] = item.order;
+            });
+        }
+
+        // 2. Scan DB directory
+        if (!fs.existsSync(dbPath)) {
+            console.error('Database directory not found');
+            return null;
+        }
+
+        const entries = fs.readdirSync(dbPath, { withFileTypes: true });
+        const subjectsList = [];
+
+        // 3. Process each subdirectory
+        for (const entry of entries) {
+            if (entry.isDirectory()) {
+                const subjectJsonPath = path.join(dbPath, entry.name, 'subject.json');
+
+                if (fs.existsSync(subjectJsonPath)) {
+                    const subjectData = readJsonFile(subjectJsonPath);
+
+                    // 4. Filter active subjects
+                    if (subjectData && subjectData.isActive) {
+                        subjectsList.push(subjectData);
+                    }
+                }
+            }
+        }
+
+        // 5. Aggregate into response structure
+        const publishersMap = {};
+
+        subjectsList.forEach(subj => {
+            const pubName = subj.publisher || "Default Publisher";
+            const stdNum = subj.Standard; // Integer
+
+            if (!publishersMap[pubName]) {
+                publishersMap[pubName] = {
+                    id: "pub_" + pubName.toLowerCase().replace(/\s+/g, ''),
+                    publisherName: pubName,
+                    standardsMap: {}
+                };
+            }
+
+            const pubObj = publishersMap[pubName];
+
+            if (!pubObj.standardsMap[stdNum]) {
+                pubObj.standardsMap[stdNum] = {
+                    id: "std_" + stdNum,
+                    standardName: String(stdNum),
+                    standardInt: stdNum,
+                    subjects: []
+                };
+            }
+
+            pubObj.standardsMap[stdNum].subjects.push({
+                id: subj.id,
+                subjectName: subj.subjectName
+            });
+        });
+
+        // Convert Maps to Arrays and Sort
+        const publishers = Object.values(publishersMap).map(pub => {
+            const standards = Object.values(pub.standardsMap).map(std => {
+                // Sort subjects
+                std.subjects.sort((a, b) => {
+                    const nameA = a.subjectName.toLowerCase();
+                    const nameB = b.subjectName.toLowerCase();
+                    const slugA = nameA.replace(/\s+/g, '-');
+                    const slugB = nameB.replace(/\s+/g, '-');
+
+                    const orderA = subjectOrderMap[slugA] || subjectOrderMap[nameA] || 999;
+                    const orderB = subjectOrderMap[slugB] || subjectOrderMap[nameB] || 999;
+
+                    return orderA - orderB;
+                });
+                return std;
+            });
+
+            // Sort standards numerically
+            standards.sort((a, b) => a.standardInt - b.standardInt);
+
+            return {
+                id: pub.id,
+                publisherName: pub.publisherName,
+                standards: standards
+            };
+        });
+
+        return { publishers };
+
+    } catch (error) {
+        console.error("Error generating subjects list:", error);
+        return null;
+    }
 });
 
 ipcMain.handle('get-concept', async (event, standard, subject) => {

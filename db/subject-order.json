@@ -1,0 +1,89 @@
+{
+    "subjectOrder": [
+        {
+            "id": "tamil",
+            "displayName": "Tamil",
+            "order": 1
+        },
+        {
+            "id": "english",
+            "displayName": "English",
+            "order": 2
+        },
+        {
+            "id": "maths",
+            "displayName": "Maths",
+            "order": 3
+        },
+        {
+            "id": "science",
+            "displayName": "Science",
+            "order": 4
+        },
+        {
+            "id": "social-science",
+            "displayName": "Social Science",
+            "order": 5
+        },
+        {
+            "id": "physics",
+            "displayName": "Physics",
+            "order": 6
+        },
+        {
+            "id": "chemistry",
+            "displayName": "Chemistry",
+            "order": 7
+        },
+        {
+            "id": "bio-botany",
+            "displayName": "Bio-Botany",
+            "order": 8
+        },
+        {
+            "id": "bio-zoology",
+            "displayName": "Bio-Zoology",
+            "order": 9
+        },
+        {
+            "id": "botany",
+            "displayName": "Botany",
+            "order": 10
+        },
+        {
+            "id": "zoology",
+            "displayName": "Zoology",
+            "order": 11
+        },
+        {
+            "id": "computer-science",
+            "displayName": "Computer Science",
+            "order": 12
+        },
+        {
+            "id": "computer-applications",
+            "displayName": "Computer Applications",
+            "order": 13
+        },
+        {
+            "id": "commerce",
+            "displayName": "Commerce",
+            "order": 14
+        },
+        {
+            "id": "economics",
+            "displayName": "Economics",
+            "order": 15
+        },
+        {
+            "id": "accountancy",
+            "displayName": "Accountancy",
+            "order": 16
+        },
+        {
+            "id": "business-maths",
+            "displayName": "Business Maths",
+            "order": 17
+        }
+    ]
+}

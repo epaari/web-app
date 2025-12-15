@@ -6,7 +6,7 @@ Concepts Database: One database per subject. Contains Chapter, Topic, SubTopic, 
 QA Database: One database per subject. Contains Questions, Answers data. Example: qa_6_science.json
 
 ================================
-SUBJECTS DATABSE (SUBJECTS.JSON)
+Subjects Database (subjects.json)
 ================================
 Publisher = {
     "id": "string", // Random 8 character alpha-numeric string
@@ -25,9 +25,30 @@ Subject = {
     "subjectName": "string"
 }
 
-==========================
-CONCEPT DB (CONCEPT.JSON)
-==========================
+=====================================
+Subject Order DB (subject-order.json)
+=====================================
+SubjectOrder = {
+    "subjectName": "string",
+    "displayName": "string",
+    "order": "integer"
+}
+
+=========================
+Subject DB (subject.json)
+=========================
+Subject = {
+    "id": "string", // Random 8 character alpha-numeric string
+    "subjectName": "string"
+    "subjectVersion": "string"
+    "Standard": "integer"
+    "publisher": "string"
+    "isActive": "boolean"
+}
+
+=========================
+Concept DB (concept.json)
+=========================
 Chapter = {
     "id": "string", // Random 8 character alpha-numeric string
     "subjectId": "string", // parent subject id
@@ -48,8 +69,6 @@ SubTopic = {
     "content"?: [ Content ] // content
 }
 
-
-
 Content = {
     "id": "string", // Random 8 character alpha-numeric string
     "type": "body|bullet1|bullet2|number1|number2|image|video|equation|highlight-*|paragraph|sub-topic-3", // type of content
@@ -65,7 +84,7 @@ Content = {
 }
 
 ===============
-QA DB (QA.JSON)
+QA DB (qa.json)
 ===============
 Chapter = {
     "id": "string", // Random 8 character alpha-numeric string

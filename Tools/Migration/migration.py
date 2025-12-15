@@ -1353,88 +1353,10 @@ def process_word_document_qa(file_path, standard, subject):
     return qa_list
 
 
-def get_subject_id(standard, subject):
-    """
-    Fetch the subject ID from subjects.json based on standard and subject name.
-    If not found, automatically adds the standard and/or subject under TNSB publisher.
-    
-    Args:
-        standard: The standard/grade number (e.g., "6")
-        subject: The subject name (e.g., "science")
-    
-    Returns:
-        The subject ID (creates new entry if not found)
-    """
-    subjects_path = Path("../../db/subjects.json")
-    
-    if not subjects_path.exists():
-        print(f"Warning: subjects.json not found at {subjects_path}")
-        return ""
-    
-    try:
-        with open(subjects_path, 'r', encoding='utf-8') as f:
-            subjects_data = json.load(f)
-        
-        # Normalize subject name for comparison (capitalize first letter)
-        subject_normalized = subject.capitalize()
-        
-        # Find TNSB publisher (or create if doesn't exist)
-        tnsb_publisher = None
-        for publisher in subjects_data.get('publishers', []):
-            if publisher.get('publisherName') == 'TNSB':
-                tnsb_publisher = publisher
-                break
-        
-        if not tnsb_publisher:
-            print("Warning: TNSB publisher not found in subjects.json")
-            return ""
-        
-        # Search for the standard
-        standard_obj = None
-        for std in tnsb_publisher.get('standards', []):
-            if std.get('standardName') == standard:
-                standard_obj = std
-                break
-        
-        # If standard not found, create it
-        if not standard_obj:
-            print(f"Standard '{standard}' not found. Creating new standard entry.")
-            standard_obj = {
-                "id": generate_id(),
-                "standardName": standard,
-                "subjects": []
-            }
-            tnsb_publisher['standards'].append(standard_obj)
-            # Sort standards by standardName
-            tnsb_publisher['standards'].sort(key=lambda x: int(x.get('standardName', '0')))
-        
-        # Search for the subject within the standard
-        for subj in standard_obj.get('subjects', []):
-            if subj.get('subjectName', '').lower() == subject_normalized.lower():
-                return subj.get('id', '')
-        
-        # If subject not found, create it
-        print(f"Subject '{subject}' not found for standard '{standard}'. Creating new subject entry.")
-        new_subject_id = generate_id()
-        new_subject = {
-            "id": new_subject_id,
-            "subjectName": subject_normalized
-        }
-        standard_obj['subjects'].append(new_subject)
-        
-        # Write updated data back to subjects.json
-        with open(subjects_path, 'w', encoding='utf-8') as f:
-            json.dump(subjects_data, f, indent=2, ensure_ascii=False)
-        
-        print(f"✓ Added subject '{subject_normalized}' to standard '{standard}' with ID: {new_subject_id}")
-        return new_subject_id
-        
-    except Exception as e:
-        print(f"Warning: Error reading subjects.json: {e}")
-        return ""
 
 
-def process_single_file(input_file, standard, subject, subject_id, db_path):
+
+def process_single_file(input_file, standard, subject, db_path):
     """
     Process a single Word document and update the database.
     
@@ -1442,7 +1364,6 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
         input_file: Path to the Word document
         standard: The standard/grade number
         subject: The subject name
-        subject_id: The subject ID from subjects.json
         db_path: Path to the concept.json database file
     """
     # Extract chapter number from filename (without extension)
@@ -1493,7 +1414,6 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
             # Create a new chapter entry
             new_chapter = {
                 "id": generate_id(),
-                "subjectId": subject_id,
                 "chapterNo": chapter_no,
                 "chapterName": f"Chapter {chapter_no}",  # Default name
                 "topics": topics
@@ -1517,7 +1437,7 @@ def process_single_file(input_file, standard, subject, subject_id, db_path):
 
 
 
-def process_single_file_qa(input_file, standard, subject, subject_id, db_path):
+def process_single_file_qa(input_file, standard, subject, db_path):
     """
     Process a single Word document and update the Q&A database.
     
@@ -1525,7 +1445,6 @@ def process_single_file_qa(input_file, standard, subject, subject_id, db_path):
         input_file: Path to the Word document
         standard: The standard/grade number
         subject: The subject name
-        subject_id: The subject ID from subjects.json
         db_path: Path to the qa.json database file
     """
     # Extract chapter number from filename (without extension)
@@ -1574,7 +1493,6 @@ def process_single_file_qa(input_file, standard, subject, subject_id, db_path):
             # Create a new chapter entry
             new_chapter = {
                 "id": generate_id(),
-                "subjectId": subject_id,
                 "chapterNo": str(chapter_no),  # chapterNo is string in qa.json
                 "chapterName": f"Chapter {chapter_no}",  # Default name
                 "qa": qa_list
@@ -2165,15 +2083,29 @@ def run_concepts_exporter():
         print(f"Error: No .docx files found in '{dir_path}'")
         return
     
-    # Get subject ID from subjects.json
-    subject_id = get_subject_id(standard, subject)
-    
-    # Construct database directory and filename
-    db_dir = Path(f"../../db/{standard}-{subject.lower()}")
+    # Construct database directory
+    subject_slug = subject.lower()
+    db_dir = Path(f"../../db/{standard}-{subject_slug}")
     db_path = db_dir / "concept.json"
+    subject_json_path = db_dir / "subject.json"
     
     # Create database directory if it doesn't exist
     db_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Check if subject.json exists, if not create it
+    if not subject_json_path.exists():
+        print(f"Adding new subject: {subject}")
+        new_subject = {
+            "id": generate_id(),
+            "subjectName": subject.capitalize(),
+            "subjectVersion": "1.0",
+            "Standard": int(standard) if standard.isdigit() else standard,
+            "publisher": "TNSB",
+            "isActive": True
+        }
+        with open(subject_json_path, 'w', encoding='utf-8') as f:
+            json.dump(new_subject, f, indent=2, ensure_ascii=False)
+        print(f"✓ Created subject.json at {subject_json_path}")
     
     # Process all files
     # print("Processing files...")
@@ -2183,16 +2115,16 @@ def run_concepts_exporter():
     fail_count = 0
     
     for docx_file in docx_files:
-        if process_single_file(docx_file, standard, subject, subject_id, db_path):
+        if process_single_file(docx_file, standard, subject, db_path):
             success_count += 1
         else:
             fail_count += 1
-    
+            
     # Summary
     # print("-" * 60)
     # print()
     # print("Summary:")
-    print(f"Successfully processed: {success_count} file(s)")
+    print(f"Successfully processed Concepts: {success_count} file(s)")
     # if fail_count > 0:
     #     print(f"  ✗ Failed: {fail_count} file(s)")
     # print(f"  📁 Output: {db_path}")
@@ -2237,22 +2169,36 @@ def run_qa_exporter():
         print(f"Error: No .docx files found in '{dir_path}'")
         return
     
-    # Get subject ID from subjects.json
-    subject_id = get_subject_id(standard, subject)
-    
-    # Construct database directory and filename
-    db_dir = Path(f"../../db/{standard}-{subject.lower()}")
+    # Construct database directory
+    subject_slug = subject.lower()
+    db_dir = Path(f"../../db/{standard}-{subject_slug}")
     db_path = db_dir / "qa.json"
+    subject_json_path = db_dir / "subject.json"
     
     # Create database directory if it doesn't exist
     db_dir.mkdir(parents=True, exist_ok=True)
     
+    # Check if subject.json exists, if not create it
+    if not subject_json_path.exists():
+        print(f"Adding new subject: {subject}")
+        new_subject = {
+            "id": generate_id(),
+            "subjectName": subject.capitalize(),
+            "subjectVersion": "1.0",
+            "Standard": int(standard) if standard.isdigit() else standard,
+            "publisher": "TNSB",
+            "isActive": True
+        }
+        with open(subject_json_path, 'w', encoding='utf-8') as f:
+            json.dump(new_subject, f, indent=2, ensure_ascii=False)
+        print(f"✓ Created subject.json at {subject_json_path}")
+
     # Process all files
     success_count = 0
     fail_count = 0
     
     for docx_file in docx_files:
-        if process_single_file_qa(docx_file, standard, subject, subject_id, db_path):
+        if process_single_file_qa(docx_file, standard, subject, db_path):
             success_count += 1
         else:
             fail_count += 1
