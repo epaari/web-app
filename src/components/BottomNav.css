@@ -70,6 +70,7 @@
 .view-mode-toggles {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: clamp(0.375rem, 1vw, 0.5rem);
     margin-left: auto;
 }
