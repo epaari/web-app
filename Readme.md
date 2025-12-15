@@ -1,32 +1,37 @@
-=================================================================
-THINGS TO DO
-=================================================================
-* Q and A implementation
-* Multi topic handling.
-    - Combine topic documents together for a chapter.
-* Material theme conversion
+# Google Cloud Run Deployment
 
-=================================================================
-MIGRATION TOOL
-=================================================================
+C:\EzeeGenie\web-app> gcloud run deploy web-app --source . --platform managed --region asia-south1 --allow-unauthenticated
+App URl: https://web-app-19493053926.asia-south1.run.app/
+Build History: https://console.cloud.google.com/cloud-build/builds?project=planar-leaf-481303-m4
+
+Task List
+=========
+
+1. Q and A implementation
+2. Multi topic handling.
+3. Combine topic documents together for a chapter.
+4. Material theme conversion
+
+Migration Tool
+==============
+
 1. Convert Chapter level word document to json.
-2. Updates db/<standard>/<subject>.json file.
+2. Updates db/`<standard>`/`<subject>`.json file.
 3. Uploads the images to content-images repository.
 4. Pushes the files to content-images repository.
 5. The input-file should be in the same folder as the script.
-6. The input file name should be in the format <chapter>.docx
+6. The input file name should be in the format `<chapter>`.docx
 7. Do not include topic numbers in the input file name.
 
 Command Line Usage:
-python migration.py <standard> <subject> <input-file>
+python migration.py `<standard>` `<subject>` `<input-file>`
 
 Example:
 cd doc-to-json-converter
 python migration.py 6 science 10.docx
 
-=================================================================
-TECHNICAL STACK SUMMARY
-=================================================================
+Tech Stack Summary
+==================
 
 Development
 │
@@ -53,11 +58,8 @@ Deployment
     ├── Database: SQLite (pre-packaged)
     └── Storage: Local Filesystem
 
-# Evaluate Google Stitch, Google AI Studio and Google Cloud Run.
-
-=================================================================
-RECOMMENDED PROJECT STRUCTURE
-=================================================================
+Recommended Project Structure
+=============================
 
 EzeeScore Newton
 |
@@ -89,11 +91,12 @@ EzeeScore Newton
     ├── export-publisher.py
     └── build-desktop.py
 
-=================================================================
-MISCELLANEOUS NOTES
-=================================================================
+Miscellaneous Notes
+===================
+
 https://m3.material.io/
 npm install @mui/material @emotion/react @emotion/styled
 
-## Create new project
+## Create New Project
+
 npm create vite@latest web-app -- --template react
