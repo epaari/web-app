@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import BottomNav from './BottomNav';
 import './SubjectView.css';
+import api from '../services/api';
 
 // Import subject icons
 import tamilIcon from '../assets/subject_icons/Tamil.svg';
@@ -24,36 +25,19 @@ function SubjectView({ onSubjectSelect }) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const checkSubjectAvailability = async (standard, subject) => {
+        const loadData = async () => {
             try {
-                const subjectSlug = subject.toLowerCase().replace(/\s+/g, '-');
-                const dbPath = `/api/concept/${standard}/${subjectSlug}`;
-                const res = await fetch(dbPath);
-                if (!res.ok) return false;
-                const data = await res.json();
-                return data.chapters && data.chapters.length > 0;
-            } catch (e) {
-                return false;
-            }
-        };
+                const subjectsData = await api.getSubjects();
 
-        fetch('/api/subjects')
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Failed to fetch data');
-                }
-                return response.json();
-            })
-            .then(async (data) => {
-                if (data && data.publishers && data.publishers[0] && data.publishers[0].standards) {
-                    const standards = data.publishers[0].standards;
+                if (subjectsData && subjectsData.publishers && subjectsData.publishers[0] && subjectsData.publishers[0].standards) {
+                    const standards = subjectsData.publishers[0].standards;
 
                     // Process standards concurrently
                     await Promise.all(standards.map(async (std) => {
                         const validSubjects = [];
                         // Process subjects concurrently
                         await Promise.all(std.subjects.map(async (sub) => {
-                            const isValid = await checkSubjectAvailability(std.standardName, sub.subjectName);
+                            const isValid = await api.checkSubjectAvailability(std.standardName, sub.subjectName);
                             if (isValid) {
                                 validSubjects.push(sub);
                             }
@@ -62,13 +46,15 @@ function SubjectView({ onSubjectSelect }) {
                         std.subjects = validSubjects;
                     }));
                 }
-                setData(data);
+                setData(subjectsData);
                 setLoading(false);
-            })
-            .catch((err) => {
+            } catch (err) {
                 setError(err.message);
                 setLoading(false);
-            });
+            }
+        };
+
+        loadData();
     }, []);
 
     if (loading) {

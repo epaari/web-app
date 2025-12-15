@@ -1,3 +1,30 @@
+| Platform            | Command                                                           |
+| ------------------- | ----------------------------------------------------------------- |
+| Web Development     | `npm run dev`                                                   |
+| Desktop Development | `npm run dev` + `npm run electron:dev`                        |
+| Cloud Run           | `gcloud run deploy web-app --source .`                          |
+| Desktop Installer   | `npm run electron:build:win` → `release/EzeeGenie Setup.exe` |
+
+# Electron Deployment
+
+## To test the desktop app
+
+* Terminal 1: Start Vite dev server
+  * npm run dev
+* Terminal 2: Start Electron (after Vite is ready)
+  * npm run electron:dev
+
+## To build the installer:
+
+* Run this in a windows powershell opened as an administrator.
+* npm run electron:build:win # Windows .exe
+* The installer will be created in the `release/` folder.
+
+## To Rebuild the Windows Setup File
+
+* Remove-Item -Recurse -Force "release"
+* npm run electron:build:win
+
 # Google Cloud Run Deployment
 
 C:\EzeeGenie\web-app> gcloud run deploy web-app --source . --platform managed --region asia-south1 --allow-unauthenticated

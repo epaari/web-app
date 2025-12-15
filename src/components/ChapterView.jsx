@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import BottomNav from './BottomNav';
 import './ChapterView.css';
+import api from '../services/api';
 
 function ChapterView({ standard, subject, viewMode, onViewModeChange, onChapterSelect, onHome }) {
     const [data, setData] = useState(null);
@@ -8,27 +9,18 @@ function ChapterView({ standard, subject, viewMode, onViewModeChange, onChapterS
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Construct the database filename based on standard and subject
-        // Convert subject name to lowercase and replace spaces with hyphens
-        const subjectSlug = subject.toLowerCase().replace(/\s+/g, '-');
-        const dbFileName = `/api/concept/${standard}/${subjectSlug}`;
-
-        fetch(dbFileName)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Selected subject unavailable');
-                }
-                return response.json();
-            })
-            .then((data) => {
-                setData(data);
+        const loadData = async () => {
+            try {
+                const conceptData = await api.getConcept(standard, subject);
+                setData(conceptData);
                 setLoading(false);
-            })
-            .catch((err) => {
-                // Show user-friendly message for any error (404, JSON parse error, etc.)
+            } catch (err) {
                 setError('Selected subject unavailable');
                 setLoading(false);
-            });
+            }
+        };
+
+        loadData();
     }, [standard, subject]);
 
     if (loading) {

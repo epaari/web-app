@@ -30,3 +30,4 @@ db/*/images/
 Tools/Migration/input/*
 Tools/Migration/reports/*
 Archive/*
+release/*
