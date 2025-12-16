@@ -2,9 +2,6 @@
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
 <node CREATED="1765854430632" ID="ID_142169591" MODIFIED="1765854727291" TEXT="Readme.mm">
 <node CREATED="1765857839163" ID="ID_1703693081" MODIFIED="1765872673526" POSITION="right" TEXT="Requirements">
-<node CREATED="1765857851541" ID="ID_1058448795" MODIFIED="1765857859607" TEXT="Q-Gen">
-<node CREATED="1765857860676" ID="ID_1231813989" MODIFIED="1765857865303" TEXT="Question paper generator"/>
-</node>
 <node CREATED="1765872677956" ID="ID_505225672" MODIFIED="1765872699007" TEXT="Text Book feature"/>
 <node CREATED="1765857865740" ID="ID_501185965" MODIFIED="1765857925047" TEXT="Material theme conversion"/>
 </node>

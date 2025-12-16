@@ -547,10 +547,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
             {/* Q-Gen PDF Floating Action Panel */}
             {viewMode === 'q-gen' && selectedQuestions.size > 0 && (
                 <div className="pdf-action-panel">
-                    <span className="selected-count">
-                        {selectedQuestions.size} selected
-                    </span>
-                    <div className="pdf-actions">
+                    <div className="pdf-panel-header">
                         <button
                             className="pdf-btn clear"
                             onClick={() => setSelectedQuestions(new Set())}
@@ -563,6 +560,24 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
                         >
                             Export PDF
                         </button>
+                    </div>
+
+                    <div className="pdf-panel-stats">
+                        {['very-short', 'short', 'long', 'very-long'].map(type => {
+                            const count = Array.from(selectedQuestions).filter(id => id.startsWith(type)).length;
+                            const labelMap = {
+                                'very-short': 'VS',
+                                'short': 'S',
+                                'long': 'L',
+                                'very-long': 'VL'
+                            };
+                            return (
+                                <div key={type} className="stat-box">
+                                    <div className="stat-label">{labelMap[type]}</div>
+                                    <div className="stat-value">{count}</div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             )}
