@@ -1,6 +1,6 @@
 import './BottomNav.css';
 
-function BottomNav({ classNum, subject, chapterNo, chapterTitle, viewMode, onViewModeChange, onNavigateToChapters, onHome }) {
+function BottomNav({ classNum, subject, chapterNo, chapterTitle, viewMode, hasTextBook, onViewModeChange, onNavigateToChapters, onHome }) {
     return (
         <nav className="bottom-nav">
             <div className="nav-breadcrumbs">
@@ -68,6 +68,15 @@ function BottomNav({ classNum, subject, chapterNo, chapterTitle, viewMode, onVie
                     >
                         Q-Gen
                     </button>
+                    {/* Text Book Button - Only if hasTextBook is true */}
+                    {hasTextBook && (
+                        <button
+                            className={`toggle-btn ${viewMode === 'text-book' ? 'active' : ''}`}
+                            onClick={() => onViewModeChange('text-book')}
+                        >
+                            Text Book
+                        </button>
+                    )}
                 </div>
             )}
         </nav>

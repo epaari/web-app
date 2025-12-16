@@ -7,7 +7,8 @@ export default defineConfig({
   base: './',  // Use relative paths for Electron
   server: {
     proxy: {
-      '/api': 'http://localhost:3001'
+      '/api': 'http://localhost:3001',
+      '/db': 'http://localhost:3001'
     }
   }
 })

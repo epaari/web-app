@@ -8,6 +8,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
     const [chapterData, setChapterData] = useState(null);
     const [expandedNodeIds, setExpandedNodeIds] = useState(new Set());
     const [selectedQuestions, setSelectedQuestions] = useState(new Set());
+    const [hasTextBook, setHasTextBook] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -18,7 +19,17 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
         const loadData = async () => {
             try {
                 // Load different data based on viewMode
-                if (viewMode === 'book-qa' || viewMode === 'board-qa' || viewMode === 'bonus-qa' || viewMode === 'pop-quiz' || viewMode === 'deep-quiz' || viewMode === 'q-gen') {
+                if (viewMode === 'text-book') {
+                    // No specific data loading needed for text-book, we just render iframe.
+                    // But we need chapterData to be present for title etc.
+                    // Reuse concept loading or just set basics if already loaded.
+                    // The effect runs when viewMode changes. If we switch from 'teaching' we have data.
+                    // But if we refresh on 'text-book', we might need to load something.
+                    // Let's assume we load concept data as fallback/context.
+                    await api.getConcept(standard, subject);
+                    setChapterData(chapter); // Or the full concept data if structure needed
+                    setLoading(false);
+                } else if (viewMode === 'book-qa' || viewMode === 'board-qa' || viewMode === 'bonus-qa' || viewMode === 'pop-quiz' || viewMode === 'deep-quiz' || viewMode === 'q-gen') {
                     // Load Q&A data
                     const data = await api.getQA(standard, subject);
 
@@ -46,7 +57,28 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
         };
 
         loadData();
+        loadData();
     }, [chapter, viewMode, standard, subject]);
+
+    // Check for Text Book PDF availability
+    useEffect(() => {
+        const checkTextBookCallback = async () => {
+            if (chapter && chapter.chapterNo) {
+                const subjectSlug = subject.toLowerCase().replace(/\s+/g, '-');
+                // Path format: 10-science/pdfs/1.pdf
+                // Note: 'chapter.chapterNo' might be '1' or '01', assume it matches file name.
+                // Ideally we should try both or ensure consistency.
+                // Let's assume exact match with what's in JSON for now. 
+                // If chapterNo in JSON is "1", file is "1.pdf".
+                const pdfPath = `${standard}-${subjectSlug}/pdfs/${chapter.chapterNo}.pdf`;
+                const exists = await api.checkFileExists(pdfPath);
+                setHasTextBook(exists);
+            } else {
+                setHasTextBook(false);
+            }
+        };
+        checkTextBookCallback();
+    }, [standard, subject, chapter]);
 
     // Transform Q&A data into topic-like structure
     const transformQAToTopics = (qaChapter, viewMode) => {
@@ -528,6 +560,34 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
         );
     }
 
+    if (viewMode === 'text-book') {
+        const subjectSlug = subject.toLowerCase().replace(/\s+/g, '-');
+        const pdfPath = `/db/${standard}-${subjectSlug}/pdfs/${chapter.chapterNo}.pdf`;
+
+        return (
+            <div className="topics-view" style={{ height: '100vh', paddingBottom: '0', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ flex: 1, position: 'relative' }}>
+                    <iframe
+                        src={pdfPath}
+                        style={{ width: '100%', height: '100%', border: 'none' }}
+                        title="Text Book"
+                    />
+                </div>
+                <BottomNav
+                    classNum={standard}
+                    subject={subject}
+                    chapterNo={chapterData.chapterNo}
+                    chapterTitle={chapterData.chapterName}
+                    viewMode={viewMode}
+                    hasTextBook={hasTextBook}
+                    onViewModeChange={onViewModeChange}
+                    onNavigateToChapters={onBack}
+                    onHome={onHome}
+                />
+            </div>
+        );
+    }
+
     return (
         <div className="topics-view">
             <div className="nodes-container">
@@ -588,6 +648,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
                 chapterNo={chapterData.chapterNo}
                 chapterTitle={chapterData.chapterName}
                 viewMode={viewMode}
+                hasTextBook={hasTextBook}
                 onViewModeChange={onViewModeChange}
                 onNavigateToChapters={onBack}
                 onHome={onHome}

@@ -170,6 +170,48 @@ export const api = {
     },
 
     /**
+     * Check if a file exists at the given path
+     */
+    async checkFileExists(path) {
+        if (!path) return false;
+
+        // Path should typically be relative to DB_PATH if checking in DB
+        // api.checkFileExists('10-science/pdfs/1.pdf')
+
+        if (isElectron()) {
+            // Electron main process can verify file existence
+            // We can reuse get-image-path or create a new dedicated handler
+            // For now, let's use get-image-path which returns null if not found
+            // Assuming path passed is like '10-science/pdfs/1.pdf' relative to db
+            const fullPath = await window.electronAPI.getImagePath(path);
+            return !!fullPath;
+        } else if (isNative()) {
+            try {
+                const stat = await Filesystem.stat({
+                    path: `${DB_PATH}/${path}`,
+                    directory: Directory.Documents
+                });
+                return !!stat;
+            } catch (e) {
+                return false;
+            }
+        } else {
+            // Web/Dev mode: Check via fetch
+            try {
+                // In dev, db is serviced via public url or similar? 
+                // Actually in dev, /db/ is mapped or we use the resolveDbPath logic
+                // Let's assume the path is accessible via fetch relative to root or /db
+                // The path passed here is usually relative to db root.
+                // Let's try fetching '/db/' + path
+                const response = await fetch(`/db/${path}`, { method: 'HEAD' });
+                return response.ok;
+            } catch (e) {
+                return false;
+            }
+        }
+    },
+
+    /**
      * Check if subject has valid data
      */
     async checkSubjectAvailability(standard, subject) {

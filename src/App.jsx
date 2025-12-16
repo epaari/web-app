@@ -16,6 +16,7 @@ function App() {
 
   const handleChapterSelect = (chapter) => {
     setSelectedChapter(chapter);
+    setViewMode('teaching'); // Reset to teaching when selecting a chapter
   };
 
   const handleBackToChapters = () => {
