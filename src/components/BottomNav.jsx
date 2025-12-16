@@ -26,30 +26,37 @@ function BottomNav({ classNum, subject, chapterNo, chapterTitle, viewMode, hasTe
 
             {viewMode && onViewModeChange && (
                 <div className="view-mode-toggles">
-                    <button
-                        className={`toggle-btn ${viewMode === 'teaching' ? 'active' : ''}`}
-                        onClick={() => onViewModeChange('teaching')}
-                    >
-                        Teaching
-                    </button>
-                    <button
-                        className={`toggle-btn ${viewMode === 'book-qa' ? 'active' : ''}`}
-                        onClick={() => onViewModeChange('book-qa')}
-                    >
-                        Book QA
-                    </button>
-                    <button
-                        className={`toggle-btn ${viewMode === 'board-qa' ? 'active' : ''}`}
-                        onClick={() => onViewModeChange('board-qa')}
-                    >
-                        Board QA
-                    </button>
-                    <button
-                        className={`toggle-btn ${viewMode === 'bonus-qa' ? 'active' : ''}`}
-                        onClick={() => onViewModeChange('bonus-qa')}
-                    >
-                        Bonus QA
-                    </button>
+                    {/* Chapter View / Topic View Toggle Logic */}
+                    {/* Buttons visible ONLY in Topic View (when chapterNo is present) */}
+                    {chapterNo && (
+                        <>
+                            <button
+                                className={`toggle-btn ${viewMode === 'teaching' ? 'active' : ''}`}
+                                onClick={() => onViewModeChange('teaching')}
+                            >
+                                Teaching
+                            </button>
+                            <button
+                                className={`toggle-btn ${viewMode === 'book-qa' ? 'active' : ''}`}
+                                onClick={() => onViewModeChange('book-qa')}
+                            >
+                                Book QA
+                            </button>
+                            <button
+                                className={`toggle-btn ${viewMode === 'board-qa' ? 'active' : ''}`}
+                                onClick={() => onViewModeChange('board-qa')}
+                            >
+                                Board QA
+                            </button>
+                            <button
+                                className={`toggle-btn ${viewMode === 'bonus-qa' ? 'active' : ''}`}
+                                onClick={() => onViewModeChange('bonus-qa')}
+                            >
+                                Bonus QA
+                            </button>
+                        </>
+                    )}
+
                     <button
                         className={`toggle-btn ${viewMode === 'pop-quiz' ? 'active' : ''}`}
                         onClick={() => onViewModeChange('pop-quiz')}
@@ -62,20 +69,27 @@ function BottomNav({ classNum, subject, chapterNo, chapterTitle, viewMode, hasTe
                     >
                         Deep Quiz
                     </button>
-                    <button
-                        className={`toggle-btn ${viewMode === 'q-gen' ? 'active' : ''}`}
-                        onClick={() => onViewModeChange('q-gen')}
-                    >
-                        Q-Gen
-                    </button>
-                    {/* Text Book Button - Only if hasTextBook is true */}
-                    {hasTextBook && (
-                        <button
-                            className={`toggle-btn ${viewMode === 'text-book' ? 'active' : ''}`}
-                            onClick={() => onViewModeChange('text-book')}
-                        >
-                            Text Book
-                        </button>
+
+                    {/* Q-Gen and Text Book are also only for Topic View */}
+                    {chapterNo && (
+                        <>
+                            <button
+                                className={`toggle-btn ${viewMode === 'q-gen' ? 'active' : ''}`}
+                                onClick={() => onViewModeChange('q-gen')}
+                            >
+                                Q-Gen
+                            </button>
+
+                            {/* Text Book Button - Only if hasTextBook is true */}
+                            {hasTextBook && (
+                                <button
+                                    className={`toggle-btn ${viewMode === 'text-book' ? 'active' : ''}`}
+                                    onClick={() => onViewModeChange('text-book')}
+                                >
+                                    Text Book
+                                </button>
+                            )}
+                        </>
                     )}
                 </div>
             )}

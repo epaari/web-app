@@ -14,7 +14,7 @@ const DB_BASE_PATH = path.join(__dirname, '..', '..', 'db');
 // Helper to read JSON files
 const readJsonFile = (filePath) => {
     try {
-        console.log(`Reading file: ${filePath}`);
+        // console.log(`Reading file: ${filePath}`);
         const data = fs.readFileSync(filePath, 'utf8');
         return JSON.parse(data);
     } catch (error) {
@@ -61,7 +61,7 @@ router.get('/subjects', (req, res) => {
         const orderPath = path.join(DB_BASE_PATH, 'subject-order.json');
         const orderData = readJsonFile(orderPath);
         const subjectOrderMap = {};
-        
+
         if (orderData && orderData.subjectOrder) {
             orderData.subjectOrder.forEach(item => {
                 // Map both ID and Display Name (normalized) to order
@@ -83,10 +83,10 @@ router.get('/subjects', (req, res) => {
         for (const entry of entries) {
             if (entry.isDirectory()) {
                 const subjectJsonPath = path.join(DB_BASE_PATH, entry.name, 'subject.json');
-                
+
                 if (fs.existsSync(subjectJsonPath)) {
                     const subjectData = readJsonFile(subjectJsonPath);
-                    
+
                     // 4. Filter active subjects
                     if (subjectData && subjectData.isActive) {
                         subjectsList.push(subjectData);
@@ -98,23 +98,23 @@ router.get('/subjects', (req, res) => {
         // 5. Aggregate into response structure
         // Structure: parents -> publishers -> standards -> subjects
         // Since we only have one publisher (TNSB) implied in the old structure, we'll group by that.
-        
+
         const publishersMap = {};
 
         subjectsList.forEach(subj => {
             const pubName = subj.publisher || "Default Publisher";
             const stdNum = subj.Standard; // Integer
-            
+
             if (!publishersMap[pubName]) {
                 publishersMap[pubName] = {
                     id: "pub_" + pubName.toLowerCase().replace(/\s+/g, ''), // Generate simple ID
                     publisherName: pubName,
-                    standardsMap: {} 
+                    standardsMap: {}
                 };
             }
 
             const pubObj = publishersMap[pubName];
-            
+
             if (!pubObj.standardsMap[stdNum]) {
                 pubObj.standardsMap[stdNum] = {
                     id: "std_" + stdNum,
@@ -140,10 +140,10 @@ router.get('/subjects', (req, res) => {
                     const nameB = b.subjectName.toLowerCase();
                     const slugA = nameA.replace(/\s+/g, '-');
                     const slugB = nameB.replace(/\s+/g, '-');
-                    
+
                     const orderA = subjectOrderMap[slugA] || subjectOrderMap[nameA] || 999;
                     const orderB = subjectOrderMap[slugB] || subjectOrderMap[nameB] || 999;
-                    
+
                     return orderA - orderB;
                 });
                 return std;
@@ -151,7 +151,7 @@ router.get('/subjects', (req, res) => {
 
             // Sort standards numerically
             standards.sort((a, b) => a.standardInt - b.standardInt);
-            
+
             return {
                 id: pub.id,
                 publisherName: pub.publisherName,
