@@ -1,5 +1,32 @@
 import { useCallback, useState, useEffect, useRef } from 'react';
 import './ContentView.css';
+import api from '../services/api';
+
+const AsyncImage = ({ src, alt, className, onClick }) => {
+    const [imageSrc, setImageSrc] = useState(src);
+
+    useEffect(() => {
+        let mounted = true;
+        const load = async () => {
+            if (src && src.startsWith('/db/')) {
+                const resolved = await api.resolveDbPath(src);
+                if (mounted) setImageSrc(resolved);
+            }
+        };
+        load();
+        return () => { mounted = false; };
+    }, [src]);
+
+    return (
+        <img
+            src={imageSrc}
+            alt={alt}
+            loading="lazy"
+            className={className}
+            onClick={() => onClick && onClick(imageSrc)}
+        />
+    );
+};
 
 function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
     const isExpanded = expandedNodeIds.has(item.id);
@@ -159,12 +186,12 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                 {item.content.map((contentItem, index) => {
                     if (contentItem.type === 'image') {
                         return (
-                            <img
+                            <AsyncImage
                                 key={index}
                                 src={contentItem.url}
                                 alt={item.title}
-                                loading="lazy"
                                 className="content-image"
+                                onClick={handleThumbnailClick}
                             />
                         );
                     }
