@@ -62,6 +62,12 @@ function BottomNav({ classNum, subject, chapterNo, chapterTitle, viewMode, onVie
                     >
                         Deep Quiz
                     </button>
+                    <button
+                        className={`toggle-btn ${viewMode === 'q-gen' ? 'active' : ''}`}
+                        onClick={() => onViewModeChange('q-gen')}
+                    >
+                        Q-Gen
+                    </button>
                 </div>
             )}
         </nav>

@@ -1,6 +1,13 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
 <node CREATED="1765854430632" ID="ID_142169591" MODIFIED="1765854727291" TEXT="Readme.mm">
+<node CREATED="1765857839163" ID="ID_1703693081" MODIFIED="1765872673526" POSITION="right" TEXT="Requirements">
+<node CREATED="1765857851541" ID="ID_1058448795" MODIFIED="1765857859607" TEXT="Q-Gen">
+<node CREATED="1765857860676" ID="ID_1231813989" MODIFIED="1765857865303" TEXT="Question paper generator"/>
+</node>
+<node CREATED="1765872677956" ID="ID_505225672" MODIFIED="1765872699007" TEXT="Text Book feature"/>
+<node CREATED="1765857865740" ID="ID_501185965" MODIFIED="1765857925047" TEXT="Material theme conversion"/>
+</node>
 <node CREATED="1765854641269" ID="ID_1420769810" MODIFIED="1765868822469" POSITION="right" TEXT="Work Flows">
 <node CREATED="1765854673520" FOLDED="true" ID="ID_1064839152" MODIFIED="1765854851352" TEXT="Web App">
 <node CREATED="1765854673539" ID="ID_235425084" MODIFIED="1765854673539" TEXT="# Setup"/>
@@ -16,7 +23,7 @@
 <node CREATED="1765854673630" LINK="https://console.cloud.google.com/cloud-build/builds?project=planar-leaf-481303-m4" MODIFIED="1765854673630" TEXT="- Build History: https://console.cloud.google.com/cloud-build/builds?project=planar-leaf-481303-m4"/>
 </node>
 </node>
-<node CREATED="1765854707552" ID="ID_1709690881" MODIFIED="1765868824543" TEXT="Windows Application">
+<node CREATED="1765854707552" FOLDED="true" ID="ID_1709690881" MODIFIED="1765872669409" TEXT="Windows Application">
 <node CREATED="1765854707554" MODIFIED="1765854707554" TEXT="# Setup"/>
 <node CREATED="1765854707556" FOLDED="true" ID="ID_1711416165" MODIFIED="1765854727086" TEXT="# Development">
 <node CREATED="1765854707557" MODIFIED="1765854707557" TEXT="- t1(web-app): npm run dev"/>
@@ -83,12 +90,6 @@
 <node CREATED="1765857959834" MODIFIED="1765857959834" TEXT="cd doc-to-json-converter"/>
 <node CREATED="1765857959836" MODIFIED="1765857959836" TEXT="python migration.py 6 science 10.docx"/>
 </node>
-</node>
-<node CREATED="1765857839163" FOLDED="true" ID="ID_1703693081" MODIFIED="1765868821749" POSITION="right" TEXT="Requirements">
-<node CREATED="1765857851541" ID="ID_1058448795" MODIFIED="1765857859607" TEXT="Q-Gen">
-<node CREATED="1765857860676" ID="ID_1231813989" MODIFIED="1765857865303" TEXT="Question paper generator"/>
-</node>
-<node CREATED="1765857865740" ID="ID_501185965" MODIFIED="1765857925047" TEXT="Material theme conversion"/>
 </node>
 </node>
 </map>

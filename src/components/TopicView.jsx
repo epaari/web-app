@@ -7,6 +7,7 @@ import api from '../services/api';
 function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onBack, onHome }) {
     const [chapterData, setChapterData] = useState(null);
     const [expandedNodeIds, setExpandedNodeIds] = useState(new Set());
+    const [selectedQuestions, setSelectedQuestions] = useState(new Set());
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -17,7 +18,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
         const loadData = async () => {
             try {
                 // Load different data based on viewMode
-                if (viewMode === 'book-qa' || viewMode === 'board-qa' || viewMode === 'bonus-qa' || viewMode === 'pop-quiz' || viewMode === 'deep-quiz') {
+                if (viewMode === 'book-qa' || viewMode === 'board-qa' || viewMode === 'bonus-qa' || viewMode === 'pop-quiz' || viewMode === 'deep-quiz' || viewMode === 'q-gen') {
                     // Load Q&A data
                     const data = await api.getQA(standard, subject);
 
@@ -149,7 +150,10 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
         } else if (viewMode === 'board-qa') {
             filteredQA = qaChapter.qa.filter(qa => qa.isBoardExam === true);
         } else if (viewMode === 'bonus-qa') {
-            filteredQA = qaChapter.qa.filter(qa => qa.source === 'extra' && qa.isBoardExam === false);
+            filteredQA = qaChapter.qa.filter(qa => qa.source === 'extra');
+        } else if (viewMode === 'q-gen') {
+            // For Q-Gen, include both book and extra
+            filteredQA = qaChapter.qa.filter(qa => qa.source === 'book' || qa.source === 'extra');
         }
 
         // Group Q&A by questionType
@@ -178,6 +182,59 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
 
         Object.keys(grouped).forEach(questionType => {
             if (grouped[questionType].length > 0) {
+                // Special handling for Q-Gen: Flatten structure
+                if (viewMode === 'q-gen') {
+                    const combinedContent = [];
+                    grouped[questionType].forEach((qa, index) => {
+                        const label = `**Q${index + 1}.** `;
+                        let questionContent = [];
+
+                        // Inject Checkbox for Q-Gen
+                        combinedContent.push({
+                            type: 'q-gen-checkbox',
+                            id: `${questionType}-qa-${index}`, // Unique ID for selection
+                            questionText: label, // Store label to print later if needed (handled in content though)
+                            fullQuestion: qa // Store full QA object for export
+                        });
+
+                        if (qa.question && Array.isArray(qa.question) && qa.question.length > 0) {
+                            // Deep clone to avoid mutating original data
+                            questionContent = JSON.parse(JSON.stringify(qa.question));
+
+                            const firstItem = questionContent[0];
+                            if (firstItem.type === 'body') {
+                                firstItem.text = label + (firstItem.text || '');
+                            } else if (firstItem.type === 'paragraph' && firstItem.items && firstItem.items.length > 0) {
+                                // Try to find the first text-containing item in the paragraph to prepend
+                                const firstTextItem = firstItem.items[0];
+                                if (firstTextItem.text !== undefined) {
+                                    firstTextItem.text = label + firstTextItem.text;
+                                } else {
+                                    // Fallback: insert a body item at the start of paragraph items
+                                    firstItem.items.unshift({ type: 'body', text: label });
+                                }
+                            } else {
+                                // Fallback: Prepend a new body item if first item is image/equation etc
+                                questionContent.unshift({ type: 'body', text: label });
+                            }
+                        } else {
+                            questionContent.push({ type: 'body', text: label });
+                        }
+
+                        combinedContent.push(...questionContent);
+                    });
+
+                    topics.push({
+                        id: `topic-${questionType}`,
+                        title: `${typeLabels[questionType]} (${grouped[questionType].length})`,
+                        subTopics: [], // No subtopics for Q-Gen
+                        content: combinedContent
+                    });
+
+                    return; // Continue to next questionType
+                }
+
+                // Standard logic for other modes (Book QA, Board QA, etc.)
                 const subTopics = [];
 
                 grouped[questionType].forEach((qa, index) => {
@@ -209,7 +266,7 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
                         content: qa.question
                     });
 
-                    // Add Answer node as sibling
+                    // Add Answer node as sibling (Logic for q-gen removed from here as it's handled above)
                     subTopics.push({
                         id: `${questionType}-qa-${index}-answer`,
                         title: 'Answer',
@@ -256,7 +313,142 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
         return map;
     }, [chapterData]);
 
-    // Get all descendant IDs of an item (for collapsing entire subtrees)
+    const handleSelectionChange = useCallback((id, fullQuestion) => {
+        setSelectedQuestions(prev => {
+            const newSet = new Set(prev);
+            // We store the ID to track selection state
+            // For export, we might need the data.
+            // Actually, let's store the ID, and we can look up the data or pass it.
+            // Better: Store the whole object if the set supports it, or just ID.
+            // Let's store ID. To export, we need to map IDs back to content.
+            // Alternative: The checkbox item in JSON already has the data.
+            // But 'selectedQuestions' is just a set of IDs.
+            // We need a way to retrieve the content for export.
+            // We can iterate the 'chapterData' again to find selected IDs.
+            if (newSet.has(id)) {
+                newSet.delete(id);
+            } else {
+                newSet.add(id);
+            }
+            return newSet;
+        });
+    }, []);
+
+    const handleExportPDF = () => {
+        const printWindow = window.open('', '_blank');
+        if (!printWindow) return;
+
+        // Collect selected content
+        // We need to traverse the current 'chapterData' to find the selected items
+        // Since structure is flattened in Q-Gen, we can iterate 'chapterData.topics'
+        const selectedItems = [];
+
+        if (chapterData && chapterData.topics) {
+            chapterData.topics.forEach(topic => {
+                if (topic.content) {
+                    // In Q-Gen flattened mode, 'content' has 'q-gen-checkbox' items mixed with content
+                    // We need to associate content with the checkbox.
+                    // The structure we built: [Checkbox, Part1, Part2, Spacer, Checkbox, ...]
+                    // This is tricky to parse back.
+
+                    // Better approach: In 'transformQAToTopics', we assigned IDs like 'very-short-qa-0'.
+                    // We can re-fetch the raw QA list stored in 'chapterData'? No, 'chapterData' is the transformed one.
+
+                    // Let's rely on api cache or just re-request since it's local/fast?
+                    // Or better: Let's look at the 'content' array.
+                    // Iterate content, when we see a checkbox with ID in selected set, capture subsequent items until next checkbox/end.
+
+                    let capturing = false;
+                    let currentQuestionBlock = [];
+
+                    topic.content.forEach(item => {
+                        if (item.type === 'q-gen-checkbox') {
+                            if (capturing) {
+                                // Push previous block
+                                selectedItems.push([...currentQuestionBlock]);
+                                currentQuestionBlock = [];
+                            }
+
+                            if (selectedQuestions.has(item.id)) {
+                                capturing = true;
+                                // We don't push the checkbox itself to PDF, but we might want the number.
+                                // The number was prepended to the next text item.
+                                // So we just continue.
+                            } else {
+                                capturing = false;
+                            }
+                        } else {
+                            if (capturing) {
+                                currentQuestionBlock.push(item);
+                            }
+                        }
+                    });
+                    // Push last block
+                    if (capturing && currentQuestionBlock.length > 0) {
+                        selectedItems.push([...currentQuestionBlock]);
+                    }
+                }
+            });
+        }
+
+        const htmlContent = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Q-Gen Export - ${chapterData.chapterName}</title>
+                <style>
+                    body { font-family: sans-serif; padding: 20px; line-height: 1.5; color: #000; }
+                    .question-block { margin-bottom: 20px; }
+                    .content-image { max-width: 100%; height: auto; display: block; margin: 10px 0; }
+                    .content-equation { margin: 10px 0; }
+                    /* Add more print styles as needed */
+                    @media print {
+                        .no-print { display: none; }
+                    }
+                </style>
+                <script type="text/javascript" id="MathJax-script" async
+                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+                </script>
+            </head>
+            <body>
+                <h1>${chapterData.Standard} - ${chapterData.Subject}</h1>
+                <h2>${chapterData.chapterName}</h2>
+                <hr/>
+                <div class="questions-container">
+                    ${selectedItems.map(block => {
+            return '<div class="question-block">' +
+                block.map(item => {
+                    if (item.type === 'body') return '<p>' + item.text.replace(/\\*\\*/g, '') + '</p>'; // Simple markdown strip
+                    if (item.type === 'image') return '<img src="' + item.url + '" class="content-image"/>';
+                    if (item.type === 'equation') return '<div>$$' + item.equation + '$$</div>';
+                    if (item.type === 'paragraph' && item.items) {
+                        return '<p>' + item.items.map(sub => {
+                            if (sub.type === 'text' || sub.type === 'body') return sub.text;
+                            if (sub.type === 'equation') return '$' + sub.equation + '$';
+                            return '';
+                        }).join('') + '</p>';
+                    }
+                    return '';
+                }).join('') +
+                '</div>';
+        }).join('')}
+                </div>
+                <script>
+                    window.onload = function() {
+                        setTimeout(() => {
+                             window.print();
+                             // window.close(); // Optional: close after print
+                        }, 1000); // Wait for MathJax
+                    }
+                </script>
+            </body>
+            </html>
+        `;
+
+        printWindow.document.write(htmlContent);
+        printWindow.document.close();
+    };
+
     const getDescendantIds = useCallback((itemId) => {
         const itemInfo = nodeInfoMap.get(itemId);
         if (!itemInfo || !itemInfo.item) return [];
@@ -345,10 +537,35 @@ function TopicView({ standard, subject, chapter, viewMode, onViewModeChange, onB
                         item={topic}
                         expandedNodeIds={expandedNodeIds}
                         onNodeClick={handleNodeClick}
+                        selectedQuestions={selectedQuestions}
+                        onSelectionChange={handleSelectionChange}
                         depth={0}
                     />
                 ))}
             </div>
+
+            {/* Q-Gen PDF Floating Action Panel */}
+            {viewMode === 'q-gen' && selectedQuestions.size > 0 && (
+                <div className="pdf-action-panel">
+                    <span className="selected-count">
+                        {selectedQuestions.size} selected
+                    </span>
+                    <div className="pdf-actions">
+                        <button
+                            className="pdf-btn clear"
+                            onClick={() => setSelectedQuestions(new Set())}
+                        >
+                            Clear
+                        </button>
+                        <button
+                            className="pdf-btn export"
+                            onClick={handleExportPDF}
+                        >
+                            Export PDF
+                        </button>
+                    </div>
+                </div>
+            )}
 
             <BottomNav
                 classNum={standard}

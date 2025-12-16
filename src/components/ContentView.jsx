@@ -28,7 +28,7 @@ const AsyncImage = ({ src, alt, className, onClick }) => {
     );
 };
 
-function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
+function ContentView({ item, expandedNodeIds, onNodeClick, selectedQuestions, onSelectionChange, depth }) {
     const isExpanded = expandedNodeIds.has(item.id);
     const hasContent = item.content && item.content.length > 0;
     const hasChildren = item.subTopics && item.subTopics.length > 0;
@@ -338,6 +338,21 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                         );
                     }
 
+                    if (contentItem.type === 'q-gen-checkbox') {
+                        return (
+                            <div key={index} className="q-gen-checkbox-container" style={{ display: 'inline' }}>
+                                <input
+                                    type="checkbox"
+                                    className="q-gen-checkbox"
+                                    checked={selectedQuestions ? selectedQuestions.has(contentItem.id) : false}
+                                    onChange={() => onSelectionChange && onSelectionChange(contentItem.id, contentItem.fullQuestion)}
+                                />
+                                {/* Render the label directly if needed, or let the next body item handle it */}
+                                {/* In our logic, the label text was prepended to the next body item, so we just show checkbox here */}
+                            </div>
+                        );
+                    }
+
                     return null;
                 })}
 
@@ -393,6 +408,8 @@ function ContentView({ item, expandedNodeIds, onNodeClick, depth }) {
                         item={subTopic}
                         expandedNodeIds={expandedNodeIds}
                         onNodeClick={onNodeClick}
+                        selectedQuestions={selectedQuestions}
+                        onSelectionChange={onSelectionChange}
                         depth={depth + 1}
                     />
                 ))}
